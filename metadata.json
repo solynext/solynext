@@ -1,0 +1,8 @@
+{
+  "name": "solynext",
+  "description": "SolyNext is a premier Pakistan-based software house and technology company delivering custom software, web platforms, mobile apps, UI/UX design, and digital marketing for clients worldwide.",
+  "prompt": "SolyNext technology company website",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

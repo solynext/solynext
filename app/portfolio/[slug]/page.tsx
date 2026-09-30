@@ -1,0 +1,183 @@
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import { ArrowLeft, ArrowRight, CheckCircle2, Star } from "lucide-react";
+import { CASE_STUDIES_DATA } from "@/data/mockData";
+
+interface Props {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  return CASE_STUDIES_DATA.map((study) => ({
+    slug: study.slug,
+  }));
+}
+
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+  const study = CASE_STUDIES_DATA.find((s) => s.slug === slug);
+  if (!study) return { title: "Case Study Not Found" };
+
+  return {
+    title: `${study.title} — SolyNext Case Study`,
+    description: study.summary,
+  };
+}
+
+export default async function CaseStudyDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const study = CASE_STUDIES_DATA.find((s) => s.slug === slug);
+
+  if (!study) {
+    notFound();
+  }
+
+  return (
+    <main className="flex-1 py-16 sm:py-24 bg-white text-[#050505]">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Link
+          href="/portfolio"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-[#0057FF] transition-colors mb-8"
+        >
+          <ArrowLeft className="w-3.5 h-3.5" />
+          <span>Back to All Case Studies</span>
+        </Link>
+
+        {/* Hero Header */}
+        <div className="mb-12">
+          <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-[#0057FF] uppercase tracking-wider mb-3">
+            <span>{study.industry}</span>
+            <span aria-hidden="true" className="text-slate-300">·</span>
+            <span>{study.clientLocation}</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#050505] mb-6 leading-tight">
+            {study.title}
+          </h1>
+
+          <p className="text-base sm:text-lg text-[#374151] leading-relaxed max-w-3xl mb-8">
+            {study.summary}
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200">
+            {study.keyResults.map((r, i) => (
+              <div key={i}>
+                <p className="text-xl font-bold text-[#0057FF] font-mono tabular-nums">
+                  {r.metric}
+                </p>
+                <p className="text-xs text-slate-500 font-medium mt-0.5">
+                  {r.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Hero Visual - Flat */}
+        <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 mb-16">
+          <Image
+            src={study.featuredImage}
+            alt={study.title}
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 80vw"
+          />
+        </div>
+
+        {/* Challenge vs Solution Breakdown */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="p-8 rounded-2xl border border-red-200 bg-red-50/40">
+            <h2 className="text-xs font-bold text-red-600 uppercase tracking-wider mb-2">
+              The Architectural Challenge
+            </h2>
+            <p className="text-sm text-[#374151] leading-relaxed">
+              {study.challenge}
+            </p>
+          </div>
+
+          <div className="p-8 rounded-2xl border border-blue-200 bg-blue-50/40">
+            <h2 className="text-xs font-bold text-[#0057FF] uppercase tracking-wider mb-2">
+              The SolyNext Solution
+            </h2>
+            <p className="text-sm text-[#374151] leading-relaxed">
+              {study.solution}
+            </p>
+          </div>
+        </div>
+
+        {/* Deep Architectural Details */}
+        <div className="p-8 rounded-2xl border border-slate-200 bg-[#F8FAFC] mb-16">
+          <h2 className="text-lg font-bold text-[#050505] mb-6">
+            Technical Architecture &amp; Engineering Highlights
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {study.architectureDetails.map((detail, idx) => (
+              <div key={idx} className="flex items-start gap-3 p-4 rounded-xl bg-white border border-slate-200">
+                <CheckCircle2 className="w-4 h-4 text-[#0057FF] shrink-0 mt-0.5" />
+                <span className="text-xs text-slate-700 font-medium leading-relaxed">{detail}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Client Endorsement */}
+        {study.testimonial && (
+          <div className="p-8 rounded-2xl border border-slate-200 bg-white mb-16">
+            <div className="flex items-center gap-1 text-[#0057FF] mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-current" />
+              ))}
+            </div>
+            <p className="text-base text-slate-700 italic leading-relaxed mb-6 font-medium">
+              &ldquo;{study.testimonial.quote}&rdquo;
+            </p>
+            <div className="flex items-center justify-between border-t border-slate-100 pt-4">
+              <div>
+                <p className="text-sm font-bold text-[#050505]">{study.testimonial.author}</p>
+                <p className="text-xs text-slate-500">{study.testimonial.role}, {study.testimonial.company}</p>
+              </div>
+              <span className="text-xs text-slate-400 font-mono">{study.clientLocation}</span>
+            </div>
+          </div>
+        )}
+
+        {/* Technology Tags */}
+        <div className="mb-16">
+          <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
+            Technology Stack Utilized
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {study.technologies.map((t) => (
+              <span
+                key={t}
+                className="px-3.5 py-1.5 bg-slate-100 border border-slate-200 rounded-xl text-xs font-mono text-slate-800 font-medium"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Footer */}
+        <div className="p-8 sm:p-10 rounded-2xl border border-blue-200 bg-[#F8FAFC] text-center">
+          <h2 className="text-2xl font-bold text-[#050505] mb-3">
+            Have a Similar Technical Challenge?
+          </h2>
+          <p className="text-sm text-[#374151] max-w-xl mx-auto mb-6">
+            Let&apos;s evaluate your existing architecture and map out a modern engineering plan.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-6 py-3 text-xs font-bold text-white bg-gradient-to-r from-[#0057FF] to-[#00D9FF] hover:brightness-105 rounded-xl transition-all"
+          >
+            <span>Schedule Technical Review</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+      </div>
+    </main>
+  );
+}
