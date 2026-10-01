@@ -50,7 +50,7 @@ export function ProcessSection() {
   ];
 
   return (
-    <section className="py-20 lg:py-32 border-b border-slate-200 bg-white relative">
+    <section className="py-20 lg:py-32 border-b border-[#1c212f] bg-[#000000] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           kicker="How We Work"
@@ -59,22 +59,22 @@ export function ProcessSection() {
         />
 
         {/* Delivery Guarantee Banner */}
-        <div className="mb-14 p-5 rounded-2xl border border-slate-200 bg-[#F8FAFC] flex flex-wrap items-center justify-between gap-4 text-xs text-slate-700">
-          <div className="flex items-center gap-2 font-bold text-[#050505]">
-            <Milestone className="w-4 h-4 text-[#0057FF]" />
+        <div className="mb-14 p-5 rounded-2xl border border-[#202738] bg-[#0a0d15] flex flex-wrap items-center justify-between gap-4 text-xs text-slate-300">
+          <div className="flex items-center gap-2 font-bold text-white">
+            <Milestone className="w-4 h-4 text-[#00D9FF]" />
             <span>Delivery Standards:</span>
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <span className="flex items-center gap-1.5 font-medium">
-              <Clock className="w-3.5 h-3.5 text-[#0057FF]" />
+              <Clock className="w-3.5 h-3.5 text-[#00D9FF]" />
               14-Day Sprints
             </span>
             <span className="flex items-center gap-1.5 font-medium">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#0057FF]" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#00D9FF]" />
               Live Staging Builds
             </span>
             <span className="flex items-center gap-1.5 font-medium">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#0057FF]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[#00D9FF]" />
               30-Day Post-Launch Warranty
             </span>
           </div>
@@ -85,32 +85,32 @@ export function ProcessSection() {
           {steps.map((st) => (
             <div
               key={st.step}
-              className="p-7 lg:p-8 rounded-2xl border border-slate-200 bg-white hover:border-[#0057FF] transition-all duration-200 flex flex-col justify-between group"
+              className="p-7 lg:p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] hover:bg-[#0f131f] transition-all duration-200 flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <span className="text-2xl font-bold font-mono text-[#0057FF] tabular-nums">
+                  <span className="text-2xl font-bold font-mono text-[#00D9FF] tabular-nums">
                     {st.step}
                   </span>
-                  <span className="text-[11px] font-mono text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200 font-semibold">
+                  <span className="text-[11px] font-mono text-slate-300 bg-[#06080e] px-2.5 py-1 rounded-full border border-[#202738] font-semibold">
                     {st.timeline}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-[#050505] mb-2.5 group-hover:text-[#0057FF] transition-colors">
+                <h3 className="text-lg font-bold text-white mb-2.5 group-hover:text-[#00D9FF] transition-colors">
                   {st.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-[#374151] leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
                   {st.description}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-100">
-                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">
+              <div className="pt-4 border-t border-[#1c212f]">
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
                   Deliverable:
                 </p>
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#0057FF]">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#00D9FF]">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
                   <span>{st.deliverable}</span>
                 </div>
@@ -123,10 +123,10 @@ export function ProcessSection() {
         <div className="mt-14 text-center">
           <Link
             href="/process"
-            className="inline-flex items-center gap-2 px-7 py-3.5 text-xs sm:text-sm font-semibold text-[#050505] bg-[#F8FAFC] hover:bg-slate-100 border border-slate-200 hover:border-[#0057FF] hover:text-[#0057FF] rounded-xl transition-all"
+            className="inline-flex items-center gap-2 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white bg-[#0a0d15] hover:bg-[#0f131f] border border-[#202738] hover:border-[#00D9FF] hover:text-[#00D9FF] rounded-xl transition-all"
           >
             <span>View Full Delivery Framework</span>
-            <ArrowRight className="w-4 h-4 text-[#0057FF]" />
+            <ArrowRight className="w-4 h-4 text-[#00D9FF]" />
           </Link>
         </div>
       </div>

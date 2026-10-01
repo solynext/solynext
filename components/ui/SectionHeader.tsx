@@ -25,7 +25,7 @@ export function SectionHeader({
     >
       {kicker && (
         <div
-          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0057FF]/10 border border-[#0057FF]/30 text-xs font-semibold tracking-wider text-[#0057FF] uppercase mb-4 ${
+          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0057FF]/15 border border-[#0057FF]/40 text-xs font-semibold tracking-wider text-[#00D9FF] uppercase mb-4 ${
             isCenter ? "justify-center" : ""
           }`}
         >
@@ -33,11 +33,11 @@ export function SectionHeader({
           <span>{kicker}</span>
         </div>
       )}
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#050505] text-balance leading-[1.15]">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white text-balance leading-[1.15]">
         {title}
       </h2>
       {description && (
-        <p className="mt-4 sm:mt-5 text-base sm:text-lg text-[#374151] leading-relaxed max-w-2xl mx-auto">
+        <p className="mt-4 sm:mt-5 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
           {description}
         </p>
       )}

@@ -74,7 +74,7 @@ export function PricingClient() {
   };
 
   return (
-    <main className="flex-1 py-16 sm:py-24 bg-white text-[#050505]">
+    <main className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           kicker="Pricing &amp; Plans"
@@ -82,37 +82,37 @@ export function PricingClient() {
           description="Choose the right model for your project: fixed price, dedicated team, or ongoing retainer."
         />
 
-        {/* Pricing Models Grid - Flat & High Contrast Light Mode */}
+        {/* Pricing Models Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
           {models.map((model) => (
             <div
               key={model.name}
               className={`p-8 rounded-2xl flex flex-col justify-between border transition-all ${
                 model.recommended
-                  ? "border-[#0057FF] bg-white relative ring-1 ring-[#0057FF]"
-                  : "border-slate-200 bg-white hover:border-[#0057FF]"
+                  ? "border-[#00D9FF] bg-[#0a0d15] relative ring-1 ring-[#00D9FF]"
+                  : "border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF]"
               }`}
             >
               <div>
                 {model.recommended && (
-                  <div className="inline-block px-3 py-1 rounded text-[11px] font-bold text-[#0057FF] bg-[#0057FF]/10 border border-[#0057FF]/25 uppercase tracking-wider mb-4">
+                  <div className="inline-block px-3 py-1 rounded text-[11px] font-bold text-black bg-[#00D9FF] uppercase tracking-wider mb-4">
                     Most Popular for Startups &amp; Scaleups
                   </div>
                 )}
-                <h3 className="text-xl font-bold text-[#050505] mb-2">{model.name}</h3>
-                <p className="text-xs text-[#0057FF] font-bold mb-4">{model.tagline}</p>
-                <p className="text-xs text-[#374151] mb-6 leading-relaxed">
-                  <strong className="text-[#050505]">Ideal for:</strong> {model.idealFor}
+                <h3 className="text-xl font-bold text-white mb-2">{model.name}</h3>
+                <p className="text-xs text-[#00D9FF] font-bold mb-4">{model.tagline}</p>
+                <p className="text-xs text-slate-300 mb-6 leading-relaxed">
+                  <strong className="text-white">Ideal for:</strong> {model.idealFor}
                 </p>
 
-                <div className="pt-4 border-t border-slate-100 mb-6">
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
+                <div className="pt-4 border-t border-[#1c212f] mb-6">
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
                     What&apos;s Included:
                   </p>
                   <ul className="space-y-2.5">
                     {model.features.map((f, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
-                        <Check className="w-4 h-4 text-[#0057FF] shrink-0 mt-0.5" />
+                      <li key={i} className="flex items-start gap-2.5 text-xs text-slate-200 font-medium">
+                        <Check className="w-4 h-4 text-[#00D9FF] shrink-0 mt-0.5" />
                         <span>{f}</span>
                       </li>
                     ))}
@@ -123,10 +123,10 @@ export function PricingClient() {
               <div>
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className={`w-full py-3.5 text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                  className={`w-full py-3.5 text-xs font-extrabold rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer ${
                     model.recommended
-                      ? "bg-gradient-to-r from-[#0057FF] to-[#00D9FF] text-white hover:brightness-105"
-                      : "bg-slate-100 hover:bg-[#0057FF] hover:text-white text-slate-800 border border-slate-200"
+                      ? "bg-gradient-to-r from-[#0057FF] to-[#00D9FF] text-black hover:brightness-110 shadow-lg shadow-[#0057FF]/25"
+                      : "bg-[#0f131d] hover:bg-[#151b2a] text-white border border-[#202738] hover:border-[#00D9FF] hover:text-[#00D9FF]"
                   }`}
                 >
                   <span>{model.ctaText}</span>
@@ -138,22 +138,22 @@ export function PricingClient() {
         </div>
 
         {/* Interactive Ballpark Project Estimator */}
-        <div className="p-8 sm:p-12 rounded-2xl border border-slate-200 bg-[#F8FAFC] mb-16">
+        <div className="p-8 sm:p-12 rounded-2xl border border-[#202738] bg-[#0a0d15] mb-16">
           <div className="max-w-3xl mx-auto">
-            <div className="flex items-center gap-2 text-xs font-bold text-[#0057FF] uppercase tracking-wider mb-2">
+            <div className="flex items-center gap-2 text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-2">
               <Calculator className="w-4 h-4" />
               <span>Interactive Scope &amp; Budget Estimator</span>
             </div>
-            <h2 className="text-2xl font-bold text-[#050505] mb-3">
+            <h2 className="text-2xl font-bold text-white mb-3">
               Calculate Ballpark Engineering Investment
             </h2>
-            <p className="text-xs sm:text-sm text-[#374151] mb-8 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 mb-8 leading-relaxed">
               Select your parameters below to get an immediate ballpark estimate based on historical delivery timelines.
             </p>
 
             <div className="space-y-6">
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-2">
+                <label className="block text-xs font-bold text-slate-300 mb-2">
                   1. Project Type:
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -169,8 +169,8 @@ export function PricingClient() {
                       onClick={() => setScopeType(item.id)}
                       className={`p-3 rounded-xl border text-xs font-bold transition-colors cursor-pointer ${
                         scopeType === item.id
-                          ? "border-[#0057FF] bg-[#0057FF]/10 text-[#0057FF]"
-                          : "border-slate-200 bg-white text-slate-600 hover:text-black"
+                          ? "border-[#00D9FF] bg-[#00D9FF]/15 text-[#00D9FF]"
+                          : "border-[#202738] bg-[#06080e] text-slate-400 hover:text-white"
                       }`}
                     >
                       {item.label}
@@ -180,7 +180,7 @@ export function PricingClient() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-2">
+                <label className="block text-xs font-bold text-slate-300 mb-2">
                   2. Architecture Complexity:
                 </label>
                 <div className="grid grid-cols-3 gap-2">
@@ -195,8 +195,8 @@ export function PricingClient() {
                       onClick={() => setComplexity(item.id)}
                       className={`p-3 rounded-xl border text-xs font-bold transition-colors cursor-pointer ${
                         complexity === item.id
-                          ? "border-[#0057FF] bg-[#0057FF]/10 text-[#0057FF]"
-                          : "border-slate-200 bg-white text-slate-600 hover:text-black"
+                          ? "border-[#00D9FF] bg-[#00D9FF]/15 text-[#00D9FF]"
+                          : "border-[#202738] bg-[#06080e] text-slate-400 hover:text-white"
                       }`}
                     >
                       {item.label}
@@ -206,23 +206,23 @@ export function PricingClient() {
               </div>
 
               {/* Estimate Calculation Result Box */}
-              <div className="p-6 rounded-xl border border-slate-200 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="p-6 rounded-xl border border-[#202738] bg-[#06080e] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <p className="text-xs text-slate-500 font-medium">Estimated Ballpark Investment:</p>
-                  <p className="text-2xl sm:text-3xl font-extrabold text-[#0057FF] font-mono tabular-nums">
+                  <p className="text-xs text-slate-400 font-medium">Estimated Ballpark Investment:</p>
+                  <p className="text-2xl sm:text-3xl font-extrabold text-[#00D9FF] font-mono tabular-nums">
                     {calculateEstimate()}
                   </p>
-                  <p className="text-[11px] text-slate-500 mt-1">
+                  <p className="text-[11px] text-slate-400 mt-1">
                     Includes dedicated solution architect, full UI/UX design, and 30-day warranty.
                   </p>
                 </div>
 
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="px-6 py-3 text-xs font-bold text-white bg-gradient-to-r from-[#0057FF] to-[#00D9FF] hover:brightness-105 rounded-xl transition-all inline-flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer"
+                  className="px-6 py-3 text-xs font-extrabold text-black bg-gradient-to-r from-[#0057FF] to-[#00D9FF] hover:brightness-110 rounded-xl transition-all inline-flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer shadow-lg shadow-[#0057FF]/25"
                 >
                   <span>Request Written Proposal</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 text-black" />
                 </button>
               </div>
             </div>
@@ -230,28 +230,28 @@ export function PricingClient() {
         </div>
 
         {/* IP & Guarantee Banner */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-600">
-          <div className="p-5 rounded-xl border border-slate-200 bg-white flex items-start gap-3">
-            <ShieldCheck className="w-5 h-5 text-[#0057FF] shrink-0 mt-0.5" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-300">
+          <div className="p-5 rounded-xl border border-[#202738] bg-[#0a0d15] flex items-start gap-3">
+            <ShieldCheck className="w-5 h-5 text-[#00D9FF] shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold text-[#050505] mb-1">Standard Mutual NDA</p>
-              <p className="text-slate-600">We execute formal NDAs prior to reviewing proprietary business logic or schemas.</p>
+              <p className="font-bold text-white mb-1">Standard Mutual NDA</p>
+              <p className="text-slate-400">We execute formal NDAs prior to reviewing proprietary business logic or schemas.</p>
             </div>
           </div>
 
-          <div className="p-5 rounded-xl border border-slate-200 bg-white flex items-start gap-3">
-            <Zap className="w-5 h-5 text-[#0066FF] shrink-0 mt-0.5" />
+          <div className="p-5 rounded-xl border border-[#202738] bg-[#0a0d15] flex items-start gap-3">
+            <Zap className="w-5 h-5 text-[#00D9FF] shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold text-[#050505] mb-1">No Hostage Code</p>
-              <p className="text-slate-600">You have access to the GitHub repository from Day 1. Full IP transfer upon milestone payment.</p>
+              <p className="font-bold text-white mb-1">No Hostage Code</p>
+              <p className="text-slate-400">You have access to the GitHub repository from Day 1. Full IP transfer upon milestone payment.</p>
             </div>
           </div>
 
-          <div className="p-5 rounded-xl border border-slate-200 bg-white flex items-start gap-3">
-            <HelpCircle className="w-5 h-5 text-[#0057FF] shrink-0 mt-0.5" />
+          <div className="p-5 rounded-xl border border-[#202738] bg-[#0a0d15] flex items-start gap-3">
+            <HelpCircle className="w-5 h-5 text-[#00D9FF] shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold text-[#050505] mb-1">Custom Payment Corridors</p>
-              <p className="text-slate-600">Support for international wire transfers (USD, GBP, EUR, AED) and local Pakistani PKR bank routes.</p>
+              <p className="font-bold text-white mb-1">Custom Payment Corridors</p>
+              <p className="text-slate-400">Support for international wire transfers (USD, GBP, EUR, AED) and local Pakistani PKR bank routes.</p>
             </div>
           </div>
         </div>

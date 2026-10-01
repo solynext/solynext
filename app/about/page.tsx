@@ -52,7 +52,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="flex-1 py-16 sm:py-24 bg-white text-[#050505]">
+    <main className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           kicker="About SolyNext"
@@ -62,8 +62,8 @@ export default function AboutPage() {
 
         {/* Narrative & Image Block */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-16">
-          <div className="md:col-span-7 space-y-4 text-xs sm:text-sm text-[#374151] leading-relaxed">
-            <h2 className="text-xl font-bold text-[#050505] mb-2">
+          <div className="md:col-span-7 space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <h2 className="text-xl font-bold text-white mb-2">
               Our Story &amp; Purpose
             </h2>
             <p>
@@ -77,12 +77,12 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="md:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 aspect-[4/3]">
+          <div className="md:col-span-5 relative rounded-2xl overflow-hidden border border-[#202738] bg-[#0a0d15] aspect-[4/3]">
             <Image
               src="/images/hero-tech.jpg"
               alt="SolyNext modern software studio"
               fill
-              className="object-cover"
+              className="object-cover opacity-90"
               sizes="(max-width: 768px) 100vw, 40vw"
             />
           </div>
@@ -90,26 +90,26 @@ export default function AboutPage() {
 
         {/* Mission & Vision */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-16">
-          <div className="p-8 rounded-2xl border border-slate-200 bg-[#F8FAFC]">
-            <p className="text-xs font-bold text-[#0057FF] uppercase tracking-wider mb-2">
+          <div className="p-8 rounded-2xl border border-[#202738] bg-[#0a0d15]">
+            <p className="text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-2">
               Our Mission
             </p>
-            <h3 className="text-xl font-bold text-[#050505] mb-2">
+            <h3 className="text-xl font-bold text-white mb-2">
               Engineering Rigor That Drives Growth
             </h3>
-            <p className="text-xs sm:text-sm text-[#374151] leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               To solve complex commercial challenges with fast, secure, and intuitive software that drives measurable business growth.
             </p>
           </div>
 
-          <div className="p-8 rounded-2xl border border-slate-200 bg-[#F8FAFC]">
-            <p className="text-xs font-bold text-[#0066FF] uppercase tracking-wider mb-2">
+          <div className="p-8 rounded-2xl border border-[#202738] bg-[#0a0d15]">
+            <p className="text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-2">
               Our Vision
             </p>
-            <h3 className="text-xl font-bold text-[#050505] mb-2">
+            <h3 className="text-xl font-bold text-white mb-2">
               Premier Global Engineering Partner
             </h3>
-            <p className="text-xs sm:text-sm text-[#374151] leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               To be the benchmark for software engineering and product design from Pakistan, recognized globally for quality and reliability.
             </p>
           </div>
@@ -117,19 +117,19 @@ export default function AboutPage() {
 
         {/* Core Values */}
         <div className="mb-16">
-          <h2 className="text-2xl font-bold text-[#050505] mb-8 text-center">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">
             Our Core Principles
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {values.map((v) => (
               <div
                 key={v.title}
-                className="p-6 rounded-2xl border border-slate-200 bg-white"
+                className="p-6 rounded-2xl border border-[#202738] bg-[#0a0d15]"
               >
-                <h3 className="text-sm font-bold text-[#050505] mb-2">
+                <h3 className="text-sm font-bold text-white mb-2">
                   {v.title}
                 </h3>
-                <p className="text-xs text-[#374151] leading-relaxed">
+                <p className="text-xs text-slate-300 leading-relaxed">
                   {v.description}
                 </p>
               </div>
@@ -139,22 +139,22 @@ export default function AboutPage() {
 
         {/* Leadership Team */}
         <div className="mb-16">
-          <h2 className="text-2xl font-bold text-[#050505] mb-8 text-center">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">
             Leadership Team
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {leadership.map((member) => (
               <div
                 key={member.name}
-                className="p-6 rounded-2xl border border-slate-200 bg-white flex flex-col justify-between"
+                className="p-6 rounded-2xl border border-[#202738] bg-[#0a0d15] flex flex-col justify-between"
               >
                 <div>
-                  <h3 className="text-base font-bold text-[#050505]">{member.name}</h3>
-                  <p className="text-xs font-bold text-[#0057FF] mb-3">{member.role}</p>
-                  <p className="text-xs text-[#374151] leading-relaxed mb-4">{member.bio}</p>
+                  <h3 className="text-base font-bold text-white">{member.name}</h3>
+                  <p className="text-xs font-bold text-[#00D9FF] mb-3">{member.role}</p>
+                  <p className="text-xs text-slate-300 leading-relaxed mb-4">{member.bio}</p>
                 </div>
-                <div className="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-slate-500">
-                  <MapPin className="w-3.5 h-3.5 text-[#0057FF]" />
+                <div className="pt-3 border-t border-[#1c212f] flex items-center gap-1.5 text-[11px] text-slate-400">
+                  <MapPin className="w-3.5 h-3.5 text-[#00D9FF]" />
                   <span>{member.location}</span>
                 </div>
               </div>
@@ -163,20 +163,20 @@ export default function AboutPage() {
         </div>
 
         {/* Global Delivery Callout */}
-        <div className="p-8 sm:p-10 rounded-2xl border border-slate-200 bg-[#F8FAFC] text-center">
-          <Globe className="w-8 h-8 text-[#0057FF] mx-auto mb-3" />
-          <h2 className="text-xl font-bold text-[#050505] mb-2">
+        <div className="p-8 sm:p-10 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
+          <Globe className="w-8 h-8 text-[#00D9FF] mx-auto mb-3" />
+          <h2 className="text-xl font-bold text-white mb-2">
             Global Reach With Overlapping Hours
           </h2>
-          <p className="text-xs sm:text-sm text-[#374151] max-w-xl mx-auto mb-6 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto mb-6 leading-relaxed">
             Our engineering teams provide 4 to 6 hours of daily working overlap with the UK, Europe, and GCC, plus dedicated US sync windows.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 text-xs font-bold text-white bg-gradient-to-r from-[#0057FF] to-[#00D9FF] hover:brightness-105 rounded-xl transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 text-xs font-extrabold text-black bg-gradient-to-r from-[#0057FF] to-[#00D9FF] hover:brightness-110 rounded-xl transition-all shadow-lg shadow-[#0057FF]/25"
           >
             <span>Get in Touch</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 text-black" />
           </Link>
         </div>
       </div>

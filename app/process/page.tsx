@@ -78,7 +78,7 @@ export default function ProcessPage() {
   ];
 
   return (
-    <main className="flex-1 py-16 sm:py-24 bg-white text-[#050505]">
+    <main className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           kicker="Delivery Framework"
@@ -86,38 +86,38 @@ export default function ProcessPage() {
           description="A transparent engineering roadmap from initial discovery to launch and ongoing support."
         />
 
-        <div className="space-y-8 relative before:absolute before:inset-0 before:left-7 sm:before:left-8 before:w-0.5 before:bg-slate-200 before:hidden md:before:block">
+        <div className="space-y-8 relative before:absolute before:inset-0 before:left-7 sm:before:left-8 before:w-0.5 before:bg-[#202738] before:hidden md:before:block">
           {fullSteps.map((step) => (
             <div
               key={step.num}
-              className="relative p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white hover:border-[#0057FF] transition-colors"
+              className="relative p-6 sm:p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] transition-colors"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                 <div className="flex items-center gap-3">
-                  <span className="text-xl font-bold font-mono text-[#0057FF] tabular-nums">
+                  <span className="text-xl font-bold font-mono text-[#00D9FF] tabular-nums">
                     {step.num}.
                   </span>
-                  <h2 className="text-lg font-bold text-[#050505]">
+                  <h2 className="text-lg font-bold text-white">
                     {step.title}
                   </h2>
                 </div>
-                <span className="text-xs font-mono text-slate-700 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200 font-semibold self-start sm:self-auto">
+                <span className="text-xs font-mono text-slate-300 bg-[#06080e] px-2.5 py-1 rounded-full border border-[#202738] font-semibold self-start sm:self-auto">
                   {step.timing}
                 </span>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#374151] leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
                 {step.description}
               </p>
 
-              <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200">
-                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">
+              <div className="p-4 rounded-xl bg-[#06080e] border border-[#202738]">
+                <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
                   Stage Deliverables:
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-slate-800">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-slate-200">
                   {step.deliverables.map((del, i) => (
                     <div key={i} className="flex items-center gap-2 font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0057FF] shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#00D9FF] shrink-0" />
                       <span>{del}</span>
                     </div>
                   ))}
@@ -128,19 +128,19 @@ export default function ProcessPage() {
         </div>
 
         {/* Collaboration Guarantee */}
-        <div className="mt-16 p-8 rounded-2xl border border-slate-200 bg-[#F8FAFC] text-center">
-          <h2 className="text-xl font-bold text-[#050505] mb-2">
+        <div className="mt-16 p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
+          <h2 className="text-xl font-bold text-white mb-2">
             Transparent Collaboration
           </h2>
-          <p className="text-xs sm:text-sm text-[#374151] max-w-xl mx-auto mb-6">
+          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto mb-6">
             We work directly in your Slack or Teams channels, host weekly sprint demos, and provide live staging access.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 text-xs font-bold text-white bg-gradient-to-r from-[#0057FF] to-[#00D9FF] hover:brightness-105 rounded-xl transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 text-xs font-extrabold text-black bg-gradient-to-r from-[#0057FF] to-[#00D9FF] hover:brightness-110 rounded-xl transition-all shadow-lg shadow-[#0057FF]/25"
           >
             <span>Start Your Project</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 text-black" />
           </Link>
         </div>
       </div>

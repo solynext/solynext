@@ -55,7 +55,7 @@ export function WhySolyNext() {
   ];
 
   return (
-    <section className="py-20 lg:py-32 border-b border-slate-200 bg-[#F8FAFC] relative overflow-hidden">
+    <section className="py-20 lg:py-32 border-b border-[#1c212f] bg-[#000000] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           kicker="Why SolyNext"
@@ -70,23 +70,23 @@ export function WhySolyNext() {
             return (
               <div
                 key={pillar.title}
-                className="p-7 rounded-2xl border border-slate-200 bg-white hover:border-[#0057FF] transition-all duration-200 flex flex-col justify-between group"
+                className="p-7 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] hover:bg-[#0f131f] transition-all duration-200 flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <div className="w-12 h-12 rounded-xl bg-[#0057FF]/10 border border-[#0057FF]/20 flex items-center justify-center text-[#0057FF]">
+                    <div className="w-12 h-12 rounded-xl bg-[#00D9FF]/10 border border-[#00D9FF]/20 flex items-center justify-center text-[#00D9FF]">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[11px] font-mono text-[#0057FF] bg-[#0057FF]/10 px-2 py-0.5 rounded border border-[#0057FF]/20 font-bold">
+                    <span className="text-[11px] font-mono text-[#00D9FF] bg-[#00D9FF]/10 px-2 py-0.5 rounded border border-[#00D9FF]/25 font-bold">
                       {pillar.metric}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#050505] mb-2 group-hover:text-[#0057FF] transition-colors">
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#00D9FF] transition-colors">
                     {pillar.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#374151] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                     {pillar.description}
                   </p>
                 </div>
@@ -99,32 +99,32 @@ export function WhySolyNext() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Visual focal carrier */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-white">
-              <div className="relative aspect-[4/3] w-full bg-slate-100">
+            <div className="relative rounded-2xl overflow-hidden border border-[#202738] bg-[#0a0d15]">
+              <div className="relative aspect-[4/3] w-full bg-[#05070c]">
                 <Image
                   src="/images/engineering-dev.jpg"
                   alt="SolyNext engineering team in Islamabad"
                   fill
-                  className="object-cover"
+                  className="object-cover opacity-90"
                   sizes="(max-width: 1024px) 100vw, 42vw"
                 />
               </div>
 
-              <div className="p-6 bg-slate-50 border-t border-slate-200">
+              <div className="p-6 bg-[#06080e] border-t border-[#202738]">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#0057FF]" />
-                  <p className="text-sm font-bold text-[#050505]">Direct Senior Engineer Access</p>
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#00D9FF] animate-pulse" />
+                  <p className="text-sm font-bold text-white">Direct Senior Engineer Access</p>
                 </div>
-                <p className="text-xs text-[#374151] leading-relaxed">
+                <p className="text-xs text-slate-300 leading-relaxed">
                   Work directly with experienced software engineers who understand your architecture and business goals.
                 </p>
-                <div className="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600">
-                  <span className="flex items-center gap-1.5 font-medium">
-                    <Users className="w-3.5 h-3.5 text-[#0057FF]" />
+                <div className="mt-4 pt-3 border-t border-[#1c212f] flex items-center justify-between text-xs text-slate-400">
+                  <span className="flex items-center gap-1.5 font-medium text-slate-300">
+                    <Users className="w-3.5 h-3.5 text-[#00D9FF]" />
                     No Junior Pooled Staff
                   </span>
-                  <span className="flex items-center gap-1.5 font-medium">
-                    <Lock className="w-3.5 h-3.5 text-[#0066FF]" />
+                  <span className="flex items-center gap-1.5 font-medium text-slate-300">
+                    <Lock className="w-3.5 h-3.5 text-[#00D9FF]" />
                     Strict Data Privacy
                   </span>
                 </div>
@@ -134,33 +134,33 @@ export function WhySolyNext() {
 
           {/* Right Column: Contrast Matrix */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-4 mb-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+            <div className="rounded-2xl border border-[#202738] bg-[#0a0d15] p-6 sm:p-8">
+              <div className="flex items-center justify-between border-b border-[#202738] pb-4 mb-4">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                   Comparison
                 </span>
                 <div className="flex items-center gap-6 sm:gap-12">
-                  <span className="text-xs font-bold text-[#0057FF]">SolyNext Standard</span>
-                  <span className="text-xs font-semibold text-slate-400">Typical Agency</span>
+                  <span className="text-xs font-bold text-[#00D9FF]">SolyNext Standard</span>
+                  <span className="text-xs font-semibold text-slate-500">Typical Agency</span>
                 </div>
               </div>
 
-              <div className="divide-y divide-slate-100 space-y-4 pt-1">
+              <div className="divide-y divide-[#1c212f] space-y-4 pt-1">
                 {comparisonRows.map((row) => (
                   <div key={row.factor} className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div className="sm:max-w-[40%]">
-                      <p className="text-xs sm:text-sm font-bold text-[#050505] leading-tight">
+                      <p className="text-xs sm:text-sm font-bold text-white leading-tight">
                         {row.factor}
                       </p>
                     </div>
 
                     <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 sm:max-w-[60%] text-xs">
-                      <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0057FF]/10 border border-[#0057FF]/20 text-[#0057FF]">
-                        <Check className="w-4 h-4 text-[#0057FF] shrink-0" />
-                        <span className="font-bold text-[#050505]">{row.solynext}</span>
+                      <div className="flex items-center gap-2 p-2 rounded-lg bg-[#00D9FF]/10 border border-[#00D9FF]/20 text-[#00D9FF]">
+                        <Check className="w-4 h-4 text-[#00D9FF] shrink-0" />
+                        <span className="font-bold text-white">{row.solynext}</span>
                       </div>
-                      <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-100 border border-slate-200 text-slate-600">
-                        <X className="w-4 h-4 text-slate-400 shrink-0" />
+                      <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0f131d] border border-[#202738] text-slate-400">
+                        <X className="w-4 h-4 text-slate-500 shrink-0" />
                         <span>{row.traditional}</span>
                       </div>
                     </div>

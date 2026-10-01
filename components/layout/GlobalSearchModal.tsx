@@ -76,24 +76,24 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center p-4 sm:p-6 pt-20">
       <div
-        className="fixed inset-0 bg-black/50 transition-opacity"
+        className="fixed inset-0 bg-black/80 backdrop-blur-xs transition-opacity"
         onClick={onClose}
       />
 
-      <div className="relative w-full max-w-2xl bg-white border border-slate-200 rounded-2xl overflow-hidden z-10 text-[#050505]">
-        <div className="flex items-center px-4 border-b border-slate-200 bg-slate-50">
-          <Search className="w-5 h-5 text-[#0057FF] shrink-0 mr-3" />
+      <div className="relative w-full max-w-2xl bg-[#0a0d15] border border-[#202738] rounded-2xl overflow-hidden z-10 text-white shadow-2xl">
+        <div className="flex items-center px-4 border-b border-[#202738] bg-[#06080e]">
+          <Search className="w-5 h-5 text-[#00D9FF] shrink-0 mr-3" />
           <input
             type="text"
             autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search SolyNext services, case studies, tech, or insights..."
-            className="w-full py-4 text-sm text-[#050505] placeholder-slate-400 bg-transparent focus:outline-none font-medium"
+            className="w-full py-4 text-sm text-white placeholder-slate-500 bg-transparent focus:outline-none font-medium"
           />
           <button
             onClick={onClose}
-            className="p-1 text-slate-400 hover:text-black rounded transition-colors cursor-pointer"
+            className="p-1 text-slate-400 hover:text-white rounded transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -101,14 +101,14 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
 
         <div className="max-h-[60vh] overflow-y-auto p-4 space-y-6">
           {!query ? (
-            <div className="py-8 text-center text-slate-500 text-sm">
+            <div className="py-8 text-center text-slate-400 text-sm">
               <p className="mb-2">Type keywords like &quot;Next.js&quot;, &quot;FinTech&quot;, &quot;Mobile&quot;, or &quot;Design&quot;...</p>
               <div className="flex flex-wrap justify-center gap-2 mt-4 text-xs">
                 {["Web Engineering", "React Native", "PostgreSQL", "HIPAA", "E-Commerce"].map((tag) => (
                   <button
                     key={tag}
                     onClick={() => setQuery(tag)}
-                    className="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 hover:text-[#0057FF] rounded-lg transition-colors cursor-pointer font-medium"
+                    className="px-2.5 py-1 bg-[#0f131d] hover:bg-[#151b2a] border border-[#202738] text-slate-300 hover:text-[#00D9FF] rounded-lg transition-colors cursor-pointer font-medium"
                   >
                     {tag}
                   </button>
@@ -116,14 +116,14 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
               </div>
             </div>
           ) : !hasResults ? (
-            <div className="py-8 text-center text-slate-500 text-sm">
+            <div className="py-8 text-center text-slate-400 text-sm">
               No matching records found for &quot;{query}&quot;. Try another search term.
             </div>
           ) : (
             <>
               {filteredServices.length > 0 && (
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#0057FF] uppercase tracking-wider mb-2">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-2">
                     <Layers className="w-3.5 h-3.5" />
                     <span>Services</span>
                   </div>
@@ -133,17 +133,17 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
                         key={service.id}
                         href={`/services/${service.slug}`}
                         onClick={onClose}
-                        className="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
+                        className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#121724] transition-colors group"
                       >
                         <div>
-                          <p className="text-sm font-bold text-[#050505] group-hover:text-[#0057FF] transition-colors">
+                          <p className="text-sm font-bold text-white group-hover:text-[#00D9FF] transition-colors">
                             {service.title}
                           </p>
-                          <p className="text-xs text-slate-500 line-clamp-1">
+                          <p className="text-xs text-slate-400 line-clamp-1">
                             {service.shortDescription}
                           </p>
                         </div>
-                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#0057FF] transition-colors shrink-0 ml-2" />
+                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#00D9FF] transition-colors shrink-0 ml-2" />
                       </Link>
                     ))}
                   </div>
@@ -152,8 +152,8 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
 
               {filteredProjects.length > 0 && (
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#0057FF] uppercase tracking-wider mb-2">
-                    <Briefcase className="w-3.5 h-3.5 text-[#0066FF]" />
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-2">
+                    <Briefcase className="w-3.5 h-3.5 text-[#00D9FF]" />
                     <span>Case Studies &amp; Portfolio</span>
                   </div>
                   <div className="space-y-1">
@@ -162,17 +162,17 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
                         key={project.id}
                         href={`/portfolio/${project.slug}`}
                         onClick={onClose}
-                        className="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
+                        className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#121724] transition-colors group"
                       >
                         <div>
-                          <p className="text-sm font-bold text-[#050505] group-hover:text-[#0057FF] transition-colors">
+                          <p className="text-sm font-bold text-white group-hover:text-[#00D9FF] transition-colors">
                             {project.title}
                           </p>
-                          <p className="text-xs text-slate-500">
+                          <p className="text-xs text-slate-400">
                             {project.industry} · {project.clientLocation}
                           </p>
                         </div>
-                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#0057FF] transition-colors shrink-0 ml-2" />
+                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#00D9FF] transition-colors shrink-0 ml-2" />
                       </Link>
                     ))}
                   </div>
@@ -181,7 +181,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
 
               {filteredTech.length > 0 && (
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#0057FF] uppercase tracking-wider mb-2">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-2">
                     <Cpu className="w-3.5 h-3.5" />
                     <span>Technologies &amp; Frameworks</span>
                   </div>
@@ -191,10 +191,10 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
                         key={tech.name}
                         href="/technologies"
                         onClick={onClose}
-                        className="p-2.5 rounded-xl border border-slate-200 hover:border-[#0057FF] bg-slate-50 transition-colors group"
+                        className="p-2.5 rounded-xl border border-[#202738] hover:border-[#00D9FF] bg-[#06080e] transition-colors group"
                       >
-                        <p className="text-sm font-bold text-[#050505] group-hover:text-[#0057FF] transition-colors">{tech.name}</p>
-                        <p className="text-xs text-slate-500 line-clamp-1">{tech.description}</p>
+                        <p className="text-sm font-bold text-white group-hover:text-[#00D9FF] transition-colors">{tech.name}</p>
+                        <p className="text-xs text-slate-400 line-clamp-1">{tech.description}</p>
                       </Link>
                     ))}
                   </div>
@@ -203,8 +203,8 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
 
               {filteredBlog.length > 0 && (
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#0057FF] uppercase tracking-wider mb-2">
-                    <FileText className="w-3.5 h-3.5 text-[#0066FF]" />
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-2">
+                    <FileText className="w-3.5 h-3.5 text-[#00D9FF]" />
                     <span>Engineering Insights</span>
                   </div>
                   <div className="space-y-1">
@@ -213,17 +213,17 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
                         key={post.id}
                         href={`/blog/${post.slug}`}
                         onClick={onClose}
-                        className="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
+                        className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#121724] transition-colors group"
                       >
                         <div>
-                          <p className="text-sm font-bold text-[#050505] group-hover:text-[#0057FF] transition-colors">
+                          <p className="text-sm font-bold text-white group-hover:text-[#00D9FF] transition-colors">
                             {post.title}
                           </p>
-                          <p className="text-xs text-slate-500">
+                          <p className="text-xs text-slate-400">
                             {post.publishedDate} · {post.readTime}
                           </p>
                         </div>
-                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#0057FF] transition-colors shrink-0 ml-2" />
+                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#00D9FF] transition-colors shrink-0 ml-2" />
                       </Link>
                     ))}
                   </div>
@@ -233,9 +233,9 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
           )}
         </div>
 
-        <div className="px-4 py-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+        <div className="px-4 py-3 bg-[#06080e] border-t border-[#202738] flex items-center justify-between text-xs text-slate-400">
           <span>Press ESC to exit search</span>
-          <span className="text-[#0057FF] font-semibold">SolyNext Knowledge Base</span>
+          <span className="text-[#00D9FF] font-semibold">SolyNext Knowledge Base</span>
         </div>
       </div>
     </div>

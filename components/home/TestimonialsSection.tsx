@@ -5,7 +5,7 @@ import { TESTIMONIALS_DATA } from "@/data/mockData";
 
 export function TestimonialsSection() {
   return (
-    <section className="py-20 lg:py-32 border-b border-slate-200 bg-[#F8FAFC] relative">
+    <section className="py-20 lg:py-32 border-b border-[#1c212f] bg-[#000000] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           kicker="Testimonials"
@@ -17,51 +17,51 @@ export function TestimonialsSection() {
           {TESTIMONIALS_DATA.map((t) => (
             <div
               key={t.id}
-              className="p-8 sm:p-10 rounded-2xl border border-slate-200 bg-white hover:border-[#0057FF] transition-all duration-200 flex flex-col justify-between group relative"
+              className="p-8 sm:p-10 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] transition-all duration-200 flex flex-col justify-between group relative"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-1 text-[#0057FF]">
+                  <div className="flex items-center gap-1 text-[#00D9FF]">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
 
-                  <span className="text-xs font-semibold text-slate-700 bg-slate-100 px-3 py-1 rounded-full border border-slate-200 font-mono">
+                  <span className="text-xs font-semibold text-slate-300 bg-[#06080e] px-3 py-1 rounded-full border border-[#202738] font-mono">
                     {t.location}
                   </span>
                 </div>
 
                 <div className="relative mb-8">
-                  <Quote className="w-8 h-8 text-blue-100 absolute -top-4 -left-2 -z-10" />
-                  <p className="text-base sm:text-lg text-[#374151] leading-relaxed font-normal">
+                  <Quote className="w-8 h-8 text-[#00D9FF]/20 absolute -top-4 -left-2 -z-10" />
+                  <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="pt-6 border-t border-[#1c212f] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#0057FF] to-[#00D9FF] flex items-center justify-center text-white font-extrabold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#0057FF] to-[#00D9FF] flex items-center justify-center text-black font-black text-sm">
                     {t.clientName.split(" ").map((n) => n[0]).join("")}
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-[#050505] flex items-center gap-1.5">
+                    <p className="text-sm font-bold text-white flex items-center gap-1.5">
                       <span>{t.clientName}</span>
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0057FF]" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#00D9FF]" />
                     </p>
-                    <p className="text-xs text-slate-600">
-                      {t.role}, <span className="text-[#050505] font-semibold">{t.company}</span>
+                    <p className="text-xs text-slate-400">
+                      {t.role}, <span className="text-slate-200 font-semibold">{t.company}</span>
                     </p>
                     <p className="text-[11px] text-slate-500 mt-0.5">{t.projectScope}</p>
                   </div>
                 </div>
 
-                <div className="sm:text-right p-3 rounded-xl bg-slate-50 border border-slate-200 sm:min-w-[140px]">
-                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">
+                <div className="sm:text-right p-3 rounded-xl bg-[#06080e] border border-[#202738] sm:min-w-[140px]">
+                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">
                     Verified ROI
                   </p>
-                  <p className="text-sm font-bold text-[#0057FF] font-mono flex items-center sm:justify-end gap-1">
+                  <p className="text-sm font-bold text-[#00D9FF] font-mono flex items-center sm:justify-end gap-1">
                     <TrendingUp className="w-3.5 h-3.5" />
                     <span>{t.quantifiedResult}</span>
                   </p>
