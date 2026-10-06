@@ -1,5 +1,7 @@
 "use client";
 
+import { CardMotif, cardTone } from "@/components/ui/CardMotif";
+
 import React, { useState } from "react";
 import { Search } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -30,9 +32,9 @@ export function TechnologiesClient() {
   });
 
   return (
-    <main className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
+    <main id="main-content" className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
+        <SectionHeader as="h1"
           kicker="Tech Stack"
           title="Technologies We Use"
           description="Proven languages, frameworks, and cloud infrastructure chosen for speed and reliability."
@@ -73,8 +75,10 @@ export function TechnologiesClient() {
           {filtered.map((tech) => (
             <div
               key={tech.name}
-              className="p-6 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] transition-colors flex flex-col justify-between"
+              data-card-tone={cardTone(tech.category)}
+              className="visual-card p-6 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] transition-colors flex flex-col justify-between"
             >
+              <CardMotif kind={tech.category}/>
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-lg font-bold text-white">{tech.name}</h3>
@@ -133,3 +137,4 @@ export function TechnologiesClient() {
     </main>
   );
 }
+

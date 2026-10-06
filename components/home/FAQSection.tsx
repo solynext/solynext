@@ -9,14 +9,7 @@ import { ConsultationModal } from "../ui/ConsultationModal";
 
 export function FAQSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const categories = ["All", "General", "Contracts & IP", "Engagement", "Technical"];
-
-  const filteredFaqs = selectedCategory === "All"
-    ? FAQS_DATA
-    : FAQS_DATA.filter((f) => f.category.toLowerCase().includes(selectedCategory.toLowerCase()));
 
   const toggle = (idx: number) => {
     setOpenIdx(openIdx === idx ? null : idx);
@@ -31,39 +24,25 @@ export function FAQSection() {
           description="Quick answers about contracts, pricing, and how we work."
         />
 
-        {/* Category Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => {
-                setSelectedCategory(cat);
-                setOpenIdx(0);
-              }}
-              className={`px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-                selectedCategory === cat
-                  ? "bg-gradient-to-r from-[#0057FF] to-[#00D9FF] text-black font-extrabold"
-                  : "bg-[#0a0d15] text-slate-300 hover:text-white border border-[#202738] hover:border-[#00D9FF]"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
         {/* Accordion List */}
         <div className="space-y-4">
-          {filteredFaqs.map((faq, idx) => {
+          {FAQS_DATA.map((faq, idx) => {
             const isOpen = openIdx === idx;
+            const triggerId = `faq-trigger-${idx}`;
+            const panelId = `faq-panel-${idx}`;
+
             return (
               <div
                 key={faq.question}
                 className="rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] overflow-hidden transition-all duration-200"
               >
                 <button
+                  type="button"
                   onClick={() => toggle(idx)}
                   className="w-full p-6 text-left flex items-center justify-between gap-4 hover:bg-[#0f131f] transition-colors cursor-pointer"
                   aria-expanded={isOpen}
+                  aria-controls={panelId}
+                  id={triggerId}
                 >
                   <span className="text-base sm:text-lg font-bold text-white leading-snug">
                     {faq.question}
@@ -75,15 +54,17 @@ export function FAQSection() {
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-[#1c212f]">
-                    <p>{faq.answer}</p>
-                    <div className="mt-4 flex items-center justify-between pt-3 border-t border-[#1c212f] text-xs text-slate-400 font-mono">
-                      <span>Category: {faq.category}</span>
-                      <span className="text-[#00D9FF] font-bold">✓ SolyNext Verified Standard</span>
-                    </div>
+                <div
+                  className="px-6 pb-6 pt-1 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-[#1c212f]"
+                  aria-labelledby={triggerId}
+                  id={panelId}
+                  hidden={!isOpen}
+                >
+                  <p>{faq.answer}</p>
+                  <div className="mt-4 flex items-center justify-between pt-3 border-t border-[#1c212f] text-xs text-slate-400 font-mono">
+                    <span>Category: {faq.category}</span>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

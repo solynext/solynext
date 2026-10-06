@@ -4,7 +4,7 @@ import { Home, Layers } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <main className="flex-1 flex items-center justify-center py-24 px-4 text-center bg-white">
+    <main id="main-content" className="flex-1 flex items-center justify-center py-24 px-4 text-center bg-white">
       <div className="max-w-md mx-auto space-y-6">
         <p className="text-4xl font-bold font-mono text-[#0057FF]">404</p>
         <h1 className="text-2xl sm:text-3xl font-bold text-[#050505] tracking-tight">
@@ -34,3 +34,4 @@ export default function NotFound() {
     </main>
   );
 }
+

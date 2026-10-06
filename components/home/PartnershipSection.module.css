@@ -1,0 +1,24 @@
+.section{padding:48px 0 52px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#faf7fb)}
+.heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:27px}
+.section .eyebrow{display:flex;align-items:center;gap:8px;font:10px var(--font-geist-mono);letter-spacing:1.8px;color:var(--brand);margin-bottom:13px}
+.eyebrow>span{width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px var(--brand-soft)}
+.section .title{font-size:clamp(25px,2.8vw,36px);font-weight:550;line-height:1.2;letter-spacing:-1.3px;margin:0}
+.title>span{color:var(--brand)}
+.section .intro{font-size:13px;line-height:1.7;color:var(--muted);text-align:right}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;position:relative}
+.card{position:relative;display:flex;flex-direction:column;min-height:210px;padding:24px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(140deg,#fff,#fcf9fc);color:var(--ink);box-shadow:0 4px 16px #38203a04;transition:transform 400ms var(--motion-ease),border-color 250ms ease,box-shadow 400ms ease}
+.card:hover{transform:translateY(-5px);border-color:#cba0ba;box-shadow:0 15px 35px #38203a0d}
+.card:active{transform:translateY(-1px) scale(.985)}
+.cardTop{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:22px}
+.icon{display:grid;place-items:center;width:43px;height:43px;border-radius:13px;border:1px solid #ecdeea;background:linear-gradient(135deg,#f8eef5,#eee2ef);color:var(--brand);transition:transform 400ms var(--motion-ease)}
+.card:hover .icon{transform:rotate(-7deg)}
+.stage{font:9px var(--font-geist-mono);letter-spacing:1px;color:var(--muted)}
+.section .card h3{font-size:16px;font-weight:600;letter-spacing:-.35px;line-height:1.4;margin:0}
+.section .card p{font-size:12px;color:var(--muted);line-height:1.7;margin:8px 0 25px;max-width:22ch}
+.arrow{display:grid;place-items:center;width:29px;height:29px;border:1px solid var(--line);border-radius:50%;align-self:flex-end;margin-top:auto;color:var(--brand);transition:background 250ms ease,color 250ms ease,transform 400ms var(--motion-ease)}
+.card:hover .arrow{background:var(--brand);border-color:var(--brand);color:white;transform:translate(2px,-2px)}
+@media(max-width:1050px){.card{padding:20px}.stage{font-size:8px;letter-spacing:.5px}.section .card h3{font-size:15px}}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{min-height:200px;padding:23px}.section .card h3{font-size:17px}.section .card p{font-size:13px;max-width:28ch}.stage{font-size:9px}}
+@media(max-width:500px){.section{padding:35px 0 38px}.heading{display:block;margin-bottom:22px}.section .title{font-size:29px;letter-spacing:-1px;max-width:18ch}.section .intro{margin-top:14px;text-align:left;font-size:12px}.intro br{display:none}.card{padding:18px;min-height:228px}.cardTop{flex-direction:column;align-items:flex-start;gap:13px;margin-bottom:17px}.section .card h3{font-size:15px}.section .card p{font-size:12px;margin-bottom:18px}.icon{width:40px;height:40px}}
+@media(max-width:340px){.grid{grid-template-columns:1fr}.card{min-height:190px}.cardTop{flex-direction:row;align-items:center}}
+@media(prefers-reduced-motion:reduce){.card,.icon,.arrow{transition:none}.card:hover,.card:active,.card:hover .icon,.card:hover .arrow{transform:none}}

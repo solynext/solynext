@@ -1,5 +1,7 @@
 "use client";
 
+import { CardMotif, cardTone } from "@/components/ui/CardMotif";
+
 import React, { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Search } from "lucide-react";
@@ -22,9 +24,9 @@ export function BlogClient() {
   });
 
   return (
-    <main className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
+    <main id="main-content" className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
+        <SectionHeader as="h1"
           kicker="Engineering Insights"
           title="Thoughts on Architecture, Design &amp; Scaling"
           description="Technical deep dives, architectural trade-offs, and product design principles authored by our senior engineering team."
@@ -65,8 +67,10 @@ export function BlogClient() {
           {filtered.map((post) => (
             <article
               key={post.id}
-              className="p-6 sm:p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] transition-all flex flex-col justify-between group"
+              data-card-tone={cardTone(post.category)}
+              className="visual-card p-6 sm:p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] transition-all flex flex-col justify-between group"
             >
+              <CardMotif kind={post.category}/>
               <div>
                 <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400 mb-3">
                   <span className="text-[#00D9FF] font-bold">{post.category}</span>
@@ -113,3 +117,4 @@ export function BlogClient() {
     </main>
   );
 }
+

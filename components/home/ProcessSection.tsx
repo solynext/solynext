@@ -1,6 +1,5 @@
-import React from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Clock, ShieldCheck, Milestone } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { SectionHeader } from "../ui/SectionHeader";
 
 export function ProcessSection() {
@@ -8,43 +7,36 @@ export function ProcessSection() {
     {
       step: "01",
       timeline: "Days 1–5",
-      title: "Discovery & Scoping",
-      description: "Define technical requirements, user journeys, data schemas, and sprint goals.",
+      title: "Discover",
+      description: "Align on business goals, technical needs, user journeys, and sprint goals.",
       deliverable: "Technical Scope & Plan",
     },
     {
       step: "02",
       timeline: "Days 6–12",
-      title: "System Design & UI/UX",
-      description: "Build interactive Figma prototypes and design database schema architecture.",
-      deliverable: "Clickable Prototype",
+      title: "Plan & Design",
+      description: "Shape user flows, interface prototypes, and the underlying system architecture.",
+      deliverable: "Prototype & Architecture",
     },
     {
       step: "03",
       timeline: "Sprints 1–2",
-      title: "Core Development",
-      description: "Bi-weekly sprint engineering with automated testing and live staging access.",
+      title: "Build & Integrate",
+      description: "Develop in focused sprints, connect APIs, and share working staging builds.",
       deliverable: "Working Staging Build",
     },
     {
       step: "04",
-      timeline: "Sprints 3–4",
-      title: "API & Integrations",
-      description: "Connect payment gateways, background worker queues, and third-party services.",
-      deliverable: "Fully Integrated App",
-    },
-    {
-      step: "05",
-      timeline: "Week 5",
-      title: "QA & Security Testing",
-      description: "Load testing, device compatibility checks, and security audits before launch.",
+      timeline: "Pre-launch",
+      title: "Quality & Security",
+      description: "Test key user journeys, device compatibility, performance, and security.",
       deliverable: "QA Sign-off",
     },
     {
-      step: "06",
-      timeline: "Launch + 30 Days",
+      step: "05",
+      timeline: "Launch + 30 days",
       title: "Launch & Support",
-      description: "Zero-downtime deployment, complete source code handover, and 30-day warranty.",
+      description: "Deploy, hand over the source code, and support the release with a 30-day warranty.",
       deliverable: "Production Handover",
     },
   ];
@@ -58,30 +50,7 @@ export function ProcessSection() {
           description="Clear milestones from day one to launch and beyond."
         />
 
-        {/* Delivery Guarantee Banner */}
-        <div className="mb-14 p-5 rounded-2xl border border-[#202738] bg-[#0a0d15] flex flex-wrap items-center justify-between gap-4 text-xs text-slate-300">
-          <div className="flex items-center gap-2 font-bold text-white">
-            <Milestone className="w-4 h-4 text-[#00D9FF]" />
-            <span>Delivery Standards:</span>
-          </div>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <span className="flex items-center gap-1.5 font-medium">
-              <Clock className="w-3.5 h-3.5 text-[#00D9FF]" />
-              14-Day Sprints
-            </span>
-            <span className="flex items-center gap-1.5 font-medium">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#00D9FF]" />
-              Live Staging Builds
-            </span>
-            <span className="flex items-center gap-1.5 font-medium">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#00D9FF]" />
-              30-Day Post-Launch Warranty
-            </span>
-          </div>
-        </div>
-
-        {/* 6-Stage Roadmap Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {steps.map((st) => (
             <div
               key={st.step}

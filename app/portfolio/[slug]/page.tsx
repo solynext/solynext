@@ -35,7 +35,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
   }
 
   return (
-    <main className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
+    <main id="main-content" className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           href="/portfolio"
@@ -181,3 +181,4 @@ export default async function CaseStudyDetailPage({ params }: Props) {
     </main>
   );
 }
+

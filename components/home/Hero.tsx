@@ -40,7 +40,7 @@ export function Hero() {
                 onClick={() => setIsModalOpen(true)}
                 className="px-8 py-4 text-base font-extrabold text-black bg-gradient-to-r from-[#0057FF] to-[#00D9FF] hover:brightness-110 rounded-xl transition-all inline-flex items-center justify-center gap-2.5 cursor-pointer shadow-lg shadow-[#0057FF]/25"
               >
-                <span>Schedule a Call</span>
+                <span>Start a project</span>
                 <ArrowRight className="w-4 h-4 text-black" />
               </button>
 

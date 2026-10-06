@@ -1,3 +1,4 @@
+import { CardMotif, cardTone } from "@/components/ui/CardMotif";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -52,9 +53,9 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
+    <main id="main-content" className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
+        <SectionHeader as="h1"
           kicker="About SolyNext"
           title="Engineering Excellence Worldwide"
           description="Building modern software with transparent collaboration and experienced engineers."
@@ -124,8 +125,10 @@ export default function AboutPage() {
             {values.map((v) => (
               <div
                 key={v.title}
-                className="p-6 rounded-2xl border border-[#202738] bg-[#0a0d15]"
+                data-card-tone={cardTone(v.title)}
+                className="visual-card p-6 rounded-2xl border border-[#202738] bg-[#0a0d15]"
               >
+              <CardMotif kind={v.title}/>
                 <h3 className="text-sm font-bold text-white mb-2">
                   {v.title}
                 </h3>
@@ -146,8 +149,10 @@ export default function AboutPage() {
             {leadership.map((member) => (
               <div
                 key={member.name}
-                className="p-6 rounded-2xl border border-[#202738] bg-[#0a0d15] flex flex-col justify-between"
+                data-card-tone={cardTone(member.role)}
+                className="visual-card p-6 rounded-2xl border border-[#202738] bg-[#0a0d15] flex flex-col justify-between"
               >
+              <CardMotif kind={member.role}/>
                 <div>
                   <h3 className="text-base font-bold text-white">{member.name}</h3>
                   <p className="text-xs font-bold text-[#00D9FF] mb-3">{member.role}</p>
@@ -183,3 +188,4 @@ export default function AboutPage() {
     </main>
   );
 }
+

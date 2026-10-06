@@ -1,3 +1,4 @@
+import { CardMotif, cardTone } from "@/components/ui/CardMotif";
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, ShoppingBag, ShieldCheck, Activity, Home, Zap, Truck, Check } from "lucide-react";
@@ -24,9 +25,9 @@ export default function SolutionsPage() {
   };
 
   return (
-    <main className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
+    <main id="main-content" className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
+        <SectionHeader as="h1"
           kicker="Industry Solutions"
           title="Solutions by Industry"
           description="Tailored software architectures designed for specific regulatory and operational needs."
@@ -37,8 +38,10 @@ export default function SolutionsPage() {
             <div
               key={solution.id}
               id={solution.slug}
-              className="p-8 sm:p-10 rounded-2xl border border-[#202738] bg-[#0a0d15]"
+              data-card-tone={cardTone(solution.title)}
+              className="visual-card p-8 sm:p-10 rounded-2xl border border-[#202738] bg-[#0a0d15]"
             >
+              <CardMotif kind={solution.title}/>
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 <div className="lg:col-span-5 space-y-4">
                   <div className="flex items-center gap-3">
@@ -119,3 +122,4 @@ export default function SolutionsPage() {
     </main>
   );
 }
+

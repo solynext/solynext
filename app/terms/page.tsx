@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function TermsPage() {
   return (
-    <main className="flex-1 py-16 sm:py-24 bg-white text-[#050505]">
+    <main id="main-content" className="flex-1 py-16 sm:py-24 bg-white text-[#050505]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
@@ -55,3 +55,4 @@ export default function TermsPage() {
     </main>
   );
 }
+

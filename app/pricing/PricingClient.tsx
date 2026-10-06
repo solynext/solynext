@@ -1,5 +1,7 @@
 "use client";
 
+import { CardMotif, cardTone } from "@/components/ui/CardMotif";
+
 import React, { useState } from "react";
 import { Check, ArrowRight, ShieldCheck, Zap, HelpCircle, Calculator } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -74,9 +76,9 @@ export function PricingClient() {
   };
 
   return (
-    <main className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
+    <main id="main-content" className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
+        <SectionHeader as="h1"
           kicker="Pricing &amp; Plans"
           title="Flexible Engagement Models"
           description="Choose the right model for your project: fixed price, dedicated team, or ongoing retainer."
@@ -87,12 +89,14 @@ export function PricingClient() {
           {models.map((model) => (
             <div
               key={model.name}
-              className={`p-8 rounded-2xl flex flex-col justify-between border transition-all ${
+              data-card-tone={cardTone(model.name)}
+              className={`visual-card p-8 rounded-2xl flex flex-col justify-between border transition-all ${
                 model.recommended
                   ? "border-[#00D9FF] bg-[#0a0d15] relative ring-1 ring-[#00D9FF]"
                   : "border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF]"
               }`}
             >
+              <CardMotif kind={model.name}/>
               <div>
                 {model.recommended && (
                   <div className="inline-block px-3 py-1 rounded text-[11px] font-bold text-black bg-[#00D9FF] uppercase tracking-wider mb-4">
@@ -261,3 +265,4 @@ export function PricingClient() {
     </main>
   );
 }
+

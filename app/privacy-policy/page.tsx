@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="flex-1 py-16 sm:py-24 bg-white text-[#050505]">
+    <main id="main-content" className="flex-1 py-16 sm:py-24 bg-white text-[#050505]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-2">
             <h2 className="text-base font-bold text-[#050505]">2. Information Collected</h2>
             <p>
-              When you submit a project inquiry, discovery request, or career application through our platform, we collect identifiable information provided voluntarily, including full name, business email, contact number, company name, and project specifications.
+              Project inquiry and career forms prepare a draft in your email application. The website does not transmit or store those form entries on a server. When you send the email, SolyNext receives the details you choose to share, such as your name, email address, project requirements, or portfolio link.
             </p>
           </section>
 
@@ -65,3 +65,4 @@ export default function PrivacyPolicyPage() {
     </main>
   );
 }
+

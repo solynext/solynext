@@ -1,3 +1,4 @@
+import { CardMotif, cardTone } from "@/components/ui/CardMotif";
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
@@ -78,9 +79,9 @@ export default function ProcessPage() {
   ];
 
   return (
-    <main className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
+    <main id="main-content" className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
+        <SectionHeader as="h1"
           kicker="Delivery Framework"
           title="Our 8-Stage Process"
           description="A transparent engineering roadmap from initial discovery to launch and ongoing support."
@@ -90,8 +91,10 @@ export default function ProcessPage() {
           {fullSteps.map((step) => (
             <div
               key={step.num}
-              className="relative p-6 sm:p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] transition-colors"
+              data-card-tone={cardTone(step.title)}
+              className="visual-card relative p-6 sm:p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] transition-colors"
             >
+              <CardMotif kind={step.title}/>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                 <div className="flex items-center gap-3">
                   <span className="text-xl font-bold font-mono text-[#00D9FF] tabular-nums">
@@ -147,3 +150,4 @@ export default function ProcessPage() {
     </main>
   );
 }
+

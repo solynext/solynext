@@ -1,4 +1,5 @@
 "use client";
+import { CardMotif, cardTone } from "@/components/ui/CardMotif";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -14,7 +15,7 @@ export function ServiceDetailClient({ service }: ServiceDetailClientProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <main className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
+    <main id="main-content" className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back navigation */}
         <Link
@@ -26,7 +27,7 @@ export function ServiceDetailClient({ service }: ServiceDetailClientProps) {
         </Link>
 
         {/* Hero Block */}
-        <div className="p-8 sm:p-12 rounded-2xl border border-[#202738] bg-[#0a0d15] mb-12">
+        <div className="visual-card p-8 sm:p-12 rounded-2xl border border-[#202738] bg-[#0a0d15] mb-12" data-card-tone={cardTone(service.title)}><CardMotif kind={service.title}/>
           <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-3">
             <span>Engineering Discipline</span>
             <span aria-hidden="true" className="text-slate-600">·</span>
@@ -207,3 +208,4 @@ export function ServiceDetailClient({ service }: ServiceDetailClientProps) {
     </main>
   );
 }
+

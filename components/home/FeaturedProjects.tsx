@@ -1,24 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, TrendingUp, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, TrendingUp } from "lucide-react";
 import { SectionHeader } from "../ui/SectionHeader";
 import { CASE_STUDIES_DATA } from "@/data/mockData";
 
 export function FeaturedProjects() {
-  const [selectedFilter, setSelectedFilter] = useState<string>("All");
-
-  const filterTabs = ["All", "FinTech", "Healthcare", "E-Commerce", "Real Estate"];
-
-  const filteredCases = selectedFilter === "All"
-    ? CASE_STUDIES_DATA.slice(0, 3)
-    : CASE_STUDIES_DATA.filter((c) =>
-        c.industry.toLowerCase().includes(selectedFilter.toLowerCase())
-      ).slice(0, 3);
-
   const flagshipCase = CASE_STUDIES_DATA[0];
+  const supportingCases = CASE_STUDIES_DATA.slice(1, 3);
 
   return (
     <section className="py-20 lg:py-32 border-b border-[#1c212f] bg-[#000000] relative">
@@ -43,25 +33,7 @@ export function FeaturedProjects() {
           </div>
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex flex-wrap items-center gap-2 mb-12">
-          {filterTabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setSelectedFilter(tab)}
-              className={`px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-                selectedFilter === tab
-                  ? "bg-gradient-to-r from-[#0057FF] to-[#00D9FF] text-black font-extrabold"
-                  : "bg-[#0a0d15] text-slate-300 hover:text-white border border-[#202738] hover:border-[#00D9FF]"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-
         {/* Flagship Spotlight Case Study */}
-        {selectedFilter === "All" && (
           <div className="mb-12 rounded-2xl border border-[#202738] bg-[#0a0d15] p-6 sm:p-8 lg:p-10 hover:border-[#00D9FF] transition-all duration-200 group">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Visual image */}
@@ -138,11 +110,10 @@ export function FeaturedProjects() {
               </div>
             </div>
           </div>
-        )}
 
         {/* Secondary Project Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {(selectedFilter === "All" ? CASE_STUDIES_DATA.slice(1, 3) : filteredCases).map((study) => (
+          {supportingCases.map((study) => (
             <div
               key={study.id}
               className="flex flex-col justify-between rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] overflow-hidden transition-all duration-200 group"

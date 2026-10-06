@@ -1,112 +1,53 @@
-"use client";
-
-import React, { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Cpu } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SectionHeader } from "../ui/SectionHeader";
 import { TECHNOLOGIES_DATA } from "@/data/mockData";
 
+const categories = [
+  "Frontend",
+  "Backend",
+  "Mobile",
+  "Cloud & DevOps",
+  "Database",
+] as const;
+
 export function TechStackSection() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
-
-  const categories = ["All", "Frontend", "Backend", "Mobile", "Cloud & DevOps", "Database", "Design & Creative"];
-
-  const filteredTech = selectedCategory === "All"
-    ? TECHNOLOGIES_DATA
-    : TECHNOLOGIES_DATA.filter((t) => t.category === selectedCategory);
-
   return (
-    <section className="py-20 lg:py-32 border-b border-[#1c212f] bg-[#000000] relative">
+    <section className="home-tech py-20 lg:py-28 border-b border-[#1c212f] bg-[#000000]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          kicker="Tech Stack"
-          title="Modern &amp; Proven Technologies"
-          description="Reliable, industry-standard frameworks chosen for speed and long-term maintainability."
-        />
-
-        {/* Technology Criteria Banner */}
-        <div className="mb-14 p-6 rounded-2xl border border-[#202738] bg-[#0a0d15] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#00D9FF]/10 border border-[#00D9FF]/20 flex items-center justify-center text-[#00D9FF] shrink-0">
-              <Cpu className="w-5 h-5" />
-            </div>
-            <div>
-              <p className="text-sm font-bold text-white">Production Engineering Standards</p>
-              <p className="text-xs text-slate-300">Strict TypeScript · 100% Type Safety · Docker Containers · Automated Tests</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4 text-xs font-bold text-[#00D9FF]">
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4" />
-              Production Verified
-            </span>
-          </div>
-        </div>
-
-        {/* Category Switcher Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-[#0a0d15] border border-[#202738] rounded-2xl max-w-4xl mx-auto mb-14">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all cursor-pointer whitespace-nowrap ${
-                selectedCategory === cat
-                  ? "bg-gradient-to-r from-[#0057FF] to-[#00D9FF] text-black font-extrabold"
-                  : "text-slate-400 hover:text-white hover:bg-[#121724]"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Tech Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredTech.slice(0, 8).map((tech) => (
-            <div
-              key={tech.name}
-              className="p-6 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] hover:bg-[#0f131f] transition-all duration-200 flex flex-col justify-between group"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-white group-hover:text-[#00D9FF] transition-colors">
-                    {tech.name}
-                  </h3>
-                  <span className="text-[10px] font-mono font-bold text-[#00D9FF] bg-[#00D9FF]/10 px-2 py-0.5 rounded border border-[#00D9FF]/20">
-                    {tech.category}
-                  </span>
-                </div>
-
-                <p className="text-xs text-slate-300 leading-relaxed mb-5">
-                  {tech.description}
-                </p>
-              </div>
-
-              <div className="pt-3.5 border-t border-[#1c212f]">
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">
-                  Common Production Uses:
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {tech.popularUseCases.map((u) => (
-                    <span key={u} className="px-2 py-0.5 rounded bg-[#06080e] border border-[#202738] text-[10px] text-slate-300 font-medium">
-                      {u}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Action Link to Full Tech Catalog */}
-        <div className="mt-14 text-center">
-          <Link
-            href="/technologies"
-            className="inline-flex items-center gap-2 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white bg-[#0a0d15] hover:bg-[#0f131f] border border-[#202738] hover:border-[#00D9FF] hover:text-[#00D9FF] rounded-xl transition-all"
-          >
-            <span>Explore All 24+ Frameworks &amp; Tools</span>
-            <ArrowRight className="w-4 h-4 text-[#00D9FF]" />
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <SectionHeader
+            align="left"
+            kicker="Technology"
+            title="Tools chosen for the job"
+            description="A focused set of proven technologies for reliable, maintainable digital products."
+            className="mb-0"
+          />
+          <Link href="/technologies" className="home-section-link shrink-0">
+            Explore the full stack
+            <ArrowRight aria-hidden="true" className="h-4 w-4" />
           </Link>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          {categories.map((category) => {
+            const tools = TECHNOLOGIES_DATA.filter(
+              (technology) => technology.category === category,
+            ).slice(0, 4);
+
+            if (tools.length === 0) return null;
+
+            return (
+              <div className="home-tech-group" key={category}>
+                <h3>{category}</h3>
+                <ul>
+                  {tools.map((technology) => (
+                    <li key={technology.name}>{technology.name}</li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

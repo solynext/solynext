@@ -20,7 +20,7 @@ export function CtaSection() {
 
           {/* Headline */}
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 text-balance leading-[1.1]">
-            Ready to Build Your Next Project?
+            Have a product idea? Let&apos;s build it.
           </h2>
 
           {/* Subtitle */}
@@ -34,7 +34,7 @@ export function CtaSection() {
               onClick={() => setIsModalOpen(true)}
               className="w-full sm:w-auto px-9 py-4 text-base font-extrabold text-black bg-gradient-to-r from-[#0057FF] to-[#00D9FF] hover:brightness-110 rounded-xl transition-all duration-200 inline-flex items-center justify-center gap-2.5 cursor-pointer shadow-lg shadow-[#0057FF]/25"
             >
-              <span>Schedule a Call</span>
+              <span>Start a project</span>
               <ArrowRight className="w-4 h-4 text-black" />
             </button>
 

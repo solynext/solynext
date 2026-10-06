@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { MotionSystem } from "@/components/ui/MotionSystem";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "SolyNext — Professional Software & Digital Technology Solutions",
   description:
-    "SolyNext is a premier Pakistan-based software house and technology company delivering custom software, web platforms, mobile apps, UI/UX design, and digital marketing for clients worldwide.",
+    "SolyNext is a Pakistan-based software and technology company delivering custom software, web platforms, mobile apps, UI/UX design, and digital marketing for clients worldwide.",
   openGraph: {
     title: "SolyNext — Technology & Digital Solutions",
     description:
@@ -34,13 +35,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="light"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#000000] text-white selection:bg-[#00D9FF] selection:text-black">
+      <body className="min-h-full flex flex-col">
         <Navbar />
+        <MotionSystem />
         {children}
         <Footer />
       </body>
     </html>
   );
 }
+
