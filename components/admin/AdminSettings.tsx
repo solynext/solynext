@@ -1,0 +1,27 @@
+"use client";
+
+import { useState } from "react";
+import { Globe2, Palette, Search, Bell, ShieldCheck, Save, Info } from "lucide-react";
+import { useAdmin } from "./AdminProvider";
+import { AdminPageHeading, AdminButton } from "./AdminUI";
+import styles from "./admin.module.css";
+
+const tabs = [{ label: "General", icon: Globe2 }, { label: "Brand & appearance", icon: Palette }, { label: "SEO", icon: Search }, { label: "Notifications", icon: Bell }, { label: "Security", icon: ShieldCheck }];
+export function AdminSettings() {
+  const [tab, setTab] = useState("General");
+  const { notify } = useAdmin();
+  const [values, setValues] = useState({ name: "SolyNext", email: "solynextsolutions@gmail.com", url: "https://solynext.example", timezone: "Asia/Karachi", tagline: "Your software. Our craft.", color: "#94365e", seoTitle: "SolyNext — Software & Digital Technology Solutions", seoDescription: "Thoughtful engineering, product design, and digital growth for businesses worldwide.", inquiries: true, reviews: true, content: false });
+  const textField = (label: string, key: "name" | "email" | "url" | "timezone" | "tagline" | "color" | "seoTitle" | "seoDescription", type = "text") => <label>{label}<input type={type} value={values[key]} maxLength={300} required onChange={event => setValues(previous => ({ ...previous, [key]: event.target.value }))}/></label>;
+  return <>
+    <AdminPageHeading title="Workspace settings" description="Manage the preferences behind your website and admin workspace."/>
+    <div className={styles.settingsLayout}><nav className={styles.settingsNav} aria-label="Settings categories">{tabs.map(({ label, icon: Icon }) => <button key={label} aria-pressed={tab === label} className={tab === label ? styles.settingsActive : ""} onClick={() => setTab(label)}><Icon size={18}/>{label}</button>)}</nav>
+    <section className={`${styles.panel} ${styles.settingsPanel}`}><div className={styles.panelHeading}><div><h2>{tab}</h2><p>{tab === "Security" ? "Your current authentication foundation" : "Preferences for this preview workspace"}</p></div></div>
+      {tab === "Security" ? <div className={styles.securityContent}><span className={styles.securityIcon}><ShieldCheck size={28}/></span><h3>Development authentication</h3><p>This workspace uses a temporary admin identity with a signed, expiring, HTTP-only session cookie. It is a development foundation.</p><dl className={styles.securityFacts}><div><dt>Route protection</dt><dd>Proxy + server authorization</dd></div><div><dt>Session duration</dt><dd>8 hours</dd></div><div><dt>Session storage</dt><dd>HTTP-only cookie</dd></div><div><dt>Database / identity provider</dt><dd>Not connected</dd></div><div><dt>Production authentication</dt><dd>Pending provider integration</dd></div></dl><p className={styles.notice}><Info size={16}/> Roles, password changes, MFA, rate limiting, and persistent audit logs belong in the future authentication provider.</p></div> : <form className={`${styles.form} ${styles.settingsForm}`} onSubmit={event => { event.preventDefault(); notify("Preferences saved in this preview. No website settings were published."); }}>
+      {tab === "General" && <>{textField("Website name", "name")}{textField("Contact email", "email", "email")}{textField("Website URL", "url", "url")}<label>Workspace timezone<select value={values.timezone} onChange={e => setValues(previous => ({ ...previous, timezone: e.target.value }))}><option>Asia/Karachi</option><option>Europe/London</option><option>Asia/Dubai</option><option>America/New_York</option></select></label></>}
+      {tab === "Brand & appearance" && <>{textField("Brand tagline", "tagline")}<div className={styles.brandPreview}><span style={{ background: values.color }}>s.</span><strong>{values.name}</strong><small>{values.tagline}</small></div>{textField("Accent color", "color", "color")}<p className={styles.notice}>Brand edits are preview preferences only. The existing public design remains unchanged.</p></>}
+      {tab === "SEO" && <>{textField("Default page title", "seoTitle")}<label>Meta description<textarea value={values.seoDescription} rows={4} maxLength={300} onChange={event => setValues(previous => ({ ...previous, seoDescription: event.target.value }))}/></label><div className={styles.seoPreview}><small>{values.url}</small><strong>{values.seoTitle}</strong><p>{values.seoDescription}</p></div><p className={styles.notice}>Admin pages are always excluded from search indexing.</p></>}
+      {tab === "Notifications" && <div className={styles.preferenceList}>{[{ key: "inquiries", title: "New client inquiries", detail: "Be notified when a potential client gets in touch." }, { key: "reviews", title: "Review submissions", detail: "Know when client feedback is ready for moderation." }, { key: "content", title: "Content activity", detail: "Follow changes to pages, projects, and media." }].map(item => <label key={item.key}><span><strong>{item.title}</strong><small>{item.detail}</small></span><input type="checkbox" checked={values[item.key as "inquiries" | "reviews" | "content"]} onChange={event => setValues(previous => ({ ...previous, [item.key]: event.target.checked }))}/></label>)}<p className={styles.notice}>Email delivery will become available when a notification service is connected.</p></div>}
+      <div className={styles.formActions}><AdminButton type="submit"><Save size={16}/>Save preview preferences</AdminButton></div></form>}
+    </section></div>
+  </>;
+}

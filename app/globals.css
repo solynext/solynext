@@ -1374,7 +1374,101 @@ main .visual-card [class~="ring-[#00D9FF]"]{--tw-ring-color:var(--card-edge)}
 @media(max-width:700px){.visual-card{border-radius:21px!important}.card-motif{height:100px;margin-bottom:13px}.motif-lines{max-width:75%}.deliverable-item.visual-card{padding:21px}.visual-card.partnership-capability .motif-tile{width:54px;height:54px}.visual-card.partnership-capability .motif-tile svg{width:29px}.visual-card.partnership-capability .motif-glass{width:56px;height:56px}.visual-card.partnership-capability .motif-spark{left:52px;top:62px}}
 @media(prefers-reduced-motion:reduce){.visual-card{transition:none}.visual-card:hover{transform:none}}
 
+/* Selected-work previews, matched to the pastel dashboard reference. */
+.work-section .project-art {
+  container-type: inline-size;
+  height: auto;
+  aspect-ratio: 1.78;
+  border-radius: 24px;
+  isolation: isolate;
+  background: radial-gradient(ellipse at 12% 8%, #fff0f5 0, transparent 58%), linear-gradient(135deg, #f9dce7, #efabc5 65%, #fbe1ec);
+}
+.work-section .project-art-1 {
+  background: radial-gradient(ellipse at 12% 8%, #e4faec 0, transparent 60%), linear-gradient(135deg, #d1f0e2, #9fdcd2 65%, #d8f1e5);
+}
+.work-section .project-art::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 125%;
+  height: 115%;
+  left: -15%;
+  top: -55%;
+  border: 5.5cqw solid #e65b9430;
+  border-radius: 45%;
+  transform: rotate(-32deg);
+}
+.work-section .project-art-1::before {
+  left: -12%;
+  top: 9%;
+  border-color: #35bca438;
+  transform: rotate(-35deg);
+}
+.work-section .project-art::after {
+  content: "";
+  position: absolute;
+  inset: 45% -2% 12% auto;
+  width: 8%;
+  background: radial-gradient(circle, #ffffff9c 1px, transparent 1.6px) 0 0 / 12px 12px;
+  z-index: -1;
+}
+.work-section .project-concept {
+  width: 84%;
+  max-width: none;
+  border-radius: 3cqw;
+  border: 1px solid #ffffffb3;
+  background: linear-gradient(120deg, #fff, #fffafd);
+  box-shadow: 0 3cqw 5cqw #87445f30;
+  overflow: hidden;
+  transform: rotate(-2.7deg);
+}
+.work-section .project-art-1 .project-concept {
+  transform: rotate(2.5deg);
+  background: linear-gradient(120deg, #fff, #f8fdfd);
+  box-shadow: 0 3cqw 5cqw #286f6f30;
+}
+.work-section .concept-top { height: 6.5cqw; padding: 0 3.2cqw; font-size: 2.5cqw; border-color: #eee8ee; }
+.work-section .concept-top strong { color: #e60052; font-weight: 750; letter-spacing: -.08cqw; }
+.work-section .project-art-1 .concept-top strong { color: #008963; }
+.work-section .concept-top strong span { font-size: 1.65cqw; color: #97909e; letter-spacing: -.04cqw; }
+.work-section .concept-top > span { font-size: 1.6cqw; color: #9d97a4; }
+.work-section .concept-body { grid-template-columns: 6.3cqw 1fr; min-height: 35.5cqw; }
+.work-section .concept-body aside { padding: 2.8cqw 2.2cqw; gap: 2.4cqw; border-color: #eee8ee; background: #f9f6f980; }
+.work-section .concept-body aside i { width: 1.7cqw; height: 1.7cqw; border-radius: .45cqw; background: #cec7d2; }
+.work-section .concept-body > div { padding: 2.6cqw 3.3cqw 1.8cqw; }
+.work-section .concept-body p { font-size: 1.45cqw; color: #96909d; }
+.work-section .concept-body h4 { font-size: 2.45cqw; margin-top: .5cqw; letter-spacing: -.1cqw; color: #19191d; font-weight: 550; }
+.work-section .concept-tiles { gap: 1.6cqw; margin-top: 2cqw; }
+.work-section .concept-tiles > span { position: relative; padding: 1.4cqw; gap: 1.7cqw; border-radius: 1.3cqw; border: 1px solid #efdde7; background: #fbf2f7; color: #e60052; box-shadow: inset 0 0 1cqw #ead5e41a; }
+.work-section .project-art-1 .concept-tiles > span { background: #edf8f6; border-color: #d2eae6; color: #008963; }
+.work-section .concept-tiles small { font-size: 1.45cqw; color: #77717d; }
+.work-section .concept-tiles svg { width: 3.6cqw; height: 3.6cqw; stroke-width: 2.4; }
+.work-section .concept-tiles > span::after { content: "›"; position: absolute; right: 1.3cqw; bottom: 1.5cqw; display: grid; place-items: center; width: 1.6cqw; height: 1.6cqw; border-radius: 50%; background: #f6d9e5; font-size: 3cqw; line-height: 1; }
+.work-section .project-art-1 .concept-tiles > span::after { background: #ccebe2; }
+.work-section .concept-rows { margin-top: 2cqw; }
+.work-section .concept-rows > div { padding: 1cqw 0; gap: 1.4cqw; border-color: #e9e5ec; }
+.work-section .row-avatar { width: 1.7cqw; height: 1.7cqw; background: #d9d3df; }
+.work-section .row-line { width: 51%; height: 1.1cqw; border-radius: 1cqw; background: linear-gradient(90deg, #e2dce6, #eeeaf0); }
+.work-section .row-tag { width: 5.1cqw; height: 1.2cqw; border-radius: 1cqw; background: linear-gradient(90deg, #bce8d8, #91d7be); }
+.work-section .project-art-label { bottom: 2.6cqw; font-size: 1.3cqw; letter-spacing: .2cqw; color: #a17689; font-weight: 600; }
+.work-section .project-art-1 .project-art-label { color: #6d9b90; }
+@media (prefers-reduced-motion: no-preference) { .work-section .premium-project:hover .project-concept { transform: rotate(0) translateY(-3px); } }
+@media (max-width:700px) { .work-section .project-art { border-radius: 20px; } }
+
 /* Responsive header controls. */
 @media(max-width:500px){.premium-nav-actions{gap:6px}.premium-nav{gap:8px}.premium-logo{font-size:22px}.brand-symbol{margin-right:7px}}
 @media(max-width:380px){.premium-logo{font-size:18px}.brand-symbol{width:29px;height:32px;font-size:25px;margin-right:5px}.brand-symbol>span{font-size:12px}.premium-nav-actions{gap:4px}.premium-nav-actions .nav-cta{width:32px;min-height:32px;padding:8px}.premium-menu-toggle{width:32px;height:32px;min-width:32px;min-height:32px;padding:5px}.premium-menu-toggle svg{width:20px}.premium-nav{gap:6px}}
 @media(max-width:1000px){.premium-desktop-nav{display:none}.premium-menu-toggle{display:flex}}
+
+/* A continuous thick focus edge for mouse and keyboard, without resizing fields. */
+:is(input:not(:where([type="checkbox"], [type="radio"], [type="range"], [type="hidden"], [type="button"], [type="submit"], [type="reset"])), textarea, select):focus {
+  border-color: var(--brand) !important;
+  outline: 2px solid var(--brand) !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+}
+
+:is(input, textarea, select)[aria-invalid="true"]:focus {
+  border-color: #b4233f !important;
+  outline-color: #b4233f !important;
+}

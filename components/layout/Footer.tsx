@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, Globe2, Mail, MapPin, Shield } from "lucide-react";
+import styles from "./Footer.module.css";
 
 const serviceLinks = [
   { label: "Web engineering", href: "/services/web-development" },
@@ -22,20 +23,27 @@ export function Footer() {
   const currentYear = 2026;
 
   return (
-    <footer className="site-footer w-full bg-[#000000] border-t border-[#1a1f2b] text-slate-400 text-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
-        <div className="grid grid-cols-1 gap-10 border-b border-[#1a1f2b] pb-10 sm:grid-cols-2 lg:grid-cols-[1.35fr_0.8fr_0.9fr_1fr] lg:gap-12">
+    <footer className={styles.footer}>
+      <div className={styles.container}>
+        <div className={styles.intro}>
+          <div>
+            <span className={styles.eyebrow}>YOUR NEXT CHAPTER</span>
+            <h2>Great ideas deserve<br />a great build<span>.</span></h2>
+          </div>
+          <Link href="/contact" className={styles.cta}>Let’s build together <ArrowUpRight size={20} aria-hidden="true" /></Link>
+        </div>
+        <div className={styles.grid}>
           <div className="space-y-4">
             <Link
               href="/"
-              className="site-footer-brand text-2xl font-black tracking-tight text-white inline-block"
+              className={styles.brand}
             >
               SolyNext<span className="text-[#00D9FF]">.</span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-slate-400">
               Software engineering for web, mobile, and custom digital products.
             </p>
-            <div className="flex flex-col gap-2.5 pt-1 text-xs text-slate-400">
+            <div className={styles.details}>
               <span className="flex items-start gap-2">
                 <MapPin aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-[#00D9FF]" />
                 <span>Islamabad &amp; Lahore, Pakistan</span>
@@ -52,15 +60,15 @@ export function Footer() {
           </div>
 
           <nav aria-label="Services">
-            <h2 className="site-footer-heading">Services</h2>
-            <ul className="site-footer-links">
+            <h2 className={styles.heading}>Services</h2>
+            <ul className={styles.links}>
               {serviceLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href}>{link.label}</Link>
                 </li>
               ))}
               <li>
-                <Link className="site-footer-all-link" href="/services">
+                <Link className={styles.accentLink} href="/services">
                   All services <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" />
                 </Link>
               </li>
@@ -68,8 +76,8 @@ export function Footer() {
           </nav>
 
           <nav aria-label="Company">
-            <h2 className="site-footer-heading">Company</h2>
-            <ul className="site-footer-links">
+            <h2 className={styles.heading}>Company</h2>
+            <ul className={styles.links}>
               {companyLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href}>{link.label}</Link>
@@ -78,25 +86,25 @@ export function Footer() {
             </ul>
           </nav>
 
-          <div>
-            <h2 className="site-footer-heading">Get in touch</h2>
+          <div className={styles.contact}>
+            <h2 className={styles.heading}>Get in touch</h2>
             <p className="mb-4 max-w-xs text-xs leading-relaxed text-slate-400">
               Tell us what you are planning. Our team can help you work through scope, approach, and next steps.
             </p>
             <a
               href="mailto:solynextsolutions@gmail.com"
-              className="site-footer-email"
+              className={styles.email}
             >
               <Mail aria-hidden="true" className="h-4 w-4 shrink-0" />
               <span>solynextsolutions@gmail.com</span>
             </a>
-            <Link href="/contact" className="site-footer-contact-link">
+            <Link href="/contact" className={styles.contactLink}>
               Contact the team <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
             </Link>
           </div>
         </div>
 
-        <div className="flex flex-col items-start justify-between gap-4 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center">
+        <div className={styles.bottom}>
           <p>© {currentYear} SolyNext Technologies. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Link href="/privacy-policy">Privacy Policy</Link>
