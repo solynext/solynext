@@ -2,12 +2,13 @@
 
 /** Only primary destinations appear in the sidebar. Related tools stay in pages. */
 export const adminNavigation = [
-  { label: "Overview", href: "/admin", icon: LayoutDashboard },
+  { label: "Dashboad", href: "/admin", icon: LayoutDashboard },
   { label: "Inquiries", href: "/admin/inquiries", icon: Inbox },
   { label: "Projects", href: "/admin/projects", icon: FolderKanban },
   { label: "Clients", href: "/admin/clients", icon: Building2 },
   { label: "Team", href: "/admin/team", icon: Users },
   { label: "Website", href: "/admin/content", icon: PanelsTopLeft },
+  { label: "Notifications", href: "/admin/notifications", icon: Bell },
   { label: "Settings", href: "/admin/settings", icon: Settings },
 ];
 
@@ -24,7 +25,7 @@ export const adminPageNavigation = [
   { label: "Website management", parent: "/admin/content", items: [
     { label: "Content & insights", href: "/admin/content", icon: PanelsTopLeft },
     { label: "Services", href: "/admin/services", icon: Layers3 },
-    { label: "Portfolio", href: "/admin/portfolio", icon: FolderKanban },
+    { label: "Public portfolio", href: "/admin/portfolio", icon: FolderKanban },
     { label: "Reviews", href: "/admin/reviews", icon: Star },
     { label: "Media", href: "/admin/media", icon: Image },
     { label: "Technologies", href: "/admin/technologies", icon: Braces },
@@ -33,7 +34,6 @@ export const adminPageNavigation = [
   { label: "Workspace administration", parent: "/admin/settings", items: [
     { label: "Preferences", href: "/admin/settings", icon: Settings },
     { label: "Activity", href: "/admin/activity", icon: Activity },
-    { label: "Notifications", href: "/admin/notifications", icon: Bell },
     { label: "My profile", href: "/admin/profile", icon: UserRound },
   ] },
 ];

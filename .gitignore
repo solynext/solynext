@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Local browser verification
 /.design-check/
+
+# Persistent website notification data
+/.data/

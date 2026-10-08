@@ -11,6 +11,7 @@ import { removeRecords } from "@/lib/admin/selectors";
 interface AdminState {
   collections: AdminCollections; session: AdminSession; activity: AdminActivity[];
   notifications: AdminNotification[]; markRead: (id?: string) => void;
+  deleteNotification: (id: string) => void; removeAllNotifications: () => void;
   authState: "authenticated" | "checking" | "expired"; toast: string;
   save: (section: ManagementSection, record: AdminRecord) => void;
   remove: (section: ManagementSection, ids: string[]) => void;
@@ -23,6 +24,8 @@ export function AdminProvider({ session, initialData, children }: { session: Adm
   const [activity, setActivity] = useState(initialActivity);
   const [notifications, setNotifications] = useState(initialNotifications);
   const markRead = (id?: string) => setNotifications(previous => previous.map(item => !id || item.id === id ? {...item, read:true} : item));
+  const deleteNotification = (id: string) => setNotifications(previous => previous.filter(item => item.id !== id));
+  const removeAllNotifications = () => setNotifications([]);
   const [toast, setToast] = useState("");
   const [authState, setAuthState] = useState<AdminState["authState"]>("authenticated");
   const router = useRouter();
@@ -54,7 +57,7 @@ export function AdminProvider({ session, initialData, children }: { session: Adm
     setCollections(previous => removeRecords(previous, section, ids));
     log(`${ids.length} ${section} record${ids.length === 1 ? "" : "s"} removed`, section); notify("Removed from this preview. The public website is unchanged.");
   };
-  return <Context.Provider value={{ collections, session, activity, notifications, markRead, authState, toast, save, remove, notify }}>{children}</Context.Provider>;
+  return <Context.Provider value={{ collections, session, activity, notifications, markRead, deleteNotification, removeAllNotifications, authState, toast, save, remove, notify }}>{children}</Context.Provider>;
 }
 
 export function useAdmin() { const value = useContext(Context); if (!value) throw new Error("Admin components must be inside AdminProvider."); return value; }

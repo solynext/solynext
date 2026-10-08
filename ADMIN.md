@@ -84,3 +84,25 @@ The controls are scoped against the public site's global input rules to prevent 
 Browser verification covered 229 checks across all 13 collection pages, overview, delivery, settings, profile, activity, notifications, and four representative detail pages at 1440, 768, 390, and 320 pixels. Checks included matching and empty searches, category filters, sorting, add dialogs, linked-client searches, task-board updates, mobile workspace search, and focus restoration. No page overflow or browser exceptions were observed.
 
 The flat-sidebar update passed 155 browser checks across the workspace and representative detail routes at 1440, 768, 390, and 320 pixels. The checks verified seven direct sidebar links, absence of nested sidebar menus, active parent selection, in-page links, mobile menu closing, and page overflow. No browser exceptions were observed.
+
+## Website notifications
+
+Open **Notifications** in the sidebar and use **Website notifications** to add or edit announcements. Save as a draft, publish, unpublish, delete one, or remove all with confirmation. These announcements persist across reloads. **Workspace updates** retains the existing internal sample alerts; those are never included in the public feed.
+
+The public header bell appears beside the profile icon. It fetches published announcements from `/api/notifications` on load, opening, focus, and every 20 seconds while the page is visible. Visitors can mark one or all as read; read state is saved locally per notification revision. Updated announcements become unread again.
+
+New arrivals play a quiet two-note chime after the visitor has interacted with the website (browser autoplay rules). The initial feed and repeated refreshes stay silent. The notification panel has a saved sound on/off preference. Audio is synthesized locally with Web Audio and releases its resources when the header unmounts.
+
+Admin mutations require a verified admin session and validate titles, messages, status, and optional public links. `lib/notifications/repository.ts` stores announcements in `.data/website-notifications.json` by default; set `NOTIFICATIONS_FILE` to an absolute path on a persistent writable volume for deployment. The adapter uses atomic writes and serializes mutations within one Node process. Use a transactional database adapter for serverless or multiple server instances; ephemeral filesystems do not preserve announcements across deployments. The public API returns no drafts or workspace alerts.
+
+Validation: `node --test tests/website-notifications.test.mjs`, targeted ESLint, and the production build. Browser checks cover draft privacy, publish/edit/unpublish/delete, persistence, the public unread badge, read-state persistence, and 1440/768/390/320-pixel layouts.
+
+## Public portfolio management
+
+Open **Website → Public portfolio** or the **Public portfolio** button on Projects. A delivery project's detail page also has **Add to public portfolio**. The portfolio editor controls the title, URL slug, industry, summary, public client name/location, live project URL, completion date, cover image and accessible description, gallery, technologies, challenge, solution, engineering highlights, results, and optional testimonial. Upload PNG, JPEG or WebP images up to 5 MB, choose an existing site image, or enter an HTTPS image URL. Saving persists the record; it does not reset on reload.
+
+Publication is separate from delivery status. Draft and Archived projects stay private; only Published projects appear in the portfolio, project detail pages, homepage features, and header project search. Feature projects and set their display order to control the first four homepage cards. Unpublish or delete a showcase to remove it publicly without deleting the delivery project. The optional delivery-project reference is excluded from public responses.
+
+`lib/portfolio/repository.ts` starts with the existing case studies and persists subsequent changes in `.data/portfolio/projects.json`, with uploaded images under `.data/portfolio/images`. Set `PORTFOLIO_DATA_DIR` to an absolute directory on persistent writable storage in production. As with notifications, file writes are atomic and serialized within one Node process; multiple server instances or serverless hosting require a shared database and object-storage adapter. Uploaded files are retained when a showcase is deleted to preserve any other image references.
+
+Validation includes `tests/portfolio-publishing.test.mjs`, the production build, targeted ESLint, and browser checks for authenticated editing, upload/serving, persistent drafts, public images and content, live search, homepage featuring, edit/unpublish/delete, and 1440/768/390/320-pixel layouts.

@@ -1,4 +1,4 @@
-import React from "react";
+import { getPublicProjects } from "@/lib/portfolio/repository";
 import { PortfolioClient } from "./PortfolioClient";
 
 export const metadata = {
@@ -7,6 +7,6 @@ export const metadata = {
     "Explore real-world case studies in FinTech, Healthcare, E-Commerce, and ERP engineering delivered by SolyNext.",
 };
 
-export default function PortfolioPage() {
-  return <PortfolioClient />;
+export default async function PortfolioPage() {
+  return <PortfolioClient initialProjects={await getPublicProjects()} />;
 }

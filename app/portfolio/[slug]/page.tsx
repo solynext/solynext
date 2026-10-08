@@ -3,21 +3,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2, Star } from "lucide-react";
-import { CASE_STUDIES_DATA } from "@/data/mockData";
+import { getPublicProjects } from "@/lib/portfolio/repository";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return CASE_STUDIES_DATA.map((study) => ({
-    slug: study.slug,
-  }));
-}
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const study = CASE_STUDIES_DATA.find((s) => s.slug === slug);
+  const study = (await getPublicProjects()).find((s) => s.slug === slug);
   if (!study) return { title: "Case Study Not Found" };
 
   return {
@@ -28,7 +23,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function CaseStudyDetailPage({ params }: Props) {
   const { slug } = await params;
-  const study = CASE_STUDIES_DATA.find((s) => s.slug === slug);
+  const study = (await getPublicProjects()).find((s) => s.slug === slug);
 
   if (!study) {
     notFound();
@@ -50,7 +45,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
           <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-3">
             <span>{study.industry}</span>
             <span aria-hidden="true" className="text-slate-600">·</span>
-            <span>{study.clientLocation}</span>
+            <span>{[study.client, study.clientLocation].filter(Boolean).join(" ? ")}</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight">
@@ -61,7 +56,9 @@ export default async function CaseStudyDetailPage({ params }: Props) {
             {study.summary}
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-[#0a0d15] border border-[#202738]">
+          {study.projectUrl && <a href={study.projectUrl} target="_blank" rel="noopener noreferrer" className="p-button mb-6">Visit project <ArrowRight size={16}/></a>}
+          {study.completionDate && <p className="text-sm text-slate-400 mb-4">Completed {new Intl.DateTimeFormat("en-GB", { dateStyle: "medium", timeZone: "Asia/Karachi" }).format(new Date(study.completionDate))}</p>}
+          {study.keyResults.length > 0 && <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-[#0a0d15] border border-[#202738]">
             {study.keyResults.map((r, i) => (
               <div key={i}>
                 <p className="text-xl font-bold text-[#00D9FF] font-mono tabular-nums">
@@ -72,14 +69,15 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                 </p>
               </div>
             ))}
-          </div>
+          </div>}
         </div>
 
         {/* Hero Visual */}
         <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-[#202738] bg-[#05070c] mb-16">
           <Image
             src={study.featuredImage}
-            alt={study.title}
+            alt={study.imageAlt}
+            unoptimized={study.featuredImage.startsWith("https://")}
             fill
             priority
             className="object-cover opacity-90"
@@ -87,8 +85,10 @@ export default async function CaseStudyDetailPage({ params }: Props) {
           />
         </div>
 
+        {study.gallery.length > 0 && <section className="mb-16"><h2 className="text-lg font-bold mb-6">Project gallery</h2><div className="grid grid-cols-1 sm:grid-cols-2 gap-6">{study.gallery.map((image, index) => <figure key={index}><div className="relative aspect-video rounded-xl overflow-hidden"><Image src={image.src} alt={image.alt} fill sizes="(max-width: 640px) 100vw, 50vw" unoptimized={image.src.startsWith("https://")} className="object-cover"/></div><figcaption className="text-sm text-slate-400 mt-2">{image.alt}</figcaption></figure>)}</div></section>}
+
         {/* Challenge vs Solution Breakdown */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        {(study.challenge || study.solution) && <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <div className="p-8 rounded-2xl border border-red-900/30 bg-red-950/15">
             <h2 className="text-xs font-bold text-red-400 uppercase tracking-wider mb-2">
               The Architectural Challenge
@@ -106,10 +106,10 @@ export default async function CaseStudyDetailPage({ params }: Props) {
               {study.solution}
             </p>
           </div>
-        </div>
+        </div>}
 
         {/* Deep Architectural Details */}
-        <div className="p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] mb-16">
+        {study.architectureDetails.length > 0 && <div className="p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] mb-16">
           <h2 className="text-lg font-bold text-white mb-6">
             Technical Architecture &amp; Engineering Highlights
           </h2>
@@ -121,7 +121,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
               </div>
             ))}
           </div>
-        </div>
+        </div>}
 
         {/* Client Endorsement */}
         {study.testimonial && (

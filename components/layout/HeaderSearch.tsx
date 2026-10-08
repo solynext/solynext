@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Search, X, ArrowUpRight } from "lucide-react";
-import { SERVICES_DATA, CASE_STUDIES_DATA, BLOG_POSTS_DATA, TECHNOLOGIES_DATA } from "@/data/mockData";
+import { SERVICES_DATA, BLOG_POSTS_DATA, TECHNOLOGIES_DATA } from "@/data/mockData";
+import type { PublicProject } from "@/lib/portfolio/model";
 import styles from "./HeaderSearch.module.css";
 
 const pages = [
@@ -11,9 +12,8 @@ const pages = [
   ["Pricing & project estimator", "/pricing"], ["Industry solutions", "/solutions"],
   ["Our delivery process", "/process"], ["Careers", "/careers"],
 ].map(([title, href]) => ({ title, href, category: "Pages", detail: "Explore SolyNext", keywords: title }));
-const records = [
+const baseRecords = [
   ...SERVICES_DATA.map(s => ({ title: s.title, href: `/services/${s.slug}`, category: "Services", detail: s.shortDescription, keywords: s.technologies.join(" ") })),
-  ...CASE_STUDIES_DATA.map(p => ({ title: p.title, href: `/portfolio/${p.slug}`, category: "Projects", detail: p.summary, keywords: `${p.industry} ${p.technologies.join(" ")}` })),
   ...BLOG_POSTS_DATA.map(p => ({ title: p.title, href: `/blog/${p.slug}`, category: "Insights", detail: p.excerpt, keywords: p.tags.join(" ") })),
   ...TECHNOLOGIES_DATA.map(t => ({ title: t.name, href: "/technologies", category: "Technologies", detail: t.description, keywords: t.category })),
   ...pages,
@@ -24,10 +24,20 @@ export function HeaderSearch() {
   const input = useRef<HTMLInputElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const [query, setQuery] = useState("");
+  const [projects, setProjects] = useState<PublicProject[]>([]);
+  const loadProjects = useCallback(async () => {
+    try {
+      const response = await fetch("/api/projects", { cache: "no-store" });
+      if (!response.ok) return;
+      const data = await response.json();
+      if (Array.isArray(data.projects)) setProjects(data.projects);
+    } catch { /* Static services and page search remain available. */ }
+  }, []);
+  const records = [...baseRecords, ...projects.map(project => ({ title: project.title, href: `/portfolio/${project.slug}`, category: "Projects", detail: project.summary, keywords: `${project.industry} ${project.technologies.join(" ")}` }))];
   const normalized = query.trim().toLowerCase();
   const matches = normalized ? records.filter(record => `${record.title} ${record.detail} ${record.keywords}`.toLowerCase().includes(normalized)) : [];
   const results = matches.slice(0, 12);
-  const open = () => { dialog.current?.showModal(); input.current?.focus(); };
+  const open = () => { dialog.current?.showModal(); input.current?.focus(); void loadProjects(); };
   const close = () => dialog.current?.close();
 
   useEffect(() => {
@@ -35,12 +45,12 @@ export function HeaderSearch() {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
         if (dialog.current?.open) dialog.current.close();
-        else { dialog.current?.showModal(); input.current?.focus(); }
+        else { dialog.current?.showModal(); input.current?.focus(); void loadProjects(); }
       }
     };
     window.addEventListener("keydown", shortcut);
     return () => window.removeEventListener("keydown", shortcut);
-  }, []);
+  }, [loadProjects]);
 
   return <>
     <button ref={trigger} type="button" className={styles.trigger} aria-label="Search SolyNext" aria-haspopup="dialog" aria-controls="header-search-dialog" aria-keyshortcuts="Control+k Meta+k" onClick={open}>

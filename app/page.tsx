@@ -1,7 +1,9 @@
 import { CardMotif, cardTone } from "@/components/ui/CardMotif";
 import Link from "next/link";
+import Image from "next/image";
+import { getPublicProjects } from "@/lib/portfolio/repository";
 import { ArrowRight, ArrowUpRight, Code2, Layers3, Check, Globe2, Braces, GitBranch, ShieldCheck, Terminal, Database, Cloud, Workflow } from "lucide-react";
-import { CASE_STUDIES_DATA, FAQS_DATA } from "@/data/mockData";
+import { FAQS_DATA } from "@/data/mockData";
 import { IndustriesSection } from "@/components/home/IndustriesSection";
 import { EngagementSection } from "@/components/home/EngagementSection";
 import { DeliverablesSection } from "@/components/home/DeliverablesSection";
@@ -34,8 +36,10 @@ function ProductVisual() {
   </div>;
 }
 
-export default function HomePage() {
-  const testimonial = CASE_STUDIES_DATA[1].testimonial;
+export default async function HomePage() {
+  const projects = await getPublicProjects();
+  const featuredProjects = projects.filter(project => project.featured).slice(0, 4);
+  const testimonial = projects.find(project => project.testimonial)?.testimonial;
   return <main id="main-content" className="premium-home">
     <section className="premium-hero">
       <div className="premium-container hero-grid">
@@ -49,7 +53,7 @@ export default function HomePage() {
 
     <section id="services" className="premium-section"><div className="premium-container"><div className="p-section-heading"><div><p className="eyebrow">01 / WHAT WE BUILD</p><h2>Your ambition.<br/>Our engineering.</h2></div><div className="heading-aside"><p>From a new product to a better way of working, we turn complex requirements into useful software.</p><Link className="p-text-link" href="/services">All services <ArrowUpRight size={17}/></Link></div></div><ServiceCards /><div className="services-extra"><span>Need more than engineering?</span><Link href="/services/graphic-design-branding">Brand identity ↗</Link><Link href="/services/digital-marketing">Digital marketing & SEO ↗</Link><Link href="/services">Explore creative services ↗</Link></div></div></section>
 
-    <section className="premium-section work-section"><div className="premium-container"><div className="p-section-heading"><div><p className="eyebrow">02 / SELECTED WORK</p><h2>Built with purpose.<br/>Made to make a difference.</h2></div><Link className="p-text-link" href="/portfolio">View all projects <ArrowUpRight size={17}/></Link></div><div className="premium-work-grid">{CASE_STUDIES_DATA.slice(0,2).map((project,i)=><Link href={`/portfolio/${project.slug}`} className="premium-project" key={project.id}><div className={`project-art project-art-${i}`}><div className="project-concept"><div className="concept-top"><strong>{i===0?"FinEdge":"MediTrack"}<span> / {i===0?"finance":"care"}</span></strong><span>•••</span></div><div className="concept-body"><aside><i/><i/><i/><i/></aside><div><p>{i===0?"Your business. Without borders.":"Care, connected."}</p><h4>{i===0?"Payments overview":"Clinic workspace"}</h4><div className="concept-tiles"><span><small>{i===0?"Payments":"Patient records"}</small><Code2 size={22}/></span><span><small>{i===0?"Settlements":"Appointments"}</small><Workflow size={22}/></span><span><small>{i===0?"Accounts":"Care teams"}</small><Layers3 size={22}/></span></div><div className="concept-rows">{[0,1,2].map(n=><div key={n}><span className="row-avatar"/><span className="row-line"/><span className="row-tag"/></div>)}</div></div></div></div><span className="project-art-label">ILLUSTRATIVE PRODUCT PREVIEW</span></div><div className="project-meta"><span>{project.industry}</span><ArrowUpRight size={23}/></div><h3>{i===0?"FinEdge — cross-border payments":"MediTrack — connected healthcare"}</h3><p>{i===0?"A payment gateway and settlement engine that brings international business transactions into one platform.":"A unified clinical portal for patient records, telemedicine, and appointment management."}</p><div className="project-tags">{project.technologies.slice(0,3).map(t=><span key={t}>{t}</span>)}</div></Link>)}</div></div></section>
+    <section className="premium-section work-section"><div className="premium-container"><div className="p-section-heading"><div><p className="eyebrow">02 / SELECTED WORK</p><h2>Built with purpose.<br/>Made to make a difference.</h2></div><Link className="p-text-link" href="/portfolio">View all projects <ArrowUpRight size={17}/></Link></div><div className="premium-work-grid">{featuredProjects.map((project)=><Link href={`/portfolio/${project.slug}`} className="premium-project" key={project.id}><div className="project-art portfolio-home-image"><Image src={project.featuredImage} alt={project.imageAlt} fill sizes="(max-width: 700px) 100vw, 50vw" unoptimized={project.featuredImage.startsWith("https://")} className="object-cover"/></div><div className="project-meta"><span>{project.industry}</span><ArrowUpRight size={23}/></div><h3>{project.title}</h3><p>{project.summary}</p><div className="project-tags">{project.technologies.slice(0,3).map(t=><span key={t}>{t}</span>)}</div></Link>)}</div></div></section>
 
     <IndustriesSection />
 

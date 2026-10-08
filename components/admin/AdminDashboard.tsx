@@ -30,7 +30,7 @@ export function AdminDashboard() {
   ].filter(item => item.count > 0);
 
   return <>
-    <AdminPageHeading title="Overview" description="Client conversations, project delivery, and your next priorities.">
+    <AdminPageHeading title="Dashboad" description="Client conversations, project delivery, and your next priorities.">
       <Link href="/admin/projects?new=1" className={`${styles.button} ${styles.primary}`}><Plus size={17}/>New project</Link>
     </AdminPageHeading>
     <div className={styles.dashboardMeta}><span><CalendarDays size={14}/>Sample snapshot · 06 Oct 2026</span><Link href="/admin/work-progress">Delivery overview<ArrowUpRight size={14}/></Link></div>
