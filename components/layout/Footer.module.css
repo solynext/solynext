@@ -13,7 +13,7 @@
 .cta:hover { background: var(--brand-strong); box-shadow: 0 8px 22px #b4234b25; }
 .grid { display: grid; grid-template-columns: 1.3fr .8fr .85fr 1.1fr; gap: 40px; padding: 42px 0; }
 .grid > * { min-width: 0; }
-.brand { display: inline-block; font-size: 27px; font-weight: 700; letter-spacing: -1.2px; color: var(--ink); }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-size: 27px; font-weight: 700; letter-spacing: -1.2px; color: var(--ink); }
 .footer p { font-size: 12px; line-height: 1.8; color: var(--muted); }
 .details { display: flex; flex-direction: column; gap: 12px; padding-top: 5px; font-size: 11px; line-height: 1.7; }
 .details svg { color: var(--brand); }

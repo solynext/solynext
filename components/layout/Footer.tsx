@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, Globe2, Mail, MapPin, Shield } from "lucide-react";
 import styles from "./Footer.module.css";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 
 const serviceLinks = [
   { label: "Web engineering", href: "/services/web-development" },
@@ -38,7 +39,7 @@ export function Footer() {
               href="/"
               className={styles.brand}
             >
-              SolyNext<span className="text-[#00D9FF]">.</span>
+              <BrandLogo size={44}/><span>SolyNext<span className="text-[#00D9FF]">.</span></span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-slate-400">
               Software engineering for web, mobile, and custom digital products.

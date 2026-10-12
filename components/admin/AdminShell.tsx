@@ -11,6 +11,7 @@ import { AdminSearchInput } from "./AdminControls";
 import { AdminLogoutDialog } from "./AdminLogoutDialog";
 import styles from "./admin.module.css";
 import { AdminUnsavedChanges } from "./AdminUnsavedChanges";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 
 const allLinks = adminSearchNavigation;
 export function AdminShell({ children }: { children: React.ReactNode }) {
@@ -50,7 +51,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
   const navigation = <>
     <div className={styles.workspaceIdentity}>
       <Link href="/admin" className={styles.workspaceBrand} onClick={() => setSidebar(false)} aria-label="SolyNext admin home">
-        <span className={styles.workspaceMark} aria-hidden="true">s.</span>
+        <BrandLogo size={40} className={styles.workspaceMark}/>
         <span className={styles.workspaceBrandText}><strong>SolyNext<span>.</span></strong><small>Company workspace</small></span>
       </Link>
       <span className={styles.workspaceRole}><ShieldCheck size={12} aria-hidden="true"/>Admin</span>

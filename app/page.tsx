@@ -1,9 +1,14 @@
+import { HomeAbout } from "@/components/home/HomeAbout";
+import { ProjectCTA } from "@/components/home/ProjectCTA";
+import { HomeFAQ } from "@/components/home/HomeFAQ";
+import { ClientReviews } from "@/components/home/ClientReviews";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import { CardMotif, cardTone } from "@/components/ui/CardMotif";
 import Link from "next/link";
 import Image from "next/image";
 import { getPublicProjects } from "@/lib/portfolio/repository";
 import { ArrowRight, ArrowUpRight, Code2, Layers3, Check, Globe2, Braces, GitBranch, ShieldCheck, Terminal, Database, Cloud, Workflow } from "lucide-react";
-import { FAQS_DATA } from "@/data/mockData";
+
 import { IndustriesSection } from "@/components/home/IndustriesSection";
 import { EngagementSection } from "@/components/home/EngagementSection";
 import { DeliverablesSection } from "@/components/home/DeliverablesSection";
@@ -28,7 +33,7 @@ function ProductVisual() {
       <div className="code-lines"><p><em>const</em> product = <em>await</em> build(&#123;</p><p>&nbsp;&nbsp;vision: <b>&apos;Your next big idea&apos;</b>,</p><p>&nbsp;&nbsp;design: <b>&apos;Made for people&apos;</b>,</p><p>&nbsp;&nbsp;engineering: <b>&apos;Built to scale&apos;</b></p><p>&#125;);</p><p className="code-comment">{"// Thoughtfully designed. Carefully built."}</p></div>
     </div>
     <div className="product-window">
-      <div className="product-sidebar"><span className="mini-brand">s.</span><Layers3 size={17}/><Workflow size={17}/><Database size={17}/><div className="sidebar-bottom"><Globe2 size={17}/></div></div>
+      <div className="product-sidebar"><BrandLogo size={22}/><Layers3 size={17}/><Workflow size={17}/><Database size={17}/><div className="sidebar-bottom"><Globe2 size={17}/></div></div>
       <div className="product-dashboard"><div className="dashboard-top"><span>Product overview</span><span className="avatar-dot">S</span></div><p className="dashboard-caption">A clearer view of what&apos;s next.</p><div className="dashboard-metrics"><div><small>Build</small><strong>Thoughtfully.</strong></div><div><small>Grow</small><strong>Confidently.</strong></div></div><div className="chart-header"><span>Product momentum</span><small>Overview ↗</small></div><div className="chart-bars">{[22,36,30,48,41,58,53,75,68,85,79,100].map((h,i)=><i key={i} style={{height:`${h}%`}} />)}</div><div className="dashboard-bottom"><span><span className="status-dot"/> Designed to move forward</span><ArrowUpRight size={14}/></div></div>
     </div>
     <div className="delivery-chip"><span><Check size={15}/></span><div><strong>Built around your business</strong><small>Design + engineering + delivery</small></div></div>
@@ -39,7 +44,7 @@ function ProductVisual() {
 export default async function HomePage() {
   const projects = await getPublicProjects();
   const featuredProjects = projects.filter(project => project.featured).slice(0, 4);
-  const testimonial = projects.find(project => project.testimonial)?.testimonial;
+  const reviews = projects.flatMap(project => project.testimonial ? [{ id: project.id, ...project.testimonial, project: project.title, slug: project.slug }] : []);
   return <main id="main-content" className="premium-home">
     <section className="premium-hero">
       <div className="premium-container hero-grid">
@@ -62,17 +67,17 @@ export default async function HomePage() {
     <DeliverablesSection />
     <EngagementSection />
 
-    <section className="premium-section premium-about"><div className="premium-container about-grid"><div><p className="eyebrow">04 / THE PEOPLE BEHIND THE PRODUCT</p><h2>Technical by nature.<br/>Human by design.</h2><p className="about-description">SolyNext is a Pakistan-based software and digital technology company. We bring product design, engineering, and digital growth together to help businesses build what comes next.</p><Link className="p-text-link" href="/about">Meet SolyNext <ArrowUpRight size={18}/></Link></div><div className="about-principles">{[["Product thinking","We connect technical decisions to the needs of your business and users."],["Open collaboration","Shared repositories, sprint reviews, and working builds keep you involved."],["Built for the long term","Maintainable code and considered architecture make room for your next step."]].map(([title,copy],i)=><article key={title}><span>0{i+1}</span><div><h3>{title}</h3><p>{copy}</p></div></article>)}</div></div></section>
+    <HomeAbout/>
 
     <section className="premium-tech"><div className="premium-container"><div><p className="eyebrow">THE RIGHT TOOLS FOR THE JOB</p><p>Modern foundations. Lasting possibilities.</p></div><div className="tech-names"><span><Braces/> React</span><span><Terminal/> Next.js</span><span><Code2/> TypeScript</span><span><Database/> PostgreSQL</span><span><Cloud/> AWS</span></div><Link href="/technologies" aria-label="Explore our technology stack"><ArrowUpRight size={23}/></Link></div></section>
 
-    {testimonial && <section className="premium-quote"><div className="premium-container"><p className="eyebrow">IN OUR CLIENT&apos;S WORDS</p><span className="quote-mark" aria-hidden="true">“</span><blockquote>{testimonial.quote}</blockquote><div className="quote-author"><span>{testimonial.author.split(" ").map(n=>n[0]).slice(0,2).join("")}</span><div><strong>{testimonial.author}</strong><p>{testimonial.role}, {testimonial.company}</p></div></div></div></section>}
+    <ClientReviews reviews={reviews}/>
 
     <InsightsSection />
 
-    <section className="premium-section premium-faq"><div className="premium-container faq-grid"><div><p className="eyebrow">A FEW THINGS YOU MIGHT ASK</p><h2>Good questions.<br/>Clear answers.</h2><Link href="/contact" className="p-text-link">Let&apos;s talk about yours <ArrowUpRight size={17}/></Link></div><div>{FAQS_DATA.slice(0,4).map(faq=><details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div></div></section>
+    <HomeFAQ/>
 
-    <section className="premium-cta"><div className="premium-container"><div><p className="eyebrow">LET&apos;S BUILD WHAT&apos;S NEXT</p><h2>Big idea?<br/>Let&apos;s make it real.</h2><p>Tell us where you want to go. We&apos;ll help you figure out how to get there.</p><Link href="/contact" className="p-button">Start a project <ArrowUpRight size={19}/></Link></div><div className="cta-symbol" aria-hidden="true">↗</div></div></section>
+    <ProjectCTA/>
   </main>;
 }
 
