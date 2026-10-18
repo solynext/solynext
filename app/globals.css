@@ -1119,7 +1119,7 @@ body{background:var(--page);color:var(--ink)}
 .p-button{display:inline-flex;align-items:center;justify-content:center;gap:28px;min-height:52px;padding:14px 24px;border:1px solid var(--brand);border-radius:5px;background:var(--brand);color:#fff;font-size:14px;font-weight:600;transition:background .2s,transform .2s;cursor:pointer}
 .p-button:hover{background:var(--brand-strong);transform:translateY(-2px)}
 .nav-cta{min-height:43px;padding:9px 18px;font-size:12px;gap:24px}
-.premium-menu-toggle{display:none;background:none;border:1px solid var(--line);border-radius:5px;padding:8px;color:var(--ink);cursor:pointer}
+.premium-menu-toggle{display:none;background:none;border:0;border-radius:5px;padding:8px;color:var(--ink);cursor:pointer}
 .premium-mobile-nav{padding:8px 24px 20px;border-top:1px solid var(--line)}
 .premium-mobile-nav a{display:flex;align-items:center;justify-content:space-between;padding:14px 4px;border-bottom:1px solid var(--line);color:var(--ink)}
 .premium-mobile-nav a[aria-current]{color:var(--brand)}
@@ -1481,3 +1481,78 @@ main .visual-card [class~="ring-[#00D9FF]"]{--tw-ring-color:var(--card-edge)}
 
 .brand-logo-image { width: 40px; height: 40px; margin-right: 10px; object-fit: contain; }
 @media (max-width: 900px) { .brand-logo-image { width: 34px; height: 34px; } }
+
+/* Mobile navigation opens as a left sidebar. */
+.premium-mobile-drawer{position:fixed;inset:0;margin:0;padding:0;width:100%;max-width:none;height:100dvh;max-height:none;border:0;background:transparent;color:var(--ink)}
+.premium-mobile-drawer::backdrop{background:rgb(18 18 24 / 45%);backdrop-filter:blur(3px)}
+.premium-mobile-panel{box-sizing:border-box;width:min(320px,85vw);height:100%;overflow-y:auto;overscroll-behavior:contain;background:#fcfafb;box-shadow:12px 0 40px #00000018;padding:max(24px,env(safe-area-inset-top)) 24px max(24px,env(safe-area-inset-bottom))}
+.premium-mobile-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:24px;font-size:18px;font-weight:600}
+.premium-drawer-close{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:transparent;color:var(--ink);cursor:pointer}
+.premium-mobile-panel .premium-mobile-nav{display:block;padding:8px 0 20px;animation:none}
+.premium-mobile-panel .premium-mobile-nav a{font-size:16px;padding:18px 4px;text-decoration:none}
+@media(prefers-reduced-motion:no-preference){.premium-mobile-drawer[open] .premium-mobile-panel{animation:mobile-sidebar-in 240ms ease-out}@keyframes mobile-sidebar-in{from{transform:translateX(-100%)}to{transform:translateX(0)}}}
+
+.premium-nav-brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.premium-nav-brand .premium-menu-toggle{flex-shrink:0}
+@media(max-width:500px){.premium-nav-brand{gap:8px}}
+@media(max-width:380px){.premium-nav-brand{gap:6px}}
+@media(max-width:700px){.premium-nav-actions .nav-cta{display:none}}
+
+/* Readable, content-sized public cards on phones. */
+@media(max-width:600px){
+ .capability-grid,.engagement-grid,.insights-grid,.premium-process{grid-template-columns:minmax(0,1fr);gap:16px}
+ .capability-card,.engagement-card,.insight-card,.premium-process>article,.premium-project{min-width:0}
+ .capability-card,.engagement-card,.premium-process .visual-card{padding:22px}
+ .capability-card h3,.engagement-card h3,.insight-card h3,.premium-process h3{font-size:21px;line-height:1.35;overflow-wrap:anywhere}
+ .capability-card>p,.engagement-card>p,.insight-card-content>p,.premium-process p{font-size:14px;line-height:1.75;max-width:none}
+ .capability-tags,.project-tags{flex-wrap:wrap;gap:7px}
+ .capability-tags li,.project-tags span{max-width:100%;overflow-wrap:anywhere;white-space:normal;line-height:1.5}
+ .capability-card-link,.engagement-card .p-text-link{min-height:44px;font-size:13px}
+ .engagement-card ul{padding-block:20px;margin-block:20px;gap:12px}
+ .engagement-card li{font-size:14px;min-width:0;overflow-wrap:anywhere}
+ .insight-card{display:flex}
+ .insight-card-content{padding:22px;min-width:0}
+ .insight-art{height:180px;min-height:0}
+ .insight-meta{flex-wrap:wrap;gap:6px 12px;line-height:1.5}
+ .insight-card-bottom{min-height:44px;flex-wrap:wrap}
+ .deliverable-item.visual-card,.deliverable-item.visual-card:first-child,.deliverable-item.visual-card:last-child{padding:20px;gap:14px}
+ .deliverable-item>div{min-width:0}
+ .deliverable-item h3{font-size:19px;overflow-wrap:anywhere}
+ .deliverable-item p{font-size:14px;overflow-wrap:anywhere}
+ .premium-process .card-motif{height:80px;margin-bottom:12px}
+ .visual-card.partnership-capability .card-motif{height:80px}
+ .premium-work-grid{gap:28px}
+ .premium-project .project-art{height:auto;aspect-ratio:4/3}
+ .premium-project h3{font-size:22px;overflow-wrap:anywhere}
+ .premium-project>p{font-size:14px;line-height:1.75}
+ .project-meta{gap:12px}
+ .project-meta>span{overflow-wrap:anywhere}
+}
+@media(hover:none){.visual-card:hover,.capability-card:hover,.engagement-card:hover,.insight-card:hover{transform:none}}
+
+/* Keep mobile action labels on one line, including links styled as buttons. */
+@media (max-width: 767px) {
+  :is(button, [role="button"], input[type="submit"], input[type="button"], input[type="reset"], a[class*="button" i], a[class*="btn" i], a[class*="cta" i], a.p-text-link),
+  :is(button, [role="button"], a[class*="button" i], a[class*="btn" i], a[class*="cta" i], a.p-text-link) :is(span, strong, p) {
+    white-space: nowrap !important;
+    text-wrap: nowrap !important;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  :is(button, [role="button"], a[class*="button" i], a[class*="btn" i], a[class*="cta" i], a.p-text-link) {
+    flex-wrap: nowrap;
+  }
+
+  :is(button, [role="button"], a[class*="button" i], a[class*="btn" i], a[class*="cta" i], a.p-text-link) svg {
+    flex-shrink: 0;
+  }
+
+  .hero-actions {
+    flex-wrap: wrap;
+  }
+
+  .hero-actions > a {
+    flex-shrink: 0;
+  }
+}

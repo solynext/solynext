@@ -30,6 +30,7 @@ export const adminPageNavigation = [
     { label: "Media", href: "/admin/media", icon: Image },
     { label: "Technologies", href: "/admin/technologies", icon: Braces },
     { label: "Partners", href: "/admin/partners", icon: Handshake },
+    { label: "Ad System", href: "/admin/ads", icon: PanelsTopLeft },
   ] },
   { label: "Workspace administration", parent: "/admin/settings", items: [
     { label: "Preferences", href: "/admin/settings", icon: Settings },

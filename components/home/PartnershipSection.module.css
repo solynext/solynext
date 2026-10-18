@@ -22,3 +22,13 @@
 @media(max-width:500px){.section{padding:35px 0 38px}.heading{display:block;margin-bottom:22px}.section .title{font-size:29px;letter-spacing:-1px;max-width:18ch}.section .intro{margin-top:14px;text-align:left;font-size:12px}.intro br{display:none}.card{padding:18px;min-height:228px}.cardTop{flex-direction:column;align-items:flex-start;gap:13px;margin-bottom:17px}.section .card h3{font-size:15px}.section .card p{font-size:12px;margin-bottom:18px}.icon{width:40px;height:40px}}
 @media(max-width:340px){.grid{grid-template-columns:1fr}.card{min-height:190px}.cardTop{flex-direction:row;align-items:center}}
 @media(prefers-reduced-motion:reduce){.card,.icon,.arrow{transition:none}.card:hover,.card:active,.card:hover .icon,.card:hover .arrow{transform:none}}
+
+@media(max-width:500px){
+ .grid{grid-template-columns:minmax(0,1fr);gap:14px}
+ .card{min-width:0;min-height:0;padding:22px}
+ .cardTop{flex-direction:row;align-items:center;gap:12px;margin-bottom:16px}
+ .section .card h3{font-size:19px;line-height:1.4;overflow-wrap:anywhere}
+ .section .card p{font-size:14px;line-height:1.75;max-width:none;margin-bottom:16px}
+ .arrow{width:36px;height:36px}
+}
+@media(hover:none){.card:hover,.card:hover .icon,.card:hover .arrow{transform:none}}
