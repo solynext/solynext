@@ -1606,6 +1606,47 @@ main .visual-card [class~="ring-[#00D9FF]"]{--tw-ring-color:var(--card-edge)}
   .hero-copy h1 { font-size: clamp(38px, 8.5vw, 54px); letter-spacing: -2px; }
 }
 
+/* Mobile type scale: compact headings, readable copy, and natural wrapping. */
+@media (max-width: 767px) {
+  .hero-copy h1 {
+    font-size: clamp(32px, 8.5vw, 42px);
+    line-height: 1.15;
+    letter-spacing: -1.2px;
+  }
+
+  .premium-home section h2,
+  main:not(.premium-home) .section-header :is(h1, h2),
+  .internal-heading h1 {
+    font-size: clamp(26px, 6.8vw, 32px);
+    line-height: 1.25;
+    letter-spacing: -.7px;
+    overflow-wrap: break-word;
+    text-wrap: balance;
+  }
+
+  .premium-home :is(.premium-project, .capability-card, .engagement-card, .insight-card, .premium-process) h3 {
+    font-size: clamp(18px, 4.8vw, 21px);
+    line-height: 1.4;
+    letter-spacing: -.3px;
+    overflow-wrap: break-word;
+  }
+
+  .hero-description,
+  .section-header .section-description,
+  .internal-heading > p:not(.eyebrow) {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .premium-home :is(.premium-project, .capability-card, .engagement-card, .insight-card-content, .premium-process) > p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .premium-quote blockquote { font-size: 20px; line-height: 1.6; }
+  .premium-home .eyebrow { letter-spacing: 1px; line-height: 1.6; }
+}
+
 /* Rounded desktop contact action with the original brand fill. */
 @media (min-width: 1151px) {
   .premium-nav-actions .nav-cta {

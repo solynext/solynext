@@ -45,3 +45,4 @@
  .link{min-height:44px;margin-top:14px}
 }
 @media(hover:none){.card:hover{transform:none}.card:hover .link svg{transform:none}}
+@media(max-width:767px){.copy h3{font-size:clamp(20px,5.2vw,23px);line-height:1.35;letter-spacing:-.4px;white-space:normal;overflow-wrap:break-word}}

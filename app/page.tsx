@@ -1,4 +1,5 @@
 import { HeroVideo } from "@/components/home/HeroVideo";
+import { ClientTicker } from "@/components/home/ClientTicker";
 import { HomeAbout } from "@/components/home/HomeAbout";
 import { ProjectCTA } from "@/components/home/ProjectCTA";
 import { HomeFAQ } from "@/components/home/HomeFAQ";
@@ -67,6 +68,7 @@ export default async function HomePage() {
       <div className="premium-container hero-bottom"><span>IDEAS INTO PRODUCTS. COMPLEXITY INTO CLARITY.</span><a href="#services">Discover what we do <span>↓</span></a></div>
     </section>
 
+    <ClientTicker />
     <PartnershipSection />
 
     <section id="services" className="premium-section"><div className="premium-container"><div className="p-section-heading"><div><p className="eyebrow">01 / WHAT WE BUILD</p><h2>Your ambition.<br/>Our engineering.</h2></div><div className="heading-aside"><p>From a new product to a better way of working, we turn complex requirements into useful software.</p><Link className="p-text-link" href="/services">All services <ArrowUpRight size={17}/></Link></div></div><ServiceCards /><div className="services-extra"><span>Need more than engineering?</span><Link href="/services/graphic-design-branding">Brand identity ↗</Link><Link href="/services/digital-marketing">Digital marketing & SEO ↗</Link><Link href="/services">Explore creative services ↗</Link></div></div></section>

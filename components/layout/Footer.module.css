@@ -37,7 +37,7 @@
 @media (max-width: 700px) {
   .container { width: calc(100% - 40px); }
   .intro { align-items: flex-start; flex-direction: column; padding: 36px 0 30px; }
-  .intro h2 { letter-spacing: -1px; }
+  .intro h2 { font-size: clamp(26px, 6.8vw, 32px); line-height: 1.25; letter-spacing: -.7px; }
   .cta { padding: 14px 21px; }
   .grid { gap: 30px 20px; padding: 30px 0; }
   .grid > :first-child, .contact { grid-column: 1 / -1; }
