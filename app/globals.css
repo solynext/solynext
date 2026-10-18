@@ -1530,6 +1530,19 @@ main .visual-card [class~="ring-[#00D9FF]"]{--tw-ring-color:var(--card-edge)}
 }
 @media(hover:none){.visual-card:hover,.capability-card:hover,.engagement-card:hover,.insight-card:hover{transform:none}}
 
+.brand-desktop-wordmark { display: none; }
+.brand-mobile-identity { display: contents; }
+@media (min-width: 1001px) {
+  .brand-mobile-identity { display: none; }
+  .brand-desktop-wordmark {
+    display: block;
+    width: 170px;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+}
+
 /* Cover the entire hero with the video, cropping to fit each screen. */
 .premium-hero { isolation: isolate; }
 .hero-video-background {
@@ -1542,6 +1555,7 @@ main .visual-card [class~="ring-[#00D9FF]"]{--tw-ring-color:var(--card-edge)}
   background: #101827;
 }
 .hero-video-background iframe {
+  opacity: 0;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1549,6 +1563,10 @@ main .visual-card [class~="ring-[#00D9FF]"]{--tw-ring-color:var(--card-edge)}
   height: max(100cqh, 56.25cqw);
   transform: translate(-50%, -50%);
   border: 0;
+}
+.hero-video-background[data-playing="true"] iframe {
+  opacity: 1;
+  transition: opacity 400ms ease;
 }
 .hero-video-background::after {
   content: "";

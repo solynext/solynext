@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { BrandLogo } from "@/components/ui/BrandLogo";
+import { BrandWordmark } from "@/components/ui/BrandWordmark";
 import { HeaderSearch } from "./HeaderSearch";
 import { WebsiteNotificationBell } from "@/components/notifications/WebsiteNotificationBell";
 import { UserProfileMenu } from "@/components/profile/UserProfileMenu";
@@ -39,7 +40,7 @@ export function Navbar() {
    <div className="premium-container premium-nav">
     <div className="premium-nav-brand">
      <button className="premium-menu-toggle" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="premium-mobile-nav" onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button>
-    <Link href="/" className="premium-logo" aria-label="SolyNext home"><BrandLogo size={40} className="brand-logo-image"/>SolyNext<span className="logo-period">.</span></Link>
+    <Link href="/" className="premium-logo" aria-label="SolyNext home"><BrandWordmark/><span className="brand-mobile-identity"><BrandLogo size={40} className="brand-logo-image"/>SolyNext<span className="logo-period">.</span></span></Link>
     </div>
     <nav className="premium-desktop-nav" aria-label="Primary navigation">{links.map(link => <Link key={link.href} href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</Link>)}</nav>
     <div className="premium-nav-actions">
