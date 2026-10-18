@@ -1,3 +1,4 @@
+import { HeroVideo } from "@/components/home/HeroVideo";
 import { HomeAbout } from "@/components/home/HomeAbout";
 import { ProjectCTA } from "@/components/home/ProjectCTA";
 import { HomeFAQ } from "@/components/home/HomeFAQ";
@@ -15,6 +16,17 @@ import { DeliverablesSection } from "@/components/home/DeliverablesSection";
 import { InsightsSection } from "@/components/home/InsightsSection";
 import { PartnershipSection } from "@/components/home/PartnershipSection";
 import { ServiceCards } from "@/components/home/ServiceCards";
+
+const projectCardDescriptions: Record<string, string> = {
+  "finedge-payments": "Cross-border payments with fast, reliable settlement.",
+  "meditrack-clinical": "Patient records and virtual care, connected across 28 clinics.",
+  "swiftcart-marketplace": "Wholesale ordering with live inventory and seamless payments.",
+  "buildcore-erp": "Construction progress, materials, and budgets in one place.",
+  "routeflow-logistics": "Fleet dispatch and delivery tracking in one workspace.",
+  "learnspace-education": "Courses, assignments, and student progress in one portal.",
+  "teamdesk-saas": "One workspace for tasks, customer requests, and reporting.",
+  "atelier-retail": "Product discovery and checkout made simple.",
+};
 
 const steps = [
   ["Discover", "Understand your users, goals, and the problem worth solving."],
@@ -47,6 +59,7 @@ export default async function HomePage() {
   const reviews = projects.flatMap(project => project.testimonial ? [{ id: project.id, ...project.testimonial, project: project.title, slug: project.slug }] : []);
   return <main id="main-content" className="premium-home">
     <section className="premium-hero">
+      <HeroVideo />
       <div className="premium-container hero-grid">
         <div className="hero-copy"><p className="eyebrow"><span/> YOUR SOFTWARE. OUR CRAFT.</p><h1>Great ideas deserve<br/> <span>exceptional</span><br/> software.</h1><p className="hero-description">We design and build web platforms, mobile apps, and custom software that move your business forward.</p><div className="hero-actions"><Link className="p-button" href="/contact">Start a project <ArrowUpRight size={18}/></Link><Link className="p-text-link" href="/portfolio">Explore our work <ArrowRight size={17}/></Link></div><div className="hero-note"><span className="hero-note-icon"><Globe2 size={17}/></span><span>Based in Pakistan. Built for the world.</span></div></div>
         <ProductVisual/>
@@ -58,7 +71,7 @@ export default async function HomePage() {
 
     <section id="services" className="premium-section"><div className="premium-container"><div className="p-section-heading"><div><p className="eyebrow">01 / WHAT WE BUILD</p><h2>Your ambition.<br/>Our engineering.</h2></div><div className="heading-aside"><p>From a new product to a better way of working, we turn complex requirements into useful software.</p><Link className="p-text-link" href="/services">All services <ArrowUpRight size={17}/></Link></div></div><ServiceCards /><div className="services-extra"><span>Need more than engineering?</span><Link href="/services/graphic-design-branding">Brand identity ↗</Link><Link href="/services/digital-marketing">Digital marketing & SEO ↗</Link><Link href="/services">Explore creative services ↗</Link></div></div></section>
 
-    <section className="premium-section work-section"><div className="premium-container"><div className="p-section-heading"><div><p className="eyebrow">02 / SELECTED WORK</p><h2>Built with purpose.<br/>Made to make a difference.</h2></div><Link className="p-text-link" href="/portfolio">View all projects <ArrowUpRight size={17}/></Link></div><div className="premium-work-grid">{featuredProjects.map((project)=><Link href={`/portfolio/${project.slug}`} className="premium-project" key={project.id}><div className="project-art portfolio-home-image"><Image src={project.featuredImage} alt={project.imageAlt} fill sizes="(max-width: 700px) 100vw, 50vw" unoptimized={project.featuredImage.startsWith("https://")} className="object-cover"/></div><div className="project-meta"><span>{project.industry}</span><ArrowUpRight size={23}/></div><h3>{project.title}</h3><p>{project.summary}</p><div className="project-tags">{project.technologies.slice(0,3).map(t=><span key={t}>{t}</span>)}</div></Link>)}</div></div></section>
+    <section className="premium-section work-section"><div className="premium-container"><div className="p-section-heading"><div><p className="eyebrow">02 / SELECTED WORK</p><h2>Built with purpose.<br/>Made to make a difference.</h2></div><Link className="p-text-link" href="/portfolio">View all projects <ArrowUpRight size={17}/></Link></div><div className="premium-work-grid">{featuredProjects.map((project)=><Link href={`/portfolio/${project.slug}`} className="premium-project" key={project.id}><div className="project-art portfolio-home-image"><Image src={project.featuredImage} alt={project.imageAlt} fill sizes="(max-width: 700px) 100vw, 50vw" unoptimized={project.featuredImage.startsWith("https://")} className="object-cover"/></div><div className="project-meta"><span>{project.industry}</span><ArrowUpRight size={23}/></div><h3>{project.title}</h3><p>{projectCardDescriptions[project.slug] ?? project.summary}</p><div className="project-tags">{project.technologies.slice(0,3).map(t=><span key={t}>{t}</span>)}</div></Link>)}</div></div></section>
 
     <IndustriesSection />
 

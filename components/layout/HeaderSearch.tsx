@@ -55,6 +55,7 @@ export function HeaderSearch() {
   return <>
     <button ref={trigger} type="button" className={styles.trigger} aria-label="Search SolyNext" aria-haspopup="dialog" aria-controls="header-search-dialog" aria-keyshortcuts="Control+k Meta+k" onClick={open}>
       <Search size={17} aria-hidden="true" /><span>Search</span>
+      <span className={styles.searchAction} aria-hidden="true"><Search size={16} /></span>
     </button>
     <dialog ref={dialog} id="header-search-dialog" className={styles.dialog} aria-labelledby="header-search-title" onClose={() => trigger.current?.focus()} onClick={event => { if (event.target === event.currentTarget) { const rect = event.currentTarget.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) close(); } }}>
       <div className={styles.panel}>

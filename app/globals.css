@@ -1530,6 +1530,88 @@ main .visual-card [class~="ring-[#00D9FF]"]{--tw-ring-color:var(--card-edge)}
 }
 @media(hover:none){.visual-card:hover,.capability-card:hover,.engagement-card:hover,.insight-card:hover{transform:none}}
 
+/* Cover the entire hero with the video, cropping to fit each screen. */
+.premium-hero { isolation: isolate; }
+.hero-video-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  container-type: size;
+  background: #101827;
+}
+.hero-video-background iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100cqw, 177.78cqh);
+  height: max(100cqh, 56.25cqw);
+  transform: translate(-50%, -50%);
+  border: 0;
+}
+.hero-video-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #faf7f8f2 0%, #faf7f8db 42%, #faf7f899 100%);
+}
+@media (max-width: 700px) {
+  .hero-video-background::after { background: #faf7f8d9; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-video-background iframe { display: none; }
+}
+
+.hero-actions > :is(.p-button, .p-text-link) {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  min-height: 52px;
+  padding-block: 0;
+}
+
+/* A more compact hero headline across screen sizes. */
+.hero-copy h1 {
+  font-size: clamp(44px, 4.65vw, 68px);
+  letter-spacing: -3px;
+}
+@media (max-width: 1100px) {
+  .hero-copy h1 { font-size: 51px; letter-spacing: -2.5px; }
+}
+@media (max-width: 900px) {
+  .hero-copy h1 { font-size: 42px; letter-spacing: -2px; }
+}
+@media (max-width: 700px) {
+  .hero-copy h1 { font-size: clamp(38px, 8.5vw, 54px); letter-spacing: -2px; }
+}
+
+/* Rounded desktop contact action with the original brand fill. */
+@media (min-width: 1151px) {
+  .premium-nav-actions .nav-cta {
+    min-height: 42px;
+    padding: 9px 22px;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    background: linear-gradient(130deg, #a43c69, #7c315a);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 5px 16px #94365e22;
+    transition: background 200ms ease, color 200ms ease, box-shadow 200ms ease;
+  }
+
+  .premium-nav-actions .nav-cta:hover {
+    background: var(--brand-strong);
+    color: #fff;
+    box-shadow: 0 7px 20px #94365e30;
+    transform: none;
+  }
+
+}
+
 /* Keep mobile action labels on one line, including links styled as buttons. */
 @media (max-width: 767px) {
   :is(button, [role="button"], input[type="submit"], input[type="button"], input[type="reset"], a[class*="button" i], a[class*="btn" i], a[class*="cta" i], a.p-text-link),

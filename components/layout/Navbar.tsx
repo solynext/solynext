@@ -44,7 +44,7 @@ export function Navbar() {
     <nav className="premium-desktop-nav" aria-label="Primary navigation">{links.map(link => <Link key={link.href} href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</Link>)}</nav>
     <div className="premium-nav-actions">
      <HeaderSearch />
-     <Link href="/contact" className="p-button nav-cta" aria-label="Contact SolyNext"><span>Let&apos;s talk</span><ArrowUpRight size={16}/></Link>
+     <Link href="/contact" className="p-button nav-cta" aria-label="Contact SolyNext"><span>Let&apos;s talk</span></Link>
      <WebsiteNotificationBell />
      <UserProfileMenu />
     </div>

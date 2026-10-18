@@ -2,6 +2,7 @@
 .trigger{display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:var(--surface);padding:4px;cursor:pointer;color:var(--ink);transition:background .2s,box-shadow .2s}
 .trigger:hover{background:var(--brand-soft);box-shadow:var(--shadow-raised)}
 .trigger:disabled{opacity:.65;cursor:wait}
+@media(max-width:767px){.trigger,.trigger .avatar{border:0}}
 .avatar{display:grid;place-items:center;flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--brand-soft);color:var(--brand);overflow:hidden;border:1px solid var(--line)}
 .avatar img{width:100%;height:100%;object-fit:cover;display:block}
 .popover{position:absolute;right:0;top:calc(100% + 12px);width:290px;max-width:calc(100vw - 32px);border:1px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:0 16px 48px #38203a20;padding:8px;z-index:45}
