@@ -1,4 +1,4 @@
-.section{padding:48px 0 52px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#faf7fb)}
+.section{padding:48px 0 52px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#f7f9fb)}
 .heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:27px}
 .section .eyebrow{display:flex;align-items:center;gap:8px;font:10px var(--font-geist-mono);letter-spacing:1.8px;color:var(--brand);margin-bottom:13px}
 .eyebrow>span{width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px var(--brand-soft)}
@@ -6,11 +6,11 @@
 .title>span{color:var(--brand)}
 .section .intro{font-size:13px;line-height:1.7;color:var(--muted);text-align:right}
 .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;position:relative}
-.card{position:relative;display:flex;flex-direction:column;min-height:210px;padding:24px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(140deg,#fff,#fcf9fc);color:var(--ink);box-shadow:0 4px 16px #38203a04;transition:transform 400ms var(--motion-ease),border-color 250ms ease,box-shadow 400ms ease}
-.card:hover{transform:translateY(-5px);border-color:#cba0ba;box-shadow:0 15px 35px #38203a0d}
+.card{position:relative;display:flex;flex-direction:column;min-height:210px;padding:24px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(140deg,#fff,#f9fbfc);color:var(--ink);box-shadow:0 4px 16px #202d3a04;transition:transform 400ms var(--motion-ease),border-color 250ms ease,box-shadow 400ms ease}
+.card:hover{transform:translateY(-5px);border-color:#9cafcf;box-shadow:0 15px 35px #202d3a0d}
 .card:active{transform:translateY(-1px) scale(.985)}
 .cardTop{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:22px}
-.icon{display:grid;place-items:center;width:43px;height:43px;border-radius:13px;border:1px solid #ecdeea;background:linear-gradient(135deg,#f8eef5,#eee2ef);color:var(--brand);transition:transform 400ms var(--motion-ease)}
+.icon{display:grid;place-items:center;width:43px;height:43px;border-radius:13px;border:1px solid #dce6ee;background:linear-gradient(135deg,#eef3f8,#e2e9ef);color:var(--brand);transition:transform 400ms var(--motion-ease)}
 .card:hover .icon{transform:rotate(-7deg)}
 .stage{font:9px var(--font-geist-mono);letter-spacing:1px;color:var(--muted)}
 .section .card h3{font-size:16px;font-weight:600;letter-spacing:-.35px;line-height:1.4;margin:0}

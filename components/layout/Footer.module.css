@@ -1,5 +1,5 @@
 .footer {
-  background: radial-gradient(ellipse at 5% 0%, #f5dfe7 0%, transparent 48%), radial-gradient(ellipse at 95% 70%, #eee8f3 0%, transparent 45%), #f8f1f4;
+  background: radial-gradient(ellipse at 5% 0%, #dfebf5 0%, transparent 48%), radial-gradient(ellipse at 95% 70%, #e8eef3 0%, transparent 45%), #f1f5f8;
   border-top: 1px solid var(--line);
   color: var(--muted);
 }
@@ -9,8 +9,8 @@
 .eyebrow { display: block; font-size: 10px; letter-spacing: 1.8px; font-weight: 650; color: var(--brand); margin-bottom: 16px; }
 .intro h2 { font-size: clamp(30px, 3.5vw, 46px); line-height: 1.15; letter-spacing: -1.7px; font-weight: 600; }
 .intro h2 span, .brand span { color: var(--brand); }
-.cta { display: inline-flex; align-items: center; justify-content: center; gap: 28px; flex-shrink: 0; background: var(--brand); color: #fff; border-radius: 100px; padding: 16px 24px; font-size: 13px; font-weight: 600; box-shadow: 0 6px 18px #b4234b14; transition: background 180ms ease, box-shadow 180ms ease; }
-.cta:hover { background: var(--brand-strong); box-shadow: 0 8px 22px #b4234b25; }
+.cta { display: inline-flex; align-items: center; justify-content: center; gap: 28px; flex-shrink: 0; background: var(--brand); color: #fff; border-radius: 100px; padding: 16px 24px; font-size: 13px; font-weight: 600; box-shadow: 0 6px 18px #2358b414; transition: background 180ms ease, box-shadow 180ms ease; }
+.cta:hover { background: var(--brand-strong); box-shadow: 0 8px 22px #2358b425; }
 .grid { display: grid; grid-template-columns: 1.3fr .8fr .85fr 1.1fr; gap: 40px; padding: 42px 0; }
 .grid > * { min-width: 0; }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-size: 27px; font-weight: 700; letter-spacing: -1.2px; color: var(--ink); }

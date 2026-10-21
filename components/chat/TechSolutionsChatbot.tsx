@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { ArrowUpRight, MessageCircle, Send, Trash2, X } from "lucide-react";
 import { quickActions, welcomeMessage } from "@/lib/chat/responses";
 import { chatService } from "@/lib/chat/service";
@@ -12,7 +11,6 @@ import { ChatAvatar } from "./ChatAvatar";
 import styles from "./TechSolutionsChatbot.module.css";
 
 export function TechSolutionsChatbot() {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([{ id: "welcome", role: "assistant", text: welcomeMessage }]);
   const [draft, setDraft] = useState("");
@@ -35,7 +33,7 @@ export function TechSolutionsChatbot() {
       if (!mounted) return;
       try {
         const saved = readChatHistory(window.localStorage);
-        if (saved) setMessages(saved);
+        if (saved) setMessages(saved.map(message => message.id === "welcome" ? { ...message, text: welcomeMessage } : message));
       } catch { setStorageNotice("Chat history cannot be saved in this browser."); }
       setHistoryReady(true);
     });
@@ -111,33 +109,32 @@ export function TechSolutionsChatbot() {
     const message: ChatMessage = { id: crypto.randomUUID(), role: "user", text };
     const history = [...messages, message];
     setMessages(history); setDraft("");
-    void respond({ message: text, history, page: pathname });
+    void respond({ message: text, history });
   };
 
   return <aside ref={widget} className={styles.widget} aria-label="SolyNext service assistant" onKeyDown={event => { if (open && event.key === "Escape") { event.stopPropagation(); minimize(); } }}>
     <section id="solynext-chat" className={`${styles.panel} ${open ? styles.open : ""}`} role="dialog" aria-label="Tech Solutions chat" aria-modal="false" aria-hidden={!open} inert={!open}>
       <header className={styles.header}>
         <ChatAvatar role="assistant" large/>
-        <div><h2>SolyNext assistant</h2><p>Technology & digital solutions</p></div>
+        <div><h2>SolyNext assistant</h2></div>
         <div className={styles.headerActions}><button type="button" className={styles.close} onClick={() => setConfirmClear(value => !value)} aria-label="Clear chat" title="Clear saved chat" disabled={messages.length === 1 || !historyReady} aria-expanded={confirmClear} aria-controls="chat-clear-confirm"><Trash2 size={16}/></button><button type="button" className={styles.close} onClick={minimize} aria-label="Minimize chat"><X size={19}/></button></div>
       </header>
-      {confirmClear && <div className={styles.clearConfirm} id="chat-clear-confirm"><p>Clear this chat and its saved history from this browser?</p><div><button type="button" onClick={clear}>Clear history</button><button type="button" onClick={() => setConfirmClear(false)}>Keep chat</button></div></div>}
+      {confirmClear && <div className={styles.clearConfirm} id="chat-clear-confirm"><p>Clear this conversation?</p><div><button type="button" onClick={clear}>Clear</button><button type="button" onClick={() => setConfirmClear(false)}>Cancel</button></div></div>}
       <div className={styles.transcript} ref={transcript} role="log" aria-label="Chat messages" aria-live="polite" aria-relevant="additions text">
-        <p className={styles.intro}>LET’S BUILD SOMETHING GREAT</p>
         {messages.map(message => <div className={`${styles.message} ${message.role === "user" ? styles.user : styles.assistant}`} key={message.id}>
-          <span className={styles.speaker}><ChatAvatar role={message.role}/>{message.role === "user" ? "You" : "SolyNext"}</span>
+          <span className={styles.srOnly}>{message.role === "user" ? "You" : "SolyNext"}</span>
           <div className={styles.bubble}><p>{message.text}</p>{message.links && <div className={styles.links}>{message.links.map(link => <Link key={link.href} href={link.href} onClick={minimize}>{link.label}<ArrowUpRight size={13} aria-hidden="true"/></Link>)}</div>}</div>
         </div>)}
         {messages.length === 1 && <div className={styles.quickActions} aria-label="Suggested questions">{quickActions.map(action => <button type="button" key={action} onClick={() => send(action)} disabled={pending || !historyReady}>{action}<ArrowUpRight size={12} aria-hidden="true"/></button>)}</div>}
-        {pending && <div className={styles.typing} role="status"><span aria-hidden="true"><i/><i/><i/></span><span>SolyNext is typing…</span></div>}
+        {pending && <div className={styles.typing} role="status"><span aria-hidden="true"><i/><i/><i/></span><span className={styles.srOnly}>Typing</span></div>}
         {error && <div className={styles.error} role="alert"><p>{error}</p><button type="button" onClick={() => { if (failedRequest.current) void respond(failedRequest.current); }}>Try again</button><Link href="/contact" onClick={minimize}>Contact team</Link></div>}
       </div>
       <form className={styles.composer} onSubmit={event => { event.preventDefault(); send(draft); }}>
         <label className={styles.srOnly} htmlFor="solynext-chat-input">Your message</label>
-        <input ref={input} id="solynext-chat-input" value={draft} onChange={event => setDraft(event.target.value)} maxLength={1000} placeholder="What would you like to build?" autoComplete="off"/>
+        <input ref={input} id="solynext-chat-input" value={draft} onChange={event => setDraft(event.target.value)} maxLength={1000} placeholder="Type a message" autoComplete="off"/>
         <button type="submit" aria-label="Send message" disabled={!draft.trim() || pending || Boolean(error) || !historyReady}><Send size={18}/></button>
       </form>
-      <p className={styles.footnote}>{storageNotice && <span role="status">{storageNotice} </span>}AI may make mistakes. Avoid sharing sensitive details. <Link href="/privacy-policy">Chat privacy</Link> · <Link href="/contact" onClick={minimize}>Contact our team</Link></p>
+      <p className={styles.footnote}>{storageNotice && <span role="status">{storageNotice} </span>}<Link href="/contact" onClick={minimize}>Contact our team</Link></p>
     </section>
     <button ref={launcher} type="button" className={styles.launcher} aria-label={open ? "Minimize SolyNext chat" : "Open SolyNext chat"} aria-expanded={open} aria-controls="solynext-chat" aria-haspopup="dialog" onClick={() => open ? minimize() : setOpen(true)}>{open ? <X size={23}/> : <MessageCircle size={25}/>}</button>
   </aside>;

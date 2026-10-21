@@ -6,7 +6,7 @@ export interface AdInput {
   page: string; status: "Draft" | "Published"; order: number;
 }
 export interface WebsiteAd extends AdInput { id: string; updatedAt: string }
-export const emptyAd: AdInput = { name: "", title: "Your next big idea starts here", description: "Build something remarkable with SolyNext.", label: "Sponsored", button: "Learn more", url: "/contact", image: "", background: "#f2f2f7", foreground: "#1c1c1e", layout: "banner", placement: "bottom", page: "/", status: "Draft", order: 0 };
+export const emptyAd: AdInput = { name: "", title: "Your next big idea starts here", description: "Build something remarkable with SolyNext.", label: "Sponsored", button: "Learn more", url: "/contact", image: "", background: "#edf5ff", foreground: "#0b2045", layout: "banner", placement: "bottom", page: "/", status: "Draft", order: 0 };
 export function safeAdUrl(value: string) {
   if (/^\/(?!\/)/.test(value) && !/[\\\s\u0000-\u001f]/.test(value)) return true;
   try { const url = new URL(value); return ["http:", "https:"].includes(url.protocol) && !url.username && !url.password; } catch { return false; }

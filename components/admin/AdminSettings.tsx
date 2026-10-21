@@ -15,7 +15,7 @@ const tabs = [{ label: "General", icon: Globe2 }, { label: "Brand & appearance",
 export function AdminSettings({ seo, seoPages, initialTab }: { seo: Settings; seoPages: SeoPageChoice[]; initialTab?: string }) {
   const [tab, setTab] = useState(initialTab === "seo" ? "SEO" : "General");
   const { notify } = useAdmin();
-  const [values, setValues] = useState({ name: "SolyNext", email: "solynextsolutions@gmail.com", url: "https://solynext.example", timezone: "Asia/Karachi", tagline: "Your software. Our craft.", color: "#94365e", inquiries: true, reviews: true, content: false });
+  const [values, setValues] = useState({ name: "SolyNext", email: "solynextsolutions@gmail.com", url: "https://solynext.example", timezone: "Asia/Karachi", tagline: "Your software. Our craft.", color: "#0057d9", inquiries: true, reviews: true, content: false });
   const textField = (label: string, key: "name" | "email" | "url" | "timezone" | "tagline" | "color", type = "text") => <label>{label}<input type={type} value={values[key]} maxLength={300} required onChange={event => setValues(previous => ({ ...previous, [key]: event.target.value }))}/></label>;
   return <>
     <AdminPageHeading title="Workspace settings" description="Manage the preferences behind your website and admin workspace."/>

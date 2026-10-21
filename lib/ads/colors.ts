@@ -14,7 +14,7 @@ export function contrastRatio(first: string, second: string) {
 /** Keep the chosen text color when readable; otherwise use black or white. */
 export function readableAdColors(background: string, foreground: string) {
   const valid = (color: string) => /^#[0-9a-f]{6}$/i.test(color);
-  const surface = valid(background) ? background : "#132b24";
+  const surface = valid(background) ? background : "#001b60";
   const text = valid(foreground) && contrastRatio(surface, foreground) >= 4.5
     ? foreground
     : contrastRatio(surface, "#ffffff") >= contrastRatio(surface, "#000000") ? "#ffffff" : "#000000";

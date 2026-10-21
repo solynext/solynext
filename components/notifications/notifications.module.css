@@ -3,7 +3,7 @@
 .trigger:hover{background:var(--brand-soft);color:var(--brand)}
 @media(max-width:767px){.trigger{border:0}}
 .count{position:absolute;top:-4px;right:-5px;display:grid;place-items:center;min-width:18px;height:18px;padding:0 4px;border-radius:10px;background:var(--brand);color:white;font-size:10px;font-weight:650;border:2px solid var(--surface)}
-.panel{position:absolute;top:calc(100% + 14px);right:0;width:370px;max-width:calc(100vw - 32px);border:1px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:0 16px 48px #38203a20;z-index:45;overflow:hidden}
+.panel{position:absolute;top:calc(100% + 14px);right:0;width:370px;max-width:calc(100vw - 32px);border:1px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:0 16px 48px #202d3a20;z-index:45;overflow:hidden}
 .heading{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 18px 12px}
 .heading h2{font-size:17px;font-weight:650;letter-spacing:-.3px;margin:0}
 .heading p{font-size:12px;color:var(--muted);margin:5px 0 0}

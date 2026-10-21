@@ -6,7 +6,7 @@ import type { CSSProperties } from "react";
 import { readableAdColors } from "@/lib/ads/colors";
 import styles from "./ads.module.css";
 export function AdBlock({ ad, preview = false, onDismiss }: { ad: AdInput; preview?: boolean; onDismiss?: () => void }) {
-  const colors = readableAdColors("#f2f2f7", "#1c1c1e");
+  const colors = readableAdColors("#f2f4f7", "#171d23");
   const palette = { backgroundColor: colors.background, color: colors.foreground, "--ad-background": colors.background, "--ad-foreground": colors.foreground } as CSSProperties;
   return <aside aria-label={ad.label || "Advertisement"} className={`${styles.ad} ${styles[ad.layout]}`} style={palette}>
     {(onDismiss || preview) && <button type="button" className={styles.close} onClick={onDismiss} disabled={preview} aria-label={`Dismiss advertisement: ${ad.title}`}><X size={18}/></button>}

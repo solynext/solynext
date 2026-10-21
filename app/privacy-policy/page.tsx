@@ -44,7 +44,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="space-y-2">
             <h2 className="text-base font-bold text-[#050505]">Website assistant</h2>
-            <p>Your chat history is saved in this browser and can be removed with the chat&apos;s clear history button. When AI replies are enabled, your message, recent conversation, and current page path are sent through our server to Google&apos;s Gemini API to prepare a response using public website information. This feature does not write chat transcripts to our application database. Google processes requests under its applicable API terms and privacy policies. Avoid sharing passwords, payment information, or confidential project details. AI answers may be inaccurate; confirm quotations and commitments with our team.</p>
+            <p>The SolyNext assistant uses predefined website answers in your browser. Chat messages are not sent to an external AI service. Your conversation history is saved in this browser and can be removed with the chat&apos;s clear history button. Contact our team to confirm project scope, quotations, and commitments.</p>
           </section>
 
           <section className="space-y-2">

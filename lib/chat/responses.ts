@@ -2,8 +2,8 @@ import type { ChatMessage, ChatReply } from "./types";
 import { analyzeQuestion, normalizeQuestion, type QuestionAnalysis, type ServiceIntent } from "./analysis";
 import { capabilities } from "./capabilities";
 
-export const welcomeMessage = "Hi! I'm the SolyNext assistant. I can help you explore our technology services and digital solutions. What would you like to build?";
-export const quickActions = ["What can you develop?", "Our Services", "Website Development", "Mobile Apps", "UI/UX Design", "Start a Project"];
+export const welcomeMessage = "Hi! How can we help?";
+export const quickActions = ["Our Services", "Website Development", "Start a Project"];
 
 const contact = { label: "Discuss your project", href: "/contact" };
 const serviceReply = (text: string, intent: ServiceIntent): ChatReply => ({ text, links: [{ label: "Explore this service", href: `/services/${capabilities[intent].slug}` }, contact] });

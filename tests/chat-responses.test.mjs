@@ -8,7 +8,7 @@ function load(name, imports = {}) {
   const source = fs.readFileSync(new URL(`../lib/chat/${name}.ts`, import.meta.url), 'utf8');
   const code = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
   const compiled = { exports: {} };
-  vm.runInNewContext(code, { module: compiled, exports: compiled.exports, require: name => imports[name] ?? load(name.replace("./", "")), setTimeout, clearTimeout, DOMException, TextEncoder, fetch: (_url, { signal }) => new Promise((_resolve, reject) => signal.addEventListener('abort', () => reject(new DOMException('Request cancelled', 'AbortError')), { once: true })) });
+  vm.runInNewContext(code, { module: compiled, exports: compiled.exports, require: name => imports[name] ?? load(name.replace("./", "")), setTimeout, clearTimeout, DOMException });
   return compiled.exports;
 }
 const responses = load('responses');
@@ -30,7 +30,7 @@ test('service questions route to the corresponding existing service page', () =>
   assert.equal(responses.getPredefinedReply('UI/UX design for a mobile app').links[0].href,'/services/ui-ux-design');
   assert.match(responses.getPredefinedReply('I need payments and login').text,/first release/);
 });
-test('pending server replies can be cancelled without completing an abandoned conversation', async () => {
+test('pending local replies can be cancelled without completing an abandoned conversation', async () => {
   const { chatService } = load('service', { './responses': responses });
   const controller = new AbortController();
   const request = chatService.reply({message:'Our Services',history:[]}, controller.signal);

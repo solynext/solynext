@@ -1,26 +1,26 @@
-.section{position:relative;background:radial-gradient(ellipse at 90% 50%,#f8f3fc 0,transparent 55%),#fff}
+.section{position:relative;background:radial-gradient(ellipse at 90% 50%,#f3f8fc 0,transparent 55%),#fff}
 .layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:72px}
 .intro h2>span{color:var(--brand)}
-.description{margin-top:24px;max-width:475px;font-size:15px;line-height:1.95;color:#776879}
+.description{margin-top:24px;max-width:475px;font-size:15px;line-height:1.95;color:#5a7187}
 .link{display:inline-flex;align-items:center;gap:22px;min-height:44px;font-size:14px;font-weight:600;color:var(--brand);margin-top:24px}
 .link>span{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--brand-soft);transition:transform .2s}
 .link:hover>span{transform:translate(2px,-2px)}
 .link:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:8px}
-.location{display:flex;align-items:center;gap:12px;margin-top:30px;padding-top:24px;border-top:1px solid #eee7ef;max-width:400px}
-.location>span{display:grid;place-items:center;width:40px;height:40px;flex-shrink:0;border:1px solid #e8e0eb;border-radius:12px;background:#faf8fc;color:#8c6d9b}
-.location strong{display:block;font-size:12px;font-weight:600;color:#514256}
-.location p{font-size:11px;color:#8d7b92;margin-top:4px}
+.location{display:flex;align-items:center;gap:12px;margin-top:30px;padding-top:24px;border-top:1px solid #e7ebef;max-width:400px}
+.location>span{display:grid;place-items:center;width:40px;height:40px;flex-shrink:0;border:1px solid #e0e5eb;border-radius:12px;background:#f8fafc;color:#6b849d}
+.location strong{display:block;font-size:12px;font-weight:600;color:#3d4c5b}
+.location p{font-size:11px;color:#6e879f;margin-top:4px}
 .principles{display:grid;gap:16px}
-.card{display:flex;align-items:flex-start;gap:20px;padding:26px;border:1px solid #e9e0ed;border-radius:20px;background:linear-gradient(120deg,#fff,#fcfaff);box-shadow:0 6px 22px #47285005;min-width:0}
-.icon{display:grid;place-items:center;width:52px;height:52px;flex-shrink:0;border:1px solid #e6daf3;border-radius:15px;background:#f1eafa;color:#8654ac}
+.card{display:flex;align-items:flex-start;gap:20px;padding:26px;border:1px solid #e0e7ed;border-radius:20px;background:linear-gradient(120deg,#fff,#fafdff);box-shadow:0 6px 22px #283c5005;min-width:0}
+.icon{display:grid;place-items:center;width:52px;height:52px;flex-shrink:0;border:1px solid #dae6f3;border-radius:15px;background:#eaf2fa;color:#5480ac}
 .card[data-tone="1"]{background:linear-gradient(120deg,#fff,#f8fcff);border-color:#e0eaf0}
 .card[data-tone="1"] .icon{background:#eaf6fc;border-color:#d8ecf7;color:#4285a7}
-.card[data-tone="2"]{background:linear-gradient(120deg,#fff,#fff8fb);border-color:#efdee7}
-.card[data-tone="2"] .icon{background:#fcebf2;border-color:#f4dbe6;color:#aa557d}
+.card[data-tone="2"]{background:linear-gradient(120deg,#fff,#f9fcfe);border-color:#dee7ef}
+.card[data-tone="2"] .icon{background:#ebf4fc;border-color:#dbe8f4;color:#5374ac}
 .card>div{min-width:0}
-.number{display:block;margin:1px 0 10px;font-size:9px;font-weight:600;letter-spacing:1.4px;color:#a08da6}
-.card h3{font-size:17px;line-height:1.5;font-weight:600;letter-spacing:-.3px;color:#302436;margin:0}
-.card p{font-size:13px;line-height:1.85;color:#7b6a81;margin-top:8px;overflow-wrap:anywhere}
+.number{display:block;margin:1px 0 10px;font-size:9px;font-weight:600;letter-spacing:1.4px;color:#859aae}
+.card h3{font-size:17px;line-height:1.5;font-weight:600;letter-spacing:-.3px;color:#242d36;margin:0}
+.card p{font-size:13px;line-height:1.85;color:#5e768d;margin-top:8px;overflow-wrap:anywhere}
 @media(max-width:1000px){.layout{gap:36px}.card{padding:22px;gap:16px}.icon{width:46px;height:46px}}
 @media(max-width:700px){.layout{grid-template-columns:1fr;gap:30px}.description{font-size:14px;margin-top:20px;max-width:none}.location{max-width:none;margin-top:22px;padding-top:20px}.principles{gap:12px}.card{padding:22px 18px;border-radius:16px;gap:14px}.card h3{font-size:16px}.card p{font-size:13px}.number{font-size:8px}.icon{width:42px;height:42px;border-radius:12px}}
 @media(prefers-reduced-motion:reduce){.link>span{transition:none}.link:hover>span{transform:none}}
