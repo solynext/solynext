@@ -1,14 +1,11 @@
+import { getPageMetadata } from "@/lib/seo/metadata";
 import { CardMotif, cardTone } from "@/components/ui/CardMotif";
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
-export const metadata = {
-  title: "Delivery Process & Engineering Methodology — SolyNext",
-  description:
-    "Learn about our 8-stage software delivery workflow, from discovery workshops to automated testing and post-launch support.",
-};
+export async function generateMetadata() { return getPageMetadata("/process"); }
 
 export default function ProcessPage() {
   const fullSteps = [
@@ -131,7 +128,7 @@ export default function ProcessPage() {
         </div>
 
         {/* Collaboration Guarantee */}
-        <div className="mt-16 p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
+        <div className="visual-card mt-16 p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
           <h2 className="text-xl font-bold text-white mb-2">
             Transparent Collaboration
           </h2>

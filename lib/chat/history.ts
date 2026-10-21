@@ -3,7 +3,8 @@ import { capabilities } from "./capabilities";
 
 export const CHAT_HISTORY_KEY = "solynext.chat.history.v1";
 const MAX_MESSAGES = 201;
-const allowedLinks = new Set(["/contact", "/services", ...Object.values(capabilities).map(service => `/services/${service.slug}`)]);
+const allowedLinks = new Set(["/", "/about", "/contact", "/services", "/portfolio", "/technologies", "/solutions", "/pricing", "/process", "/careers", "/blog", ...Object.values(capabilities).map(service => `/services/${service.slug}`)]);
+const isSafeWebsiteLink = (href: string) => allowedLinks.has(href) || /^\/(?:blog|portfolio)\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(href);
 type StorageAccess = Pick<Storage, "getItem" | "setItem" | "removeItem">;
 
 /** Treat browser storage as untrusted. Never restore external or executable links. */
@@ -16,9 +17,9 @@ export function readChatHistory(storage: StorageAccess): ChatMessage[] | null {
     const ids = new Set<string>();
     const messages: ChatMessage[] = [];
     for (const item of saved.messages) {
-      if (!item || typeof item.id !== "string" || item.id.length > 100 || ids.has(item.id) || !["user", "assistant"].includes(item.role) || typeof item.text !== "string" || !item.text.trim() || item.text.length > 6000) return null;
+      if (!item || typeof item.id !== "string" || item.id.length > 100 || ids.has(item.id) || !["user", "assistant"].includes(item.role) || typeof item.text !== "string" || !item.text.trim() || item.text.length > 8000) return null;
       ids.add(item.id);
-      const links = Array.isArray(item.links) && item.role === "assistant" ? item.links.filter((link: unknown): link is { label: string; href: string } => Boolean(link && typeof link === "object" && "label" in link && "href" in link && typeof link.label === "string" && link.label.length <= 100 && typeof link.href === "string" && allowedLinks.has(link.href))).slice(0, 3) : [];
+      const links = Array.isArray(item.links) && item.role === "assistant" ? item.links.filter((link: unknown): link is { label: string; href: string } => Boolean(link && typeof link === "object" && "label" in link && "href" in link && typeof link.label === "string" && link.label.length <= 200 && typeof link.href === "string" && isSafeWebsiteLink(link.href))).slice(0, 3) : [];
       messages.push({ id: item.id, role: item.role, text: item.text, ...(links.length ? { links } : {}) });
     }
     return messages;
@@ -32,7 +33,12 @@ export function saveChatHistory(storage: StorageAccess, messages: ChatMessage[])
     else if (messages.at(-1)?.role === "assistant") {
       const welcome = messages.find(message => message.id === "welcome");
       const recent = messages.filter(message => message.id !== "welcome").slice(-200);
-      storage.setItem(CHAT_HISTORY_KEY, JSON.stringify({ version: 1, messages: welcome ? [welcome, ...recent] : recent }));
+      let serialized = JSON.stringify({ version: 1, messages: welcome ? [welcome, ...recent] : recent });
+      while (serialized.length > 600000 && recent.length > 2) {
+        recent.splice(0, 2);
+        serialized = JSON.stringify({ version: 1, messages: welcome ? [welcome, ...recent] : recent });
+      }
+      storage.setItem(CHAT_HISTORY_KEY, serialized);
     }
     return true;
   } catch { return false; }

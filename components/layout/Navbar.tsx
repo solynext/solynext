@@ -9,11 +9,13 @@ import { BrandWordmark } from "@/components/ui/BrandWordmark";
 import { HeaderSearch } from "./HeaderSearch";
 import { WebsiteNotificationBell } from "@/components/notifications/WebsiteNotificationBell";
 import { UserProfileMenu } from "@/components/profile/UserProfileMenu";
+import { ConsultationModal } from "@/components/ui/ConsultationModal";
 
 const links = [{href:"/",label:"Home"},{href:"/services",label:"Services"},{href:"/portfolio",label:"Our work"},{href:"/about",label:"About"},{href:"/blog",label:"Insights"},{href:"/contact",label:"Contact"}];
 
 export function Navbar() {
  const [open, setOpen] = useState(false);
+ const [inquiryOpen, setInquiryOpen] = useState(false);
  const drawer = useRef<HTMLDialogElement>(null);
  const pathname = usePathname();
  const isActive = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -45,7 +47,7 @@ export function Navbar() {
     <nav className="premium-desktop-nav" aria-label="Primary navigation">{links.map(link => <Link key={link.href} href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</Link>)}</nav>
     <div className="premium-nav-actions">
      <HeaderSearch />
-     <Link href="/contact" className="p-button nav-cta" aria-label="Contact SolyNext"><span>Let&apos;s talk</span></Link>
+     <button type="button" className="p-button nav-cta" aria-haspopup="dialog" onClick={() => setInquiryOpen(true)}><span>Let&apos;s talk</span></button>
      <WebsiteNotificationBell />
      <UserProfileMenu />
     </div>
@@ -57,5 +59,6 @@ export function Navbar() {
     <nav id="premium-mobile-nav" className="premium-mobile-nav" aria-label="Mobile navigation">{links.map(link => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}<ArrowUpRight size={17}/></Link>)}</nav>
    </div>
   </dialog>
+  <ConsultationModal isOpen={inquiryOpen} onClose={() => setInquiryOpen(false)} defaultService="" inquiryCard />
  </>;
 }

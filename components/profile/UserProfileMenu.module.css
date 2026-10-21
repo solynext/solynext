@@ -29,3 +29,5 @@
 @media(max-width:380px){.trigger{padding:2px}.avatar{width:28px;height:28px}.largeAvatar{width:64px;height:64px}}
 @media(max-width:500px){.dialog{padding:22px;border-radius:20px}.imageSection{padding:14px;gap:12px}.hint{font-size:10px}.heading h2{font-size:26px}.toast{top:82px}}
 @media(prefers-reduced-motion:reduce){.spinner{animation:none}.trigger,.secondary,.primary{transition:none}}
+
+@media(max-width:767px){:global(.premium-header) .trigger,:global(.premium-header) .trigger:hover,:global(.premium-header) .trigger .avatar{background:transparent;border-color:transparent;box-shadow:none}}

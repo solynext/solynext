@@ -1,3 +1,4 @@
+import { getSiteMetadata } from "@/lib/seo/metadata";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -13,17 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "SolyNext — Professional Software & Digital Technology Solutions",
-  description:
-    "SolyNext is a Pakistan-based software and technology company delivering custom software, web platforms, mobile apps, UI/UX design, and digital marketing for clients worldwide.",
-  openGraph: {
-    title: "SolyNext — Technology & Digital Solutions",
-    description:
-      "Engineering scalable web platforms, enterprise software, mobile apps, and conversion-focused digital marketing worldwide.",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> { return getSiteMetadata(); }
 
 export default function RootLayout({
   children,

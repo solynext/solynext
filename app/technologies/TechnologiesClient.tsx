@@ -108,7 +108,7 @@ export function TechnologiesClient() {
         </div>
 
         {/* Architectural Principles Callout */}
-        <div className="p-8 sm:p-10 rounded-2xl border border-[#202738] bg-[#0a0d15]">
+        <div className="visual-card p-8 sm:p-10 rounded-2xl border border-[#202738] bg-[#0a0d15]">
           <h2 className="text-xl font-bold text-white mb-4">
             Our Architectural Non-Negotiables
           </h2>

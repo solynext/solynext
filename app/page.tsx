@@ -1,3 +1,4 @@
+import { getPageMetadata } from "@/lib/seo/metadata";
 import { HeroVideo } from "@/components/home/HeroVideo";
 import { ClientTicker } from "@/components/home/ClientTicker";
 import { HomeAbout } from "@/components/home/HomeAbout";
@@ -9,6 +10,7 @@ import { CardMotif, cardTone } from "@/components/ui/CardMotif";
 import Link from "next/link";
 import Image from "next/image";
 import { getPublicProjects } from "@/lib/portfolio/repository";
+import { getPublicClients } from "@/lib/clients/repository";
 import { ArrowRight, ArrowUpRight, Code2, Layers3, Check, Globe2, Braces, GitBranch, ShieldCheck, Terminal, Database, Cloud, Workflow } from "lucide-react";
 
 import { IndustriesSection } from "@/components/home/IndustriesSection";
@@ -17,17 +19,6 @@ import { DeliverablesSection } from "@/components/home/DeliverablesSection";
 import { InsightsSection } from "@/components/home/InsightsSection";
 import { PartnershipSection } from "@/components/home/PartnershipSection";
 import { ServiceCards } from "@/components/home/ServiceCards";
-
-const projectCardDescriptions: Record<string, string> = {
-  "finedge-payments": "Cross-border payments with fast, reliable settlement.",
-  "meditrack-clinical": "Patient records and virtual care, connected across 28 clinics.",
-  "swiftcart-marketplace": "Wholesale ordering with live inventory and seamless payments.",
-  "buildcore-erp": "Construction progress, materials, and budgets in one place.",
-  "routeflow-logistics": "Fleet dispatch and delivery tracking in one workspace.",
-  "learnspace-education": "Courses, assignments, and student progress in one portal.",
-  "teamdesk-saas": "One workspace for tasks, customer requests, and reporting.",
-  "atelier-retail": "Product discovery and checkout made simple.",
-};
 
 const steps = [
   ["Discover", "Understand your users, goals, and the problem worth solving."],
@@ -54,8 +45,10 @@ function ProductVisual() {
   </div>;
 }
 
+export async function generateMetadata() { return getPageMetadata("/"); }
+
 export default async function HomePage() {
-  const projects = await getPublicProjects();
+  const [projects, clients] = await Promise.all([getPublicProjects(), getPublicClients()]);
   const featuredProjects = projects.filter(project => project.featured).slice(0, 4);
   const reviews = projects.flatMap(project => project.testimonial ? [{ id: project.id, ...project.testimonial, project: project.title, slug: project.slug }] : []);
   return <main id="main-content" className="premium-home">
@@ -68,12 +61,12 @@ export default async function HomePage() {
       <div className="premium-container hero-bottom"><span>IDEAS INTO PRODUCTS. COMPLEXITY INTO CLARITY.</span><a href="#services">Discover what we do <span>↓</span></a></div>
     </section>
 
-    <ClientTicker />
+    <ClientTicker clients={clients} />
     <PartnershipSection />
 
     <section id="services" className="premium-section"><div className="premium-container"><div className="p-section-heading"><div><p className="eyebrow">01 / WHAT WE BUILD</p><h2>Your ambition.<br/>Our engineering.</h2></div><div className="heading-aside"><p>From a new product to a better way of working, we turn complex requirements into useful software.</p><Link className="p-text-link" href="/services">All services <ArrowUpRight size={17}/></Link></div></div><ServiceCards /><div className="services-extra"><span>Need more than engineering?</span><Link href="/services/graphic-design-branding">Brand identity ↗</Link><Link href="/services/digital-marketing">Digital marketing & SEO ↗</Link><Link href="/services">Explore creative services ↗</Link></div></div></section>
 
-    <section className="premium-section work-section"><div className="premium-container"><div className="p-section-heading"><div><p className="eyebrow">02 / SELECTED WORK</p><h2>Built with purpose.<br/>Made to make a difference.</h2></div><Link className="p-text-link" href="/portfolio">View all projects <ArrowUpRight size={17}/></Link></div><div className="premium-work-grid">{featuredProjects.map((project)=><Link href={`/portfolio/${project.slug}`} className="premium-project" key={project.id}><div className="project-art portfolio-home-image"><Image src={project.featuredImage} alt={project.imageAlt} fill sizes="(max-width: 700px) 100vw, 50vw" unoptimized={project.featuredImage.startsWith("https://")} className="object-cover"/></div><div className="project-meta"><span>{project.industry}</span><ArrowUpRight size={23}/></div><h3>{project.title}</h3><p>{projectCardDescriptions[project.slug] ?? project.summary}</p><div className="project-tags">{project.technologies.slice(0,3).map(t=><span key={t}>{t}</span>)}</div></Link>)}</div></div></section>
+    <section className="premium-section work-section"><div className="premium-container"><div className="p-section-heading"><div><p className="eyebrow">02 / SELECTED WORK</p><h2>Built with purpose.<br/>Made to make a difference.</h2></div><Link className="p-text-link" href="/portfolio">View all projects <ArrowUpRight size={17}/></Link></div><div className="premium-work-grid">{featuredProjects.map((project)=><Link href={`/portfolio/${project.slug}`} className="premium-project visual-card card-surface" data-card-tone={cardTone(project.industry)} key={project.id}><div className="project-art portfolio-home-image"><Image src={project.featuredImage} alt={project.imageAlt} fill sizes="(max-width: 700px) 100vw, 50vw" unoptimized={project.featuredImage.startsWith("https://")} className="object-cover"/></div><div className="project-meta"><span>{project.industry}</span><ArrowUpRight size={23}/></div><h3>{project.title}</h3><p>{project.summary}</p><div className="project-tags">{project.technologies.slice(0,3).map(t=><span key={t}>{t}</span>)}</div></Link>)}</div></div></section>
 
     <IndustriesSection />
 

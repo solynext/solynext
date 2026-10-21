@@ -1,3 +1,4 @@
+import { getPageMetadata } from "@/lib/seo/metadata";
 import { CardMotif, cardTone } from "@/components/ui/CardMotif";
 import React from "react";
 import Image from "next/image";
@@ -5,11 +6,7 @@ import Link from "next/link";
 import { ArrowRight, Globe, MapPin } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
-export const metadata = {
-  title: "About SolyNext — Software House & Technology Company",
-  description:
-    "Learn about SolyNext: our Pakistan engineering centers, global delivery model, core values, and mission.",
-};
+export async function generateMetadata() { return getPageMetadata("/about"); }
 
 export default function AboutPage() {
   const values = [
@@ -91,7 +88,7 @@ export default function AboutPage() {
 
         {/* Mission & Vision */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-16">
-          <div className="p-8 rounded-2xl border border-[#202738] bg-[#0a0d15]">
+          <div className="visual-card p-8 rounded-2xl border border-[#202738] bg-[#0a0d15]">
             <p className="text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-2">
               Our Mission
             </p>
@@ -103,7 +100,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="p-8 rounded-2xl border border-[#202738] bg-[#0a0d15]">
+          <div className="visual-card p-8 rounded-2xl border border-[#202738] bg-[#0a0d15]">
             <p className="text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-2">
               Our Vision
             </p>
@@ -168,7 +165,7 @@ export default function AboutPage() {
         </div>
 
         {/* Global Delivery Callout */}
-        <div className="p-8 sm:p-10 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
+        <div className="visual-card p-8 sm:p-10 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
           <Globe className="w-8 h-8 text-[#00D9FF] mx-auto mb-3" />
           <h2 className="text-xl font-bold text-white mb-2">
             Global Reach With Overlapping Hours

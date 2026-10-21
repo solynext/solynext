@@ -1,3 +1,4 @@
+import { getPageMetadata } from "@/lib/seo/metadata";
 import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -17,12 +18,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const post = BLOG_POSTS_DATA.find((p) => p.slug === slug);
-  if (!post) return { title: "Article Not Found" };
+  if (!post) notFound();
 
-  return {
-    title: `${post.title} — SolyNext Insights`,
-    description: post.excerpt,
-  };
+  return getPageMetadata(`/blog/${slug}`, { title: `${post.title} | SolyNext Insights`, description: post.excerpt, image: undefined, type: "article" });
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -85,7 +83,7 @@ export default async function BlogPostPage({ params }: Props) {
             </p>
           ))}
 
-          <div className="p-6 rounded-xl border border-slate-200 bg-[#F8FAFC] my-8">
+          <div className="visual-card p-6 rounded-xl border border-slate-200 bg-[#F8FAFC] my-8">
             <h3 className="text-sm font-bold text-[#050505] mb-2">Key Architectural Takeaway</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
               When designing software systems expected to scale beyond initial prototype loads, invest in strong schema definitions and end-to-end type safety before optimizing for marginal runtime throughput.
@@ -94,7 +92,7 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         {/* Author Bio Box */}
-        <div className="mt-12 p-6 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-between">
+        <div className="visual-card mt-12 p-6 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-between">
           <div>
             <p className="text-xs text-slate-500">Author</p>
             <p className="text-sm font-semibold text-[#050505]">{post.author.name}</p>

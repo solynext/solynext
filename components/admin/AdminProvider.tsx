@@ -7,8 +7,11 @@ import type { AdminSession } from "@/lib/admin/auth/types";
 import type { AdminCollections, AdminRecord, ManagementSection, AdminActivity, AdminNotification } from "@/lib/admin/types";
 import { initialActivity, initialNotifications } from "@/data/admin/activity";
 import { removeRecords } from "@/lib/admin/selectors";
+import { saveClient, deleteClients } from "@/lib/clients/actions";
+import type { AdminPhoto } from "@/lib/admin/profile/types";
 
 interface AdminState {
+  profilePhoto: AdminPhoto; setProfilePhoto: (photo: AdminPhoto) => void;
   collections: AdminCollections; session: AdminSession; activity: AdminActivity[];
   notifications: AdminNotification[]; markRead: (id?: string) => void;
   deleteNotification: (id: string) => void; removeAllNotifications: () => void;
@@ -19,7 +22,8 @@ interface AdminState {
 }
 const Context = createContext<AdminState | null>(null);
 
-export function AdminProvider({ session, initialData, children }: { session: AdminSession; initialData: AdminCollections; children: React.ReactNode }) {
+export function AdminProvider({ session, initialData, initialPhoto, children }: { session: AdminSession; initialData: AdminCollections; initialPhoto: AdminPhoto; children: React.ReactNode }) {
+  const [profilePhoto, setProfilePhoto] = useState(initialPhoto);
   const [collections, setCollections] = useState(initialData);
   const [activity, setActivity] = useState(initialActivity);
   const [notifications, setNotifications] = useState(initialNotifications);
@@ -50,14 +54,34 @@ export function AdminProvider({ session, initialData, children }: { session: Adm
   const log = (title: string, section: ManagementSection) => { const event = {id: crypto.randomUUID(), title, detail: "Demo workspace change", time: "Just now", kind: section, href: `/admin/${section}`}; setActivity(previous => [event,...previous].slice(0,40)); setNotifications(previous => [{...event,read:false},...previous].slice(0,40)); };
   const save = (section: ManagementSection, record: AdminRecord) => {
     const exists = collections[section].some(item => item.id === record.id);
+    if (section === "clients") {
+      notify("Saving client…");
+      void saveClient(record).then(result => {
+        if (result.error || !result.items) { notify(result.error || "Could not save client."); return; }
+        setCollections(previous => ({ ...previous, clients: result.items }));
+        log(`${record.title} ${exists ? "updated" : "added"}`, section);
+        notify("Client saved. The homepage uses the same directory.");
+      }).catch(() => notify("Could not save client. Try again."));
+      return;
+    }
     setCollections(previous => ({ ...previous, [section]: exists ? previous[section].map(item => item.id === record.id ? record : item) : [record, ...previous[section]] }));
     log(`${record.title} ${exists ? "updated" : "added"}`, section); notify(`${exists ? "Updated" : "Added"} in this preview. The public website is unchanged.`);
   };
   const remove = (section: ManagementSection, ids: string[]) => {
+    if (section === "clients") {
+      notify("Removing clients…");
+      void deleteClients(ids).then(result => {
+        if (result.error || !result.items) { notify(result.error || "Could not remove clients."); return; }
+        setCollections(previous => ({ ...removeRecords(previous, section, ids), clients: result.items }));
+        log(`${ids.length} client records removed`, section);
+        notify("Clients removed from storage and the homepage.");
+      }).catch(() => notify("Could not remove clients. Try again."));
+      return;
+    }
     setCollections(previous => removeRecords(previous, section, ids));
     log(`${ids.length} ${section} record${ids.length === 1 ? "" : "s"} removed`, section); notify("Removed from this preview. The public website is unchanged.");
   };
-  return <Context.Provider value={{ collections, session, activity, notifications, markRead, deleteNotification, removeAllNotifications, authState, toast, save, remove, notify }}>{children}</Context.Provider>;
+  return <Context.Provider value={{ profilePhoto, setProfilePhoto, collections, session, activity, notifications, markRead, deleteNotification, removeAllNotifications, authState, toast, save, remove, notify }}>{children}</Context.Provider>;
 }
 
 export function useAdmin() { const value = useContext(Context); if (!value) throw new Error("Admin components must be inside AdminProvider."); return value; }

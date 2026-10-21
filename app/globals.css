@@ -1244,7 +1244,7 @@ main:not(.premium-home){background:var(--page)!important}main:not(.premium-home)
 .project-form input,.project-form select,.project-form textarea,.portfolio-search input{border-radius:10px!important;transition:box-shadow 220ms ease,border-color 220ms ease,background 220ms ease}
 .portfolio-filters button{border-radius:100px;transition:background 220ms ease,color 220ms ease,transform 300ms var(--motion-ease)}
 .portfolio-filters button:active{transform:scale(.95)}
-.project-dialog{border-radius:24px}
+.project-dialog{width:min(720px,calc(100% - 32px));border-radius:24px}
 .premium-menu-toggle{border-radius:12px;min-width:44px;min-height:44px;align-items:center;justify-content:center}
 @media(prefers-reduced-motion:no-preference){
  main{animation:fluid-page-in 450ms var(--motion-ease) both}
@@ -1697,3 +1697,28 @@ main .visual-card [class~="ring-[#00D9FF]"]{--tw-ring-color:var(--card-edge)}
     flex-shrink: 0;
   }
 }
+
+/* Public cards share the service-detail surface and readable type. */
+main .visual-card :is(h1,h2,h3,h4,strong,blockquote){color:#182342}
+main .visual-card :is(p,li){color:#46536d}
+main .visual-card [class~="text-slate-300"],
+main .visual-card [class~="text-slate-400"]{color:#46536d!important}
+main .visual-card [class~="text-slate-600"]{color:#62708a!important}
+main .visual-card :is(hr,[class~="border-[#1c212f]"],[class~="border-[#202738]"]){border-color:var(--card-edge)}
+main .visual-card:has(>.project-form){background:linear-gradient(125deg,#fff 8%,#fff 42%,var(--card-tint) 100%)}
+
+/* Existing artwork supplies decoration without adding another shape layer. */
+.card-surface::before,.card-surface::after{content:none}
+
+/* Mobile cards fit their container and grow with their content. */
+@media(max-width:767px){
+ main .visual-card{box-sizing:border-box;width:100%;max-width:100%;min-width:0;height:auto;min-height:0;align-self:start}
+ main .visual-card>div{min-width:0}
+ main .visual-card :is(h1,h2,h3,h4,p,li,blockquote){overflow-wrap:anywhere}
+ .internal-services-grid,.portfolio-project-grid,.capability-grid,.engagement-grid,.insights-grid,.premium-process,.premium-work-grid{grid-template-columns:minmax(0,1fr);align-items:start}
+ main .visual-card :is(.project-tags,.capability-tags){flex-wrap:wrap}
+ main .visual-card :is(.project-tags span,.capability-tags li){max-width:100%;white-space:normal}
+ .project-dialog{max-width:calc(100% - 24px);max-height:90dvh;overflow-y:auto}
+}
+
+@media(max-width:767px){.premium-header .premium-menu-toggle,.premium-header .premium-menu-toggle:hover{background:transparent;border-color:transparent;box-shadow:none}}

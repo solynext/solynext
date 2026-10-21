@@ -10,7 +10,7 @@ const require = createRequire(import.meta.url);
 function load(file) {
   const compiled = { exports: {} };
   const code = ts.transpileModule(fs.readFileSync(new URL(`../${file}.ts`, import.meta.url), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
-  new Function('require', 'module', 'exports', code)(name => name === './model' ? load('lib/portfolio/model') : require(name), compiled, compiled.exports);
+  new Function('require', 'module', 'exports', code)(name => name === './model' ? load('lib/portfolio/model') : name === './clients' ? load('data/clients') : require(name), compiled, compiled.exports);
   return compiled.exports;
 }
 const { validateProject, publicProjects, upsertProject } = load('lib/portfolio/model');

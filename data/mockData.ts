@@ -1,3 +1,4 @@
+import { CLIENTS } from "./clients";
 import {
   ServiceItem,
   CaseStudy,
@@ -372,249 +373,18 @@ export const SERVICES_DATA: ServiceItem[] = [
   },
 ];
 
-export const CASE_STUDIES_DATA: CaseStudy[] = [
-  {
-    id: "finedge-payments",
-    slug: "finedge-payments",
-    title: "FinEdge: Cross-Border B2B Payment Gateway & Settlement Engine",
-    client: "FinEdge Technologies Ltd.",
-    clientLocation: "London, UK & Islamabad",
-    industry: "FinTech & Financial Services",
-    summary:
-      "Architected and deployed an ISO 20022 compliant B2B cross-border payments orchestrator processing $12M+ monthly transaction volume with sub-2-second bank ledger synchronization.",
-    challenge:
-      "FinEdge was losing institutional clients due to high latency in multi-currency settlement and manual reconciliation spreadsheets between UK, UAE, and Pakistani banking corridors. Their legacy PHP platform could not pass institutional penetration audits.",
-    solution:
-      "SolyNext engineered a resilient microservice backend using Go and Node.js with distributed transaction idempotency, integrated automated AML/KYC verification webhooks, and built an intuitive Next.js institutional treasury portal.",
-    keyResults: [
-      { metric: "$12M+", label: "Monthly Processed Volume" },
-      { metric: "1.8s", label: "Average Settlement Sync Time" },
-      { metric: "99.98%", label: "Uptime Over 14 Months" },
-      { metric: "-78%", label: "Manual Reconciliation Overhead" },
-    ],
-    technologies: ["Go", "Next.js", "TypeScript", "PostgreSQL", "Redis", "Docker", "AWS KMS"],
-    featuredImage: "/images/fintech-enterprise.jpg",
-    architectureDetails: [
-      "Event-driven architecture with zero-data-loss Apache Kafka event log",
-      "Two-phase commit protocol across distributed multi-currency accounts",
-      "Client-side AES-256 field encryption for sensitive banking identifiers",
-      "Automated automated failover across multi-region AWS availability zones",
-    ],
-    testimonial: {
-      quote:
-        "SolyNext's engineering rigor transformed our fintech vision into bank-grade infrastructure. Their team in Pakistan worked seamlessly alongside our London compliance officers to deliver a secure, lightning-fast settlement engine ahead of schedule.",
-      author: "Tariq Malik",
-      role: "Chief Technology Officer",
-      company: "FinEdge UK",
-    },
-  },
-  {
-    id: "meditrack-clinical",
-    slug: "meditrack-clinical",
-    title: "MediTrack: HIPAA-Compliant Multi-Clinic Electronic Health Records Portal",
-    client: "MediTrack Healthcare Network",
-    clientLocation: "Dubai, UAE & Chicago, USA",
-    industry: "Healthcare & Telemedicine",
-    summary:
-      "Built a unified EHR and telemedicine portal connecting 28 specialized clinics, enabling real-time video consultations, prescription routing, and automated patient appointment reminders.",
-    challenge:
-      "Patient records were fragmented across three disparate proprietary databases, leading to double-booked appointments and doctors spending up to 20 minutes manually transcribing lab test results before each consultation.",
-    solution:
-      "We built a HIPAA-compliant web and tablet app featuring encrypted WebRTC video streaming, automated HL7/FHIR health record sync, and an automated SMS/WhatsApp appointment confirmation engine.",
-    keyResults: [
-      { metric: "45,000+", label: "Active Monthly Patients" },
-      { metric: "28", label: "Connected Clinic Locations" },
-      { metric: "-62%", label: "Patient No-Show Rate" },
-      { metric: "100%", label: "HIPAA Security Audit Pass" },
-    ],
-    technologies: ["React", "Node.js", "WebRTC", "PostgreSQL", "Tailwind CSS", "AWS HealthLake"],
-    featuredImage: "/images/engineering-dev.jpg",
-    architectureDetails: [
-      "End-to-end encrypted WebRTC audio/video consultations with automated bandwidth throttling",
-      "Role-based audit logging tracking every record read, export, or edit",
-      "Redis caching layer reducing patient file query time from 4.2s to 120ms",
-      "Mobile-responsive tablet interface optimized for one-handed nurse intake",
-    ],
-    testimonial: {
-      quote:
-        "The difference in clinic operations was immediate within the first week of rollout. Doctors were actually finishing patient notes on time, and our no-show rate fell by more than half.",
-      author: "Dr. Ayesha Siddiqui",
-      role: "Medical Director",
-      company: "MediTrack Network",
-    },
-  },
-  {
-    id: "swiftcart-marketplace",
-    slug: "swiftcart-marketplace",
-    title: "SwiftCart: High-Scale B2B Wholesale Marketplace & Inventory Sync",
-    client: "SwiftCart Global Distribution",
-    clientLocation: "Karachi, Pakistan & Toronto, Canada",
-    industry: "E-Commerce & Wholesale Distribution",
-    summary:
-      "Engineered an omni-channel B2B wholesale platform processing 8,000+ daily SKU orders with live warehouse ERP sync, tiered volume discounts, and localized cash-on-delivery and card payment routes.",
-    challenge:
-      "Wholesale distributors struggled with inventory discrepancies between physical warehouses and online orders, frequently selling out-of-stock items and losing high-value retail clients.",
-    solution:
-      "SolyNext designed a headless commerce platform backed by Next.js and Redis inventory reservation locks, preventing race conditions during flash wholesale orders and providing distributors with live sales tracking.",
-    keyResults: [
-      { metric: "8,500+", label: "Daily Wholesale Orders" },
-      { metric: "35,000+", label: "Active Listed SKUs" },
-      { metric: "0%", label: "Inventory Overselling Incidents" },
-      { metric: "+185%", label: "Repeat Merchant Orders in 6 Mo." },
-    ],
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Redis", "PostgreSQL", "Stripe", "Docker"],
-    featuredImage: "/images/cloud-infrastructure.jpg",
-    architectureDetails: [
-      "Optimistic locking with atomic Redis counter checks for instant stock reservation",
-      "Dynamic PDF invoice generator rendering 100-item tax receipts in under 300ms",
-      "Localized multilingual interface supporting English, Urdu, and Arabic",
-      "Elasticsearch cluster returning instant autocomplete results across 35k SKUs in <40ms",
-    ],
-    testimonial: {
-      quote:
-        "SolyNext understood the chaotic reality of wholesale distribution in emerging markets. They built a rock-solid platform that never glitched even during our biggest Black Friday bulk promos.",
-      author: "Kamran Qureshi",
-      role: "Operations Director",
-      company: "SwiftCart Global",
-    },
-  },
-  {
-    id: "buildcore-erp",
-    slug: "buildcore-erp",
-    title: "BuildCore: Construction & Real Estate Project Management ERP",
-    client: "BuildCore Properties Group",
-    clientLocation: "Riyadh, Saudi Arabia & Lahore",
-    industry: "Real Estate & Civil Engineering",
-    summary:
-      "Created a centralized construction project tracking suite allowing site engineers to log daily contractor progress, material deliveries, and budget variances from mobile devices directly to the executive boardroom.",
-    challenge:
-      "Project managers relied on WhatsApp messages and paper receipts from construction sites, resulting in budget overruns averaging 22% and contractors waiting weeks for invoice approvals.",
-    solution:
-      "We engineered an offline-first progressive web app with photo receipt tagging, GPS-verified worker check-ins, automated budget overrun alerts, and automated subcontractor payment milestones.",
-    keyResults: [
-      { metric: "$48M", label: "Active Project Portfolios Monitored" },
-      { metric: "-19%", label: "Average Budget Variance" },
-      { metric: "3 Days", label: "Invoice Approval Time (Down from 18)" },
-      { metric: "420+", label: "Active On-Site Daily Users" },
-    ],
-    technologies: ["React", "FastAPI", "Python", "PostgreSQL", "PWA", "AWS S3", "Tailwind CSS"],
-    featuredImage: "/images/marketing-growth.jpg",
-    architectureDetails: [
-      "IndexedDB offline storage syncing site reports automatically when 4G network reconnects",
-      "Client-side image compression reducing photo payload sizes by 85% before S3 upload",
-      "Automated variance detection highlighting cost overruns against baseline estimates",
-      "Comprehensive permission matrix for Developers, Contractors, and Lead Architects",
-    ],
-    testimonial: {
-      quote:
-        "BuildCore ERP gave our executive board instant visibility across 14 high-rise construction sites simultaneously. The financial accountability SolyNext delivered paid for the software within two months.",
-      author: "Engineer Faisal Al-Harbi",
-      role: "Executive Project Sponsor",
-      company: "BuildCore Developments",
-    },
-  },
-  // Additional portfolio concepts; these are illustrative projects, not client claims.
-  {
-    id: "routeflow-logistics",
-    slug: "routeflow-logistics",
-    title: "RouteFlow: Fleet Dispatch & Delivery Tracking Platform",
-    client: "RouteFlow · Concept project",
-    clientLocation: "Illustrative project",
-    industry: "Logistics & Supply Chain",
-    summary: "A dispatch workspace that brings vehicle locations, delivery assignments, and proof of delivery into one clear operational view.",
-    challenge: "Dispatch teams need to coordinate changing routes, driver availability, and customer delivery updates without switching between spreadsheets and messaging apps.",
-    solution: "Designed a live fleet dashboard with route planning, a mobile driver workflow, and customer tracking links backed by a shared delivery event timeline.",
-    keyResults: [
-      { metric: "Live", label: "Fleet Visibility" },
-      { metric: "Mobile", label: "Driver Workspace" },
-      { metric: "GPS", label: "Delivery Tracking" },
-      { metric: "Digital", label: "Proof of Delivery" },
-    ],
-    technologies: ["Next.js", "Node.js", "PostgreSQL", "Mapbox", "Redis"],
-    featuredImage: "/images/cloud-infrastructure.jpg",
-    architectureDetails: [
-      "WebSocket updates for vehicle locations and delivery status changes",
-      "Geospatial queries for nearby drivers and delivery zones",
-      "Offline delivery capture with queued photo and signature uploads",
-      "Role-based workspaces for dispatchers, drivers, and customers",
-    ],
-  },
-  {
-    id: "learnspace-education",
-    slug: "learnspace-education",
-    title: "LearnSpace: Online Learning & Student Progress Portal",
-    client: "LearnSpace · Concept project",
-    clientLocation: "Illustrative project",
-    industry: "Education & Learning",
-    summary: "An accessible learning platform connecting course content, assignments, feedback, and student progress in a focused experience for learners and instructors.",
-    challenge: "Learning materials, assignment submissions, and instructor feedback often live in separate tools, making it difficult for students to understand their next step.",
-    solution: "Designed a unified course workspace with structured lessons, assignment review, progress tracking, and responsive interfaces for learning on any device.",
-    keyResults: [
-      { metric: "Self-paced", label: "Course Delivery" },
-      { metric: "Unified", label: "Assignment Review" },
-      { metric: "Live", label: "Progress Dashboard" },
-      { metric: "Responsive", label: "Learning Experience" },
-    ],
-    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "AWS S3"],
-    featuredImage: "/images/uiux-design.jpg",
-    architectureDetails: [
-      "Course modules with prerequisites and saved lesson progress",
-      "Secure assignment uploads with instructor feedback threads",
-      "Separate permissions for learners, instructors, and administrators",
-      "Keyboard-friendly navigation and caption-ready lesson layouts",
-    ],
-  },
-  {
-    id: "teamdesk-saas",
-    slug: "teamdesk-saas",
-    title: "TeamDesk: Multi-Tenant SaaS Operations Workspace",
-    client: "TeamDesk · Concept project",
-    clientLocation: "Illustrative project",
-    industry: "SaaS & Business Operations",
-    summary: "A shared workspace for growing teams to manage customer requests, project tasks, subscriptions, and reporting without losing sight of ownership.",
-    challenge: "Teams managing work across disconnected tools struggle to track responsibilities and provide customers with consistent updates as their operations grow.",
-    solution: "Designed a configurable SaaS workspace with team permissions, task boards, a customer portal, and subscription management within a tenant-aware application.",
-    keyResults: [
-      { metric: "Multi-tenant", label: "Workspace Architecture" },
-      { metric: "Role-based", label: "Team Access" },
-      { metric: "Shared", label: "Customer Portal" },
-      { metric: "Integrated", label: "Subscription Management" },
-    ],
-    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Stripe", "Docker"],
-    featuredImage: "/images/engineering-dev.jpg",
-    architectureDetails: [
-      "Tenant-scoped data access with explicit workspace membership checks",
-      "Subscription lifecycle handling through idempotent billing webhooks",
-      "Background jobs for notifications and scheduled reporting",
-      "Activity history for task changes and customer conversations",
-    ],
-  },
-  {
-    id: "atelier-retail",
-    slug: "atelier-retail",
-    title: "Atelier: Direct-to-Consumer Retail & Brand Experience",
-    client: "Atelier · Concept project",
-    clientLocation: "Illustrative project",
-    industry: "E-Commerce & Wholesale Distribution",
-    summary: "A design-led storefront pairing editorial product discovery with clear variant selection, a streamlined checkout, and an easy-to-manage catalog.",
-    challenge: "Retail brands need a storefront that communicates their identity while keeping product discovery, stock availability, and checkout straightforward on mobile.",
-    solution: "Designed a headless retail experience with curated collections, product filtering, a persistent shopping bag, and a content-managed brand journal.",
-    keyResults: [
-      { metric: "Mobile-first", label: "Shopping Experience" },
-      { metric: "Headless", label: "Commerce Architecture" },
-      { metric: "Unified", label: "Product Catalog" },
-      { metric: "Editorial", label: "Brand Storytelling" },
-    ],
-    technologies: ["Next.js", "TypeScript", "Shopify", "Tailwind CSS", "Sanity"],
-    featuredImage: "/images/marketing-growth.jpg",
-    architectureDetails: [
-      "Storefront API integration for product variants and cart operations",
-      "Content-managed collection pages and editorial product stories",
-      "Webhook-based cache invalidation for catalog and stock updates",
-      "Responsive product imagery and accessible shopping controls",
-    ],
-  },
-];
+// Project descriptions are seed content; no client endorsements or metrics are inferred.
+const projectLabels = ["Wholesale & Retail Workspace", "Fashion Storefront", "Auto Parts Catalog", "Grocery Ordering Platform", "Digital Menu & Ordering", "Property Listings Portal"];
+export const CASE_STUDIES_DATA: CaseStudy[] = CLIENTS.map((client, index) => ({
+  id: client.slug, slug: client.slug, clientId: client.id,
+  title: client.name + ": " + projectLabels[index],
+  client: client.name, clientLocation: "Pakistan", industry: client.category,
+  summary: client.summary,
+  challenge: "Bring " + client.category.toLowerCase() + " workflows into a clear digital experience.",
+  solution: client.summary,
+  keyResults: [], technologies: ["Next.js", "TypeScript", "PostgreSQL"],
+  featuredImage: client.image, architectureDetails: [],
+}));
 
 export const INDUSTRY_SOLUTIONS_DATA: IndustrySolution[] = [
   {
@@ -764,52 +534,8 @@ export const TECHNOLOGIES_DATA: TechnologyItem[] = [
   { name: "OpenAI & Gemini APIs", category: "Data & AI", description: "Server-side integration of Large Language Models for automated parsing and summarization.", proficiencyLevel: "Production Ready", popularUseCases: ["Smart Document Processing", "Customer Triage", "Search Enhancement"] },
 ];
 
-export const TESTIMONIALS_DATA: TestimonialItem[] = [
-  {
-    id: "1",
-    clientName: "David Henderson",
-    role: "VP of Engineering",
-    company: "Apex Media Holdings",
-    location: "London, United Kingdom",
-    projectScope: "Enterprise Next.js Web Portal & Headless CMS",
-    quote:
-      "SolyNext provided world-class software engineering at a level that easily matches top European digital consultancies. Their communication was crisp, the code was thoroughly typed and tested, and our platform handles over 2 million monthly visitors without breaking a sweat.",
-    quantifiedResult: "+140% Organic Traffic & 99.99% Uptime",
-  },
-  {
-    id: "2",
-    clientName: "Farhan Zubair",
-    role: "Founder & CEO",
-    company: "Zulaxy Retail Solutions",
-    location: "Karachi, Pakistan",
-    projectScope: "Omni-Channel B2B Ordering & Point of Sale",
-    quote:
-      "Finding a technology partner in Pakistan that understands both local business nuances and international software standards is rare. SolyNext built our complete POS integration and inventory sync in 8 weeks flat.",
-    quantifiedResult: "-85% Inventory Discrepancies Across 12 Stores",
-  },
-  {
-    id: "3",
-    clientName: "Elena Rostova",
-    role: "Head of Product",
-    company: "Veloce Mobility",
-    location: "Munich, Germany",
-    projectScope: "Cross-Platform React Native Mobile Fleet App",
-    quote:
-      "Working with the SolyNext team has been one of our smoothest offshore development experiences. Their daily standups, proactive problem solving, and attention to UX detail made time zones completely irrelevant.",
-    quantifiedResult: "4.8 Star App Store Rating Across 18,000 Users",
-  },
-  {
-    id: "4",
-    clientName: "Mansoor Al-Rashidi",
-    role: "Chief Digital Officer",
-    company: "Al-Noor Logistics Services",
-    location: "Riyadh, Saudi Arabia",
-    projectScope: "Custom Freight Tracking & Driver PWA",
-    quote:
-      "The SolyNext team delivered an end-to-end logistics platform that streamlined our dispatch across the Gulf. Their engineers are thoughtful, disciplined, and genuinely committed to delivering business impact.",
-    quantifiedResult: "-32% Fleet Operational Bottlenecks in 90 Days",
-  },
-];
+// Add approved feedback from the current clients when supplied.
+export const TESTIMONIALS_DATA: TestimonialItem[] = [];
 
 export const BLOG_POSTS_DATA: BlogPost[] = [
   {

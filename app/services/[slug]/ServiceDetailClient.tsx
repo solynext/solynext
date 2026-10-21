@@ -76,7 +76,7 @@ export function ServiceDetailClient({ service }: ServiceDetailClientProps) {
 
         {/* Problem & Solution Analysis */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div className="p-8 rounded-2xl border border-red-900/30 bg-red-950/15">
+          <div className="visual-card p-8 rounded-2xl border border-red-900/30 bg-red-950/15">
             <p className="text-xs font-bold text-red-400 uppercase tracking-wider mb-2">
               The Common Business Problem
             </p>
@@ -88,7 +88,7 @@ export function ServiceDetailClient({ service }: ServiceDetailClientProps) {
             </p>
           </div>
 
-          <div className="p-8 rounded-2xl border border-[#00D9FF]/30 bg-[#00D9FF]/5">
+          <div className="visual-card p-8 rounded-2xl border border-[#00D9FF]/30 bg-[#00D9FF]/5">
             <p className="text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-2">
               The SolyNext Architectural Solution
             </p>
@@ -110,7 +110,7 @@ export function ServiceDetailClient({ service }: ServiceDetailClientProps) {
             {service.keyBenefits.map((benefit, i) => (
               <div
                 key={i}
-                className="p-5 rounded-xl border border-[#202738] bg-[#0a0d15] flex items-start gap-3"
+                className="visual-card p-5 rounded-xl border border-[#202738] bg-[#0a0d15] flex items-start gap-3"
               >
                 <CheckCircle2 className="w-4 h-4 text-[#00D9FF] shrink-0 mt-0.5" />
                 <span className="text-sm text-slate-200 font-medium">{benefit}</span>
@@ -128,7 +128,7 @@ export function ServiceDetailClient({ service }: ServiceDetailClientProps) {
             {service.processSteps.map((step) => (
               <div
                 key={step.step}
-                className="p-6 rounded-2xl border border-[#202738] bg-[#0a0d15]"
+                className="visual-card p-6 rounded-2xl border border-[#202738] bg-[#0a0d15]"
               >
                 <div className="text-xl font-bold font-mono text-[#00D9FF] mb-2">
                   {step.step}.
@@ -145,7 +145,7 @@ export function ServiceDetailClient({ service }: ServiceDetailClientProps) {
         </div>
 
         {/* Deliverables & Technologies */}
-        <div className="p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] mb-16">
+        <div className="visual-card p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] mb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
@@ -183,7 +183,7 @@ export function ServiceDetailClient({ service }: ServiceDetailClientProps) {
         </div>
 
         {/* Bottom CTA Block */}
-        <div className="p-8 sm:p-10 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
+        <div className="visual-card p-8 sm:p-10 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
             Ready to Begin Your {service.title} Project?
           </h2>

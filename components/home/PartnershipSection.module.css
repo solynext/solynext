@@ -32,3 +32,5 @@
  .arrow{width:36px;height:36px}
 }
 @media(hover:none){.card:hover,.card:hover .icon,.card:hover .arrow{transform:none}}
+
+@media(max-width:767px){.grid{grid-template-columns:minmax(0,1fr);align-items:start}}

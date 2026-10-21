@@ -1,11 +1,9 @@
+import { getPageMetadata } from "@/lib/seo/metadata";
 import React from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export const metadata = {
-  title: "Terms of Service — SolyNext",
-  description: "Terms of Service and commercial engagement standards for SolyNext Technologies.",
-};
+export async function generateMetadata() { return getPageMetadata("/terms"); }
 
 export default function TermsPage() {
   return (

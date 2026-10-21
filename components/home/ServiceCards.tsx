@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Code2, Layers3, Smartphone, PenTool } from "lucide-react";
 import { SERVICES_DATA } from "@/data/mockData";
+import { cardTone } from "@/components/ui/CardMotif";
 import styles from "./ServiceCards.module.css";
 
 const cards = [
@@ -54,9 +55,7 @@ export function ServiceCards() {
   return <div className={styles.grid}>{cards.map((card, index) => {
     const Icon = card.icon;
     const service = SERVICES_DATA[index];
-    return <Link href={`/services/${service.slug}`} className={`${styles.card} ${styles[card.theme]}`} key={service.id}>
-      <svg className={styles.waves} viewBox="0 0 460 460" preserveAspectRatio="none" aria-hidden="true"><path d="M460 0C350-20 324 135 262 221S338 365 460 315Z" fill="var(--card-accent)" opacity=".3"/><path d="M460 100C320 39 246 120 263 224S345 362 460 352Z" fill="var(--card-accent)" opacity=".1"/><path d="M460 270C389 377 359 366 300 400S240 460 144 460H460Z" fill="var(--card-accent)" opacity=".25"/><path d="M150 460C262 448 275 348 365 399S437 456 460 460" fill="var(--card-accent)" opacity=".23"/><path d="M280 426C363 335 411 384 460 349" stroke="white" opacity=".6"/></svg>
-      <span className={styles.dots} aria-hidden="true"/>
+    return <Link href={`/services/${service.slug}`} className={`${styles.card} ${styles[card.theme]} visual-card card-surface`} data-card-tone={cardTone(service.title)} key={service.id}>
       <div className={styles.top}><span className={styles.icon}><Icon size={38} strokeWidth={2.2}/></span><span className={styles.category}>{index === 3 ? "Design" : "Engineering"}</span></div>
       <Illustration theme={card.theme}/>
       <div className={styles.copy}><h3>{card.lead} <span>{card.accent}</span></h3><p>{service.shortDescription}</p></div>

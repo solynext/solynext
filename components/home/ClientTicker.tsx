@@ -2,16 +2,10 @@ import Link from "next/link";
 import { ArrowRight, Store, Shirt, Wrench, ShoppingBasket, Coffee, Building2 } from "lucide-react";
 import styles from "./ClientTicker.module.css";
 
-const businesses = [
-  { name: "Al Madina Traders", category: "Wholesale & Retail", Mark: Store },
-  { name: "Noor Boutique", category: "Fashion & Clothing", Mark: Shirt },
-  { name: "Pak Auto Parts", category: "Automotive", Mark: Wrench },
-  { name: "Fresh Basket", category: "Grocery & Mart", Mark: ShoppingBasket },
-  { name: "Urban Chai", category: "Café & Restaurant", Mark: Coffee },
-  { name: "Prime Property Hub", category: "Real Estate", Mark: Building2 },
-];
+const marks = { Store, Shirt, Wrench, ShoppingBasket, Coffee, Building2 };
 
-export function ClientTicker() {
+export function ClientTicker({ clients }: { clients: { id: string; title: string; category: string; icon?: string }[] }) {
+  if (!clients.length) return null;
   return <section className={styles.section} aria-labelledby="client-ticker-title">
     <div className={`premium-container ${styles.layout}`}>
       <div className={styles.heading}>
@@ -22,14 +16,17 @@ export function ClientTicker() {
       <div className={styles.visual}>
         <div className={styles.orbits} aria-hidden="true"><i /><i /><i /><b /><b /></div>
         <ul className={styles.cards}>
-          {businesses.map(({ name, category, Mark }, index) => <li key={name} className={styles.card} data-tone={index}>
+          {clients.slice(0, 6).map(({ id, title: name, category, icon }, index) => {
+            const Mark = marks[icon as keyof typeof marks] ?? Store;
+            return <li key={id} className={styles.card} data-tone={index}>
             <div className={styles.wordmark}>
               <span className={styles.cardNumber} aria-hidden="true">0{index + 1}</span>
               <span className={styles.logoMark} aria-hidden="true"><Mark size={28} strokeWidth={1.8}/></span>
               <strong>{name}</strong>
               <small>{category}</small>
             </div>
-          </li>)}
+          </li>;
+          })}
         </ul>
       </div>
     </div>

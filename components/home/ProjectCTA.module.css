@@ -28,3 +28,5 @@
 @media(max-width:700px){.section{padding:16px 0 50px}.card{grid-template-columns:1fr;padding:30px 24px;border-radius:24px;gap:32px}.copy h2{font-size:38px;letter-spacing:-1.5px}.copy>p{font-size:14px}.eyebrow{font-size:9px;letter-spacing:1.2px}.visual{min-height:270px;max-width:340px;width:100%;margin:auto}.logo{width:125px;height:125px;border-radius:30px}.logo img{width:80px;height:80px}.chip{padding:10px 13px;font-size:11px}.idea{top:12px}.plan{right:0;top:120px}.launch{bottom:3px}.orbit{width:250px;height:250px}.innerOrbit{width:185px;height:185px}}
 @media(prefers-reduced-motion:reduce){.button{transition:none}.button:hover{transform:none}}
 @media(max-width:767px){.copy h2{font-size:clamp(26px,6.8vw,32px);line-height:1.25;letter-spacing:-.7px}.copy>p{font-size:14px;line-height:1.75}}
+
+@media(max-width:767px){.card{grid-template-columns:minmax(0,1fr);padding:clamp(18px,5vw,30px)}.copy{min-width:0}.button{max-width:100%;gap:clamp(12px,4vw,35px)}.visual{max-width:100%}}

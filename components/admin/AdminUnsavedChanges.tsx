@@ -11,6 +11,7 @@ const baselines = new WeakMap<HTMLFormElement, string>();
 const fields = 'input:not([type="submit"]):not([type="button"]):not([type="hidden"]), textarea, select';
 
 function snapshot(form: HTMLFormElement) {
+  if (form.dataset?.editorState !== undefined) return form.dataset.editorState;
   return JSON.stringify(Array.from(form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(fields)).map(field => {
     if (field instanceof HTMLInputElement) {
       if (field.type === "checkbox" || field.type === "radio") return field.checked;

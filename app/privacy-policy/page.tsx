@@ -1,11 +1,9 @@
+import { getPageMetadata } from "@/lib/seo/metadata";
 import React from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export const metadata = {
-  title: "Privacy Policy — SolyNext",
-  description: "Privacy policy and client data protection practices for SolyNext Technologies.",
-};
+export async function generateMetadata() { return getPageMetadata("/privacy-policy"); }
 
 export default function PrivacyPolicyPage() {
   return (
@@ -20,7 +18,7 @@ export default function PrivacyPolicyPage() {
         </Link>
 
         <h1 className="text-3xl font-bold text-[#050505] mb-4">Privacy Policy</h1>
-        <p className="text-xs text-slate-500 font-mono mb-8">Last Updated: March 2026</p>
+        <p className="text-xs text-slate-500 font-mono mb-8">Last Updated: October 2026</p>
 
         <div className="space-y-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
           <section className="space-y-2">
@@ -42,6 +40,11 @@ export default function PrivacyPolicyPage() {
             <p>
               Project descriptions, architectural schemas, and trade information submitted to SolyNext are treated as strictly confidential commercial information. We do not sell, license, or share inquiry data with third-party advertisers. All data is utilized exclusively for generating technical scopes, engineering estimates, or executing mutual contracts.
             </p>
+          </section>
+
+          <section className="space-y-2">
+            <h2 className="text-base font-bold text-[#050505]">Website assistant</h2>
+            <p>Your chat history is saved in this browser and can be removed with the chat&apos;s clear history button. When AI replies are enabled, your message, recent conversation, and current page path are sent through our server to Google&apos;s Gemini API to prepare a response using public website information. This feature does not write chat transcripts to our application database. Google processes requests under its applicable API terms and privacy policies. Avoid sharing passwords, payment information, or confidential project details. AI answers may be inaccurate; confirm quotations and commitments with our team.</p>
           </section>
 
           <section className="space-y-2">

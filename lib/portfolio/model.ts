@@ -56,6 +56,7 @@ export function validateProject(value: unknown): ProjectInput {
     testimonial = { quote: text(entry.quote, "Testimonial quote", 2000, true), author: text(entry.author, "Testimonial author", 120, true), role: text(entry.role, "Testimonial role", 120), company: text(entry.company, "Testimonial company", 180) };
   }
   return {
+    clientId: input.clientId === undefined ? undefined : text(input.clientId, "Client identifier", 100),
     title: text(input.title, "Title", 180, true), slug, client: text(input.client, "Client", 180), clientLocation: text(input.clientLocation, "Client location", 180), industry: text(input.industry, "Industry", 120, true), summary: text(input.summary, "Summary", 2000, true), challenge: text(input.challenge, "Challenge", 5000), solution: text(input.solution, "Solution", 5000), featuredImage: projectImage(input.featuredImage), imageAlt: text(input.imageAlt, "Cover image description", 180, true), projectUrl: projectLink(input.projectUrl), keyResults, technologies: list(input.technologies, "Technologies", 40), architectureDetails: list(input.architectureDetails, "Engineering highlights", 30), testimonial, gallery, completionDate, projectId: text(input.projectId, "Delivery project", 100), status: input.status as ProjectInput["status"], featured: input.featured, displayOrder: Number(input.displayOrder),
   };
 }

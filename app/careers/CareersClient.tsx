@@ -129,7 +129,7 @@ export function CareersClient() {
         </div>
 
         {/* General Application Callout */}
-        <div className="p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
+        <div className="visual-card p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
           <h2 className="text-lg font-bold text-white mb-2">Don&apos;t See Your Exact Role?</h2>
           <p className="text-xs text-slate-300 max-w-lg mx-auto mb-4">
             We are constantly looking for exceptional senior engineers, cloud architects, and creative directors. Send your portfolio or GitHub directly to our founders.

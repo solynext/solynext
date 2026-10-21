@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight, MessageCircle, Send, Trash2, X } from "lucide-react";
 import { quickActions, welcomeMessage } from "@/lib/chat/responses";
 import { chatService } from "@/lib/chat/service";
@@ -11,6 +12,7 @@ import { ChatAvatar } from "./ChatAvatar";
 import styles from "./TechSolutionsChatbot.module.css";
 
 export function TechSolutionsChatbot() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([{ id: "welcome", role: "assistant", text: welcomeMessage }]);
   const [draft, setDraft] = useState("");
@@ -109,7 +111,7 @@ export function TechSolutionsChatbot() {
     const message: ChatMessage = { id: crypto.randomUUID(), role: "user", text };
     const history = [...messages, message];
     setMessages(history); setDraft("");
-    void respond({ message: text, history });
+    void respond({ message: text, history, page: pathname });
   };
 
   return <aside ref={widget} className={styles.widget} aria-label="SolyNext service assistant" onKeyDown={event => { if (open && event.key === "Escape") { event.stopPropagation(); minimize(); } }}>
@@ -135,7 +137,7 @@ export function TechSolutionsChatbot() {
         <input ref={input} id="solynext-chat-input" value={draft} onChange={event => setDraft(event.target.value)} maxLength={1000} placeholder="What would you like to build?" autoComplete="off"/>
         <button type="submit" aria-label="Send message" disabled={!draft.trim() || pending || Boolean(error) || !historyReady}><Send size={18}/></button>
       </form>
-      <p className={styles.footnote}>{storageNotice ? <span role="status">{storageNotice}</span> : <>Saved on this browser · <Link href="/contact" onClick={minimize}>Contact our team</Link></>}</p>
+      <p className={styles.footnote}>{storageNotice && <span role="status">{storageNotice} </span>}AI may make mistakes. Avoid sharing sensitive details. <Link href="/privacy-policy">Chat privacy</Link> · <Link href="/contact" onClick={minimize}>Contact our team</Link></p>
     </section>
     <button ref={launcher} type="button" className={styles.launcher} aria-label={open ? "Minimize SolyNext chat" : "Open SolyNext chat"} aria-expanded={open} aria-controls="solynext-chat" aria-haspopup="dialog" onClick={() => open ? minimize() : setOpen(true)}>{open ? <X size={23}/> : <MessageCircle size={25}/>}</button>
   </aside>;

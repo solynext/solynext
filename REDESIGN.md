@@ -10,7 +10,7 @@ The repository is the source of business content. It contains eight services, fo
 | Navigation | Prioritize Services, Our work, About, Insights, and Contact. Keep secondary destinations accessible in the footer and contextual links. |
 | Homepage | Replace repetitive sales copy, engineering-console tabs, unsupported sitewide counters, dense guarantee boxes, oversized testimonial collections, and repeated conversion blocks with one clear narrative. |
 | Services | Feature the four core software/design services on the homepage. Preserve branding, marketing, social media, and video offerings in the services directory and their existing detail routes. |
-| Work | Feature FinEdge and MediTrack. Retain all four project records and detailed case-study routes. Keep reported project outcomes tied to their original records. |
+| Work | Feature the shared six-business client directory. Keep portfolio entries linked to client IDs and detailed case-study routes. |
 | Client proof | Use one existing case-study testimonial without inventing a rating, verification status, new quote, or client. |
 | About | Provide a brief homepage snapshot; keep the deeper company information on its dedicated page. |
 | Process | Summarize delivery in four homepage steps; retain the deeper process page. |

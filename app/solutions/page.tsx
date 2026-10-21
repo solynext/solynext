@@ -1,3 +1,4 @@
+import { getPageMetadata } from "@/lib/seo/metadata";
 import { CardMotif, cardTone } from "@/components/ui/CardMotif";
 import React from "react";
 import Link from "next/link";
@@ -5,11 +6,7 @@ import { ArrowRight, ShoppingBag, ShieldCheck, Activity, Home, Zap, Truck, Check
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { INDUSTRY_SOLUTIONS_DATA } from "@/data/mockData";
 
-export const metadata = {
-  title: "Industry Solutions & Problem Solving — SolyNext",
-  description:
-    "Tailored technology solutions designed for E-Commerce, FinTech, Healthcare, Real Estate, SaaS, and Logistics.",
-};
+export async function generateMetadata() { return getPageMetadata("/solutions"); }
 
 export default function SolutionsPage() {
   const getIcon = (name: string) => {
@@ -82,7 +79,7 @@ export default function SolutionsPage() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-7 bg-[#06080e] p-6 sm:p-8 rounded-2xl border border-[#202738]">
+                <div className="visual-card lg:col-span-7 bg-[#06080e] p-6 sm:p-8 rounded-2xl border border-[#202738]">
                   <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
                     Architectural Capabilities &amp; Integrations
                   </h3>

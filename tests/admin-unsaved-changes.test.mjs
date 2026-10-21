@@ -52,3 +52,15 @@ test('checkboxes, uploaded files, and multi-select changes are protected', async
     assert.equal(await s.confirmAdminDiscard(s.scope), false);
   }
 });
+
+test('SEO overrides remain protected when the visible page selector changes', async () => {
+  const s = setup();
+  s.form.dataset = { editorState: JSON.stringify({ pages: {} }) };
+  s.markAdminFormSaved(s.form);
+  s.field.value = 'Different preview page';
+  assert.equal(await s.confirmAdminDiscard(s.scope), true);
+  s.form.dataset.editorState = JSON.stringify({ pages: { '/about': { title: 'Updated title' } } });
+  assert.equal(await s.confirmAdminDiscard(s.scope), false);
+  s.markAdminFormSaved(s.form);
+  assert.equal(await s.confirmAdminDiscard(s.scope), true);
+});

@@ -12,11 +12,12 @@ import { AdminLogoutDialog } from "./AdminLogoutDialog";
 import styles from "./admin.module.css";
 import { AdminUnsavedChanges } from "./AdminUnsavedChanges";
 import { BrandLogo } from "@/components/ui/BrandLogo";
+import { AdminAvatar } from "./AdminAvatar";
 
 const allLinks = adminSearchNavigation;
 export function AdminShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const { session, collections, toast, authState, notifications: events, markRead, deleteNotification, removeAllNotifications } = useAdmin();
+  const { session, profilePhoto, collections, toast, authState, notifications: events, markRead, deleteNotification, removeAllNotifications } = useAdmin();
   const [sidebar, setSidebar] = useState(false);
   const [profile, setProfile] = useState(false);
   const [notifications, setNotifications] = useState(false);
@@ -70,9 +71,9 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
         <Link href="/" target="_blank" rel="noopener noreferrer" className={styles.visitWebsite} aria-label="Visit Website (opens in a new tab)"><span>Visit Website</span><ArrowUpRight size={17}/></Link>
         <button className={styles.notificationButton} onClick={() => { setProfile(false); setSearchOpen(false); setNotifications(true); }} aria-label="Open notifications" aria-haspopup="dialog"><Bell size={19}/>{unread > 0 && <i/>}</button>
         <div className={styles.profileContainer} ref={profileRef} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setProfile(false); }}>
-          <button className={styles.profileTrigger} onClick={() => { setProfile(!profile); setNotifications(false); }} aria-label="Open admin account menu" aria-expanded={profile} aria-controls="admin-account-menu"><span className={styles.avatar}>{initials}</span><span className={styles.profileName}>{session.user.name}<small>Administrator</small></span><ChevronDown size={14}/></button>
+          <button className={styles.profileTrigger} onClick={() => { setProfile(!profile); setNotifications(false); }} aria-label="Open admin account menu" aria-expanded={profile} aria-controls="admin-account-menu"><AdminAvatar image={profilePhoto.image} initials={initials} className={styles.avatar}/><span className={styles.profileName}>{session.user.name}<small>Administrator</small></span><ChevronDown size={14}/></button>
           {profile && <div className={styles.accountMenu} id="admin-account-menu">
-            <div className={styles.accountIdentity}><span className={styles.avatar}>{initials}</span><div><strong>{session.user.name}</strong><small>{session.user.email}</small><span><ShieldCheck size={12}/>Administrator</span></div></div>
+            <div className={styles.accountIdentity}><AdminAvatar image={profilePhoto.image} initials={initials} className={styles.avatar}/><div><strong>{session.user.name}</strong><small>{session.user.email}</small><span><ShieldCheck size={12}/>Administrator</span></div></div>
             <nav className={styles.accountGroup} aria-label="Account shortcuts"><small>ACCOUNT</small>
               <Link href="/admin/profile" onClick={() => setProfile(false)}><UserRound size={17}/><span>My profile</span><ChevronRight size={14}/></Link>
               <Link href="/admin/settings" onClick={() => setProfile(false)}><Settings size={17}/><span>Workspace settings</span><ChevronRight size={14}/></Link>

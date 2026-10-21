@@ -1,16 +1,19 @@
-import { getPredefinedReply } from "./responses";
-import type { ChatService } from "./types";
+import type { ChatReply, ChatService } from "./types";
 
-/** Local UI adapter. No network requests, lead submissions, or conversation storage. */
 export const chatService: ChatService = {
-  async reply({ message, history }, signal) {
+  async reply({ message, history, page }, signal) {
     signal.throwIfAborted();
-    await new Promise<void>((resolve, reject) => {
-      const cancel = () => { clearTimeout(timer); reject(new DOMException("Request cancelled", "AbortError")); };
-      const timer = setTimeout(() => { signal.removeEventListener("abort", cancel); resolve(); }, 650);
-      signal.addEventListener("abort", cancel, { once: true });
+    const recent = history.slice(-12).map(({ role, text }) => ({ role, text }));
+    while (new TextEncoder().encode(JSON.stringify(recent)).byteLength > 24000 && recent.length > 2) recent.shift();
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message, page, history: recent }),
+      signal,
     });
-    signal.throwIfAborted();
-    return getPredefinedReply(message, history);
+    if (!response.ok) throw new Error("Chat request failed");
+    const reply: ChatReply = await response.json();
+    if (typeof reply.text !== "string" || !reply.text.trim()) throw new Error("Empty chat response");
+    return reply;
   },
 };

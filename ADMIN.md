@@ -6,11 +6,33 @@ The temporary development identity is **admin@next.com / Admin123**. These value
 
 ## Scope
 
-This is a UI preview with a temporary authentication foundation. There is no database, business API, payment integration, file storage, email delivery, or production identity provider. All management changes remain in the workspace's in-memory React state. Navigation preserves them; a reload or sign-out resets them. A “Published” status in the preview never publishes to the public website. Media selection is a file-picker preview and does not upload the selected file.
+### Persistent client directory
+
+The six current businesses are defined once in `data/clients.ts`: Al Madina Traders, Noor Boutique, Pak Auto Parts, Fresh Basket, Urban Chai, and Prime Property Hub. Public client cards and the admin client collection read the same directory. Portfolio seeds and operational projects link to its stable client IDs, and industry filters use its categories.
+
+Client changes now persist through authenticated server actions in `.data/clients/clients.json`; set `CLIENT_DATA_DIR` to move that directory. Active clients appear in the homepage cards. Client editing and deletion survive reloads; other operational collections still use preview state. Portfolio content retains its separate persistent JSON store in `.data/portfolio/projects.json` (`PORTFOLIO_DATA_DIR`). Local `.data` files are intentionally ignored by Git; fresh environments use the shared seed identities.
+
+There is no connected SQL database. These JSON stores require a persistent writable filesystem. Old sample endorsements are not attributed to the replacement businesses; add approved client feedback through portfolio editing.
+
+The workspace has a temporary authentication foundation and persistent local JSON stores for clients and portfolio content. Other management collections remain in-memory previews: their edits reset on reload or sign-out. Client and portfolio changes use their authenticated server actions and update public content. There is no connected SQL database, payment integration, email delivery, or production identity provider.
 
 The dashboard uses public content as the starting point for demo records, with separate client, staffing, task, notification, and delivery data. No public data is mutated. Settings and profile forms are preview preferences; they do not update login credentials or site metadata.
 
 ## Management workspace
+
+### Admin profile photos
+
+`/admin/profile` supports uploading, changing, and removing the current admin's photo. JPG, PNG, and WebP files up to 5 MB are decoded on the server, cropped to 384 × 384, and re-encoded as WebP without original metadata. Upload and removal actions require the signed-in admin and derive the account ID from its session.
+
+Photos save automatically to `.data/admin-profile/<account-id>.json`; `ADMIN_PROFILE_DATA_DIR` can relocate the directory. They persist across reloads and update the admin header and account menu immediately. They are supplied only through the authenticated workspace layout, with no public photo endpoint. Name/email editing remains explicitly labeled a preview and does not change sign-in credentials.
+
+### Live SEO settings
+
+Open `/admin/settings?tab=seo` for the persistent SEO editor. It provides live search and social previews, character guidance, per-page title/description and indexing overrides, homepage social overrides, Google/Bing verification tokens, and publication status. Publishing writes `.data/seo/settings.json` through an authenticated server action and invalidates website metadata, `robots.txt`, and `sitemap.xml`. `SEO_DATA_DIR` can relocate this storage directory.
+
+Enter the actual HTTPS website domain to enable canonical URLs and absolute sitemap/image URLs; no placeholder domain is published. Static public pages and published service, portfolio, and article detail pages use the shared metadata resolver. Page-level noindex entries are excluded from the sitemap. Admin pages retain their own noindex/nofollow rules. Settings are validated on the server, and revision checks reject stale concurrent saves. Unsaved per-page overrides remain protected even while switching previews.
+
+Live previews are illustrations, and checklist items reflect configuration rather than ranking. Saving publishes website changes immediately; search engines choose when to recrawl and how to display snippets. Verification tokens add tags but still require completing ownership verification in the search provider. These local stores require persistent filesystem hosting; other settings tabs remain explicitly labeled preview preferences.
 
 - **Business:** clients, operational projects, tasks, work progress, and inquiries.
 - **People:** team profiles, skills, availability, workload, roles, and responsibilities.

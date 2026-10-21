@@ -28,6 +28,7 @@ export interface ServiceItem {
 }
 
 export interface CaseStudy {
+  clientId?: string;
   id: string;
   slug: string;
   title: string;

@@ -1,3 +1,4 @@
+import { getPageMetadata } from "@/lib/seo/metadata";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -13,12 +14,9 @@ interface Props {
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const study = (await getPublicProjects()).find((s) => s.slug === slug);
-  if (!study) return { title: "Case Study Not Found" };
+  if (!study) notFound();
 
-  return {
-    title: `${study.title} — SolyNext Case Study`,
-    description: study.summary,
-  };
+  return getPageMetadata(`/portfolio/${slug}`, { title: `${study.title} | SolyNext Case Study`, description: study.summary, image: study.featuredImage, type: "website" });
 }
 
 export default async function CaseStudyDetailPage({ params }: Props) {
@@ -58,7 +56,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
 
           {study.projectUrl && <a href={study.projectUrl} target="_blank" rel="noopener noreferrer" className="p-button mb-6">Visit project <ArrowRight size={16}/></a>}
           {study.completionDate && <p className="text-sm text-slate-400 mb-4">Completed {new Intl.DateTimeFormat("en-GB", { dateStyle: "medium", timeZone: "Asia/Karachi" }).format(new Date(study.completionDate))}</p>}
-          {study.keyResults.length > 0 && <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-[#0a0d15] border border-[#202738]">
+          {study.keyResults.length > 0 && <div className="visual-card grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-[#0a0d15] border border-[#202738]">
             {study.keyResults.map((r, i) => (
               <div key={i}>
                 <p className="text-xl font-bold text-[#00D9FF] font-mono tabular-nums">
@@ -89,7 +87,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
 
         {/* Challenge vs Solution Breakdown */}
         {(study.challenge || study.solution) && <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div className="p-8 rounded-2xl border border-red-900/30 bg-red-950/15">
+          <div className="visual-card p-8 rounded-2xl border border-red-900/30 bg-red-950/15">
             <h2 className="text-xs font-bold text-red-400 uppercase tracking-wider mb-2">
               The Architectural Challenge
             </h2>
@@ -98,7 +96,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
             </p>
           </div>
 
-          <div className="p-8 rounded-2xl border border-[#00D9FF]/30 bg-[#00D9FF]/5">
+          <div className="visual-card p-8 rounded-2xl border border-[#00D9FF]/30 bg-[#00D9FF]/5">
             <h2 className="text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-2">
               The SolyNext Solution
             </h2>
@@ -109,7 +107,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
         </div>}
 
         {/* Deep Architectural Details */}
-        {study.architectureDetails.length > 0 && <div className="p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] mb-16">
+        {study.architectureDetails.length > 0 && <div className="visual-card p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] mb-16">
           <h2 className="text-lg font-bold text-white mb-6">
             Technical Architecture &amp; Engineering Highlights
           </h2>
@@ -125,7 +123,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
 
         {/* Client Endorsement */}
         {study.testimonial && (
-          <div className="p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] mb-16">
+          <div className="visual-card p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] mb-16">
             <div className="flex items-center gap-1 text-[#00D9FF] mb-4">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-current" />
@@ -162,7 +160,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
         </div>
 
         {/* CTA Footer */}
-        <div className="p-8 sm:p-10 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
+        <div className="visual-card p-8 sm:p-10 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
           <h2 className="text-2xl font-bold text-white mb-3">
             Have a Similar Technical Challenge?
           </h2>

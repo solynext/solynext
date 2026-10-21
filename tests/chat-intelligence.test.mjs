@@ -5,13 +5,14 @@ import vm from 'node:vm';
 import ts from 'typescript';
 
 const modules = new Map();
+let lastChatRequest;
 function load(name) {
   if (modules.has(name)) return modules.get(name);
   const source = fs.readFileSync(new URL(`../lib/chat/${name}.ts`, import.meta.url), 'utf8');
   const code = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
   const compiled = { exports: {} };
   modules.set(name, compiled.exports);
-  vm.runInNewContext(code, { module: compiled, exports: compiled.exports, require: name => load(name.replace('./','')), setTimeout, clearTimeout, DOMException });
+  vm.runInNewContext(code, { module: compiled, exports: compiled.exports, require: name => load(name.replace('./','')), setTimeout, clearTimeout, DOMException, TextEncoder, fetch: async (url, options) => { lastChatRequest = { url, ...JSON.parse(options.body) }; return { ok: true, json: async () => load('responses').getPredefinedReply(lastChatRequest.message, lastChatRequest.history) }; } });
   return compiled.exports;
 }
 const { analyzeQuestion } = load('analysis');
@@ -83,7 +84,11 @@ test('unclear requests ask a follow-up and replies expose no internal relevance 
   assert.doesNotMatch(getPredefinedReply('Do you use Flutter?').text,/we (use|support) Flutter/i);
 });
 
-test('async adapter forwards actual conversation history to the response engine', async () => {
+test('async adapter forwards conversation context to the server without browser credentials', async () => {
   const { chatService }=load('service');const reply=await chatService.reply({message:'For my clothing business',history:[user('I need a website'),user('For my clothing business')]},new AbortController().signal);
   assert.match(reply.text,/clothing.*website/);
+  assert.equal(lastChatRequest.url, '/api/chat');
+  assert.equal(lastChatRequest.history.length, 2);
+  assert.equal(lastChatRequest.history[0].text, 'I need a website');
+  assert.equal(lastChatRequest.history[0].id, undefined);
 });
