@@ -1691,11 +1691,27 @@ main .visual-card [class~="ring-[#00D9FF]"]{--tw-ring-color:var(--card-edge)}
   }
 
   .hero-actions {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 8px;
   }
 
-  .hero-actions > a {
-    flex-shrink: 0;
+  .premium-hero .hero-actions > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px clamp(6px, 2vw, 12px);
+    gap: 6px;
+    font-size: clamp(11px, 3vw, 13px);
+  }
+
+  .premium-hero .hero-actions > a svg {
+    width: 16px;
+    height: 16px;
   }
 }
 
