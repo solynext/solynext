@@ -142,7 +142,7 @@ export function PricingClient() {
         </div>
 
         {/* Interactive Ballpark Project Estimator */}
-        <div className="p-8 sm:p-12 rounded-2xl border border-[#202738] bg-[#0a0d15] mb-16">
+        <div className="visual-card p-8 sm:p-12 rounded-2xl border border-[#202738] bg-[#0a0d15] mb-16">
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-2 text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-2">
               <Calculator className="w-4 h-4" />
@@ -210,7 +210,7 @@ export function PricingClient() {
               </div>
 
               {/* Estimate Calculation Result Box */}
-              <div className="p-6 rounded-xl border border-[#202738] bg-[#06080e] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="visual-card p-6 rounded-xl border border-[#202738] bg-[#06080e] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <p className="text-xs text-slate-400 font-medium">Estimated Ballpark Investment:</p>
                   <p className="text-2xl sm:text-3xl font-extrabold text-[#00D9FF] font-mono tabular-nums">
@@ -235,7 +235,7 @@ export function PricingClient() {
 
         {/* IP & Guarantee Banner */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-300">
-          <div className="p-5 rounded-xl border border-[#202738] bg-[#0a0d15] flex items-start gap-3">
+          <div className="visual-card p-5 rounded-xl border border-[#202738] bg-[#0a0d15] flex items-start gap-3">
             <ShieldCheck className="w-5 h-5 text-[#00D9FF] shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-white mb-1">Standard Mutual NDA</p>
@@ -243,7 +243,7 @@ export function PricingClient() {
             </div>
           </div>
 
-          <div className="p-5 rounded-xl border border-[#202738] bg-[#0a0d15] flex items-start gap-3">
+          <div className="visual-card p-5 rounded-xl border border-[#202738] bg-[#0a0d15] flex items-start gap-3">
             <Zap className="w-5 h-5 text-[#00D9FF] shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-white mb-1">No Hostage Code</p>
@@ -251,7 +251,7 @@ export function PricingClient() {
             </div>
           </div>
 
-          <div className="p-5 rounded-xl border border-[#202738] bg-[#0a0d15] flex items-start gap-3">
+          <div className="visual-card p-5 rounded-xl border border-[#202738] bg-[#0a0d15] flex items-start gap-3">
             <HelpCircle className="w-5 h-5 text-[#00D9FF] shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-white mb-1">Custom Payment Corridors</p>

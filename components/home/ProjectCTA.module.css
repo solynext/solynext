@@ -30,3 +30,7 @@
 @media(max-width:767px){.copy h2{font-size:clamp(26px,6.8vw,32px);line-height:1.25;letter-spacing:-.7px}.copy>p{font-size:14px;line-height:1.75}}
 
 @media(max-width:767px){.card{grid-template-columns:minmax(0,1fr);padding:clamp(18px,5vw,30px)}.copy{min-width:0}.button{max-width:100%;gap:clamp(12px,4vw,35px)}.visual{max-width:100%}}
+
+.card .orbit,.card .innerOrbit,.card .dotOne,.card .dotTwo{display:none}
+
+.card .copy h2{font-size:clamp(26px,3vw,38px);line-height:1.2;letter-spacing:-1px;margin:16px 0}.card .copy>p{font-size:14px}.card .visual{min-height:230px}.card .logo{width:108px;height:108px;border-radius:26px}.card .logo img{width:72px;height:72px}

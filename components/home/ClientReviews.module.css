@@ -24,3 +24,5 @@
 @media(prefers-reduced-motion:reduce){.project{transition:none}}
 
 @media(max-width:767px){.grid{grid-template-columns:minmax(0,1fr);align-items:start}}
+
+.card .cardTop{margin-bottom:16px}.card blockquote{font-size:14px;line-height:1.75;margin-bottom:18px}.card .reviewer{padding-top:16px}.card .avatar{width:38px;height:38px;font-size:13px}.card .project{margin-top:16px;padding:10px 12px}

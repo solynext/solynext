@@ -113,7 +113,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {study.architectureDetails.map((detail, idx) => (
-              <div key={idx} className="flex items-start gap-3 p-4 rounded-xl bg-[#06080e] border border-[#202738]">
+              <div key={idx} className="visual-card flex items-start gap-3 p-4 rounded-xl bg-[#06080e] border border-[#202738]">
                 <CheckCircle2 className="w-4 h-4 text-[#00D9FF] shrink-0 mt-0.5" />
                 <span className="text-xs text-slate-300 font-medium leading-relaxed">{detail}</span>
               </div>

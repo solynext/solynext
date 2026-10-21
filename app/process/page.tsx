@@ -110,7 +110,7 @@ export default function ProcessPage() {
                 {step.description}
               </p>
 
-              <div className="p-4 rounded-xl bg-[#06080e] border border-[#202738]">
+              <div className="visual-card p-4 rounded-xl bg-[#06080e] border border-[#202738]">
                 <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
                   Stage Deliverables:
                 </p>

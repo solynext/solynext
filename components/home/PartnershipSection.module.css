@@ -34,3 +34,5 @@
 @media(hover:none){.card:hover,.card:hover .icon,.card:hover .arrow{transform:none}}
 
 @media(max-width:767px){.grid{grid-template-columns:minmax(0,1fr);align-items:start}}
+
+.card{min-height:0;height:auto}.card .cardTop{margin-bottom:14px}.card .icon{width:34px;height:34px;border-radius:10px}.section .card h3{font-size:17px}.section .card p{font-size:13px;margin-bottom:14px}.card .arrow{width:30px;height:30px}

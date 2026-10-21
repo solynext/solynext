@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
+@theme inline {
+  --font-sans: var(--font-site);
+}
+
 :root {
+  --font-site: Helvetica, Arial, sans-serif;
+  --font-geist-sans: var(--font-site);
   color-scheme: light;
-  --page: #f7faff;
+  --page: #ffffff;
   --surface: #ffffff;
   --surface-raised: #fbfdff;
   --surface-inset: #edf5ff;
@@ -29,7 +35,7 @@
   body {
     background-color: var(--page);
     color: var(--ink);
-    font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: var(--font-site);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -1739,3 +1745,99 @@ main .visual-card:has(>.project-form){background:linear-gradient(125deg,#fff 8%,
 }
 
 @media(max-width:767px){.premium-header .premium-menu-toggle,.premium-header .premium-menu-toggle:hover{background:transparent;border-color:transparent;box-shadow:none}}
+
+/* Refined public card surfaces. Admin cards keep their own workspace styling. */
+body:has(.premium-header) :is(main .visual-card,main .handover-preview,main .internal-end-cta,main .portfolio-empty,.project-dialog){
+ --card-color:#2456a6;
+ --card-rgb:36,86,166;
+ --card-light:#c4ddf5;
+ --card-tint:#f4f8ff;
+ --card-edge:#dfe8f3;
+ background:var(--card-tint)!important;
+ border:1px solid var(--card-edge)!important;
+ border-radius:18px!important;
+ box-shadow:0 2px 8px #102b5005,0 1px 2px #102b5003;
+ color:#172c48;
+ transition:border-color 180ms ease,box-shadow 180ms ease,transform 180ms ease;
+}
+body:has(.premium-header) main .visual-card[data-card-tone="purple"]{--card-color:#355c9b;--card-tint:#f3f6fd;--card-edge:#e0e7f2}
+body:has(.premium-header) main .visual-card[data-card-tone="cyan"]{--card-color:#17617e;--card-tint:#eff9fc;--card-edge:#d9ebf1}
+body:has(.premium-header) main .visual-card[data-card-tone="pink"]{--card-color:#285ba1;--card-tint:#f1f6fd;--card-edge:#dce7f4}
+body:has(.premium-header) main .visual-card[data-card-tone="green"]{--card-color:#23617e;--card-tint:#f2f9fc;--card-edge:#dcebf1}
+body:has(.premium-header) main .visual-card[data-card-tone="amber"]{--card-color:#345a88;--card-tint:#f6f8fc;--card-edge:#e0e7f0}
+body:has(.premium-header) main .visual-card::before,
+body:has(.premium-header) main .visual-card::after{content:none}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ body:has(.premium-header) main .visual-card:hover{transform:translateY(-2px);border-color:#c5d6eb!important;box-shadow:0 6px 18px #102b500a}
+}
+body:has(.premium-header) main .visual-card :is(h1,h2,h3,h4,strong,blockquote){color:#172c48}
+body:has(.premium-header) main .visual-card :is(p,li){color:#4c6079}
+body:has(.premium-header) main .visual-card .motif-glass,
+body:has(.premium-header) main .visual-card .motif-spark{display:none}
+body:has(.premium-header) main .visual-card .motif-tile{
+ background:#e7eff9;
+ border:1px solid var(--card-edge);
+ box-shadow:none;
+ transform:none;
+ color:var(--card-color);
+}
+body:has(.premium-header) main .visual-card .motif-tile svg{color:var(--card-color)!important}
+body:has(.premium-header) main .visual-card :is(.motif-lines,.motif-dots){display:none}
+body:has(.premium-header) main .visual-card :is(.capability-icon,.service-top>svg){
+ background:#e8f0fa;
+ color:var(--card-color);
+ box-shadow:none;
+ border-color:var(--card-edge);
+}
+body:has(.premium-header) main .visual-card :is(.project-tags span,.capability-tags li){
+ background:#ffffffa8;
+ color:#3f5775;
+ border-color:var(--card-edge);
+ box-shadow:none;
+}
+body:has(.premium-header) main .insight-card.visual-card .insight-art{background:#eaf2fa;border-color:var(--card-edge)}
+body:has(.premium-header) main .premium-project.visual-card>:is(.project-meta,h3,p,.project-tags){margin-inline:20px}
+body:has(.premium-header) main .premium-project.visual-card .project-tags{margin-bottom:20px}
+@media(max-width:767px){
+ body:has(.premium-header) main .visual-card{height:auto;min-height:0;min-width:0;max-width:100%}
+ body:has(.premium-header) :is(main .visual-card,.project-dialog){border-radius:16px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ body:has(.premium-header) main .visual-card{transition:none}
+ body:has(.premium-header) main .visual-card:hover{transform:none}
+}
+
+/* Public cards use plain pastel backgrounds without decorative rings or patterns. */
+body:has(.premium-header) main .insight-art-ring{display:none}
+
+/* White public page canvas; pastel fills remain confined to cards. */
+body:has(.premium-header),
+body:has(.premium-header) main,
+body:has(.premium-header) main>section:not(.visual-card),
+body:has(.premium-header) main>.premium-container>section:not(.visual-card),
+body:has(.premium-header) .premium-header,
+body:has(.premium-header) footer{
+ background:#fff!important;
+}
+
+/* Compact sizing for every public content card, with natural content height. */
+body:has(.premium-header) main .visual-card{height:auto;min-height:0;min-width:0}
+body:has(.premium-header) main .visual-card:not(.premium-project):not(.portfolio-project):not(.insight-card){padding:20px}
+body:has(.premium-header) main :is(.handover-preview,.internal-end-cta,.portfolio-empty){padding:20px}
+body:has(.premium-header) main .visual-card .card-motif{height:52px;margin-bottom:12px}
+body:has(.premium-header) main .visual-card .motif-tile{width:40px;height:40px;top:0;left:0;border-radius:10px}
+body:has(.premium-header) main .visual-card .motif-tile svg{width:23px;height:23px}
+body:has(.premium-header) main :is(.capability-card,.engagement-card,.premium-process>article)>h3{font-size:18px;line-height:1.4}
+body:has(.premium-header) main .internal-service>h2{font-size:20px;line-height:1.35}
+body:has(.premium-header) main .visual-card :is(.capability-card-top,.engagement-card-top,.service-top){margin-bottom:14px}
+body:has(.premium-header) main .engagement-card ul{padding-block:16px;margin-block:16px;gap:10px}
+body:has(.premium-header) main :is(.portfolio-project-content,.insight-card-content){padding:18px}
+body:has(.premium-header) main :is(.portfolio-image,.insight-art){height:150px;min-height:0}
+body:has(.premium-header) main .insight-art .card-motif{height:52px}
+body:has(.premium-header) .project-dialog-content{padding:24px}
+@media(max-width:767px){
+ body:has(.premium-header) main .visual-card:not(.premium-project):not(.portfolio-project):not(.insight-card){padding:18px}
+ body:has(.premium-header) main :is(.handover-preview,.internal-end-cta,.portfolio-empty){padding:18px}
+}
+
+body:has(.premium-header) main .visual-card:has(>summary){padding:0!important}
