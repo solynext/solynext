@@ -20,7 +20,6 @@ export function ClientTicker({ clients }: { clients: { id: string; title: string
             const Mark = marks[icon as keyof typeof marks] ?? Store;
             return <li key={id} className={styles.card} data-tone={index}>
             <div className={styles.wordmark}>
-              <span className={styles.cardNumber} aria-hidden="true">0{index + 1}</span>
               <span className={styles.logoMark} aria-hidden="true"><Mark size={28} strokeWidth={1.8}/></span>
               <strong>{name}</strong>
               <small>{category}</small>

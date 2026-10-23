@@ -1,4 +1,3 @@
-import { CardMotif, cardTone } from "@/components/ui/CardMotif";
 import Link from "next/link";
 import { ArrowUpRight, PenTool, Code2, Cloud, GitBranch } from "lucide-react";
 import styles from "./PartnershipSection.module.css";
@@ -17,10 +16,9 @@ export function PartnershipSection() {
         <div><p className={styles.eyebrow}><span aria-hidden="true" />ONE PARTNER.</p><h2 id="partnership-title" className={styles.title}>From first sketch <span>to launch.</span></h2></div>
         <p className={styles.intro}>One connected team. <br />Every stage of your product.</p>
       </div>
-      <div className={styles.grid}>{capabilities.map(({ title, detail, icon: Icon, href, stage }, index) =>
-        <Link href={href} className={`${styles.card} partnership-capability visual-card`} key={title} data-card-tone={cardTone(title)}>
-          <CardMotif kind={title}/>
-          <div className={styles.cardTop}><span className={styles.icon}><Icon size={22} strokeWidth={1.6} aria-hidden="true" /></span><span className={styles.stage}>0{index + 1} / {stage}</span></div>
+      <div className={styles.grid}>{capabilities.map(({ title, detail, icon: Icon, href, stage }) =>
+        <Link href={href} className={styles.card} key={title}>
+          <div className={styles.cardTop}><span className={styles.icon}><Icon size={24} strokeWidth={1.7} aria-hidden="true" /></span><span className={styles.stage}>{stage}</span></div>
           <h3>{title}</h3><p>{detail}</p>
           <span className={styles.arrow} aria-hidden="true"><ArrowUpRight size={18} /></span>
         </Link>

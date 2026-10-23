@@ -37,3 +37,14 @@ test('pending local replies can be cancelled without completing an abandoned con
   controller.abort();
   await assert.rejects(request, { name:'AbortError' });
 });
+
+test('local assistant shows a pending interval and redirects unrelated questions without network access', async () => {
+  const { chatService } = load('service', { './responses': responses });
+  const controller = new AbortController();
+  let completed = false;
+  const pending = chatService.reply({ message: 'Tell me a joke', history: [] }, controller.signal).then(reply => { completed = true; return reply; });
+  await new Promise(resolve => setTimeout(resolve, 30));
+  assert.equal(completed, false);
+  const reply = await pending;
+  assert.match(reply.text, /SolyNext.*technology services/);
+});

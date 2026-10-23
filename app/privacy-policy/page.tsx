@@ -44,7 +44,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="space-y-2">
             <h2 className="text-base font-bold text-[#050505]">Website assistant</h2>
-            <p>The SolyNext assistant supports local answers and an optional AI provider. Messages are sent to our chat endpoint; when AI is enabled, your message, a limited recent conversation and the current page path are processed by Google&apos;s Gemini API alongside public website information. The application does not store chat transcripts in its server database. Provider processing is subject to Google&apos;s applicable API terms. Browser history is limited to the most recent 100 exchanges, capped by storage size, and expires after seven days without activity. Use the chat&apos;s clear button to remove saved history immediately. Avoid sharing passwords, API keys, payment information or sensitive documents. AI answers can be inaccurate; confirm project scope, quotations and commitments with our team.</p>
+            <p>The SolyNext assistant provides predefined guidance about our services. Conversations are processed in your browser without an external AI provider. The application does not store chat transcripts in its server database. Browser history is limited to the most recent 100 exchanges, capped by storage size, and expires after seven days without activity. Use Delete conversation to remove saved history immediately. Confirm project scope, quotations and commitments with our team.</p>
           </section>
 
           <section className="space-y-2">

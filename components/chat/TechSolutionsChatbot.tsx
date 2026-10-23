@@ -18,7 +18,6 @@ export function TechSolutionsChatbot() {
   const [error, setError] = useState("");
   const [historyReady, setHistoryReady] = useState(false);
   const [storageNotice, setStorageNotice] = useState("");
-  const [confirmClear, setConfirmClear] = useState(false);
   const launcher = useRef<HTMLButtonElement>(null);
   const input = useRef<HTMLInputElement>(null);
   const transcript = useRef<HTMLDivElement>(null);
@@ -78,11 +77,11 @@ export function TechSolutionsChatbot() {
     if (open && transcript.current) transcript.current.scrollTop = transcript.current.scrollHeight;
   }, [open, messages, pending, error]);
 
-  const minimize = () => { setOpen(false); setConfirmClear(false); launcher.current?.focus({ preventScroll: true }); };
+  const minimize = () => { setOpen(false); launcher.current?.focus({ preventScroll: true }); };
   const clear = () => {
     request.current?.abort(); request.current = null; failedRequest.current = null;
     setMessages([{ id: "welcome", role: "assistant", text: welcomeMessage }]);
-    setDraft(""); setPending(false); setError(""); setConfirmClear(false);
+    setDraft(""); setPending(false); setError("");
     try {
       setStorageNotice(clearChatHistory(window.localStorage) ? "" : "Saved history could not be cleared in this browser. Please check browser storage permissions.");
     } catch { setStorageNotice("Saved history could not be cleared in this browser. Please check browser storage permissions."); }
@@ -117,9 +116,8 @@ export function TechSolutionsChatbot() {
       <header className={styles.header}>
         <ChatAvatar role="assistant" large/>
         <div><h2>SolyNext assistant</h2></div>
-        <div className={styles.headerActions}><button type="button" className={styles.close} onClick={() => setConfirmClear(value => !value)} aria-label="Clear chat" title="Clear saved chat" disabled={messages.length === 1 || !historyReady} aria-expanded={confirmClear} aria-controls="chat-clear-confirm"><Trash2 size={16}/></button><button type="button" className={styles.close} onClick={minimize} aria-label="Minimize chat"><X size={19}/></button></div>
+        <div className={styles.headerActions}><button type="button" className={styles.close} onClick={clear} aria-label="Delete conversation" title="Delete conversation" disabled={messages.length === 1 || !historyReady}><Trash2 size={16}/></button><button type="button" className={styles.close} onClick={minimize} aria-label="Minimize chat"><X size={19}/></button></div>
       </header>
-      {confirmClear && <div className={styles.clearConfirm} id="chat-clear-confirm"><p>Clear this conversation?</p><div><button type="button" onClick={clear}>Clear</button><button type="button" onClick={() => setConfirmClear(false)}>Cancel</button></div></div>}
       <div className={styles.transcript} ref={transcript} role="log" aria-label="Chat messages" aria-live="polite" aria-relevant="additions text">
         {messages.map(message => <div className={`${styles.message} ${message.role === "user" ? styles.user : styles.assistant}`} key={message.id}>
           <span className={styles.srOnly}>{message.role === "user" ? "You" : "SolyNext"}</span>
@@ -131,7 +129,12 @@ export function TechSolutionsChatbot() {
       </div>
       <form className={styles.composer} onSubmit={event => { event.preventDefault(); send(draft); }}>
         <label className={styles.srOnly} htmlFor="solynext-chat-input">Your message</label>
-        <input ref={input} id="solynext-chat-input" value={draft} onChange={event => setDraft(event.target.value)} maxLength={1000} placeholder="Type a message" autoComplete="off"/>
+        <input ref={input} id="solynext-chat-input" value={draft} onChange={event => setDraft(event.target.value)} onKeyDown={event => {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            if (!event.nativeEvent.isComposing && event.nativeEvent.keyCode !== 229 && !event.repeat) send(draft);
+          }
+        }} enterKeyHint="send" maxLength={1000} placeholder="Type a message" autoComplete="off"/>
         <button type="submit" aria-label="Send message" disabled={!draft.trim() || pending || Boolean(error) || !historyReady}><Send size={18}/></button>
       </form>
       <p className={styles.footnote}>{storageNotice && <span role="status">{storageNotice} </span>}<Link href="/contact" onClick={minimize}>Contact our team</Link></p>
