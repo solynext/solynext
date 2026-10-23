@@ -1927,3 +1927,9 @@ body:has(.premium-header) :is(main,.project-dialog) :is(input:not([type="submit"
 body:has(.premium-header) .project-dialog :is(.inquiry-icon,.dialog-close,.form-status){background:#fff;border-color:#dce3ed}
 body:has(.premium-header) .project-dialog .dialog-close:hover{background:#f5f5f5}
 body:has(.premium-header) .project-form .form-status{background:#fff;border-color:#dce3ed}
+
+/* Compact header box on mobile screens. */
+@media(max-width:767px){
+ .premium-header{padding-block:0}
+ .premium-header .premium-nav{height:50px;min-height:50px;padding-block:0;align-items:center}
+}
