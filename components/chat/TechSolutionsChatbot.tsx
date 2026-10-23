@@ -115,8 +115,8 @@ export function TechSolutionsChatbot() {
     <section id="solynext-chat" className={`${styles.panel} ${open ? styles.open : ""}`} role="dialog" aria-label="Tech Solutions chat" aria-modal="false" aria-hidden={!open} inert={!open}>
       <header className={styles.header}>
         <ChatAvatar role="assistant" large/>
-        <div><h2>SolyNext assistant</h2></div>
-        <div className={styles.headerActions}><button type="button" className={styles.close} onClick={clear} aria-label="Delete conversation" title="Delete conversation" disabled={messages.length === 1 || !historyReady}><Trash2 size={16}/></button><button type="button" className={styles.close} onClick={minimize} aria-label="Minimize chat"><X size={19}/></button></div>
+        <div><h2>SolyNext assistant</h2><p><span className={styles.statusDot} aria-hidden="true"/>Here to help with your next idea</p></div>
+        <div className={styles.headerActions}><button type="button" className={styles.close} onClick={clear} aria-label="Delete conversation" title="Delete conversation" disabled={messages.length === 1 || !historyReady}><Trash2 size={16}/></button><button type="button" className={styles.close} onClick={minimize} aria-label="Quit chat" title="Quit chat"><X size={19}/></button></div>
       </header>
       <div className={styles.transcript} ref={transcript} role="log" aria-label="Chat messages" aria-live="polite" aria-relevant="additions text">
         {messages.map(message => <div className={`${styles.message} ${message.role === "user" ? styles.user : styles.assistant}`} key={message.id}>

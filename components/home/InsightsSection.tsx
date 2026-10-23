@@ -19,7 +19,7 @@ export function InsightsSection() {
     <div className={styles.grid}>{BLOG_POSTS_DATA.slice(0, 3).map((post, index) => {
       const Icon = artwork[index];
       return <Link key={post.id} href={`/blog/${post.slug}`} className={styles.article} data-tone={index}>
-        <div className={styles.art} aria-hidden="true"><div className={styles.orbit}/><div className={styles.iconTile}><Icon size={52} strokeWidth={1.25}/></div><span className={styles.issue}>0{index + 1}</span><span className={styles.artArrow}><ArrowUpRight size={20}/></span></div>
+        <div className={styles.art} aria-hidden="true"><div className={styles.orbit}/><div className={styles.iconTile}><Icon size={52} strokeWidth={1.25}/></div><span className={styles.artArrow}><ArrowUpRight size={20}/></span></div>
         <div className={styles.content}><div className={styles.meta}><span>{post.category}</span><span>{post.readTime}</span></div><h3>{shortTitles[post.slug] ?? post.title}</h3>
         </div>
       </Link>;

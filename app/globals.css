@@ -1933,3 +1933,52 @@ body:has(.premium-header) .project-form .form-status{background:#fff;border-colo
  .premium-header{padding-block:0}
  .premium-header .premium-nav{height:50px;min-height:50px;padding-block:0;align-items:center}
 }
+
+/* Keep mobile pages scan-friendly while preserving full text on larger screens. */
+@media(max-width:700px){
+ body:has(.premium-header) main :is(.heading-aside p,.hero-description),
+ body:has(.premium-header) main :is(.premium-project>p,.premium-process p,.about-principles p,.premium-faq details p,.capability-card>p,.engagement-card>p,.insight-card-content>p,.deliverable-item p){
+  display:-webkit-box;
+  overflow:hidden;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+ }
+ body:has(.premium-header) main .hero-description{-webkit-line-clamp:3}
+}
+
+/* Service page contact prompt. */
+body:has(.premium-header) main.internal-premium .services-end-cta{
+ position:relative;
+ isolation:isolate;
+ overflow:hidden;
+ gap:32px;
+ margin-top:36px;
+ padding:clamp(28px,4vw,46px)!important;
+ border:1px solid #dce7f4!important;
+ border-radius:24px!important;
+ background:linear-gradient(120deg,#edf4ff 0%,#f1f7ff 48%,#edf7f3 100%)!important;
+ box-shadow:0 18px 48px #1d3c5e0d!important;
+}
+body:has(.premium-header) main.internal-premium .services-end-cta::after{
+ content:"";
+ position:absolute;
+ z-index:-1;
+ width:280px;
+ aspect-ratio:1;
+ right:11%;
+ top:-190px;
+ border:1px solid #ffffffb0;
+ border-radius:50%;
+ box-shadow:0 0 0 35px #ffffff38,0 0 0 70px #ffffff24;
+}
+body:has(.premium-header) main.internal-premium .services-end-copy{max-width:580px}
+body:has(.premium-header) main.internal-premium .services-end-copy .eyebrow{margin:0 0 12px;color:#52749f;font-size:9px;letter-spacing:1.8px}
+body:has(.premium-header) main.internal-premium .services-end-copy h2{font-size:clamp(25px,3vw,34px);letter-spacing:-1.1px;line-height:1.2}
+body:has(.premium-header) main.internal-premium .services-end-copy>p:last-child{max-width:48ch;margin-top:10px;font-size:14px;line-height:1.7;color:#5c7089}
+body:has(.premium-header) main.internal-premium .services-end-cta>.p-button{position:relative;z-index:1;min-height:50px;padding:14px 19px;border-radius:12px;white-space:nowrap}
+@media(max-width:600px){
+ body:has(.premium-header) main.internal-premium .services-end-cta{gap:18px;margin-top:26px;padding:22px!important;border-radius:20px!important}
+ body:has(.premium-header) main.internal-premium .services-end-copy h2{font-size:26px}
+ body:has(.premium-header) main.internal-premium .services-end-copy>p:last-child{font-size:13px}
+ body:has(.premium-header) main.internal-premium .services-end-cta>.p-button{width:100%;justify-content:space-between}
+}

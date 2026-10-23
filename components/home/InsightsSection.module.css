@@ -13,7 +13,7 @@
 
 .orbit{position:absolute;width:145px;height:145px;border:1px solid #ffffffb3;border-radius:50%;box-shadow:0 0 0 22px #ffffff26,0 0 0 44px #ffffff14}
 .iconTile{display:grid;place-items:center;width:88px;height:88px;border-radius:24px;border:1px solid #ffffffe6;background:linear-gradient(145deg,#ffffffd9,#ffffff66);box-shadow:0 15px 30px color-mix(in srgb,var(--accent) 12%,transparent);transform:rotate(-9deg);transition:transform .5s ease}
-.issue{position:absolute;left:20px;bottom:13px;font-size:36px;font-weight:600;letter-spacing:-2px;opacity:.22}.artArrow{position:absolute;right:18px;bottom:16px;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#ffffff80}
+.artArrow{position:absolute;right:18px;bottom:16px;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#ffffff80}
 .content{display:flex;flex-direction:column;flex:1;padding:24px}.meta{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:10px;color:#64748b;margin-bottom:16px}.meta>span:first-child{padding:5px 9px;border-radius:6px;color:var(--accent);background:color-mix(in srgb,var(--tint) 50%,white);font-weight:600}
 .article h3{font-size:19px;line-height:1.45;letter-spacing:-.5px;font-weight:600;margin:0;text-wrap:pretty}
 

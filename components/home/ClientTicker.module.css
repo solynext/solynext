@@ -4,6 +4,7 @@
 .eyebrow{display:block;font-size:10px;font-weight:550;letter-spacing:3.5px;line-height:1.6;color:#6683b5;margin-bottom:22px}
 .section .heading .title{margin:0;font-size:clamp(36px,4.5vw,62px);font-weight:700;letter-spacing:-2.8px;line-height:1.15;color:var(--ink);text-wrap:balance}
 .title>span{color:var(--brand)}
+.description{max-width:390px;margin:16px 0 0;color:var(--muted,#667085);font-size:15px;line-height:1.75}
 .workLink{display:inline-flex;align-items:center;justify-content:center;gap:26px;min-height:48px;margin-top:32px;padding:12px 23px;border:1px solid #ffffff20;border-radius:100px;background:var(--brand);color:#fff;font-size:13px;font-weight:550;text-decoration:none;box-shadow:0 8px 22px #0057d91c;transition:transform 200ms ease,box-shadow 200ms ease,background 200ms ease}
 .workLink:hover{background:var(--brand-strong);transform:translateY(-2px);box-shadow:0 12px 26px #0057d928}
 .workLink:focus-visible{outline:3px solid var(--brand);outline-offset:4px}
@@ -28,6 +29,7 @@
  .section{padding:50px 0}
  .layout{grid-template-columns:minmax(0,1fr);gap:28px}
  .section .heading .title{font-size:42px;letter-spacing:-1.7px}
+ .description{max-width:520px;font-size:14px}
  .visual{width:100%;max-width:720px;margin:auto}
 }
 @media(max-width:767px){
@@ -35,6 +37,7 @@
  .layout{gap:22px;min-height:0}
  .eyebrow{font-size:9px;letter-spacing:2.5px;margin-bottom:12px}
  .section .heading .title{font-size:32px;letter-spacing:-1px}
+ .description{margin-top:12px;font-size:13px;line-height:1.65}
  .workLink{margin-top:20px;min-height:44px;font-size:12px;padding:10px 19px;gap:22px}
  .visual{padding:10px 0 0}
  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;transform:none}

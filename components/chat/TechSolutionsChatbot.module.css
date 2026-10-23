@@ -10,3 +10,41 @@
 @media(max-width:640px){.widget{width:min(370px,calc(100% - 32px));pointer-events:none;right:16px;bottom:calc(max(16px,env(safe-area-inset-bottom)) + var(--chat-keyboard-offset,0px))}.launcher{margin-left:auto;pointer-events:auto;width:52px;height:52px;min-height:52px;border-radius:17px}.panel{width:100%;pointer-events:auto;height:min(480px,calc(var(--chat-viewport-height,100dvh) - 108px));max-height:calc(var(--chat-viewport-height,100dvh) - 108px);bottom:66px;border-radius:18px}.header{padding:15px}.transcript{padding:17px 14px}.composer input{font-size:16px}.bubble{font-size:13px}.footnote{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.panel,.launcher,.quickActions button{transition:none}.typing i{animation:none}}
 @media(max-width:640px){.header{gap:8px;padding:14px}.header h2{font-size:14px}.header p{font-size:10px;line-height:1.4}.headerAvatar{width:34px;height:34px}.headerActions .close{width:27px;height:30px;min-height:30px}}
+
+/* Premium SolyNext chat finish */
+.launcher{width:58px;height:58px;min-height:58px;border:1px solid #ffffff80;border-radius:20px;background:linear-gradient(145deg,#2474e8,#1554b7);box-shadow:0 10px 28px #164d9b38, inset 0 1px 0 #ffffff55}
+.launcher:hover{box-shadow:0 14px 32px #164d9b45, inset 0 1px 0 #ffffff55}
+.panel{width:390px;height:540px;border:1px solid #dce5f1;border-radius:24px;background:#fff;box-shadow:0 28px 90px #1a355329,0 4px 16px #1a355310}
+.header{gap:12px;padding:18px 19px;background:linear-gradient(135deg,#f3f7ff,#fff 78%);border-bottom:1px solid #e8edf5}
+.header h2{color:#253b58;font-size:15px;letter-spacing:-.35px}
+.header p{display:flex;align-items:center;gap:7px;margin-top:5px;color:#74849a;font-size:10px}
+.statusDot{width:7px;height:7px;flex:none;border-radius:50%;background:#28a879;box-shadow:0 0 0 3px #28a8791a}
+.headerActions .close{color:#71829a}
+.headerActions .close:hover{background:#eaf1fb;color:#225db5}
+.transcript{padding:20px 18px;background:linear-gradient(180deg,#f7f9fc,#f5f8fc)}
+.message{margin-bottom:14px}
+.bubble{max-width:92%;padding:13px 15px;border:1px solid #e4eaf2;border-radius:4px 18px 18px 18px;background:#fff;color:#3e5068;font-size:13px;line-height:1.7;box-shadow:0 3px 12px #243d5a08}
+.user .bubble{border-color:#2868c7;background:linear-gradient(135deg,#2875e3,#1959bc);border-radius:18px 4px 18px 18px;color:#fff;box-shadow:0 6px 16px #1759b927}
+.links{border-color:#e7edf5}
+.links a{color:#1d5db5}
+.quickActions{gap:8px;padding-top:3px}
+.quickActions button{min-height:36px;padding:8px 12px;border-color:#dce6f3;border-radius:999px;background:#fff;color:#315679;font-size:11px;box-shadow:0 2px 8px #294b7108}
+.quickActions button:hover{background:#edf4ff;border-color:#b9d0ef}
+.composer{gap:10px;padding:13px 15px 8px;border-color:#e8edf4;background:#fff}
+.composer input{min-height:46px;padding:12px 16px;border-color:#e0e7f0;border-radius:999px;background:#f7f9fc;color:#30435e}
+.composer input:focus{outline:2px solid #9bbceb;outline-offset:1px;background:#fff}
+.composer button{width:44px;height:44px;min-height:44px;border-radius:15px;background:linear-gradient(145deg,#2474e8,#1554b7);box-shadow:0 4px 12px #1759b926}
+.composer button:disabled{box-shadow:none}
+.footnote{padding:3px 14px 14px;background:#fff;color:#8290a2;font-size:10px}
+.footnote a{color:#3768a8}
+.error{border-color:#f0d3d0;background:#fff8f7;color:#744541}
+.close:focus-visible,.launcher:focus-visible,.quickActions button:focus-visible,.composer button:focus-visible,.links a:focus-visible,.error :is(button,a):focus-visible{outline:3px solid #8eb5ed;outline-offset:3px}
+@media(max-width:640px){
+ .widget{z-index:1000;right:16px;bottom:calc(max(16px,env(safe-area-inset-bottom)) + var(--chat-keyboard-offset,0px));width:min(370px,calc(100% - 32px));height:auto;pointer-events:none}
+ .launcher{width:54px;height:54px;min-height:54px;border-radius:18px}
+ .panel{position:fixed;z-index:1001;inset:auto 0 var(--chat-keyboard-offset,0px);width:100%;height:var(--chat-viewport-height,100dvh);max-height:var(--chat-viewport-height,100dvh);border:0;border-radius:0;transform-origin:center bottom}
+ .header{padding-top:calc(14px + env(safe-area-inset-top))}
+ .transcript{padding:18px 15px}
+ .composer{padding-bottom:calc(8px + env(safe-area-inset-bottom))}
+ .footnote{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
+}
