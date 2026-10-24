@@ -106,3 +106,11 @@
 @media(max-width:700px){
  .hero .copy::before{inset:0 4% 0 -20px;background:radial-gradient(ellipse at 35% 48%,#fffffff2 0%,#ffffffd9 47%,#ffffff59 69%,transparent 85%);filter:blur(8px)}
 }
+/* Start the same background behind the transparent home navigation. */
+.hero{padding-top:var(--home-header-height,81px);box-sizing:border-box}
+@media(min-width:701px){.hero{height:min(641px,100svh)}}
+@media(max-width:700px){
+ .hero{min-height:min(760px,100svh);display:flex;align-items:center}
+ .hero .copy{padding-block:48px 80px}
+ .hero .copy::before{inset:16px 4% 24px -20px}
+}

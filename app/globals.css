@@ -1981,3 +1981,11 @@ body:has(.premium-header) main.internal-premium .services-end-cta>.p-button{posi
  body:has(.premium-header) main.internal-premium .services-end-copy>p:last-child{font-size:13px}
  body:has(.premium-header) main.internal-premium .services-end-cta>.p-button{width:100%;justify-content:space-between}
 }
+
+/* The home hero extends underneath the header; scrolling restores its white surface. */
+:root{--home-header-height:81px}
+.premium-header[data-home="true"]{position:fixed;inset:0 0 auto;width:100%;transition:background-color 180ms ease,box-shadow 180ms ease}
+body:has(.premium-header) .premium-header[data-home="true"][data-scrolled="false"]{background:transparent!important;backdrop-filter:none;border-bottom-color:transparent;box-shadow:none}
+body:has(.premium-header) .premium-header[data-home="true"][data-scrolled="true"]{background:#fff!important;box-shadow:0 4px 20px #18365b0d}
+@media(max-width:767px){:root{--home-header-height:51px}}
+@media(prefers-reduced-motion:reduce){.premium-header[data-home="true"]{transition:none}}

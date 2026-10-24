@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
@@ -12,7 +12,15 @@ import { ConsultationModal } from "@/components/ui/ConsultationModal";
 
 const links = [{href:"/",label:"Home"},{href:"/services",label:"Services"},{href:"/portfolio",label:"Our work"},{href:"/about",label:"About"},{href:"/blog",label:"Insights"},{href:"/contact",label:"Contact"}];
 
+function subscribeToScroll(onChange: () => void) {
+ window.addEventListener("scroll", onChange, { passive: true });
+ return () => window.removeEventListener("scroll", onChange);
+}
+const getScrolled = () => window.scrollY > 8;
+const getServerScrolled = () => false;
+
 export function Navbar() {
+ const scrolled = useSyncExternalStore(subscribeToScroll, getScrolled, getServerScrolled);
  const [open, setOpen] = useState(false);
  const [inquiryOpen, setInquiryOpen] = useState(false);
  const drawer = useRef<HTMLDialogElement>(null);
@@ -37,7 +45,7 @@ export function Navbar() {
 
  return <>
   <a href="#main-content" className="skip-link">Skip to content</a>
-  <header className="premium-header">
+  <header className="premium-header" data-home={pathname === "/"} data-scrolled={scrolled}>
    <div className="premium-container premium-nav">
     <div className="premium-nav-brand">
      <button className="premium-menu-toggle" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="premium-mobile-nav" onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button>
