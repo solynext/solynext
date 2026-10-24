@@ -1996,3 +1996,16 @@ body:has(.premium-header) .premium-header[data-home="true"][data-scrolled="true"
  .premium-header .premium-nav-actions{margin-left:auto;flex-shrink:0}
  .premium-header .premium-nav-actions>.premium-menu-toggle{display:flex;flex-shrink:0;margin-left:2px}
 }
+/* Give the wordmark more presence and the mobile navigation more breathing room. */
+@media(min-width:1001px){
+ :root{--home-header-height:89px}
+ .premium-header .premium-nav{height:88px}
+ .premium-header .brand-desktop-wordmark{width:190px}
+}
+@media(max-width:1000px){
+ .premium-header .brand-desktop-wordmark{width:clamp(112px,33vw,170px)}
+}
+@media(max-width:767px){
+ :root{--home-header-height:69px}
+ .premium-header .premium-nav{height:68px;min-height:68px}
+}
