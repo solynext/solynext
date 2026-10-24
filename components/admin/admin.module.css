@@ -601,6 +601,29 @@
 .discardActions .button { font-size: 13px !important; padding: 10px 14px; }
 .discardDialog button:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
 @media (max-width: 480px) { .discardContent { padding: 30px 24px 24px; } .discardActions { padding: 18px; } .discardActions .button { flex: 1; padding: 10px; } }
+
+/* Quiet pastel cards throughout the admin workspace. */
+.root :global(.visual-card) {
+  border: 1px solid #e7e7ef !important;
+  background: #f7f7fc !important;
+  box-shadow: 0 2px 8px #29324a08 !important;
+  color: #20242d;
+}
+.root .panel { border-color: #e7e7ef; background: #f7f7fc; box-shadow: 0 2px 8px #29324a08; }
+.root .mediaCard { border-color: #e7e7ef; background: #f7f7fc; box-shadow: 0 2px 8px #29324a08; }
+.root :global(.visual-card)::before,
+.root :global(.visual-card)::after { display: none !important; }
+.root .statCard:global([data-card-tone="pink"]) { background: #fff3f4 !important; border-color: #f1e1e4 !important; }
+.root .statCard:global([data-card-tone="blue"]) { background: #f1f5ff !important; border-color: #e0e7f5 !important; }
+.root .statCard:global([data-card-tone="green"]) { background: #f1f8f2 !important; border-color: #e0ece2 !important; }
+.root .statCard:global([data-card-tone="amber"]) { background: #fff8ed !important; border-color: #f0e8d8 !important; }
+.root .panel:global(.visual-card) { background: #f7f7fc !important; }
+.root .statIcon { background: #ffffffb8; color: #697180; border: 1px solid #ffffffd9; box-shadow: none; }
+.root .attentionIcon,
+.root .recordAvatar,
+.root .tableAvatar,
+.root .initialAvatar { background: #ffffffb8; color: #697180; border-color: #e5e6ec; box-shadow: none; }
+.root .statArtwork { display: none; }
 @media (max-width: 767px) {
   .root h1 { font-size: clamp(25px, 6.5vw, 29px); line-height: 1.3; letter-spacing: -.6px; overflow-wrap: break-word; }
   .overviewHero h2 { font-size: 24px; line-height: 1.35; letter-spacing: -.5px; }

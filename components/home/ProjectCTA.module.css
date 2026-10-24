@@ -15,10 +15,10 @@
 @media(prefers-reduced-motion:reduce){.button,.button svg{transition:none}}
 
 .visual{--orbit-count:6;--chip-width:64px;--orbit-radius:min(108px,calc((100cqw - var(--chip-width))/2 - 2px));container-type:inline-size;position:relative;display:grid;place-items:center;min-width:0;width:100%;max-width:340px;aspect-ratio:1;margin:auto;isolation:isolate}
-.logo{position:relative;z-index:1;display:grid;place-items:center;width:clamp(48px,20cqw,72px);height:clamp(48px,20cqw,72px);border:1px solid #ffffffcc;border-radius:24px;background:linear-gradient(145deg,#ffffffed,#eef3ffcc);box-shadow:0 12px 32px #4770b322;animation:cta-core-pulse 4s ease-in-out infinite}
+.logo{position:relative;z-index:1;display:grid;place-items:center;width:clamp(48px,20cqw,72px);height:clamp(48px,20cqw,72px);border:1px solid #ffffffcc;border-radius:24px;background:linear-gradient(145deg,#ffffffed,#eef3ffcc);box-shadow:0 12px 32px #4770b322}
 .logo img{width:78%;height:auto}
-.orbitItem{--orbit-angle:calc(-90deg + var(--orbit-index) * (360deg / var(--orbit-count)));position:absolute;top:50%;left:50%;width:0;height:0;transform:rotate(var(--orbit-angle)) translateX(var(--orbit-radius)) rotate(calc(0deg - var(--orbit-angle)));animation:cta-label-orbit 18s linear infinite}
-.chip{position:absolute;top:0;left:0;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:var(--chip-width);height:var(--chip-width);padding:0;border:1px solid #ffffffd9;border-radius:20px;background:linear-gradient(145deg,#ffffffed,#ffffff8c);box-shadow:0 8px 20px #3b5f9212,inset 0 1px 0 #fff;color:#456182;animation:cta-chip-glow 4s ease-in-out infinite;animation-delay:calc(var(--orbit-index) * -0.65s);font-size:11px;font-weight:500;line-height:1.5;white-space:nowrap;transform:translate(-50%,-50%)}
+.orbitItem{--orbit-angle:calc(-90deg + var(--orbit-index) * (360deg / var(--orbit-count)));position:absolute;top:50%;left:50%;width:0;height:0;transform:rotate(var(--orbit-angle)) translateX(var(--orbit-radius)) rotate(calc(0deg - var(--orbit-angle)))}
+.chip{position:absolute;top:0;left:0;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:var(--chip-width);height:var(--chip-width);padding:0;border:1px solid #ffffffd9;border-radius:20px;background:linear-gradient(145deg,#ffffffed,#ffffff8c);box-shadow:0 8px 20px #3b5f9212,inset 0 1px 0 #fff;color:#456182;font-size:11px;font-weight:500;line-height:1.5;white-space:nowrap;transform:translate(-50%,-50%)}
 .chip svg{width:40px;height:40px;color:var(--icon-color);flex-shrink:0}
 .idea{--orbit-index:0;--icon-color:#b86b08}
 .plan{--orbit-index:1;--icon-color:#7c3aed}
@@ -26,23 +26,23 @@
 .code{--orbit-index:3;--icon-color:#2563eb}
 .design{--orbit-index:4;--icon-color:#db2777}
 .settings{--orbit-index:5;--icon-color:#c2410c}
-@keyframes cta-label-orbit{from{transform:rotate(var(--orbit-angle)) translateX(var(--orbit-radius)) rotate(calc(0deg - var(--orbit-angle)))}to{transform:rotate(calc(var(--orbit-angle) + 360deg)) translateX(var(--orbit-radius)) rotate(calc(-360deg - var(--orbit-angle)))}}
 @media(hover:hover){.visual:hover .chip{border-color:color-mix(in srgb,var(--icon-color) 30%,white)}}
 @media(max-width:767px){.visual{--chip-width:56px;width:calc(100% + 24px);max-width:320px;justify-self:center}.chip svg{width:34px;height:34px}}
 
 
 .visual::before,.visual::after{content:"";position:absolute;top:50%;left:50%;width:calc(2 * var(--orbit-radius));height:calc(2 * var(--orbit-radius));border-radius:50%;pointer-events:none;z-index:-1;transform:translate(-50%,-50%)}
 .visual::before{border:1px solid #8ca7d433;box-shadow:0 0 0 24px #b9ccef12,0 0 0 48px #b9ccef0d}
-.visual::after{border:1px dashed #8399ce55;animation:cta-ring-spin 48s linear infinite reverse;mask-image:conic-gradient(transparent,black 20%,transparent 45%,black 75%,transparent)}
-@keyframes cta-ring-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
-@keyframes cta-core-pulse{0%,100%{box-shadow:0 12px 32px #4770b322,0 0 0 8px #ffffff26}50%{box-shadow:0 12px 36px #4770b333,0 0 0 18px #ffffff08}}
-@keyframes cta-chip-glow{0%,100%{box-shadow:0 8px 20px #3b5f9212,inset 0 1px 0 #fff}50%{box-shadow:0 8px 24px color-mix(in srgb,var(--icon-color) 18%,transparent),inset 0 1px 0 #fff}}
-@media(prefers-reduced-motion:reduce){.orbitItem,.logo,.chip,.visual::after{animation:none}}
+.visual::after{border:1px dashed #8399ce55;mask-image:conic-gradient(transparent,black 20%,transparent 45%,black 75%,transparent)}
+@media(prefers-reduced-motion:reduce){.button,.button svg{transition:none}}
 
 .chip{text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.visual:focus-within .orbitItem{animation-play-state:paused}
 .orbitItem:focus-within{z-index:3}
+.orbitItem{animation:cta-label-orbit 18s linear infinite}
+@keyframes cta-label-orbit{from{transform:rotate(var(--orbit-angle)) translateX(var(--orbit-radius)) rotate(calc(0deg - var(--orbit-angle)))}to{transform:rotate(calc(var(--orbit-angle) + 360deg)) translateX(var(--orbit-radius)) rotate(calc(-360deg - var(--orbit-angle)))}}
+.visual:focus-within .orbitItem{animation-play-state:paused}
+@media(hover:hover){.visual:hover .orbitItem{animation-play-state:paused}}
+@media(prefers-reduced-motion:reduce){.orbitItem{animation:none}}
 .chip:focus-visible{outline:3px solid var(--icon-color);outline-offset:5px}
 .tooltip{position:absolute;bottom:calc(100% + 12px);left:50%;width:max-content;max-width:190px;padding:8px 12px;border-radius:10px;background:#172b4d;color:#fff;font-size:11px;font-weight:500;line-height:1.5;text-align:center;white-space:normal;box-shadow:0 6px 18px #172b4d20;opacity:0;visibility:hidden;transform:translateX(-50%);pointer-events:none}
 .chip:focus-visible .tooltip{opacity:1;visibility:visible}
-@media(hover:hover){.visual:hover .orbitItem{animation-play-state:paused}.orbitItem:hover{z-index:3}.chip:hover .tooltip{opacity:1;visibility:visible}.chip:hover{background:#fff;outline:2px solid color-mix(in srgb,var(--icon-color) 35%,transparent);outline-offset:3px}}
+@media(hover:hover){.orbitItem:hover{z-index:3}.chip:hover .tooltip{opacity:1;visibility:visible}.chip:hover{background:#fff;outline:2px solid color-mix(in srgb,var(--icon-color) 35%,transparent);outline-offset:3px}}

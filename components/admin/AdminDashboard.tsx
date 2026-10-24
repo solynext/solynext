@@ -5,7 +5,6 @@ import { ArrowUpRight, FolderKanban, Building2, Plus, ListTodo, CalendarDays, In
 import { deliveryMetrics, activeProject, DEMO_DATE, initials } from "@/lib/admin/selectors";
 import { useAdmin } from "./AdminProvider";
 import { AdminPageHeading, StatusBadge, ProgressBar, formatAdminDate } from "./AdminUI";
-import { CardMotif } from "@/components/ui/CardMotif";
 import styles from "./admin.module.css";
 
 export function AdminDashboard() {
@@ -36,7 +35,6 @@ export function AdminDashboard() {
     <div className={styles.dashboardMeta}><span><CalendarDays size={14}/>Sample snapshot · 06 Oct 2026</span><Link href="/admin/work-progress">Delivery overview<ArrowUpRight size={14}/></Link></div>
     <div className={styles.overviewStats}>{stats.map(({ label, value, detail, icon: Icon, tone, href }) =>
       <Link key={label} href={`/admin/${href}`} className={`${styles.statCard} visual-card`} data-card-tone={tone}>
-        <div className={styles.statArtwork}><CardMotif kind={label === "New inquiries" ? "Product design" : label === "Active clients" ? "Trust" : label === "Open tasks" ? "Business growth" : "Discovery"}/></div>
         <div><span className={`${styles.statIcon} ${styles[tone]}`}><Icon size={20}/></span><ArrowUpRight size={16}/></div>
         <p>{label}</p><strong>{value}</strong><small>{detail}</small>
       </Link>

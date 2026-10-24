@@ -5,10 +5,12 @@ import { BrandLogo } from "@/components/ui/BrandLogo";
 import { BrandWordmark } from "@/components/ui/BrandWordmark";
 
 const serviceLinks = [
-  { label: "Web engineering", href: "/services/web-development" },
+  { label: "Web development", href: "/services/web-development" },
   { label: "Custom software", href: "/services/software-development" },
   { label: "Mobile applications", href: "/services/mobile-development" },
   { label: "UI/UX & product design", href: "/services/ui-ux-design" },
+  { label: "Digital marketing & SEO", href: "/services/digital-marketing" },
+  { label: "Social media management", href: "/services/social-media-management" },
 ];
 
 const companyLinks = [
@@ -17,7 +19,7 @@ const companyLinks = [
   { label: "Case studies", href: "/portfolio" },
   { label: "Our process", href: "/process" },
   { label: "Pricing & models", href: "/pricing" },
-  { label: "Engineering insights", href: "/blog" },
+  { label: "Digital insights", href: "/blog" },
   { label: "Careers", href: "/careers" },
 ];
 
@@ -30,7 +32,7 @@ export function Footer() {
         <div className={styles.intro}>
           <div>
             <span className={styles.eyebrow}>YOUR NEXT CHAPTER</span>
-            <h2>Great ideas deserve<br />a great build<span>.</span></h2>
+            <h2>Build your brand.<br />Grow your business<span>.</span></h2>
           </div>
           <Link href="/contact" className={styles.cta}>Let’s build together <ArrowUpRight size={20} aria-hidden="true" /></Link>
         </div>
@@ -43,7 +45,7 @@ export function Footer() {
               <BrandWordmark/><span className="brand-mobile-identity"><BrandLogo size={44}/><span>SolyNext<span className="text-[#00D9FF]">.</span></span></span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-slate-400">
-              Software engineering for web, mobile, and custom digital products.
+              Web development, creative design, digital marketing, and social media management for growing businesses.
             </p>
             <div className={styles.details}>
               <span className="flex items-start gap-2">

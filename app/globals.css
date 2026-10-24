@@ -1550,7 +1550,7 @@ main .visual-card [class~="ring-[#00D9FF]"]{--tw-ring-color:var(--card-edge)}
   }
 }
 
-/* Cover the entire hero with the video, cropping to fit each screen. */
+/* Cover the hero with its background video while keeping the copy readable. */
 .premium-hero { isolation: isolate; }
 .hero-video-background {
   position: absolute;
@@ -1559,7 +1559,6 @@ main .visual-card [class~="ring-[#00D9FF]"]{--tw-ring-color:var(--card-edge)}
   overflow: hidden;
   pointer-events: none;
   container-type: size;
-  background: #101827;
 }
 .hero-video-background iframe {
   opacity: 0;

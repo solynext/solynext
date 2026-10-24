@@ -6,14 +6,14 @@ export const seoPages: { path: string; label: string; title?: string; descriptio
   {
     "path": "/about",
     "label": "About",
-    "title": "About SolyNext — Software House & Technology Company",
-    "description": "Learn about SolyNext: our Pakistan engineering centers, global delivery model, core values, and mission."
+    "title": "About SolyNext | Digital Solutions for Business Growth",
+    "description": "Learn how SolyNext helps businesses grow with web development, creative design, digital marketing, and social media management."
   },
   {
     "path": "/services",
     "label": "Services",
-    "title": "Software, Design & Digital Services — SolyNext",
-    "description": "Explore SolyNext's software engineering, web and mobile development, product design, branding, and digital growth services."
+    "title": "Web, Design & Digital Marketing Services | SolyNext",
+    "description": "Explore web development, creative design, digital marketing, SEO, and social media management from SolyNext."
   },
   {
     "path": "/portfolio",
@@ -48,8 +48,8 @@ export const seoPages: { path: string; label: string; title?: string; descriptio
   {
     "path": "/blog",
     "label": "Insights",
-    "title": "Engineering Insights & Articles — SolyNext",
-    "description": "Explore in-depth technical articles, architecture deep dives, and UI/UX design perspectives from the SolyNext engineering team."
+    "title": "Digital Insights & Creative Ideas | SolyNext",
+    "description": "Ideas on web, design, marketing, and building a stronger online presence from the SolyNext team."
   },
   {
     "path": "/careers",

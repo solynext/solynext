@@ -2,7 +2,7 @@
 
 Open `/admin` while running `npm run dev`. Unauthenticated visitors go to `/admin/login`.
 
-The temporary development identity is **admin@next.com / Admin123**. These values live only in the server-only authentication adapter, not in login placeholders or client components. You can override them with `ADMIN_DEV_EMAIL` and `ADMIN_DEV_PASSWORD`.
+The development identity is configured with `ADMIN_DEV_EMAIL` and `ADMIN_DEV_PASSWORD` in the ignored local `.env.local` file. Set those values there; do not add credentials to tracked files. The server-only authentication adapter reads them, and they never enter login placeholders or client components.
 
 ## Scope
 

@@ -11,20 +11,20 @@ export async function generateMetadata() { return getPageMetadata("/about"); }
 export default function AboutPage() {
   const values = [
     {
-      title: "Business Value First",
-      description: "Every feature and line of code directly supports your business goals and user experience.",
+      title: "Business Goals First",
+      description: "Every website, design, and campaign is shaped around your goals, audience, and brand.",
     },
     {
-      title: "Full Transparency",
-      description: "Real-time access to code repositories, sprint task boards, and live staging builds.",
+      title: "Clear Communication",
+      description: "Straightforward planning, regular updates, and a clear view of the work in progress.",
     },
     {
-      title: "High Code Standards",
-      description: "Strict TypeScript, automated testing, and maintainable modular architecture.",
+      title: "Consistent Brand Quality",
+      description: "Thoughtful design and messaging help your brand stay consistent across every channel.",
     },
     {
-      title: "Global Collaboration",
-      description: "Daily communication and overlapping working hours with US, UK, and GCC teams.",
+      title: "Practical Collaboration",
+      description: "A responsive team that listens, shares ideas, and keeps projects moving.",
     },
   ];
 
@@ -54,8 +54,8 @@ export default function AboutPage() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader as="h1"
           kicker="About SolyNext"
-          title="Engineering Excellence Worldwide"
-          description="Building modern software with transparent collaboration and experienced engineers."
+          title="A Digital Partner for Business Growth"
+          description="Helping businesses grow online through web development, creative design, digital marketing, and social media management."
         />
 
         {/* Narrative & Image Block */}
@@ -65,13 +65,13 @@ export default function AboutPage() {
               Our Story &amp; Purpose
             </h2>
             <p>
-              Based in Pakistan&apos;s tech hubs of Islamabad and Lahore, SolyNext delivers top-tier software engineering for ambitious global companies.
+              Based in Islamabad and Lahore, Pakistan, SolyNext helps businesses build a stronger online presence with thoughtful digital services.
             </p>
             <p>
-              We prioritize crisp communication, senior technical leadership, clean TypeScript code, and complete IP ownership on every project.
+              Our team brings web development, design, digital marketing, and social media management together in a clear, collaborative process.
             </p>
             <p>
-              Today, we partner with clients ranging from funded startups in London and Dubai to healthcare and enterprise businesses in the US and Pakistan.
+              From a new website or brand identity to ongoing campaigns and social content, we tailor each engagement to your goals and audience.
             </p>
           </div>
 
@@ -93,10 +93,10 @@ export default function AboutPage() {
               Our Mission
             </p>
             <h3 className="text-xl font-bold text-white mb-2">
-              Engineering Rigor That Drives Growth
+              Digital Work That Moves Business Forward
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              To solve complex commercial challenges with fast, secure, and intuitive software that drives measurable business growth.
+              To help businesses communicate clearly, reach the right audiences, and grow through effective digital experiences and marketing.
             </p>
           </div>
 
@@ -105,10 +105,10 @@ export default function AboutPage() {
               Our Vision
             </p>
             <h3 className="text-xl font-bold text-white mb-2">
-              Premier Global Engineering Partner
+              A Trusted Digital Solutions Partner
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              To be the benchmark for software engineering and product design from Pakistan, recognized globally for quality and reliability.
+              To be a trusted digital partner for businesses seeking thoughtful creative work and sustainable online growth.
             </p>
           </div>
         </div>
@@ -168,10 +168,10 @@ export default function AboutPage() {
         <div className="visual-card p-8 sm:p-10 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
           <Globe className="w-8 h-8 text-[#00D9FF] mx-auto mb-3" />
           <h2 className="text-xl font-bold text-white mb-2">
-            Global Reach With Overlapping Hours
+            Digital Services, Delivered Collaboratively
           </h2>
           <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto mb-6 leading-relaxed">
-            Our engineering teams provide 4 to 6 hours of daily working overlap with the UK, Europe, and GCC, plus dedicated US sync windows.
+            Based in Pakistan, we work with businesses near and far to build effective digital experiences and reach their audiences online.
           </p>
           <Link
             href="/contact"

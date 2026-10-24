@@ -6,8 +6,8 @@ export interface SeoSettings {
   pages: Record<string, PageSeo>; updatedAt: string;
 }
 export const defaultSeo: SeoSettings = {
-  siteName: "SolyNext", siteUrl: "", title: "SolyNext — Software & Digital Technology Solutions",
-  description: "SolyNext builds websites, mobile apps, and custom software for growing businesses. Product design, engineering, and digital growth from Pakistan.",
+  siteName: "SolyNext", siteUrl: "", title: "SolyNext | Digital Solutions for Growing Businesses",
+  description: "SolyNext helps businesses grow online with web development, creative design, digital marketing, and social media management from Pakistan.",
   socialTitle: "", socialDescription: "", socialImage: "/images/hero-tech.jpg",
   googleVerification: "", bingVerification: "", allowIndexing: true, pages: {}, updatedAt: "",
 };
