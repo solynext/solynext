@@ -16,8 +16,8 @@ export function GrowthHero() {
     <div className={styles.container}>
       <div className={styles.copy}>
         <p className={styles.eyebrow}>WEB · DESIGN · MARKETING · SOCIAL MEDIA</p>
-        <h1 id="growth-heading">Web Development, Design and Marketing That <span>Grow Your Brand<span className={styles.desktopEnding}> Digitally and Globally</span></span></h1>
-        <p className={styles.description}>We provide websites, graphic design, digital marketing and social media management that help your brand grow digitally and globally.</p>
+        <h1 id="growth-heading"><span className={styles.headlineLine}>Web Development, Design and</span>{" "}<span className={styles.headlineLine}>Marketing That <span className={styles.accent}>Grow Your Brand</span></span>{" "}<span className={`${styles.headlineLine} ${styles.desktopEnding} ${styles.accent}`}>Digitally and Globally</span></h1>
+        <p className={styles.description}><span className={styles.descriptionLine}>We provide websites, graphic design, digital marketing and social media</span>{" "}<span className={styles.descriptionLine}>management that help your brand grow digitally and globally.</span></p>
         <div className={styles.actions}>
           <Link href="/contact" className={styles.primary}>Get a Free Consultation <ArrowRight aria-hidden="true" /></Link>
           <Link href="/portfolio" className={styles.secondary}>View Our Work <ArrowRight aria-hidden="true" /></Link>

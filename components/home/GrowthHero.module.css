@@ -66,3 +66,23 @@
  .cardArrow svg{width:16px;height:16px}
 }
 @media(prefers-reduced-motion:reduce){.actions a,.card{transition:none}.actions a:hover,.card:hover{transform:none}}
+
+/* Reference composition: three headline lines and two description lines on desktop. */
+.hero .copy{text-align:left;margin-inline:0;max-width:none}
+.hero .copy h1{max-width:none;text-wrap:initial}
+.hero .copy h1 .headlineLine{color:#061936}
+.hero .copy h1 .accent{color:#0060f5}
+@media(min-width:701px){
+ .hero .copy{width:69%;padding-block:clamp(64px,5vw,100px) 48px}
+ .hero .copy h1{font-size:clamp(26px,3.65vw,72px);letter-spacing:-.035em;line-height:1.08;margin-bottom:24px}
+ .headlineLine,.descriptionLine{display:block;white-space:nowrap}
+ .hero .description{font-size:clamp(13px,1.42vw,27px);line-height:1.45;max-width:none}
+ .hero .copy>.eyebrow{white-space:nowrap;font-size:clamp(10px,.82vw,16px);letter-spacing:.08em;margin-bottom:clamp(24px,2vw,40px)}
+ .hero::after{background:linear-gradient(90deg,#f5f9ff85 0%,#f5f9ff55 47%,transparent 72%)}
+}
+@media(max-width:700px){
+ .hero .copy h1{max-width:88%}
+ .hero .copy h1 .headlineLine,.descriptionLine{display:inline;white-space:normal}
+ .hero .copy h1 .desktopEnding{display:none}
+ .hero .copy>.eyebrow{white-space:nowrap;font-size:clamp(8px,2.2vw,12px);letter-spacing:.06em}
+}
