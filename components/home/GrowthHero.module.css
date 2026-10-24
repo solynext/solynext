@@ -1,0 +1,68 @@
+.container{width:min(1716px,calc(100% - 13.3%));margin-inline:auto;position:relative}
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:600px;display:flex;align-items:center;color:#071b3c}
+.backdrop{object-fit:cover;object-position:center;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#f5f9ff38 0%,#f5f9ff20 54%,transparent 75%);pointer-events:none}
+.copy{padding-block:72px 46px;max-width:1130px}
+.eyebrow{font-size:14px;font-weight:750;letter-spacing:1.3px;color:#0060ff;margin:0 0 32px;line-height:1.5}
+.copy h1{font-size:clamp(42px,3.65vw,72px);font-weight:800;letter-spacing:-2px;line-height:1.08;margin:0 0 24px;color:#061936;max-width:1130px;text-wrap:pretty}
+.copy h1 span{color:#0060f5}
+.description{font-size:clamp(18px,1.42vw,27px);line-height:1.45;color:#3e536f;max-width:900px;margin:0}
+.actions{display:flex;gap:26px;margin-top:32px;align-items:stretch}
+.actions a{display:inline-flex;align-items:center;justify-content:center;gap:26px;padding:21px 36px;border-radius:18px;font-size:20px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s;min-height:66px}
+.actions svg{width:23px;height:23px;flex-shrink:0}
+.primary{color:#fff;background:linear-gradient(115deg,#0064ff,#0045bc);box-shadow:0 9px 24px #0064ff18;border:1px solid #0060ff}
+.secondary{color:#005bf4;border:1.5px solid #0060ff;background:#ffffff45}
+.actions a:hover{transform:translateY(-2px);box-shadow:0 10px 24px #0064ff25}
+.note{display:flex;align-items:center;gap:14px;font-size:16px;color:#3e536f;margin-top:32px}
+.note svg{width:26px;height:26px;color:#0060ff}
+.services{position:relative;padding:50px 0 65px;color:#071b3c}
+.sectionHeading{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:28px}
+.sectionHeading .eyebrow{margin-bottom:10px}
+:global(.premium-home) .sectionHeading h2{font-size:clamp(28px,2.6vw,44px);font-weight:750;letter-spacing:-1.1px;line-height:1.12;color:#071b3c;margin:0}
+.viewAll{display:inline-flex;align-items:center;gap:18px;border:1px solid #caddff;border-radius:99px;padding:13px 25px;color:#0060ff;text-decoration:none;font-weight:650;white-space:nowrap}
+.viewAll svg{width:19px;height:19px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.card{display:flex;flex-direction:column;align-items:flex-start;padding:25px 27px;border:1px solid #f0f4fa;border-radius:18px;background:#fff;box-shadow:0 7px 25px #18365b09;text-decoration:none;transition:transform .2s,box-shadow .2s;min-width:0}
+.icon{width:57px;height:57px;display:grid;place-items:center;background:#e0f0ff;color:#0870ff;border-radius:12px;margin-bottom:11px}
+.icon svg{width:34px;height:34px;stroke-width:2}
+.card:nth-child(2) .icon{background:#eee5ff;color:#9650ff}
+.card:nth-child(3) .icon{background:#ddf7f0;color:#00bea7}
+.card:nth-child(4) .icon{background:#ffe6ee;color:#ff397d}
+.card h3{font-size:21px;font-weight:750;line-height:1.2;letter-spacing:-.7px;color:#071b3c;margin:0 0 10px}
+.card p{font-size:17px;color:#586c89;line-height:1.4;margin:0 0 13px}
+.cardArrow{width:35px;height:35px;display:grid;place-items:center;border-radius:50%;background:#eef5ff;color:#0060ff;margin-top:auto}
+.cardArrow svg{width:20px;height:20px}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #18365b14}
+.actions a:focus-visible,.card:focus-visible,.viewAll:focus-visible{outline:3px solid #0060ff;outline-offset:5px}
+@media(min-width:1600px){.hero{min-height:704px}.copy{padding-block:90px 48px}}
+@media(min-width:701px) and (max-width:1100px){.copy{max-width:76%}.copy h1{font-size:42px}.description{font-size:18px}.actions a{padding:17px 22px;font-size:16px;gap:18px}.cards{gap:14px}.card{padding:20px 16px}.card h3{font-size:18px}.card p{font-size:14px}}
+@media(max-width:700px){
+ .container{width:calc(100% - 40px)}
+ .hero{min-height:0;display:block}
+ .backdrop{object-position:67% center}
+ .hero::after{background:linear-gradient(90deg,#f4f8fff5 0%,#f4f8ffdc 50%,#f4f8ff45 83%,transparent 100%)}
+ .copy{padding:38px 0 78px;max-width:none}
+ .eyebrow{font-size:10px;letter-spacing:1px;margin-bottom:20px}
+ .copy h1{font-size:clamp(27px,6.55vw,46px);font-weight:800;line-height:1.13;letter-spacing:-1.1px;max-width:88%;margin-bottom:20px}
+ .desktopEnding{display:none}
+ .description{font-size:clamp(14px,2.65vw,19px);line-height:1.45;max-width:81%}
+ .actions{gap:10px;margin-top:24px;flex-wrap:nowrap}
+ .actions a{font-size:clamp(10px,2.22vw,15px);padding:14px 12px;gap:10px;border-radius:7px;min-height:45px;white-space:nowrap}
+ .actions svg{width:17px;height:17px}
+ .note{display:none}
+ .services{padding:20px 0 36px}
+ .sectionHeading{gap:12px;margin-bottom:20px}
+ .sectionHeading .eyebrow{margin-bottom:7px}
+ :global(.premium-home) .sectionHeading h2{font-size:clamp(21px,4.7vw,32px);letter-spacing:-.65px;line-height:1.12}
+ .viewAll{padding:9px 13px;font-size:11px;gap:8px}
+ .viewAll svg{width:15px;height:15px}
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .card{padding:14px 13px;border-radius:12px}
+ .icon{width:36px;height:36px;border-radius:8px;margin-bottom:8px}
+ .icon svg{width:24px;height:24px}
+ .card h3{font-size:clamp(13px,2.9vw,20px);letter-spacing:-.45px;margin-bottom:6px}
+ .card p{font-size:clamp(12px,2.5vw,16px);line-height:1.35;margin-bottom:8px}
+ .cardArrow{width:26px;height:26px}
+ .cardArrow svg{width:16px;height:16px}
+}
+@media(prefers-reduced-motion:reduce){.actions a,.card{transition:none}.actions a:hover,.card:hover{transform:none}}
