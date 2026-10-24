@@ -118,7 +118,7 @@
 .mobileHeading{display:none}
 @media(max-width:700px){
  .hero .copy{font-family:var(--font-growth-hero),Arial,sans-serif}
- .hero .copy h1{font-size:clamp(28px,8.55vw,54px);font-weight:650;line-height:1.2;letter-spacing:-.035em;max-width:100%;margin-bottom:20px}
+ .hero .copy h1{font-size:clamp(30px,9.1vw,58px);font-weight:650;line-height:1.2;letter-spacing:-.035em;max-width:100%;margin-bottom:20px}
  .hero .copy h1 .desktopHeading{display:none}
  .hero .copy h1 .mobileHeading{display:block;color:#061936}
  .hero .copy h1 .mobileHeading>span{display:block;color:#061936}
@@ -130,7 +130,7 @@
  .hero .copy::before{inset:8px -8px 16px -20px}
 }
 @media(min-width:701px){
- .hero .copy h1{font-size:clamp(32px,4.4vw,86px);font-weight:700;letter-spacing:-.035em;line-height:1.12}
+ .hero .copy h1{font-size:clamp(34px,4.7vw,92px);font-weight:700;letter-spacing:-.035em;line-height:1.12}
  .hero .copy>.eyebrow{font-weight:600}
  .hero .description{font-weight:450;color:#30445f}
  .hero .actions a{font-weight:550}
@@ -144,11 +144,11 @@
  .hero .copy::before{inset:8px -16px 12px;background:radial-gradient(ellipse at 50% 48%,#fffffff2 0%,#ffffffd9 47%,#ffffff59 69%,transparent 85%)}
 }
 @media(min-width:701px) and (max-height:620px){
- .hero .copy h1{font-size:min(4.4vw,9svh)}
+ .hero .copy h1{font-size:min(4.7vw,9.4svh)}
 }
 /* Descending copy lines and equal mobile actions. */
 .mobileDescription{display:none}
-.hero .copy h1{font-weight:750}
+.hero .copy h1{font-weight:800}
 .hero .description{font-weight:500}
 @media(max-width:700px){
  .desktopDescription{display:none}
@@ -160,3 +160,8 @@
  .hero .actions a svg{width:15px;height:15px;flex-shrink:0}
 }
 .hero .actions a{white-space:nowrap}
+
+@media(max-width:700px){
+ .hero .description{font-size:clamp(10px,2.7vw,16px);line-height:1.6;font-weight:450;margin-inline:auto;max-width:100%}
+ .mobileDescription>span{white-space:nowrap}
+}
