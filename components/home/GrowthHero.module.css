@@ -93,7 +93,7 @@
  .hero .actions{margin-top:18px}
 }
 /* Soft contrast stays within the content area, leaving the globe unobscured. */
-.hero .copy{position:relative;isolation:isolate}
+.hero .copy{position:relative;isolation:isolate;font-family:var(--font-growth-hero),Arial,sans-serif}
 .hero .copy::before{
  content:"";
  position:absolute;
@@ -110,7 +110,28 @@
 .hero{padding-top:var(--home-header-height,81px);box-sizing:border-box}
 @media(min-width:701px){.hero{height:min(641px,100svh)}}
 @media(max-width:700px){
- .hero{min-height:min(760px,100svh);display:flex;align-items:center}
- .hero .copy{padding-block:48px 80px}
+ .hero{min-height:0;height:auto;display:block}
+ .hero .copy{padding-block:32px 42px}
  .hero .copy::before{inset:16px 4% 24px -20px}
+}
+/* A lighter, taller sans-serif and compact composition for mobile. */
+.mobileHeading{display:none}
+@media(max-width:700px){
+ .hero .copy{font-family:var(--font-growth-hero),Arial,sans-serif}
+ .hero .copy h1{font-size:clamp(28px,8.55vw,54px);font-weight:650;line-height:1.2;letter-spacing:-.035em;max-width:100%;margin-bottom:20px}
+ .hero .copy h1 .desktopHeading{display:none}
+ .hero .copy h1 .mobileHeading{display:block;color:#061936}
+ .hero .copy h1 .mobileHeading>span{display:block;color:#061936}
+ .hero .copy h1 .mobileHeading .accent{color:#0060f5}
+ .hero .description{font-size:16px;font-weight:400;line-height:1.5;max-width:96%}
+ .hero .copy>.eyebrow{font-weight:600;margin-bottom:18px}
+ .hero .actions{margin-top:22px}
+ .hero .actions a{font-weight:550}
+ .hero .copy::before{inset:8px -8px 16px -20px}
+}
+@media(min-width:701px){
+ .hero .copy h1{font-weight:650;letter-spacing:-.035em;line-height:1.12}
+ .hero .copy>.eyebrow{font-weight:600}
+ .hero .description{font-weight:400}
+ .hero .actions a{font-weight:550}
 }

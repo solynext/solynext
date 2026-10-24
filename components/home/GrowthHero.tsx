@@ -1,7 +1,10 @@
 import Image from "next/image";
+import { Geist } from "next/font/google";
 import Link from "next/link";
 import { ArrowRight, Laptop, Paintbrush, ChartColumnIncreasing, Users } from "lucide-react";
 import styles from "./GrowthHero.module.css";
+
+const heroFont = Geist({ subsets: ["latin"], display: "swap", variable: "--font-growth-hero" });
 
 const services = [
   { title: "Web Development", description: "Modern, high-performance websites that convert.", slug: "web-development", icon: Laptop },
@@ -11,12 +14,12 @@ const services = [
 ];
 
 export function GrowthHero() {
-  return <section className={styles.hero} aria-labelledby="growth-heading">
+  return <section className={`${styles.hero} ${heroFont.variable}`} aria-labelledby="growth-heading">
     <Image src="/images/digital-growth-globe.webp" alt="" fill priority sizes="100vw" className={styles.backdrop} />
     <div className={styles.container}>
       <div className={styles.copy}>
         <p className={styles.eyebrow}>WEB · DESIGN · MARKETING · SOCIAL MEDIA</p>
-        <h1 id="growth-heading"><span className={styles.headlineLine}>Web Development, Design and</span>{" "}<span className={styles.headlineLine}>Marketing That <span className={styles.accent}>Grow Your Brand</span></span>{" "}<span className={`${styles.headlineLine} ${styles.desktopEnding} ${styles.accent}`}>Digitally and Globally</span></h1>
+        <h1 id="growth-heading"><span className={styles.desktopHeading}><span className={styles.headlineLine}>Web Development, Design and</span>{" "}<span className={styles.headlineLine}>Marketing That <span className={styles.accent}>Grow Your Brand</span></span>{" "}<span className={`${styles.headlineLine} ${styles.desktopEnding} ${styles.accent}`}>Digitally and Globally</span></span><span className={styles.mobileHeading}><span>Web Development,</span>{" "}<span>Design and Marketing</span>{" "}<span>That <span className={styles.accent}>Grow Your Brand</span></span></span></h1>
         <p className={styles.description}><span className={styles.descriptionLine}>We provide websites, graphic design, digital marketing and social media</span>{" "}<span className={styles.descriptionLine}>management that help your brand grow digitally and globally.</span></p>
         <div className={styles.actions}>
           <Link href="/contact" className={styles.primary}>Get a Free Consultation <ArrowRight aria-hidden="true" /></Link>

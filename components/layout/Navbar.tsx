@@ -4,7 +4,6 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { BrandLogo } from "@/components/ui/BrandLogo";
 import { BrandWordmark } from "@/components/ui/BrandWordmark";
 import { HeaderSearch } from "./HeaderSearch";
 import { WebsiteNotificationBell } from "@/components/notifications/WebsiteNotificationBell";
@@ -48,14 +47,14 @@ export function Navbar() {
   <header className="premium-header" data-home={pathname === "/"} data-scrolled={scrolled}>
    <div className="premium-container premium-nav">
     <div className="premium-nav-brand">
-     <button className="premium-menu-toggle" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="premium-mobile-nav" onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button>
-    <Link href="/" className="premium-logo" aria-label="SolyNext home"><BrandWordmark/><span className="brand-mobile-identity"><BrandLogo size={40} className="brand-logo-image"/>SolyNext<span className="logo-period">.</span></span></Link>
+    <Link href="/" className="premium-logo" aria-label="SolyNext home"><BrandWordmark/></Link>
     </div>
     <nav className="premium-desktop-nav" aria-label="Primary navigation">{links.map(link => <Link key={link.href} href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</Link>)}</nav>
     <div className="premium-nav-actions">
      <HeaderSearch />
      <WebsiteNotificationBell />
      <button type="button" className="p-button nav-cta" aria-haspopup="dialog" onClick={() => setInquiryOpen(true)}><span>Let&apos;s talk</span></button>
+     <button className="premium-menu-toggle" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="premium-mobile-nav" onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button>
     </div>
    </div>
   </header>

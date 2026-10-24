@@ -1989,3 +1989,10 @@ body:has(.premium-header) .premium-header[data-home="true"][data-scrolled="false
 body:has(.premium-header) .premium-header[data-home="true"][data-scrolled="true"]{background:#fff!important;box-shadow:0 4px 20px #18365b0d}
 @media(max-width:767px){:root{--home-header-height:51px}}
 @media(prefers-reduced-motion:reduce){.premium-header[data-home="true"]{transition:none}}
+/* Full SolyNext wordmark on mobile, with navigation toggle at the far right. */
+@media(max-width:1000px){
+ .premium-header .brand-desktop-wordmark{display:block;width:clamp(100px,26vw,150px);height:auto;object-fit:contain;flex-shrink:0}
+ .premium-header .premium-nav-brand{gap:0}
+ .premium-header .premium-nav-actions{margin-left:auto;flex-shrink:0}
+ .premium-header .premium-nav-actions>.premium-menu-toggle{display:flex;flex-shrink:0;margin-left:2px}
+}
