@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Globe2, Laptop, Paintbrush, ChartColumnIncreasing, Users } from "lucide-react";
+import { ArrowRight, Laptop, Paintbrush, ChartColumnIncreasing, Users } from "lucide-react";
 import styles from "./GrowthHero.module.css";
 
 const services = [
@@ -22,7 +22,6 @@ export function GrowthHero() {
           <Link href="/contact" className={styles.primary}>Get a Free Consultation <ArrowRight aria-hidden="true" /></Link>
           <Link href="/portfolio" className={styles.secondary}>View Our Work <ArrowRight aria-hidden="true" /></Link>
         </div>
-        <p className={styles.note}><Globe2 aria-hidden="true" /> Based in Pakistan. Built for the world.</p>
       </div>
     </div>
   </section>;
