@@ -3,7 +3,6 @@ import { Geist } from "next/font/google";
 import Link from "next/link";
 import { ArrowRight, Laptop, Paintbrush, ChartColumnIncreasing, Users } from "lucide-react";
 import styles from "./GrowthHero.module.css";
-import { HeroVideo } from "./HeroVideo";
 
 const heroFont = Geist({ subsets: ["latin"], display: "swap", variable: "--font-growth-hero" });
 
@@ -17,14 +16,13 @@ const services = [
 export function GrowthHero() {
   return <section className={`${styles.hero} ${heroFont.variable}`} aria-labelledby="growth-heading">
     <Image src="/images/digital-growth-globe.webp" alt="" fill priority sizes="100vw" className={styles.backdrop} />
-    <HeroVideo />
     <div className={styles.container}>
       <div className={styles.copy}>
         <p className={styles.eyebrow}>WEB · DESIGN · MARKETING · SOCIAL MEDIA</p>
-        <h1 id="growth-heading"><span className={styles.desktopHeading}><span className={styles.headlineLine}>Web Development, Design and</span>{" "}<span className={styles.headlineLine}>Marketing That <span className={styles.accent}>Grow Your Brand</span></span>{" "}<span className={`${styles.headlineLine} ${styles.desktopEnding} ${styles.accent}`}>Digitally and Globally</span></span><span className={styles.mobileHeading}><span>Web Development,</span>{" "}<span>Design and Marketing</span>{" "}<span>That <span className={styles.accent}>Grow Your Brand</span></span></span></h1>
-        <p className={styles.description}><span className={styles.descriptionLine}>We provide websites, graphic design, digital marketing and social media</span>{" "}<span className={styles.descriptionLine}>management that help your brand grow digitally and globally.</span></p>
+        <h1 id="growth-heading"><span className={styles.desktopHeading}><span className={styles.headlineLine}>Web Development, Design and</span>{" "}<span className={styles.headlineLine}>Marketing That <span className={styles.accent}>Grow Your</span></span>{" "}<span className={`${styles.headlineLine} ${styles.desktopEnding} ${styles.accent}`}>Brand Digitally and Globally</span></span><span className={styles.mobileHeading}><span>Web Development,</span>{" "}<span>Design &amp; Marketing</span>{" "}<span>That <span className={styles.accent}>Grow Your</span></span>{" "}<span className={styles.accent}>Brand</span></span></h1>
+        <p className={styles.description}><span className={styles.desktopDescription}><span className={styles.descriptionLine}>We provide websites, graphic design, digital marketing and social media</span>{" "}<span className={styles.descriptionLine}>management that help your brand grow digitally and globally.</span></span><span className={styles.mobileDescription}><span>We provide websites, graphic design,</span>{" "}<span>digital marketing and social media</span>{" "}<span>management that help your brand</span>{" "}<span>grow digitally and globally.</span></span></p>
         <div className={styles.actions}>
-          <Link href="/contact" className={styles.primary}>Get a Free Consultation <ArrowRight aria-hidden="true" /></Link>
+          <Link href="/contact" className={styles.primary}>Free Consultation <ArrowRight aria-hidden="true" /></Link>
           <Link href="/portfolio" className={styles.secondary}>View Our Work <ArrowRight aria-hidden="true" /></Link>
         </div>
       </div>

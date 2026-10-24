@@ -130,10 +130,33 @@
  .hero .copy::before{inset:8px -8px 16px -20px}
 }
 @media(min-width:701px){
- .hero .copy h1{font-weight:650;letter-spacing:-.035em;line-height:1.12}
+ .hero .copy h1{font-size:clamp(32px,4.4vw,86px);font-weight:700;letter-spacing:-.035em;line-height:1.12}
  .hero .copy>.eyebrow{font-weight:600}
- .hero .description{font-weight:400}
+ .hero .description{font-weight:450;color:#30445f}
  .hero .actions a{font-weight:550}
 }
-/* Restore the previous video while retaining the current content-only contrast glow. */
-.hero :global(.hero-video-background)::after{background:none}
+/* Center the mobile composition; retain stronger left-aligned desktop typography. */
+@media(max-width:700px){
+ .hero .copy{width:100%;margin-inline:auto;text-align:center;padding-block:34px 40px}
+ .hero .copy h1{margin-inline:auto}
+ .hero .description{max-width:36ch;margin-inline:auto}
+ .hero .actions{justify-content:center;flex-wrap:wrap;gap:10px}
+ .hero .copy::before{inset:8px -16px 12px;background:radial-gradient(ellipse at 50% 48%,#fffffff2 0%,#ffffffd9 47%,#ffffff59 69%,transparent 85%)}
+}
+@media(min-width:701px) and (max-height:620px){
+ .hero .copy h1{font-size:min(4.4vw,9svh)}
+}
+/* Descending copy lines and equal mobile actions. */
+.mobileDescription{display:none}
+.hero .copy h1{font-weight:750}
+.hero .description{font-weight:500}
+@media(max-width:700px){
+ .desktopDescription{display:none}
+ .mobileDescription,.mobileDescription>span{display:block}
+ .hero .copy h1 .mobileHeading>span:last-child{color:#0060f5}
+ .hero .description{max-width:100%}
+ .hero .actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;width:min(100%,400px);margin-inline:auto}
+ .hero .actions a{width:100%;height:100%;min-height:46px;min-width:0;box-sizing:border-box;padding:10px 9px;gap:7px;font-size:clamp(11px,2.8vw,13px);font-weight:650;line-height:1.25;white-space:normal}
+ .hero .actions a svg{width:15px;height:15px;flex-shrink:0}
+}
+.hero .actions a{white-space:nowrap}
