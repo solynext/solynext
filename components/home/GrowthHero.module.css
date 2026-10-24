@@ -135,3 +135,5 @@
  .hero .description{font-weight:400}
  .hero .actions a{font-weight:550}
 }
+/* Restore the previous video while retaining the current content-only contrast glow. */
+.hero :global(.hero-video-background)::after{background:none}

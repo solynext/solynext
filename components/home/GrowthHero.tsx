@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import Link from "next/link";
 import { ArrowRight, Laptop, Paintbrush, ChartColumnIncreasing, Users } from "lucide-react";
 import styles from "./GrowthHero.module.css";
+import { HeroVideo } from "./HeroVideo";
 
 const heroFont = Geist({ subsets: ["latin"], display: "swap", variable: "--font-growth-hero" });
 
@@ -16,6 +17,7 @@ const services = [
 export function GrowthHero() {
   return <section className={`${styles.hero} ${heroFont.variable}`} aria-labelledby="growth-heading">
     <Image src="/images/digital-growth-globe.webp" alt="" fill priority sizes="100vw" className={styles.backdrop} />
+    <HeroVideo />
     <div className={styles.container}>
       <div className={styles.copy}>
         <p className={styles.eyebrow}>WEB · DESIGN · MARKETING · SOCIAL MEDIA</p>
