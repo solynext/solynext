@@ -4,7 +4,7 @@
 
 .copy{padding-block:72px 46px;max-width:1130px}
 .eyebrow{font-size:14px;font-weight:750;letter-spacing:1.3px;color:#0060ff;margin:0 0 32px;line-height:1.5}
-.copy h1{font-size:clamp(42px,3.65vw,72px);font-weight:800;letter-spacing:-2px;line-height:1.08;margin:0 0 24px;color:#061936;max-width:1130px;text-wrap:pretty}
+.copy h1{font-size:clamp(42px,3.65vw,72px);font-weight:600;letter-spacing:-2px;line-height:1.08;margin:0 0 24px;color:#061936;max-width:1130px;text-wrap:pretty}
 .copy h1 span{color:#0060f5}
 .description{font-size:clamp(18px,1.42vw,27px);line-height:1.55;color:#3e536f;max-width:900px;margin:0}
 .actions{display:flex;gap:16px;margin-top:32px;align-items:stretch}
@@ -20,15 +20,15 @@
 .viewAll{display:inline-flex;align-items:center;gap:18px;border:1px solid #caddff;border-radius:99px;padding:13px 25px;color:#0060ff;text-decoration:none;font-weight:650;white-space:nowrap}
 .viewAll svg{width:19px;height:19px}
 .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
-.card{display:flex;flex-direction:column;align-items:flex-start;padding:25px 27px;border:1px solid #f0f4fa;border-radius:18px;background:#fff;box-shadow:0 7px 25px #18365b09;text-decoration:none;transition:transform .2s,box-shadow .2s;min-width:0}
-.icon{width:57px;height:57px;display:grid;place-items:center;background:#e0f0ff;color:#0870ff;border-radius:12px;margin-bottom:11px}
+.card{display:flex;flex-direction:column;align-items:flex-start;padding:25px 27px;border:1px solid #edf2f8;border-radius:18px;background:#fff;box-shadow:0 7px 25px #18365b09;text-decoration:none;transition:transform .2s,box-shadow .2s;min-width:0}
+.icon{width:57px;height:57px;display:grid;place-items:center;background:#f3f7fb;color:#0870ff;border-radius:12px;margin-bottom:11px}
 .icon svg{width:34px;height:34px;stroke-width:2}
-.card:nth-child(2) .icon{background:#eee5ff;color:#9650ff}
-.card:nth-child(3) .icon{background:#ddf7f0;color:#00bea7}
-.card:nth-child(4) .icon{background:#ffe6ee;color:#ff397d}
+.card:nth-child(2) .icon{background:#f5f3ff;color:#9650ff}
+.card:nth-child(3) .icon{background:#edfdf9;color:#00bea7}
+.card:nth-child(4) .icon{background:#fff1f5;color:#ff397d}
 .card h3{font-size:21px;font-weight:750;line-height:1.2;letter-spacing:-.7px;color:#071b3c;margin:0 0 10px}
 .card p{font-size:17px;color:#586c89;line-height:1.4;margin:0 0 13px}
-.cardArrow{width:35px;height:35px;display:grid;place-items:center;border-radius:50%;background:#eef5ff;color:#0060ff;margin-top:auto}
+.cardArrow{width:35px;height:35px;display:grid;place-items:center;border-radius:50%;background:#f3f7fb;color:#0060ff;margin-top:auto}
 .cardArrow svg{width:20px;height:20px}
 .card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #18365b14}
 .actions a:focus-visible,.card:focus-visible,.viewAll:focus-visible{outline:3px solid #0060ff;outline-offset:5px}
@@ -41,7 +41,7 @@
 
  .copy{padding:28px 0 40px;max-width:none}
  .eyebrow{font-size:10px;letter-spacing:1px;margin-bottom:20px}
- .copy h1{font-size:clamp(29px,7.2vw,50px);font-weight:800;line-height:1.17;letter-spacing:-1.1px;max-width:88%;margin-bottom:20px}
+ .copy h1{font-size:clamp(29px,7.2vw,50px);font-weight:600;line-height:1.17;letter-spacing:-1.1px;max-width:88%;margin-bottom:20px}
  .desktopEnding{display:none}
  .description{font-size:clamp(14px,2.65vw,19px);line-height:1.55;max-width:81%}
  .actions{gap:10px;margin-top:24px;flex-wrap:nowrap}
@@ -118,7 +118,7 @@
 .mobileHeading{display:none}
 @media(max-width:700px){
  .hero .copy{font-family:var(--font-growth-hero),Arial,sans-serif}
- .hero .copy h1{font-size:clamp(30px,9.1vw,58px);font-weight:650;line-height:1.2;letter-spacing:-.035em;max-width:100%;margin-bottom:20px}
+ .hero .copy h1{font-size:clamp(30px,9.1vw,58px);font-weight:600;line-height:1.2;letter-spacing:-.035em;max-width:100%;margin-bottom:20px}
  .hero .copy h1 .desktopHeading{display:none}
  .hero .copy h1 .mobileHeading{display:block;color:#061936}
  .hero .copy h1 .mobileHeading>span{display:block;color:#061936}
@@ -130,7 +130,7 @@
  .hero .copy::before{inset:8px -8px 16px -20px}
 }
 @media(min-width:701px){
- .hero .copy h1{font-size:clamp(34px,4.7vw,92px);font-weight:700;letter-spacing:-.035em;line-height:1.12}
+ .hero .copy h1{font-size:clamp(34px,4.7vw,92px);font-weight:600;letter-spacing:-.035em;line-height:1.12}
  .hero .copy>.eyebrow{font-weight:600}
  .hero .description{font-weight:450;color:#30445f}
  .hero .actions a{font-weight:550}
@@ -148,7 +148,7 @@
 }
 /* Descending copy lines and equal mobile actions. */
 .mobileDescription{display:none}
-.hero .copy h1{font-weight:800}
+.hero .copy h1{font-weight:600}
 .hero .description{font-weight:500}
 @media(max-width:700px){
  .desktopDescription{display:none}
@@ -163,10 +163,11 @@
 
 @media(max-width:700px){
  .hero .description{font-size:clamp(10px,2.7vw,16px);line-height:1.6;font-weight:450;margin-inline:auto;max-width:100%}
- .mobileDescription>span{white-space:nowrap}
+ .mobileDescription>span{white-space:normal}
+ .hero .copy>.eyebrow{white-space:normal}
 }
 @media(max-width:700px){
- .hero{min-height:min(580px,85svh);display:flex;align-items:center}
+ .hero{min-height:0;height:auto;display:block;align-items:stretch}
  .hero .copy{padding-block:44px 58px}
-
+ .hero .copy h1{max-width:100%}
 }

@@ -32,12 +32,51 @@
     color-scheme: light;
   }
 
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  img,
+  svg,
+  video,
+  canvas,
+  iframe {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
   body {
     background-color: var(--page);
     color: var(--ink);
     font-family: var(--font-site);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  .visual-card,
+  .card,
+  .premium-project,
+  .home-service-card,
+  .home-strength-card,
+  .capability-card,
+  .insight-card,
+  .internal-service,
+  .article,
+  [data-card-tone] {
+    background: #ffffff !important;
+    background-image: none !important;
+    border: 1px solid var(--line) !important;
+    box-shadow: none !important;
+    color: var(--ink) !important;
   }
 
   ::selection {
@@ -1986,15 +2025,17 @@ body:has(.premium-header) main.internal-premium .services-end-cta>.p-button{posi
 :root{--home-header-height:81px}
 .premium-header[data-home="true"]{position:fixed;inset:0 0 auto;width:100%;transition:background-color 180ms ease,box-shadow 180ms ease}
 body:has(.premium-header) .premium-header[data-home="true"][data-scrolled="false"]{background:transparent!important;backdrop-filter:none;border-bottom-color:transparent;box-shadow:none}
-body:has(.premium-header) .premium-header[data-home="true"][data-scrolled="true"]{background:#fff!important;box-shadow:0 4px 20px #18365b0d}
+
+/* Frosted glass surface for the header after scrolling on all screen sizes. */
+body:has(.premium-header) .premium-header[data-scrolled="true"]{background:linear-gradient(120deg,rgb(255 255 255 / 52%),rgb(245 249 255 / 32%))!important;-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid rgb(255 255 255 / 55%);box-shadow:inset 0 1px 0 rgb(255 255 255 / 65%),0 8px 32px rgb(24 54 91 / 8%)}
 @media(max-width:767px){:root{--home-header-height:51px}}
 @media(prefers-reduced-motion:reduce){.premium-header[data-home="true"]{transition:none}}
-/* Full SolyNext wordmark on mobile, with navigation toggle at the far right. */
+/* Full SolyNext wordmark on mobile, with navigation toggle on the left. */
 @media(max-width:1000px){
  .premium-header .brand-desktop-wordmark{display:block;width:clamp(100px,26vw,150px);height:auto;object-fit:contain;flex-shrink:0}
- .premium-header .premium-nav-brand{gap:0}
+ .premium-header .premium-nav-brand{gap:8px}
  .premium-header .premium-nav-actions{margin-left:auto;flex-shrink:0}
- .premium-header .premium-nav-actions>.premium-menu-toggle{display:flex;flex-shrink:0;margin-left:2px}
+ .premium-header .premium-nav-brand>.premium-menu-toggle{display:flex;flex-shrink:0}
 }
 /* Give the wordmark more presence and the mobile navigation more breathing room. */
 @media(min-width:1001px){
