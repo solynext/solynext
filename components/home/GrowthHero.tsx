@@ -1,17 +1,14 @@
 import Image from "next/image";
 import { Geist } from "next/font/google";
 import Link from "next/link";
-import { ArrowRight, Laptop, Paintbrush, ChartColumnIncreasing, Users } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import styles from "./GrowthHero.module.css";
+import { ServiceCard, featuredServiceSlugs } from "@/components/ui/ServiceCard";
+import { SERVICES_DATA } from "@/data/mockData";
 
 const heroFont = Geist({ subsets: ["latin"], display: "swap", variable: "--font-growth-hero" });
 
-const services = [
-  { title: "Web Development", description: "Modern, high-performance websites that convert.", slug: "web-development", icon: Laptop },
-  { title: "Graphic Design", description: "Creative designs that make your brand stand out.", slug: "graphic-design-branding", icon: Paintbrush },
-  { title: "Digital Marketing", description: "Data-driven strategies for real growth.", slug: "digital-marketing", icon: ChartColumnIncreasing },
-  { title: "Social Media Management", description: "Engaging content that builds your community.", slug: "social-media-management", icon: Users },
-];
+
 
 const titleLines = ["Web Development, Design &", "Marketing for brands ready", "to grow your brand"];
 function TypedTitleLines({ mobile = false }: { mobile?: boolean }) {
@@ -31,8 +28,8 @@ export function GrowthHero() {
         <h1 id="growth-heading" aria-label="Web Development, Design &amp; Marketing. For brands ready to grow your brand"><TypedTitleLines/><TypedTitleLines mobile/></h1>
         <p className={styles.description}><span className={styles.desktopDescription}><span className={styles.descriptionLine}>We provide websites, graphic design, digital marketing and social media</span>{" "}<span className={styles.descriptionLine}>management that help your brand grow digitally and globally.</span></span><span className={styles.mobileDescription}><span>We provide websites, graphic design, digital marketing</span>{" "}<span>and social media management that help your brand</span>{" "}<span>grow digitally and globally.</span></span></p>
         <div className={styles.actions}>
-          <Link href="/contact" className={styles.primary}>Free Consultation <ArrowRight aria-hidden="true" /></Link>
-          <Link href="/portfolio" className={styles.secondary}>View Our Work <ArrowRight aria-hidden="true" /></Link>
+          <Link href="/contact" className={styles.primary}>Discuss Your Project <ArrowRight aria-hidden="true" /></Link>
+          <Link href="/portfolio" className={styles.secondary}>Explore Our Work <ArrowRight aria-hidden="true" /></Link>
         </div>
       </div>
     </div>
@@ -46,13 +43,7 @@ export function GrowthServices() {
         <div><p className={styles.eyebrow}>OUR SERVICES</p><h2 id="growth-services-heading">Everything You Need<br />to Grow Your Brand</h2></div>
         <Link href="/services" className={styles.viewAll}>View All <ArrowRight aria-hidden="true" /></Link>
       </div>
-      <div className={styles.cards}>{services.map(({ title, description, slug, icon: Icon }) =>
-        <Link href={`/services/${slug}`} className={styles.card} key={slug}>
-          <span className={styles.icon}><Icon aria-hidden="true" /></span>
-          <h3>{title}</h3><p>{description}</p>
-          <span className={styles.cardArrow}><ArrowRight aria-hidden="true" /></span>
-        </Link>
-      )}</div>
+      <div className={styles.cards}>{featuredServiceSlugs.map(slug => { const service = SERVICES_DATA.find(item => item.slug === slug); return service ? <ServiceCard key={slug} slug={slug} title={service.title} description={service.shortDescription}/> : null; })}</div>
     </div>
   </section>;
 }

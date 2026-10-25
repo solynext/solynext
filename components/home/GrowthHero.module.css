@@ -184,3 +184,8 @@
 @media(prefers-reduced-motion:reduce){.hero .copy h1 .typedCharacter{animation:none}}
 /* Balance three four-word rows without wrapping on narrow screens. */
 @media(max-width:700px){.hero .copy h1{font-size:clamp(18px,6.1vw,42px)}}
+/* Stable service colors across listings, independent of card order. */
+.card[data-service-tone="blue"] .icon{background:#f3f7fb;color:#0870ff}
+.card[data-service-tone="purple"] .icon{background:#f5f3ff;color:#9650ff}
+.card[data-service-tone="teal"] .icon{background:#edfdf9;color:#00bea7}
+.card[data-service-tone="pink"] .icon{background:#fff1f5;color:#ff397d}

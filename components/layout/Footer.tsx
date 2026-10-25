@@ -5,12 +5,10 @@ import { BrandLogo } from "@/components/ui/BrandLogo";
 import { BrandWordmark } from "@/components/ui/BrandWordmark";
 
 const serviceLinks = [
-  { label: "Web development", href: "/services/web-development" },
-  { label: "Custom software", href: "/services/software-development" },
-  { label: "Mobile applications", href: "/services/mobile-development" },
-  { label: "UI/UX & product design", href: "/services/ui-ux-design" },
-  { label: "Digital marketing & SEO", href: "/services/digital-marketing" },
-  { label: "Social media management", href: "/services/social-media-management" },
+  { label: "Web Development", href: "/services/web-development" },
+  { label: "Graphic Design", href: "/services/graphic-design-branding" },
+  { label: "Digital Marketing", href: "/services/digital-marketing" },
+  { label: "Social Media Management", href: "/services/social-media-management" },
 ];
 
 const companyLinks = [

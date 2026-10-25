@@ -8,7 +8,7 @@
   --font-site: Helvetica, Arial, sans-serif;
   --font-geist-sans: var(--font-site);
   color-scheme: light;
-  --page: #ffffff;
+  --page: #fcfefe;
   --surface: #ffffff;
   --surface-raised: #fbfdff;
   --surface-inset: #edf5ff;
@@ -1848,15 +1848,15 @@ body:has(.premium-header) main .premium-project.visual-card .project-tags{margin
 /* Public cards use plain pastel backgrounds without decorative rings or patterns. */
 body:has(.premium-header) main .insight-art-ring{display:none}
 
-/* White public page canvas; pastel fills remain confined to cards. */
+/* Soft-gray public canvas; cards keep their own surfaces. */
 body:has(.premium-header),
 body:has(.premium-header) main,
 body:has(.premium-header) main>section:not(.visual-card),
 body:has(.premium-header) main>.premium-container>section:not(.visual-card),
-body:has(.premium-header) .premium-header,
 body:has(.premium-header) footer{
- background:#fff!important;
+ background:var(--page)!important;
 }
+body:has(.premium-header) .premium-header{background:#fff!important}
 
 /* Compact sizing for every public content card, with natural content height. */
 body:has(.premium-header) main .visual-card{height:auto;min-height:0;min-width:0}
@@ -2086,3 +2086,10 @@ body:has(.premium-header) .premium-header[data-scrolled="true"]{background:linea
 /* Authentic technology marks without background fills. */
 .foundation-grid .foundation-tool{background:transparent;border-color:#e9edf2}
 .foundation-icon img{display:block;width:28px;height:28px;object-fit:contain}
+/* Consistent soft-gray page canvas with distinct white card surfaces. */
+body{background-color:var(--page)}
+body:has(.premium-header) main,
+body:has(.premium-header) main>section{background-color:var(--page)!important}
+body:has(.premium-header) main>section{background-image:none!important}
+/* Borderless card surfaces throughout public pages and the workspace. */
+:root:root body :is(.visual-card,.card,.card-surface,.premium-service,.premium-project,.home-service-card,.home-strength-card,.capability-card,.engagement-card,.insight-card,.internal-service,.portfolio-project,.foundation-tool,.contact-form-panel,.deliverable-item,.partnership-capability,[class*="__card" i],[class*="_card_" i],[class*="Card_"],[class*="__article"],[class*="_article_"],[class*="__panel"],[class*="_panel_"]):not(input):not(select):not(textarea):not(button){border:0!important}
