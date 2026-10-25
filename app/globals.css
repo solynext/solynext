@@ -2050,3 +2050,39 @@ body:has(.premium-header) .premium-header[data-scrolled="true"]{background:linea
  :root{--home-header-height:69px}
  .premium-header .premium-nav{height:68px;min-height:68px}
 }
+.foundation-section{padding:64px 0;background:#fff;border-block:1px solid #edf1f6}
+.foundation-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:30px}
+.foundation-heading .eyebrow{margin:0 0 16px;color:#526782;font-size:10px!important;letter-spacing:1.8px}
+.premium-home .foundation-heading h2{margin:0;color:var(--ink);font-size:clamp(30px,3.4vw,46px);font-weight:600;line-height:1.14;letter-spacing:-1.7px}
+.foundation-heading h2 span{color:var(--brand)}
+.foundation-link{display:inline-flex;align-items:center;gap:14px;min-height:44px;font-size:12px;font-weight:600;color:var(--ink);text-decoration:none;white-space:nowrap}
+.foundation-link svg{color:var(--brand)}
+.foundation-link:focus-visible{outline:3px solid var(--brand);outline-offset:4px;border-radius:4px}
+.foundation-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.foundation-tool{display:flex;flex-direction:column;align-items:flex-start;gap:22px;min-width:0;padding:24px 20px;border:1px solid #e3e9f1;border-radius:16px;background:#fff}
+.foundation-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:#edf5ff;color:#2563eb}
+.foundation-tool[data-tone="slate"] .foundation-icon{background:#f0f2f5;color:#26354c}
+.foundation-tool[data-tone="indigo"] .foundation-icon{background:#eef0ff;color:#5859cf}
+.foundation-tool[data-tone="teal"] .foundation-icon{background:#e9f7f5;color:#168176}
+.foundation-tool[data-tone="amber"] .foundation-icon{background:#fff4e4;color:#ac6d12}
+.foundation-tool h3{margin:0 0 5px;font-size:16px;font-weight:600;letter-spacing:-.3px;color:var(--ink)}
+.foundation-tool p{margin:0;font-size:11px;line-height:1.6;color:#64748b}
+@media(max-width:1000px){.foundation-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.foundation-section{padding:44px 0}.foundation-heading{align-items:flex-start;flex-direction:column;gap:14px;margin-bottom:24px}.premium-home .foundation-heading h2{font-size:clamp(28px,7vw,38px);letter-spacing:-1px}.foundation-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.foundation-tool{padding:20px 16px;gap:18px}.foundation-tool:last-child{grid-column:1/-1;flex-direction:row;align-items:center}.foundation-tool h3{font-size:15px}.foundation-tool p{font-size:11px}}
+/* Compact, minimal technology cards. */
+.foundation-grid{gap:12px}
+.foundation-tool{flex-direction:row;align-items:center;gap:12px;padding:18px 16px;border-color:#e9edf2;border-radius:10px}
+.foundation-icon{width:32px;height:32px;flex-shrink:0;border-radius:7px;background:transparent!important}
+.foundation-icon svg{width:23px;height:23px}
+.foundation-tool h3{font-size:14px;margin:0;font-weight:550}
+.foundation-tool p{display:none}
+@media(max-width:700px){.foundation-grid{gap:10px}.foundation-tool{padding:15px 12px;gap:10px}.foundation-tool:last-child{grid-column:auto}.foundation-tool h3{font-size:13px}}
+/* Subtle technology-specific card backgrounds. */
+.foundation-tool[data-tone="blue"]{background:#eff8ff;border-color:#dceefb}
+.foundation-tool[data-tone="slate"]{background:#f4f5f7;border-color:#e5e7eb}
+.foundation-tool[data-tone="indigo"]{background:#f1f3ff;border-color:#e2e6fc}
+.foundation-tool[data-tone="teal"]{background:#edf8f6;border-color:#dceee9}
+.foundation-tool[data-tone="amber"]{background:#fff7eb;border-color:#f6e8d0}
+/* Authentic technology marks without background fills. */
+.foundation-grid .foundation-tool{background:transparent;border-color:#e9edf2}
+.foundation-icon img{display:block;width:28px;height:28px;object-fit:contain}

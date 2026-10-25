@@ -9,7 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getPublicProjects } from "@/lib/portfolio/repository";
 import { getPublicClients } from "@/lib/clients/repository";
-import { ArrowUpRight, Code2, Globe2, Braces, GitBranch, ShieldCheck, Terminal, Database, Cloud } from "lucide-react";
+import { ArrowUpRight, Globe2, GitBranch, ShieldCheck } from "lucide-react";
 
 import { IndustriesSection } from "@/components/home/IndustriesSection";
 import { EngagementSection } from "@/components/home/EngagementSection";
@@ -49,7 +49,7 @@ export default async function HomePage() {
 
     <HomeAbout/>
 
-    <section className="premium-tech"><div className="premium-container"><div><p className="eyebrow">THE RIGHT TOOLS FOR THE JOB</p><p>Modern foundations. Lasting possibilities.</p></div><div className="tech-names"><span><Braces/> React</span><span><Terminal/> Next.js</span><span><Code2/> TypeScript</span><span><Database/> PostgreSQL</span><span><Cloud/> AWS</span></div><Link href="/technologies" aria-label="Explore our technology stack"><ArrowUpRight size={23}/></Link></div></section>
+    <section className="foundation-section" aria-labelledby="foundation-title"><div className="premium-container"><div className="foundation-heading"><div><p className="eyebrow">THE RIGHT TOOLS FOR THE JOB</p><h2 id="foundation-title">Modern foundations.<br/><span>Lasting possibilities.</span></h2></div><Link href="/technologies" className="foundation-link">Explore our stack <ArrowUpRight size={18} aria-hidden="true"/></Link></div><div className="foundation-grid">{[{name:"React",role:"User interfaces",icon:"react",tone:"blue"},{name:"Next.js",role:"Web applications",icon:"nextjs",tone:"slate"},{name:"TypeScript",role:"Reliable code",icon:"typescript",tone:"indigo"},{name:"PostgreSQL",role:"Structured data",icon:"postgresql",tone:"teal"},{name:"AWS",role:"Cloud infrastructure",icon:"aws",tone:"amber"}].map(({name,role,icon,tone})=><div className="foundation-tool" data-tone={tone} key={name}><span className="foundation-icon"><Image src={`/icons/technologies/${icon}.svg`} alt="" width={28} height={28}/></span><div><h3>{name}</h3><p>{role}</p></div></div>)}</div></div></section>
 
     <ClientReviews reviews={reviews}/>
 

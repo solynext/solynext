@@ -171,3 +171,16 @@
  .hero .copy{padding-block:44px 58px}
  .hero .copy h1{max-width:100%}
 }
+
+/* Keep the title in three deliberate rows at every viewport width. */
+.hero .copy h1 .headlineLine{display:block;white-space:nowrap}
+@media(min-width:701px){.hero .copy h1{font-size:clamp(28px,3.65vw,72px)}}
+@media(min-width:701px) and (max-height:620px){.hero .copy h1{font-size:min(3.65vw,7.5svh)}}
+@media(max-width:700px){.hero .copy h1{font-size:clamp(20px,5.9vw,41px)}.hero .copy h1 .mobileHeading>span{white-space:nowrap}}
+/* Reveal one letter at a time while reserving the full three-row layout. */
+.hero .copy h1 .typedCharacter{display:inline;white-space:pre;color:inherit;animation:growth-type-letter 320ms cubic-bezier(.22,1,.36,1) both}
+.hero .copy h1 .typedAccent{color:#0060f5}
+@keyframes growth-type-letter{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.hero .copy h1 .typedCharacter{animation:none}}
+/* Balance three four-word rows without wrapping on narrow screens. */
+@media(max-width:700px){.hero .copy h1{font-size:clamp(18px,6.1vw,42px)}}
