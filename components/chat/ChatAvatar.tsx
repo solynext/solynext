@@ -1,11 +1,11 @@
 import styles from "./TechSolutionsChatbot.module.css";
-import { ThreeMotionScene } from "@/components/three/ThreeMotionScene";
+import Image from "next/image";
 
-/** Small, self-contained illustrations; no third-party portrait requests. */
-export function ChatAvatar({ role, large = false, animated = false }: { role: "assistant" | "user"; large?: boolean; animated?: boolean }) {
+/** Local assistant portrait and user illustration. */
+export function ChatAvatar({ role, large = false }: { role: "assistant" | "user"; large?: boolean; animated?: boolean }) {
   const female = role === "assistant";
   return <span className={`${styles.avatar} ${female ? styles.femaleAvatar : styles.maleAvatar} ${large ? styles.headerAvatar : ""}`} role="img" aria-label={female ? "SolyNext assistant avatar" : "User avatar"}>
-    {female && animated ? <ThreeMotionScene variant="assistant"/> : <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+    {female ? <Image src="/images/chat/assistant-avatar.jpg" alt="" width={80} height={80} className={styles.avatarPhoto}/> : <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
       <circle cx="20" cy="20" r="20" fill={female ? "#dde7f0" : "#e0eaf7"}/>
       {female ? <path d="M10 19c0-9 4-13 10-13s10 5 10 13v14H10V19Z" fill="#283752"/> : <path d="M11 16c0-7 4-11 9-11 6 0 10 4 10 11l-2 9H13l-2-9Z" fill="#34414d"/>}
       <path d="M5 40c1-8 6-12 15-12s14 4 15 12H5Z" fill={female ? "#0057d9" : "#5879a8"}/>

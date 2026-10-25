@@ -48,3 +48,9 @@
  .composer{padding-bottom:calc(8px + env(safe-area-inset-bottom))}
  .footnote{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 }
+
+/* Coordinated blue and pink message surfaces for both speakers. */
+.assistant .bubble{background:linear-gradient(125deg,#d9eaff 0%,#e8ddff 52%,#ffdae9 100%);border-color:#e4e5f3;color:#30435e;box-shadow:0 3px 12px #243d5a06}
+.user .bubble{background:linear-gradient(125deg,#bad8ff 0%,#d4c1ff 52%,#f7bad6 100%);border-color:#d8dff1;color:#253b58;box-shadow:0 3px 12px #243d5a08}
+/* Center-cropped 1:1 assistant portrait. */
+.avatarPhoto{display:block;width:100%;height:100%;aspect-ratio:1;object-fit:cover;object-position:center}
