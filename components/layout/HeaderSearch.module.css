@@ -1,25 +1,25 @@
-.trigger{display:flex;align-items:center;gap:9px;min-height:42px;width:140px;padding:8px 16px;border:1px solid var(--line);border-radius:100px;background:transparent;color:var(--muted);cursor:pointer;transition:background 200ms ease,border-color 200ms ease,color 200ms ease}
-.trigger:hover{background:var(--surface);border-color:#9eb1d1;color:var(--ink)}.trigger>svg{flex-shrink:0;stroke-width:1.7}.trigger>span{font-size:12px;white-space:nowrap}
-.dialog{position:fixed;inset:0;width:min(640px,calc(100% - 32px));max-height:80dvh;margin:12dvh auto auto;padding:0;border:1px solid #ffffff90;border-radius:24px;overflow:hidden;background:var(--surface);color:var(--ink);box-shadow:0 32px 100px #13212e40}
-.dialog::backdrop{background:#1a222a66;backdrop-filter:blur(8px)}.panel{display:flex;flex-direction:column;max-height:80dvh}
-.inputRow{display:flex;align-items:center;gap:13px;padding:20px;border-bottom:1px solid var(--line);color:var(--brand)}
-.inputRow input{flex:1;min-width:0;min-height:44px;padding:10px 12px;font-size:15px;background:var(--surface-inset)!important;border-radius:12px!important}.inputRow>svg{flex-shrink:0}.inputRow>button{display:grid;place-items:center;flex-shrink:0;width:36px;min-height:36px;border-radius:50%;background:var(--surface-inset);color:var(--muted);cursor:pointer}.inputRow>button:hover{color:var(--brand)}
-.body{padding:20px;overflow-y:auto;overscroll-behavior:contain}.label{font:10px var(--font-geist-mono);letter-spacing:1.3px;color:var(--muted);margin:0 0 12px}.suggestions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:25px}.suggestions button{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:100px;padding:8px 13px;font-size:12px;color:var(--brand);background:var(--brand-soft);cursor:pointer}
-.result{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px;border:1px solid transparent;border-radius:14px;text-decoration:none;color:var(--ink);transition:background 200ms ease,border-color 200ms ease}.result:hover{background:var(--surface-inset);border-color:var(--line)}.result>span{min-width:0}.result strong{display:block;font-size:14px;font-weight:600;line-height:1.5}.result small{display:block;font-size:10px;color:var(--brand);margin:2px 0 4px}.result p{font-size:12px;color:var(--muted);line-height:1.7;margin:5px 0 0;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}.result>svg{flex-shrink:0;color:var(--brand);transition:transform 300ms var(--motion-ease)}.result:hover>svg{transform:translate(2px,-2px)}
-.footer{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px 23px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);background:var(--surface-inset)}.footer kbd{font:10px var(--font-geist-mono);padding:3px 6px;border:1px solid var(--line);border-radius:5px;background:var(--surface);margin-right:4px}.empty{padding:30px 10px;text-align:center;color:var(--muted)}.empty>svg{margin:auto;color:var(--brand)}.empty h3{font-size:18px;color:var(--ink);margin:15px 0 8px;overflow-wrap:anywhere}.empty p{font-size:13px}.empty button{margin-top:16px;padding:8px 18px;border-radius:100px;background:var(--brand-soft);color:var(--brand);font-size:12px;cursor:pointer}
-.trigger>.searchAction{display:none}
-@media(min-width:1151px){
- .trigger{width:220px;padding:5px 5px 5px 16px;justify-content:space-between;flex-shrink:0;border:1px solid transparent;background:linear-gradient(120deg,#fffdfd,#f5f9fc) padding-box,linear-gradient(120deg,#bed0df,#7b94c0 48%,#d5e1eb) border-box;box-shadow:inset 0 1px 0 #ffffff,0 2px 8px #00296b08;transition:background 200ms ease,border-color 200ms ease,color 200ms ease,box-shadow 200ms ease}
- .trigger:hover{border-color:transparent;background:linear-gradient(120deg,#fff,#f9fcfe) padding-box,linear-gradient(120deg,#9eb1d1,#5e7cb1 48%,#bed0e0) border-box;box-shadow:inset 0 1px 0 #fff,0 4px 14px #00296b12}
- .trigger>svg{display:none}
- .trigger>.searchAction{display:grid;place-items:center;width:32px;height:32px;flex-shrink:0;border-radius:50%;background:var(--brand);color:#fff}
- .trigger:hover>.searchAction{background:var(--brand-strong)}
-}
-@media(max-width:767px){.trigger{border:0}}
-@media(max-width:1150px){.trigger{width:42px;justify-content:center;padding:8px}.trigger>span{display:none}}
-@media(max-width:500px){.dialog{margin-top:7dvh;max-height:85dvh;border-radius:20px}.panel{max-height:85dvh}.inputRow{gap:8px;padding:14px}.inputRow input{font-size:13px;padding-inline:10px}.inputRow>svg{width:18px}.body{padding:13px}.trigger{min-height:40px;width:40px}.footer{padding-inline:18px}}
-@media(prefers-reduced-motion:no-preference){.dialog[open]{animation:search-enter 300ms var(--motion-ease) both}.dialog[open]::backdrop{animation:search-backdrop 200ms ease both}@keyframes search-enter{from{opacity:0;transform:translateY(-12px) scale(.98)}to{opacity:1;transform:none}}@keyframes search-backdrop{from{opacity:0}to{opacity:1}}}
-@media(prefers-reduced-motion:reduce){.trigger,.result,.result>svg{transition:none}.result:hover>svg{transform:none}}
-@media(max-width:380px){.trigger{width:32px;min-height:32px;padding:6px}}
+.inlineSearch{position:relative;width:220px;flex-shrink:0}
+.searchField{display:flex;align-items:center;gap:9px;min-height:42px;padding:8px 12px;border:0;border-radius:24px;background:#fff;color:#64748b}
+.searchField input{width:100%;min-width:0;min-height:26px;padding:0!important;font:inherit;font-size:13px;color:#253b58;background:transparent!important;border:0!important;border-radius:0!important;outline:none!important;box-shadow:none!important}
+.searchField>svg{flex-shrink:0}
+.searchField button,.mobileTrigger{display:grid;place-items:center;flex-shrink:0;border:0;background:transparent;color:#64748b;cursor:pointer}
+.searchField button{width:26px;height:26px;min-height:26px;padding:0;border-radius:50%}
+.searchField button:hover{background:#f1f5f9}
+.mobileTrigger{display:none;width:40px;height:40px;min-height:40px}
+.dropdown{position:absolute;top:calc(100% + 10px);right:0;width:360px;max-width:calc(100vw - 32px);padding:10px;border:0;border-radius:18px;background:#fff;box-shadow:0 16px 48px #18365b24;max-height:min(480px,65dvh);overflow-y:auto;overscroll-behavior:contain;z-index:60}
+.dropdownLabel{padding:6px 10px 9px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#7b8a9e;margin:0}
+.suggestion{display:flex;align-items:center;gap:12px;padding:11px 10px;border-radius:10px;color:#51657f;text-decoration:none}
+.suggestion>svg{flex-shrink:0}.suggestion>svg:last-child{margin-left:auto;color:#8c9bb0}
+.suggestion span{min-width:0}.suggestion strong{display:block;font-size:13px;font-weight:500;line-height:1.45;color:#253b58;overflow-wrap:anywhere}.suggestion small{display:block;font-size:10px;color:#7b8a9e;margin-top:3px}
+.suggestion:hover,.activeSuggestion{background:#f0f5fc}
+.noResults{padding:16px 10px;color:#64748b;font-size:13px;line-height:1.6;margin:0}
+.resultStatus{display:block;padding:10px 10px 4px;font-size:10px;color:#7b8a9e}
+.mobileTrigger:focus-visible,.searchField button:focus-visible,.suggestion:focus-visible{outline:2px solid #7fa7df;outline-offset:2px}
+@media(max-width:1150px){.inlineSearch{width:40px}.mobileTrigger{display:grid}.searchField{display:none}.expanded .searchField{position:absolute;display:flex;top:-1px;right:0;width:min(300px,calc(100vw - 60px));box-shadow:0 4px 20px #18365b14}.expanded .dropdown{top:52px;width:min(360px,calc(100vw - 32px));right:0}}
+@media(max-width:380px){.inlineSearch,.mobileTrigger{width:32px}.mobileTrigger{height:32px;min-height:32px}.expanded .searchField{top:-5px}}
+.searchField .searchAction{width:32px;height:32px;min-height:32px;border-radius:50%;background:var(--brand);color:#fff}
+.searchField .searchAction:hover{background:var(--brand-strong)}
+.searchField{padding-right:5px}
+.searchField{border:1px solid #cbd5e1}
 
-@media(max-width:767px){:global(.premium-header) .trigger,:global(.premium-header) .trigger:hover,:global(.premium-header) .trigger .searchAction{background:transparent;border-color:transparent;box-shadow:none}}
+.searchField{min-height:40px;padding-top:3px;padding-bottom:3px}

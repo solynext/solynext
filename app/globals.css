@@ -2105,3 +2105,14 @@ body:has(.premium-header) main>section{background-image:none!important}
 @media(prefers-reduced-motion:reduce){.mobile-menu-lines>span{transition:none}}
 /* Bring the mobile menu closer to the left edge without moving right actions. */
 @media(max-width:1000px){.premium-header .premium-nav{width:calc(100% - 32px);margin-left:12px;margin-right:20px}.premium-header .premium-nav-brand>.premium-menu-toggle{padding-left:4px;padding-right:4px;min-width:32px;width:32px}}
+.header-apps-link{display:grid;place-items:center;flex-shrink:0;width:40px;height:40px;border-radius:10px;transition:background 180ms ease}
+.header-apps-link:hover,.header-apps-link[aria-current="page"]{background:#eef4fc}
+.header-apps-link:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.apps-empty{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;padding:56px 24px;margin-bottom:64px;border:1px solid #e2e8f0;border-radius:24px;background:#fff}
+.apps-page-icon{display:grid;place-items:center;width:76px;height:76px;border-radius:22px;background:#edf5ff;color:var(--brand)}
+.apps-badge{font-size:10px;font-weight:600;letter-spacing:1.6px;color:#657a96}
+.premium-home .apps-empty h2{font-size:clamp(26px,3.5vw,40px);line-height:1.2;letter-spacing:-1px;margin:0}
+.apps-empty>p{max-width:44ch;margin:0;color:var(--muted);font-size:15px;line-height:1.8}
+.apps-empty .p-button{margin-top:8px}
+@media(max-width:380px){.header-apps-link{width:30px;height:32px}.header-apps-link svg{width:20px;height:22px}}
+@media(prefers-reduced-motion:reduce){.header-apps-link{transition:none}}

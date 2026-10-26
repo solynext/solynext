@@ -1,4 +1,4 @@
-﻿import { LayoutDashboard, FolderKanban, Layers3, Braces, Building2, Star, Users, Image, Inbox, PanelsTopLeft, Settings, UserRound, ListTodo, ChartNoAxesCombined, Handshake, Bell, Activity, UserCog } from "lucide-react";
+import { AppWindow, LayoutDashboard, FolderKanban, Layers3, Braces, Building2, Star, Users, Image, Inbox, PanelsTopLeft, Settings, UserRound, ListTodo, ChartNoAxesCombined, Handshake, Bell, Activity, UserCog } from "lucide-react";
 
 /** Only primary destinations appear in the sidebar. Related tools stay in pages. */
 export const adminNavigation = [
@@ -8,6 +8,7 @@ export const adminNavigation = [
   { label: "Clients", href: "/admin/clients", icon: Building2 },
   { label: "Team", href: "/admin/team", icon: Users },
   { label: "Website", href: "/admin/content", icon: PanelsTopLeft },
+  { label: "Apps", href: "/admin/apps", icon: AppWindow },
   { label: "Notifications", href: "/admin/notifications", icon: Bell },
   { label: "Settings", href: "/admin/settings", icon: Settings },
 ];

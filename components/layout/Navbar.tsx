@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, X } from "lucide-react";
 import { BrandWordmark } from "@/components/ui/BrandWordmark";
@@ -52,6 +53,7 @@ export function Navbar() {
     </div>
     <nav className="premium-desktop-nav" aria-label="Primary navigation">{links.map(link => <Link key={link.href} href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</Link>)}</nav>
     <div className="premium-nav-actions">
+     <Link href="/solynext-apps" className="header-apps-link" aria-label="SolyNext Apps" title="SolyNext Apps" aria-current={pathname === "/solynext-apps" ? "page" : undefined}><Image src="/icons/solynext-apps.png" alt="" width={36} height={36}/></Link>
      <HeaderSearch />
      <WebsiteNotificationBell />
      <button type="button" className="p-button nav-cta" aria-haspopup="dialog" onClick={() => setInquiryOpen(true)}><span>Let&apos;s talk</span></button>
