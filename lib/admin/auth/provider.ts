@@ -11,5 +11,10 @@ export async function authenticateAdmin(email: string, password: string): Promis
   const hash = (value: string) => createHash("sha256").update(value).digest();
   const emailMatches = timingSafeEqual(hash(email.trim().toLowerCase()), hash(expectedEmail.toLowerCase()));
   const passwordMatches = timingSafeEqual(hash(password), hash(expectedPassword));
+  if (!(emailMatches && passwordMatches)) {
+    const { authenticateCatalogUser } = await import("@/lib/catalog/security");
+    const catalogEmail = await authenticateCatalogUser(email, password);
+    if (catalogEmail) return { id: catalogEmail.id, name: "SolyNext Editor", email: catalogEmail.email, role: "admin", catalogOnly: true };
+  }
   return emailMatches && passwordMatches ? { id: "development-admin", name: "SolyNext Admin", email: expectedEmail, role: "admin" } : null;
 }

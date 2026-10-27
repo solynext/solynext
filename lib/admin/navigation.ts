@@ -26,6 +26,7 @@ export const adminPageNavigation = [
   { label: "Website management", parent: "/admin/content", items: [
     { label: "Content & insights", href: "/admin/content", icon: PanelsTopLeft },
     { label: "Services", href: "/admin/services", icon: Layers3 },
+    { label: "Industries", href: "/admin/industries", icon: Building2 },
     { label: "Public portfolio", href: "/admin/portfolio", icon: FolderKanban },
     { label: "Reviews", href: "/admin/reviews", icon: Star },
     { label: "Media", href: "/admin/media", icon: Image },

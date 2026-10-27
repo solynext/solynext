@@ -3,8 +3,8 @@ import { Geist } from "next/font/google";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import styles from "./GrowthHero.module.css";
-import { ServiceCard, featuredServiceSlugs } from "@/components/ui/ServiceCard";
-import { SERVICES_DATA } from "@/data/mockData";
+
+
 
 const heroFont = Geist({ subsets: ["latin"], display: "swap", variable: "--font-growth-hero" });
 
@@ -36,14 +36,4 @@ export function GrowthHero() {
   </section>;
 }
 
-export function GrowthServices() {
-  return <section id="services" className={styles.services} aria-labelledby="growth-services-heading">
-    <div className={styles.container}>
-      <div className={styles.sectionHeading}>
-        <div><p className={styles.eyebrow}>OUR SERVICES</p><h2 id="growth-services-heading">Everything You Need<br />to Grow Your Brand</h2></div>
-        <Link href="/services" className={styles.viewAll}>View All <ArrowRight aria-hidden="true" /></Link>
-      </div>
-      <div className={styles.cards}>{featuredServiceSlugs.map(slug => { const service = SERVICES_DATA.find(item => item.slug === slug); return service ? <ServiceCard key={slug} slug={slug} title={service.title} description={service.shortDescription}/> : null; })}</div>
-    </div>
-  </section>;
-}
+export { HomeServices as GrowthServices } from "@/components/catalog/HomeSections";

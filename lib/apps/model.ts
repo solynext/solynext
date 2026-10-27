@@ -1,7 +1,8 @@
+export const downloadPlatforms = ["Windows", "Android", "iOS", "macOS", "Linux", "Other"] as const;
 export type CatalogApp = {
   id: string; name: string; description: string; details: string; url: string; image: string;
   category: string; developer: string; version: string; status: "Draft" | "Published";
-  featured: boolean; order: number; updatedAt: string;
+  platforms?: string[]; featured: boolean; order: number; updatedAt: string;
 };
 export function validateApp(value: unknown): CatalogApp {
   if (!value || typeof value !== "object") throw new Error("App: Invalid app data.");
@@ -25,7 +26,9 @@ export function validateApp(value: unknown): CatalogApp {
   if (typeof item.featured !== "boolean" || !Number.isInteger(item.order) || (item.order as number) < 0 || (item.order as number) > 9999) throw new Error("App: Invalid display settings.");
   const updatedAt = text("updatedAt", 40);
   if (!Number.isFinite(Date.parse(updatedAt))) throw new Error("App: Invalid update time.");
-  return { id, name, description: text("description", 240), details: text("details", 10000, false), url: parsed.href, image, category: text("category", 60), developer: text("developer", 100, false), version: text("version", 40, false), status: item.status, featured: item.featured, order: item.order as number, updatedAt };
+  const platforms = item.platforms ?? [];
+  if (!Array.isArray(platforms) || platforms.some(value => typeof value !== "string" || !downloadPlatforms.includes(value as typeof downloadPlatforms[number]))) throw new Error("App: Choose valid download platforms.");
+  return { platforms: [...new Set(platforms)] as string[], id, name, description: text("description", 240), details: text("details", 10000, false), url: parsed.href, image, category: text("category", 60), developer: text("developer", 100, false), version: text("version", 40, false), status: item.status, featured: item.featured, order: item.order as number, updatedAt };
 }
 export function publishedApps(items: CatalogApp[]) {
   return items.filter(item => item.status === "Published").sort((a,b) => Number(b.featured) - Number(a.featured) || a.order - b.order || a.name.localeCompare(b.name));

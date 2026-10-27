@@ -1,0 +1,7 @@
+import { sql } from "drizzle-orm";
+import { inquirySchema } from "@/lib/catalog/model";
+import { getCatalogDb } from "@/lib/catalog/db";
+import { getOffering } from "@/lib/catalog/repository";
+import { enforceRate,sameOrigin } from "@/lib/catalog/security";
+import { apiError } from "@/lib/catalog/http";
+export async function POST(request:Request){try{if(!sameOrigin(request))return Response.json({error:"Invalid origin"},{status:403});const data=inquirySchema.parse(await request.json());if(data.website)return Response.json({ok:true});enforceRate("inquiry:"+(request.headers.get("x-forwarded-for")?.split(",")[0]||"local"),5,600000);const service=data.service_slug?await getOffering("services",data.service_slug):null,industry=data.industry_slug?await getOffering("industries",data.industry_slug):null;if((data.service_slug&&(!service||service.status!=="published"))||(data.industry_slug&&(!industry||industry.status!=="published")))throw new Error("Choose a published service or industry.");await getCatalogDb().execute(sql`insert into solynext_catalog.inquiries(name,email,phone,company,message,source_page,service_id,industry_id,solution_name) values(${data.name},${data.email},${data.phone},${data.company},${data.message},${data.source_page},${service?.id||null}::uuid,${industry?.id||null}::uuid,${data.solution_name||null})`);return Response.json({ok:true},{status:201});}catch(error){return apiError(error);}}

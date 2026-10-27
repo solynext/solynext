@@ -2116,3 +2116,51 @@ body:has(.premium-header) main>section{background-image:none!important}
 .apps-empty .p-button{margin-top:8px}
 @media(max-width:380px){.header-apps-link{width:30px;height:32px}.header-apps-link svg{width:20px;height:22px}}
 @media(prefers-reduced-motion:reduce){.header-apps-link{transition:none}}
+/* Stronger color for the header Apps icon. */
+.header-apps-link img{filter:saturate(1.6) contrast(1.08)}
+
+/* Keep the public header labels aligned on a single line. */
+.premium-header .premium-nav{flex-wrap:nowrap;gap:clamp(16px,2vw,28px)}
+.premium-header .premium-desktop-nav{flex-wrap:nowrap;gap:clamp(14px,1.6vw,24px);flex-shrink:0}
+.premium-header .premium-desktop-nav a,.premium-header .nav-cta,.premium-header .nav-cta>span{white-space:nowrap}
+.premium-header .premium-nav-actions{flex-shrink:0;gap:10px}
+.premium-header .nav-cta{flex-shrink:0;width:auto}
+@media(min-width:1001px) and (max-width:1400px){
+ .premium-header .premium-nav{gap:16px}
+ .premium-header .premium-desktop-nav{gap:15px}
+ .premium-header .premium-desktop-nav a{font-size:14px}
+ .premium-header .premium-nav-actions{gap:8px}
+ .premium-header .nav-cta{padding-inline:16px}
+}
+
+/* Larger public navigation labels. */
+.premium-header .premium-desktop-nav a{font-size:16px}
+@media(min-width:1001px) and (max-width:1400px){.premium-header .premium-desktop-nav a{font-size:15px}}
+.premium-header .premium-desktop-nav a{font-size:18px}
+@media(min-width:1001px) and (max-width:1400px){.premium-header .premium-desktop-nav a{font-size:17px}.premium-header .premium-desktop-nav{gap:12px}}
+
+/* Give navigation links a little more breathing room. */
+.premium-header .premium-desktop-nav{gap:clamp(18px,1.9vw,28px)}
+@media(min-width:1001px) and (max-width:1400px){.premium-header .premium-desktop-nav{gap:16px}}
+.premium-header .premium-desktop-nav{gap:clamp(22px,2.2vw,34px)}
+@media(min-width:1001px) and (max-width:1400px){.premium-header .premium-desktop-nav{gap:20px}}
+
+/* Clean left navigation drawer with clear icon-led destinations. */
+.premium-mobile-panel{width:min(320px,88vw);background:#fff;padding-inline:18px}
+.premium-mobile-heading{padding:0 6px 20px;font-size:17px;letter-spacing:-.3px}
+.premium-drawer-close{width:36px;height:36px;min-height:36px;border:0;border-radius:50%;background:#f3f6fa;color:#536176}
+.premium-mobile-panel .premium-mobile-nav{border-top:1px solid #edf1f5;padding:16px 0;display:grid;gap:6px}
+.premium-mobile-panel .premium-mobile-nav a{min-height:50px;padding:12px 14px;border:0;border-radius:12px;font-size:15px;font-weight:500;color:#445268;animation:none;transition:background 160ms ease,color 160ms ease}
+.drawer-link-label{display:flex;align-items:center;gap:14px;white-space:nowrap}
+.drawer-link-label>svg{flex-shrink:0;color:#748297}
+.drawer-link-chevron{color:#a1acbb;flex-shrink:0}
+.premium-mobile-panel .premium-mobile-nav a:hover{background:#f5f8fc;color:#1265ca}
+.premium-mobile-panel .premium-mobile-nav a[aria-current="page"]{background:#edf6ff;color:#0866d5;font-weight:600}
+.premium-mobile-nav a[aria-current="page"] .drawer-link-label>svg,.premium-mobile-nav a[aria-current="page"] .drawer-link-chevron{color:#0866d5}
+.premium-mobile-panel .premium-mobile-nav a:focus-visible,.premium-drawer-close:focus-visible{outline:2px solid #2684e8;outline-offset:2px}
+
+/* Keep the mobile sidebar contact action anchored below navigation. */
+.premium-mobile-panel{display:flex;flex-direction:column}
+.premium-mobile-heading{flex-shrink:0}
+.mobile-sidebar-footer{margin-top:auto;padding:20px 0 4px;border-top:1px solid #edf1f5;flex-shrink:0}
+.mobile-sidebar-cta{display:flex;width:100%;align-items:center;justify-content:space-between;min-height:48px;padding:12px 18px;border-radius:14px;font-size:15px;font-weight:600;white-space:nowrap}

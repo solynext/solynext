@@ -1,6 +1,7 @@
 "use server";
 
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
+import { enforceRate, clearRateLimit } from "@/lib/catalog/security";
 import { redirect } from "next/navigation";
 import { authenticateAdmin } from "./provider";
 import { ADMIN_COOKIE, SESSION_TTL, safeAdminReturn, signSession } from "./session";
@@ -11,8 +12,11 @@ export async function loginAdmin(_previous: LoginState, form: FormData): Promise
   const email = form.get("email");
   const password = form.get("password");
   if (typeof email !== "string" || typeof password !== "string" || email.length > 254 || password.length > 256) return { error: "Enter a valid email address and password." };
+  const loginRateKey = "login:" + email.toLowerCase() + ":" + ((await headers()).get("x-forwarded-for")?.split(",")[0] || "local");
+  try { enforceRate(loginRateKey, 8, 15 * 60 * 1000); } catch { return { error: "Too many sign-in attempts. Try again later." }; }
   const user = await authenticateAdmin(email, password);
   if (!user) return { error: "Unable to sign in. Check your credentials and try again." };
+  clearRateLimit(loginRateKey);
   const issuedAt = Math.floor(Date.now() / 1000);
   const cookieStore = await cookies();
   cookieStore.set(ADMIN_COOKIE, signSession({ user, issuedAt, expiresAt: issuedAt + SESSION_TTL }), {

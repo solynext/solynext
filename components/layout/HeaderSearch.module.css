@@ -23,3 +23,5 @@
 .searchField{border:1px solid #cbd5e1}
 
 .searchField{min-height:40px;padding-top:3px;padding-bottom:3px}
+
+@media(min-width:1151px) and (max-width:1400px){.inlineSearch{width:160px}}

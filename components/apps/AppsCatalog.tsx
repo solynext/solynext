@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Search, X, Smartphone, RotateCw, Info, LayoutGrid, Gamepad2, ChevronRight } from "lucide-react";
-import type { CatalogApp } from "@/lib/apps/model";
+import { Search, X, Smartphone, RotateCw, Info, LayoutGrid, Gamepad2, Download, ChevronRight } from "lucide-react";
+import { downloadPlatforms, type CatalogApp } from "@/lib/apps/model";
 import styles from "./Apps.module.css";
 
 export function AppPlayer({ app, onClose }: { app:CatalogApp; onClose:()=>void }) {
@@ -38,17 +38,22 @@ export function AppPlayer({ app, onClose }: { app:CatalogApp; onClose:()=>void }
     </div>
   </dialog>;
 }
-export function AppsCatalog({ apps }: { apps:CatalogApp[] }) {
+export function AppsCatalog({ apps, initialTab = "Apps" }: { apps:CatalogApp[]; initialTab?: "Apps" | "Games" | "Downloads" }) {
   const [query,setQuery] = useState("");
   const [category,setCategory] = useState("All apps");
-  const [tab,setTab] = useState<"Apps" | "Games">("Apps");
+  const [tab,setTab] = useState<"Apps" | "Games" | "Downloads">(initialTab);
   const [selected,setSelected] = useState<CatalogApp | null>(null);
-  const tabApps = apps.filter(app => tab === "Games" ? /\bgames?\b/i.test(app.category) : !/\bgames?\b/i.test(app.category));
-  const categories = ["All apps", ...new Set(tabApps.map(app => app.category))];
-  const visible = tabApps.filter(app => (category === "All apps" || app.category === category) && `${app.name} ${app.description} ${app.category}`.toLowerCase().includes(query.trim().toLowerCase()));
+  const tabApps = apps.filter(app => tab === "Downloads" ? /\bdownloads?\b/i.test(app.category) : tab === "Games" ? /\bgames?\b/i.test(app.category) && !/\bdownloads?\b/i.test(app.category) : !/\b(games?|downloads?)\b/i.test(app.category));
+  const categories = tab === "Downloads" ? ["All apps", ...downloadPlatforms] : ["All apps", ...new Set(tabApps.map(app => app.category))];
+  const visible = tabApps.filter(app => (category === "All apps" || (tab === "Downloads" ? app.platforms?.includes(category) : app.category === category)) && `${app.name} ${app.description} ${app.category}`.toLowerCase().includes(query.trim().toLowerCase()));
   return <main id="main-content" className={styles.catalog}><div className="premium-container">
-    <div className={styles.catalogTop}><div className={styles.catalogTitleRow}><h1>SolyNext Apps</h1><div className={styles.catalogTabs} aria-label="Browse apps or games">{(["Apps","Games"] as const).map(item => <button type="button" key={item} aria-pressed={tab === item} onClick={() => {setTab(item);setCategory("All apps");setQuery("");}}><span className={styles.tabIcon}>{item === "Apps" ? <LayoutGrid size={19} aria-hidden="true"/> : <Gamepad2 size={21} aria-hidden="true"/>}</span><span className={styles.tabDivider} aria-hidden="true"/><span className={styles.tabText}>{item}</span><ChevronRight className={styles.tabArrow} size={18} aria-hidden="true"/></button>)}</div></div><label className={styles.catalogSearch}><Search size={18} aria-hidden="true"/><span className={styles.srOnly}>Search apps</span><input type="search" placeholder="Search apps" value={query} onChange={event => setQuery(event.target.value)}/></label></div>
-    {tabApps.length > 0 && <div className={styles.filters} aria-label="Filter by category">{categories.map(item => <button type="button" key={item} aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>)}</div>}
-    {visible.length ? <div className={styles.appsGrid}>{visible.map(app => <button type="button" className={styles.appTile} key={app.id} onClick={() => setSelected(app)} aria-label={`Open ${app.name}`}><span className={styles.appImage}><Image src={app.image} alt="" fill unoptimized sizes="(max-width:600px) 45vw, (max-width:1000px) 25vw, 180px"/></span><strong>{app.name}</strong></button>)}</div> : <div className={styles.empty}><Smartphone size={40} strokeWidth={1.5} aria-hidden="true"/><h3>{tabApps.length ? "No apps found" : tab === "Games" ? "Games are on the way" : "New apps are on the way"}</h3><p>{tabApps.length ? "Try a different search or category." : tab === "Games" ? "Published games will appear here, ready to play in your browser." : "Our published apps will appear here, ready to launch in your browser."}</p>{tabApps.length > 0 && <button onClick={() => {setQuery("");setCategory("All apps");}}>Show all apps</button>}</div>}
+    <div className={styles.catalogTop}><div className={styles.catalogTitleRow}><h1>SolyNext Apps</h1><div className={styles.catalogTabs} aria-label="Browse apps, games or downloads">{(["Apps","Games","Downloads"] as const).map(item => <button type="button" key={item} aria-pressed={tab === item} onClick={() => {setTab(item);const url = new URL(window.location.href);url.searchParams.set("tab",item.toLowerCase());window.history.replaceState(null,"",url);setCategory("All apps");setQuery("");}}><span className={styles.tabIcon}>{item === "Apps" ? <LayoutGrid size={19} aria-hidden="true"/> : item === "Games" ? <Gamepad2 size={21} aria-hidden="true"/> : <Download size={19} aria-hidden="true"/>}</span><span className={styles.tabDivider} aria-hidden="true"/><span className={styles.tabText}>{item}</span><ChevronRight className={styles.tabArrow} size={18} aria-hidden="true"/></button>)}</div></div><label className={styles.catalogSearch}><Search size={18} aria-hidden="true"/><span className={styles.srOnly}>Search apps</span><input type="search" placeholder="Search apps" value={query} onChange={event => setQuery(event.target.value)}/></label></div>
+    {tabApps.length > 0 && <div className={styles.filters} aria-label={tab === "Downloads" ? "Filter by platform" : "Filter by category"}>{categories.map(item => <button type="button" key={item} aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>)}</div>}
+    {visible.length ? <div className={styles.appsGrid}>{visible.map(app => /\bdownloads?\b/i.test(app.category) ? <div className={styles.appTile} key={app.id}><span className={styles.appImage}><Image src={app.image} alt="" fill unoptimized sizes="(max-width:600px) 45vw, (max-width:1000px) 25vw, 180px"/></span><strong>{app.name}</strong><a className={styles.downloadButton} href={app.url} download target="_blank" rel="noopener noreferrer" aria-label={`Download ${app.name}`}><Download size={19} aria-hidden="true"/> Download</a></div> : <button type="button" className={styles.appTile} key={app.id} onClick={() => setSelected(app)} aria-label={`Open ${app.name}`}><span className={styles.appImage}><Image src={app.image} alt="" fill unoptimized sizes="(max-width:600px) 45vw, (max-width:1000px) 25vw, 180px"/></span><strong>{app.name}</strong></button>)}</div> : <div className={styles.empty}><Smartphone size={40} strokeWidth={1.5} aria-hidden="true"/><h3>{tabApps.length ? "No apps found" : tab === "Downloads" ? "Downloads are on the way" : tab === "Games" ? "Games are on the way" : "New apps are on the way"}</h3><p>{tabApps.length ? "Try a different search or category." : tab === "Downloads" ? "Downloadable apps will appear here." : tab === "Games" ? "Published games will appear here, ready to play in your browser." : "Our published apps will appear here, ready to launch in your browser."}</p>{tabApps.length > 0 && <button onClick={() => {setQuery("");setCategory("All apps");}}>Show all apps</button>}</div>}
   </div>{selected && <AppPlayer key={selected.id} app={selected} onClose={() => setSelected(null)}/>}</main>;
 }
+
+
+
+
+

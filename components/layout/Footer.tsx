@@ -1,15 +1,9 @@
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Globe2, Mail, MapPin, Shield } from "lucide-react";
 import styles from "./Footer.module.css";
 import { BrandLogo } from "@/components/ui/BrandLogo";
 import { BrandWordmark } from "@/components/ui/BrandWordmark";
-
-const serviceLinks = [
-  { label: "Web Development", href: "/services/web-development" },
-  { label: "Graphic Design", href: "/services/graphic-design-branding" },
-  { label: "Digital Marketing", href: "/services/digital-marketing" },
-  { label: "Social Media Management", href: "/services/social-media-management" },
-];
 
 const companyLinks = [
   { label: "About SolyNext", href: "/about" },
@@ -23,6 +17,8 @@ const companyLinks = [
 
 export function Footer() {
   const currentYear = 2026;
+  const [serviceLinks,setServiceLinks] = useState<{label:string;href:string}[]>([]);
+  useEffect(() => { const controller=new AbortController(); void fetch("/api/services",{signal:controller.signal}).then(response=>response.ok?response.json():{items:[]}).then((data:{items:{name:string;slug:string;is_featured:boolean;featured_order:number|null}[]})=>setServiceLinks(data.items.filter(item=>item.is_featured).sort((a,b)=>(a.featured_order??9999)-(b.featured_order??9999)).slice(0,4).map(item=>({label:item.name,href:`/services/${item.slug}`})))).catch(()=>{});return()=>controller.abort(); },[]);
 
   return (
     <footer className={styles.footer}>

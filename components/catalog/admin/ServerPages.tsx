@@ -1,0 +1,8 @@
+import { notFound } from "next/navigation";
+import { adminBootstrap } from "@/lib/catalog/security";
+import { listOfferings,projectsList,getSection } from "@/lib/catalog/repository";
+import type { Entity,SectionKey,HomeSection } from "@/lib/catalog/model";
+import { CatalogManager } from "./Manager";
+import { SettingsEditor } from "./SettingsEditor";
+export async function CatalogAdminPage({entity}:{entity:Entity}){const{actor,token}=await adminBootstrap();const[items,relations,projects,home]=await Promise.all([listOfferings(entity),listOfferings(entity==="services"?"industries":"services"),projectsList(),getSection(entity==="services"?"home_services_section":"home_industries_section")]);return <CatalogManager entity={entity} initialItems={items} relations={relations} projects={projects} token={token} role={actor.role} maxFeatured={(home as HomeSection).max_items}/>;}
+export async function CatalogSettingsPage({entity,type}:{entity:Entity;type:string}){if(!["home-section","listing-page"].includes(type))notFound();const{token}=await adminBootstrap();const key:SectionKey=type==="home-section"?(entity==="services"?"home_services_section":"home_industries_section"):(entity==="services"?"services_page":"industries_page");const[data,items]=await Promise.all([getSection(key),listOfferings(entity)]);return <SettingsEditor entity={entity} sectionKey={key} initialData={data} items={items} token={token}/>;}

@@ -1,0 +1,1251 @@
+[
+  {
+    "name": "Web Development",
+    "slug": "web-development",
+    "tag": "BUILD",
+    "category": "build",
+    "is_featured": true,
+    "featured_order": 1,
+    "display_order": 1,
+    "status": "published",
+    "tagline": "Modern, high-performance websites that convert.",
+    "card_summary": "Modern, high-performance websites that convert.",
+    "overview": "We design and build fast, responsive websites and web applications that present your business clearly and turn visitors into customers.",
+    "icon": "Laptop",
+    "hero_image": null,
+    "what_we_deliver": [
+      "Business and corporate websites",
+      "Landing pages and campaign sites",
+      "Portfolio and showcase websites",
+      "Custom web applications",
+      "Admin dashboards and customer portals",
+      "CMS-based websites you can update yourself",
+      "Website redesign and speed optimization",
+      "SEO-ready structure"
+    ],
+    "who_its_for": [
+      "Real estate agencies",
+      "Schools and colleges",
+      "Travel and tourism companies",
+      "Furniture showrooms",
+      "Shops and traders",
+      "Startups and growing businesses"
+    ],
+    "technologies": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "AWS"
+    ],
+    "deliverables": [
+      "Responsive website",
+      "Admin access and training",
+      "Setup and deployment guide",
+      "Full source code and IP ownership"
+    ],
+    "approach_steps": [
+      {
+        "title": "Discover",
+        "description": "Understand your goals, users and the problem worth solving."
+      },
+      {
+        "title": "Design",
+        "description": "Shape the experience, prototype and define the architecture."
+      },
+      {
+        "title": "Develop",
+        "description": "Build in focused two-week sprints with reviews and working software."
+      },
+      {
+        "title": "Launch & Evolve",
+        "description": "Test, deploy and keep improving as your business grows."
+      }
+    ],
+    "engagement_options": [
+      "Fixed-Price Milestone",
+      "Dedicated Engineering Team",
+      "Growth & SLA Retainer"
+    ],
+    "suggested_solutions": [
+      {
+        "name": "Business / agency website",
+        "description": "",
+        "status": "ready"
+      },
+      {
+        "name": "Real estate agency website",
+        "description": "",
+        "status": "ready"
+      },
+      {
+        "name": "School / college website",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Travel agency website",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Custom web app",
+        "description": "",
+        "status": "ready"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can I update the website myself?",
+        "answer": "Yes, with a CMS or admin panel."
+      },
+      {
+        "question": "Will it work on mobile?",
+        "answer": "Yes, every site is fully responsive."
+      },
+      {
+        "question": "Do you handle hosting?",
+        "answer": "Yes, we can deploy and manage it."
+      }
+    ],
+    "cta_heading": "Tell us about your project",
+    "cta_text": "Just the essentials. We can work through the details together.",
+    "seo_title": "Web Development | SolyNext",
+    "seo_description": "Modern, high-performance websites that convert.",
+    "og_image": null,
+    "industry_slugs": [
+      "*"
+    ],
+    "project_names": [
+      "Prime Property Hub",
+      "Noor Boutique",
+      "Urban Chai",
+      "Al Madina Traders"
+    ]
+  },
+  {
+    "name": "E-Commerce & Marketplace Development",
+    "slug": "ecommerce-development",
+    "tag": "BUILD",
+    "category": "build",
+    "is_featured": false,
+    "featured_order": null,
+    "display_order": 2,
+    "status": "published",
+    "tagline": "Online stores and marketplaces built to sell.",
+    "card_summary": "Online stores and multi-vendor marketplaces with payments and inventory.",
+    "overview": "We build online stores for single sellers and full multi-vendor marketplaces, with payments, inventory and order management included.",
+    "icon": "ShoppingBag",
+    "hero_image": null,
+    "what_we_deliver": [
+      "Custom e-commerce stores",
+      "Multi-vendor marketplaces",
+      "Product catalog and inventory management",
+      "Secure payment and delivery integration",
+      "Order tracking and customer accounts",
+      "Subscription and repeat-order systems",
+      "Custom order and quotation systems",
+      "Property, vehicle and listing marketplaces"
+    ],
+    "who_its_for": [
+      "E-commerce sellers",
+      "Furniture businesses",
+      "Organic and food brands",
+      "Car dealers and showrooms",
+      "Property portals",
+      "Travel marketplaces"
+    ],
+    "technologies": [],
+    "deliverables": [
+      "Live store",
+      "Admin dashboard",
+      "Payment and delivery setup",
+      "Training for your team",
+      "Full source code and IP ownership"
+    ],
+    "approach_steps": [
+      {
+        "title": "Discover",
+        "description": "Understand your goals, users and the problem worth solving."
+      },
+      {
+        "title": "Design",
+        "description": "Shape the experience, prototype and define the architecture."
+      },
+      {
+        "title": "Develop",
+        "description": "Build in focused two-week sprints with reviews and working software."
+      },
+      {
+        "title": "Launch & Evolve",
+        "description": "Test, deploy and keep improving as your business grows."
+      }
+    ],
+    "engagement_options": [
+      "Fixed-Price Milestone",
+      "Dedicated Engineering Team",
+      "Growth & SLA Retainer"
+    ],
+    "suggested_solutions": [
+      {
+        "name": "Fashion / clothing store",
+        "description": "",
+        "status": "ready"
+      },
+      {
+        "name": "Electronics and gadgets store",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Furniture marketplace",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Vehicle listing marketplace",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Property marketplace",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Organic product store with subscriptions",
+        "description": "",
+        "status": "build"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can I sell any product?",
+        "answer": "Yes."
+      },
+      {
+        "question": "Can many sellers list on one platform?",
+        "answer": "Yes, with a marketplace build."
+      },
+      {
+        "question": "Can customers pay online?",
+        "answer": "Yes, with local and international gateways."
+      }
+    ],
+    "cta_heading": "Tell us about your project",
+    "cta_text": "Just the essentials. We can work through the details together.",
+    "seo_title": "E-Commerce & Marketplace Development | SolyNext",
+    "seo_description": "Online stores and multi-vendor marketplaces with payments and inventory.",
+    "og_image": null,
+    "industry_slugs": [
+      "ecommerce",
+      "furniture",
+      "organic-food-wellness",
+      "transport-automotive",
+      "real-estate",
+      "travel-tourism"
+    ],
+    "project_names": [
+      "Noor Boutique",
+      "Fresh Basket",
+      "Pak Auto Parts"
+    ]
+  },
+  {
+    "name": "Custom Software Development",
+    "slug": "software-development",
+    "tag": "BUILD",
+    "category": "build",
+    "is_featured": false,
+    "featured_order": null,
+    "display_order": 3,
+    "status": "published",
+    "tagline": "Software shaped around the way your business actually works.",
+    "card_summary": "Management systems, POS and workflow tools built around your process.",
+    "overview": "We build custom business software that replaces manual work: management systems, POS, dashboards and workflow tools.",
+    "icon": "Layers3",
+    "hero_image": null,
+    "what_we_deliver": [
+      "POS apps for different shop types",
+      "School and institute management systems",
+      "Learning management systems (LMS)",
+      "Inventory, billing and reporting software",
+      "Booking and appointment systems",
+      "CRM and lead management",
+      "Admin dashboards and internal tools",
+      "Third-party integrations and APIs"
+    ],
+    "who_its_for": [
+      "Retail and trading",
+      "Education",
+      "Transport",
+      "Real estate",
+      "Hotels and travel"
+    ],
+    "technologies": [],
+    "deliverables": [
+      "Working software delivered in sprints",
+      "Documentation",
+      "Staff training",
+      "Full source code and IP ownership"
+    ],
+    "approach_steps": [
+      {
+        "title": "Discover",
+        "description": "Understand your goals, users and the problem worth solving."
+      },
+      {
+        "title": "Design",
+        "description": "Shape the experience, prototype and define the architecture."
+      },
+      {
+        "title": "Develop",
+        "description": "Build in focused two-week sprints with reviews and working software."
+      },
+      {
+        "title": "Launch & Evolve",
+        "description": "Test, deploy and keep improving as your business grows."
+      }
+    ],
+    "engagement_options": [
+      "Fixed-Price Milestone",
+      "Dedicated Engineering Team",
+      "Growth & SLA Retainer"
+    ],
+    "suggested_solutions": [
+      {
+        "name": "General POS app",
+        "description": "",
+        "status": "ready"
+      },
+      {
+        "name": "Restaurant / cafe POS",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Pharmacy POS",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "School management system",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Online LMS",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Rent-a-car / booking system",
+        "description": "",
+        "status": "build"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can the software match my exact workflow?",
+        "answer": "Yes, it is built around your process."
+      },
+      {
+        "question": "Will you train my staff?",
+        "answer": "Yes, at handover."
+      },
+      {
+        "question": "Who owns the code?",
+        "answer": "You do."
+      }
+    ],
+    "cta_heading": "Tell us about your project",
+    "cta_text": "Just the essentials. We can work through the details together.",
+    "seo_title": "Custom Software Development | SolyNext",
+    "seo_description": "Management systems, POS and workflow tools built around your process.",
+    "og_image": null,
+    "industry_slugs": [
+      "retail-trading",
+      "education",
+      "transport-automotive",
+      "real-estate",
+      "travel-tourism"
+    ],
+    "project_names": [
+      "Al Madina Traders"
+    ]
+  },
+  {
+    "name": "Mobile App Development",
+    "slug": "mobile-development",
+    "tag": "BUILD",
+    "category": "build",
+    "is_featured": false,
+    "featured_order": null,
+    "display_order": 4,
+    "status": "published",
+    "tagline": "Apps your customers will want to keep on their phones.",
+    "card_summary": "iOS and Android apps for booking, buying and managing.",
+    "overview": "We build iOS and Android apps that make booking, buying and managing things simple.",
+    "icon": "Smartphone",
+    "hero_image": null,
+    "what_we_deliver": [
+      "Android and iOS apps",
+      "Cross-platform apps",
+      "Taxi booking and driver apps",
+      "All-in-one travel apps (transport, hotels, locations)",
+      "E-commerce shopping apps",
+      "Customer and delivery apps",
+      "Push notifications, maps and payments",
+      "App store publishing and updates"
+    ],
+    "who_its_for": [
+      "Transport businesses",
+      "Travel and hotel companies",
+      "Online stores",
+      "Schools",
+      "Retailers"
+    ],
+    "technologies": [],
+    "deliverables": [
+      "Published app",
+      "Admin panel",
+      "Release notes",
+      "Maintenance plan",
+      "Full source code and IP ownership"
+    ],
+    "approach_steps": [
+      {
+        "title": "Discover",
+        "description": "Understand your goals, users and the problem worth solving."
+      },
+      {
+        "title": "Design",
+        "description": "Shape the experience, prototype and define the architecture."
+      },
+      {
+        "title": "Develop",
+        "description": "Build in focused two-week sprints with reviews and working software."
+      },
+      {
+        "title": "Launch & Evolve",
+        "description": "Test, deploy and keep improving as your business grows."
+      }
+    ],
+    "engagement_options": [
+      "Fixed-Price Milestone",
+      "Dedicated Engineering Team",
+      "Growth & SLA Retainer"
+    ],
+    "suggested_solutions": [
+      {
+        "name": "Taxi rider and driver apps",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "All-in-one travel and booking app",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "E-commerce mobile app",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "School parent and student app",
+        "description": "",
+        "status": "build"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do you build for both iOS and Android?",
+        "answer": "Yes."
+      },
+      {
+        "question": "Do you publish the app to the stores?",
+        "answer": "Yes."
+      },
+      {
+        "question": "Can the app connect to my existing website?",
+        "answer": "Yes."
+      }
+    ],
+    "cta_heading": "Tell us about your project",
+    "cta_text": "Just the essentials. We can work through the details together.",
+    "seo_title": "Mobile App Development | SolyNext",
+    "seo_description": "iOS and Android apps for booking, buying and managing.",
+    "og_image": null,
+    "industry_slugs": [
+      "transport-automotive",
+      "travel-tourism",
+      "ecommerce",
+      "education",
+      "retail-trading"
+    ],
+    "project_names": []
+  },
+  {
+    "name": "Custom & Utility App Development (Web & Mobile)",
+    "slug": "custom-utility-apps",
+    "tag": "BUILD",
+    "category": "build",
+    "is_featured": false,
+    "featured_order": null,
+    "display_order": 5,
+    "status": "published",
+    "tagline": "The exact tool you need, built for web and mobile.",
+    "card_summary": "Custom and utility apps for web and mobile, built for your workflow.",
+    "overview": "Some problems need a small, focused tool rather than a full platform. We build custom and utility apps for web and mobile that solve a specific job well, such as calculators, trackers, booking tools, internal dashboards, converters and automation helpers.",
+    "icon": "Wrench",
+    "hero_image": null,
+    "what_we_deliver": [
+      "Custom web apps",
+      "Custom mobile apps (Android and iOS)",
+      "Utility tools (calculators, converters, trackers, planners)",
+      "Internal business tools and dashboards",
+      "Workflow automation apps",
+      "Form, report and document generators",
+      "Lightweight booking and request apps",
+      "Progressive web apps (PWA)",
+      "Integration with your existing systems"
+    ],
+    "who_its_for": [
+      "Small and medium businesses",
+      "Startups with a specific idea",
+      "Teams replacing spreadsheets and manual work",
+      "Agencies and service providers",
+      "Any industry that needs a focused tool"
+    ],
+    "technologies": [],
+    "deliverables": [
+      "Working app on web and/or mobile",
+      "Admin or settings panel",
+      "Short user guide",
+      "Deployment and publishing",
+      "Full source code and IP ownership"
+    ],
+    "approach_steps": [
+      {
+        "title": "Discover",
+        "description": "Understand your goals, users and the problem worth solving."
+      },
+      {
+        "title": "Design",
+        "description": "Shape the experience, prototype and define the architecture."
+      },
+      {
+        "title": "Develop",
+        "description": "Build in focused two-week sprints with reviews and working software."
+      },
+      {
+        "title": "Launch & Evolve",
+        "description": "Test, deploy and keep improving as your business grows."
+      }
+    ],
+    "engagement_options": [
+      "Fixed-Price Milestone",
+      "Dedicated Engineering Team",
+      "Growth & SLA Retainer"
+    ],
+    "suggested_solutions": [
+      {
+        "name": "Business calculator / quote tool",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Inventory or expense tracker",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Appointment request app",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Internal team dashboard",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Document / invoice generator",
+        "description": "",
+        "status": "build"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can you build a small tool, not a full platform?",
+        "answer": "Yes, focused utility apps are a core offering."
+      },
+      {
+        "question": "Will it work on phone and computer?",
+        "answer": "Yes, we can deliver web, mobile or both."
+      },
+      {
+        "question": "Can it connect to my current systems?",
+        "answer": "Yes, through integrations and APIs."
+      }
+    ],
+    "cta_heading": "Tell us about your project",
+    "cta_text": "Just the essentials. We can work through the details together.",
+    "seo_title": "Custom & Utility App Development (Web & Mobile) | SolyNext",
+    "seo_description": "Custom and utility apps for web and mobile, built for your workflow.",
+    "og_image": null,
+    "industry_slugs": [
+      "*"
+    ],
+    "project_names": []
+  },
+  {
+    "name": "UI/UX & Product Design",
+    "slug": "ui-ux-design",
+    "tag": "CREATE",
+    "category": "design",
+    "is_featured": false,
+    "featured_order": null,
+    "display_order": 6,
+    "status": "published",
+    "tagline": "Clear, usable design that people enjoy using.",
+    "card_summary": "Research, wireframes and interfaces that are simple to use.",
+    "overview": "We research, wireframe and design interfaces that are simple to use and consistent with your brand.",
+    "icon": "PenTool",
+    "hero_image": null,
+    "what_we_deliver": [
+      "User research and journey mapping",
+      "Wireframes and clickable prototypes",
+      "Website and app UI design",
+      "Design systems and style guides",
+      "Dashboard and admin panel design",
+      "Usability review of existing products",
+      "Developer handoff files"
+    ],
+    "who_its_for": [
+      "Startups",
+      "Marketplace and app owners",
+      "Businesses redesigning an existing site"
+    ],
+    "technologies": [],
+    "deliverables": [
+      "Design files",
+      "Clickable prototype",
+      "Design system",
+      "Handoff documentation",
+      "Full source files ownership",
+      "Full source code and IP ownership"
+    ],
+    "approach_steps": [
+      {
+        "title": "Discover",
+        "description": "Understand your goals, users and the problem worth solving."
+      },
+      {
+        "title": "Design",
+        "description": "Shape the experience, prototype and define the architecture."
+      },
+      {
+        "title": "Develop",
+        "description": "Build in focused two-week sprints with reviews and working software."
+      },
+      {
+        "title": "Launch & Evolve",
+        "description": "Test, deploy and keep improving as your business grows."
+      }
+    ],
+    "engagement_options": [
+      "Fixed-Price Milestone",
+      "Dedicated Engineering Team",
+      "Growth & SLA Retainer"
+    ],
+    "suggested_solutions": [
+      {
+        "name": "Website redesign",
+        "description": "",
+        "status": "ready"
+      },
+      {
+        "name": "Mobile app UI design",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Marketplace UX design",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Dashboard design",
+        "description": "",
+        "status": "ready"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do you design before developing?",
+        "answer": "Yes, always."
+      },
+      {
+        "question": "Can I review the prototype first?",
+        "answer": "Yes, before any code is written."
+      },
+      {
+        "question": "Can you redesign my current website?",
+        "answer": "Yes."
+      }
+    ],
+    "cta_heading": "Tell us about your project",
+    "cta_text": "Just the essentials. We can work through the details together.",
+    "seo_title": "UI/UX & Product Design | SolyNext",
+    "seo_description": "Research, wireframes and interfaces that are simple to use.",
+    "og_image": null,
+    "industry_slugs": [
+      "*"
+    ],
+    "project_names": [
+      "Noor Boutique"
+    ]
+  },
+  {
+    "name": "Graphic Design & Branding",
+    "slug": "graphic-design-branding",
+    "tag": "CREATE",
+    "category": "design",
+    "is_featured": true,
+    "featured_order": 2,
+    "display_order": 7,
+    "status": "published",
+    "tagline": "Creative designs that make your brand stand out.",
+    "card_summary": "Creative designs that make your brand stand out.",
+    "overview": "We create distinctive brand identities and consistent design assets across print and digital.",
+    "icon": "Paintbrush",
+    "hero_image": null,
+    "what_we_deliver": [
+      "Logo and brand identity",
+      "Brand guidelines",
+      "Social media post and ad creatives",
+      "Packaging and label design",
+      "Brochures, catalogs and prospectuses",
+      "Business cards and stationery",
+      "Property, vehicle and product listing graphics",
+      "Banners and promotional designs"
+    ],
+    "who_its_for": [
+      "Organic and food brands",
+      "Furniture businesses",
+      "Real estate",
+      "Education",
+      "Travel",
+      "E-commerce brands"
+    ],
+    "technologies": [],
+    "deliverables": [
+      "Final files in print and web formats",
+      "Brand guide",
+      "Source files",
+      "Full source code and IP ownership"
+    ],
+    "approach_steps": [
+      {
+        "title": "Discover",
+        "description": "Understand your goals, users and the problem worth solving."
+      },
+      {
+        "title": "Design",
+        "description": "Shape the experience, prototype and define the architecture."
+      },
+      {
+        "title": "Develop",
+        "description": "Build in focused two-week sprints with reviews and working software."
+      },
+      {
+        "title": "Launch & Evolve",
+        "description": "Test, deploy and keep improving as your business grows."
+      }
+    ],
+    "engagement_options": [
+      "Fixed-Price Milestone",
+      "Dedicated Engineering Team",
+      "Growth & SLA Retainer"
+    ],
+    "suggested_solutions": [
+      {
+        "name": "Logo and brand kit",
+        "description": "",
+        "status": "ready"
+      },
+      {
+        "name": "Packaging and label design",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Product catalog design",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Real estate project brochure",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Travel package creatives",
+        "description": "",
+        "status": "build"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do I receive the source files?",
+        "answer": "Yes."
+      },
+      {
+        "question": "Can you design for print and social media?",
+        "answer": "Yes, both."
+      },
+      {
+        "question": "How many revisions are included?",
+        "answer": "As agreed in your scope."
+      }
+    ],
+    "cta_heading": "Tell us about your project",
+    "cta_text": "Just the essentials. We can work through the details together.",
+    "seo_title": "Graphic Design & Branding | SolyNext",
+    "seo_description": "Creative designs that make your brand stand out.",
+    "og_image": null,
+    "industry_slugs": [
+      "*"
+    ],
+    "project_names": [
+      "Urban Chai"
+    ]
+  },
+  {
+    "name": "Digital Marketing & SEO",
+    "slug": "digital-marketing",
+    "tag": "GROW",
+    "category": "grow",
+    "is_featured": true,
+    "featured_order": 3,
+    "display_order": 8,
+    "status": "published",
+    "tagline": "Data-driven strategies for real growth.",
+    "card_summary": "Data-driven strategies for real growth.",
+    "overview": "We help you reach the right audience through search, ads and campaigns, and we report clearly on results.",
+    "icon": "ChartColumnIncreasing",
+    "hero_image": null,
+    "what_we_deliver": [
+      "Search engine optimization (SEO)",
+      "Google and Meta ads",
+      "Lead generation campaigns",
+      "Email and WhatsApp marketing",
+      "Content marketing and blogging",
+      "Local SEO and Google Business setup",
+      "Analytics and monthly reporting",
+      "Conversion improvement"
+    ],
+    "who_its_for": [
+      "Real estate",
+      "Car dealers",
+      "Furniture",
+      "E-commerce",
+      "Travel agencies",
+      "Schools"
+    ],
+    "technologies": [],
+    "deliverables": [
+      "Strategy document",
+      "Campaign setup",
+      "Monthly reports",
+      "Optimization recommendations",
+      "Full source code and IP ownership"
+    ],
+    "approach_steps": [
+      {
+        "title": "Discover",
+        "description": "Understand your goals, users and the problem worth solving."
+      },
+      {
+        "title": "Design",
+        "description": "Shape the experience, prototype and define the architecture."
+      },
+      {
+        "title": "Develop",
+        "description": "Build in focused two-week sprints with reviews and working software."
+      },
+      {
+        "title": "Launch & Evolve",
+        "description": "Test, deploy and keep improving as your business grows."
+      }
+    ],
+    "engagement_options": [
+      "Growth & SLA Retainer",
+      "Fixed-Price Milestone"
+    ],
+    "suggested_solutions": [
+      {
+        "name": "Real estate lead generation",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "E-commerce product ads",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Local SEO for showrooms and shops",
+        "description": "",
+        "status": "ready"
+      },
+      {
+        "name": "Admissions campaign for schools",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Umrah / tour season campaigns",
+        "description": "",
+        "status": "build"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How soon will I see results?",
+        "answer": "Ads show results sooner, while SEO builds over a few months."
+      },
+      {
+        "question": "Will I get reports?",
+        "answer": "Yes, regularly."
+      },
+      {
+        "question": "Do you manage ad budgets?",
+        "answer": "We manage campaigns, and the budget stays under your control."
+      }
+    ],
+    "cta_heading": "Tell us about your project",
+    "cta_text": "Just the essentials. We can work through the details together.",
+    "seo_title": "Digital Marketing & SEO | SolyNext",
+    "seo_description": "Data-driven strategies for real growth.",
+    "og_image": null,
+    "industry_slugs": [
+      "*"
+    ],
+    "project_names": []
+  },
+  {
+    "name": "Social Media Management",
+    "slug": "social-media-management",
+    "tag": "CONNECT",
+    "category": "grow",
+    "is_featured": true,
+    "featured_order": 4,
+    "display_order": 9,
+    "status": "published",
+    "tagline": "Engaging content that builds your community.",
+    "card_summary": "Engaging content that builds your community.",
+    "overview": "We plan, design and publish content so your brand stays active, consistent and trusted on social media.",
+    "icon": "Users",
+    "hero_image": null,
+    "what_we_deliver": [
+      "Content strategy and monthly calendar",
+      "Post, reel and story design",
+      "Page setup and optimization",
+      "Scheduling and posting",
+      "Community engagement",
+      "Social media ads",
+      "Product and listing promotion",
+      "Monthly performance reports"
+    ],
+    "who_its_for": [
+      "Real estate",
+      "Food and wellness",
+      "Furniture",
+      "Travel",
+      "Education",
+      "E-commerce"
+    ],
+    "technologies": [
+      "Facebook",
+      "Instagram",
+      "TikTok",
+      "LinkedIn",
+      "YouTube"
+    ],
+    "deliverables": [
+      "Content calendar",
+      "Designed posts",
+      "Scheduled publishing",
+      "Monthly reports",
+      "Full source code and IP ownership"
+    ],
+    "approach_steps": [
+      {
+        "title": "Discover",
+        "description": "Understand your goals, users and the problem worth solving."
+      },
+      {
+        "title": "Design",
+        "description": "Shape the experience, prototype and define the architecture."
+      },
+      {
+        "title": "Develop",
+        "description": "Build in focused two-week sprints with reviews and working software."
+      },
+      {
+        "title": "Launch & Evolve",
+        "description": "Test, deploy and keep improving as your business grows."
+      }
+    ],
+    "engagement_options": [
+      "Growth & SLA Retainer"
+    ],
+    "suggested_solutions": [
+      {
+        "name": "Starter social media package",
+        "description": "",
+        "status": "ready"
+      },
+      {
+        "name": "Product brand content package",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Property listing content package",
+        "description": "",
+        "status": "build"
+      },
+      {
+        "name": "Travel season content pack",
+        "description": "",
+        "status": "build"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Which platforms do you manage?",
+        "answer": "Facebook, Instagram, TikTok, LinkedIn and YouTube."
+      },
+      {
+        "question": "Do I approve posts first?",
+        "answer": "Yes, if you prefer."
+      },
+      {
+        "question": "Can you also run ads?",
+        "answer": "Yes."
+      }
+    ],
+    "cta_heading": "Tell us about your project",
+    "cta_text": "Just the essentials. We can work through the details together.",
+    "seo_title": "Social Media Management | SolyNext",
+    "seo_description": "Engaging content that builds your community.",
+    "og_image": null,
+    "industry_slugs": [
+      "*"
+    ],
+    "project_names": []
+  },
+  {
+    "name": "Consultation & Digital Strategy",
+    "slug": "consultation-strategy",
+    "tag": "ADVISE",
+    "category": "advise",
+    "is_featured": false,
+    "featured_order": null,
+    "display_order": 10,
+    "status": "published",
+    "tagline": "Clarity before you build.",
+    "card_summary": "Expert guidance on scope, technology, budget and next steps.",
+    "overview": "Not sure what to build or where to start? Our consultation helps you turn an idea into a clear, costed plan before any development begins, so you spend on the right things.",
+    "icon": "Lightbulb",
+    "hero_image": null,
+    "what_we_deliver": [
+      "Free initial consultation",
+      "Business and digital needs assessment",
+      "Scope definition and feature planning",
+      "Technology and platform recommendation",
+      "Project estimate and timeline",
+      "Product roadmap and MVP planning",
+      "Website and marketing audits",
+      "Digital transformation advice for traditional businesses"
+    ],
+    "who_its_for": [
+      "First-time online business owners",
+      "Startups with an idea",
+      "Shops and traders going digital",
+      "Agencies and institutions planning a new platform"
+    ],
+    "technologies": [],
+    "deliverables": [
+      "Written scope summary",
+      "Recommended solution and technology",
+      "Estimate and timeline",
+      "Suggested next steps",
+      "Full source code and IP ownership"
+    ],
+    "approach_steps": [
+      {
+        "title": "Discover",
+        "description": "Understand your goals, users and the problem worth solving."
+      },
+      {
+        "title": "Design",
+        "description": "Shape the experience, prototype and define the architecture."
+      },
+      {
+        "title": "Develop",
+        "description": "Build in focused two-week sprints with reviews and working software."
+      },
+      {
+        "title": "Launch & Evolve",
+        "description": "Test, deploy and keep improving as your business grows."
+      }
+    ],
+    "engagement_options": [
+      "Fixed-Price Milestone"
+    ],
+    "suggested_solutions": [
+      {
+        "name": "Free discovery call",
+        "description": "",
+        "status": "ready"
+      },
+      {
+        "name": "Project scoping workshop",
+        "description": "",
+        "status": "ready"
+      },
+      {
+        "name": "Website and marketing audit",
+        "description": "",
+        "status": "ready"
+      },
+      {
+        "name": "MVP and roadmap planning",
+        "description": "",
+        "status": "ready"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is the first consultation free?",
+        "answer": "Yes, the initial conversation is free."
+      },
+      {
+        "question": "Do I have to hire you afterward?",
+        "answer": "No, the plan is yours to use."
+      },
+      {
+        "question": "Can you help if I only have an idea?",
+        "answer": "Yes, that is the best time to start."
+      }
+    ],
+    "cta_heading": "Tell us about your project",
+    "cta_text": "Just the essentials. We can work through the details together.",
+    "seo_title": "Consultation & Digital Strategy | SolyNext",
+    "seo_description": "Expert guidance on scope, technology, budget and next steps.",
+    "og_image": null,
+    "industry_slugs": [
+      "*"
+    ],
+    "project_names": []
+  },
+  {
+    "name": "Maintenance, Hosting & Support",
+    "slug": "maintenance-support",
+    "tag": "SUPPORT",
+    "category": "support",
+    "is_featured": false,
+    "featured_order": null,
+    "display_order": 11,
+    "status": "published",
+    "tagline": "Keep what we build fast, secure and growing.",
+    "card_summary": "Hosting, updates, security and ongoing improvements.",
+    "overview": "We keep live websites and apps updated, secure and improving after launch.",
+    "icon": "ShieldCheck",
+    "hero_image": null,
+    "what_we_deliver": [
+      "Hosting and domain management",
+      "Security updates and backups",
+      "Bug fixes and performance monitoring",
+      "Content and feature updates",
+      "Ongoing SEO improvements",
+      "SLA-based priority support"
+    ],
+    "who_its_for": [
+      "Any business with a live website, app or platform"
+    ],
+    "technologies": [],
+    "deliverables": [
+      "Monthly maintenance report",
+      "Uptime monitoring",
+      "Support channel",
+      "Full source code and IP ownership"
+    ],
+    "approach_steps": [
+      {
+        "title": "Discover",
+        "description": "Understand your goals, users and the problem worth solving."
+      },
+      {
+        "title": "Design",
+        "description": "Shape the experience, prototype and define the architecture."
+      },
+      {
+        "title": "Develop",
+        "description": "Build in focused two-week sprints with reviews and working software."
+      },
+      {
+        "title": "Launch & Evolve",
+        "description": "Test, deploy and keep improving as your business grows."
+      }
+    ],
+    "engagement_options": [
+      "Growth & SLA Retainer"
+    ],
+    "suggested_solutions": [
+      {
+        "name": "Basic care plan",
+        "description": "",
+        "status": "ready"
+      },
+      {
+        "name": "Growth plan with SEO",
+        "description": "",
+        "status": "ready"
+      },
+      {
+        "name": "Priority SLA plan",
+        "description": "",
+        "status": "ready"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do you support projects built by others?",
+        "answer": "Yes, after a review."
+      },
+      {
+        "question": "How fast do you respond?",
+        "answer": "As defined in your SLA."
+      },
+      {
+        "question": "Can I cancel the plan?",
+        "answer": "Terms are defined in your agreement."
+      }
+    ],
+    "cta_heading": "Tell us about your project",
+    "cta_text": "Just the essentials. We can work through the details together.",
+    "seo_title": "Maintenance, Hosting & Support | SolyNext",
+    "seo_description": "Hosting, updates, security and ongoing improvements.",
+    "og_image": null,
+    "industry_slugs": [
+      "*"
+    ],
+    "project_names": []
+  }
+]

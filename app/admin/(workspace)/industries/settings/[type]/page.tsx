@@ -1,0 +1,2 @@
+import { CatalogSettingsPage } from '@/components/catalog/admin/ServerPages';
+export default async function Page({params}:{params:Promise<{type:string}>}){return <CatalogSettingsPage entity='industries' type={(await params).type}/>;}

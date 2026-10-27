@@ -35,7 +35,7 @@ export function verifySession(token: string | undefined): AdminSession | null {
     if (actual.length !== expected.length || !timingSafeEqual(actual, expected)) return null;
     const session = JSON.parse(Buffer.from(body, "base64url").toString("utf8")) as AdminSession;
     const now = Math.floor(Date.now() / 1000);
-    if (session?.user?.role !== "admin" || session.user.id !== "development-admin" || typeof session.user.name !== "string" || typeof session.user.email !== "string" || !Number.isInteger(session.expiresAt) || !Number.isInteger(session.issuedAt) || session.expiresAt <= now || session.issuedAt > now + 30 || session.expiresAt - session.issuedAt > SESSION_TTL) return null;
+    if (session?.user?.role !== "admin" || (session.user.id !== "development-admin" && !/^[a-f0-9-]{36}$/i.test(session.user.id)) || typeof session.user.name !== "string" || typeof session.user.email !== "string" || !Number.isInteger(session.expiresAt) || !Number.isInteger(session.issuedAt) || session.expiresAt <= now || session.issuedAt > now + 30 || session.expiresAt - session.issuedAt > SESSION_TTL) return null;
     return session;
   } catch { return null; }
 }

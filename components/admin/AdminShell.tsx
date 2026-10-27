@@ -24,14 +24,15 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
   const [logoutOpen, setLogoutOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const searchLinks = allLinks.filter(link => `${link.label} ${link.keywords} ${link.href.replaceAll("-", " ")}`.toLowerCase().includes(search.trim().toLowerCase()));
+  const visibleNavigation = session.user.catalogOnly ? allLinks.filter(link => ["/admin/services","/admin/industries"].includes(link.href)) : adminNavigation;
+  const searchLinks = allLinks.filter(link => (!session.user.catalogOnly || ["/admin/services","/admin/industries"].includes(link.href)) && `${link.label} ${link.keywords} ${link.href.replaceAll("-", " ")}`.toLowerCase().includes(search.trim().toLowerCase()));
   const unread = events.filter(item => !item.read).length;
   const initials = session.user.name.trim().split(/\s+/).slice(0, 2).map(part => part[0]).join("").toUpperCase() || "A";
   const mobileDialog = useRef<HTMLDialogElement>(null);
   const profileRef = useRef<HTMLDivElement>(null);
   const currentLink = allLinks.find(link => link.href === pathname || (link.href !== "/admin" && pathname.startsWith(link.href + "/")));
   const pageNavigation = getAdminPageNavigation(pathname);
-  const mainHref = pageNavigation?.parent ?? currentLink?.href;
+  const mainHref = session.user.catalogOnly ? (pathname.startsWith("/admin/industries") ? "/admin/industries" : "/admin/services") : pageNavigation?.parent ?? currentLink?.href;
   const title = pageNavigation?.items.find(item => isAdminRouteActive(pathname, item.href))?.label ?? currentLink?.label ?? "Workspace";
   const isDetail = Boolean(currentLink && pathname !== currentLink.href);
   const newInquiries = collections.inquiries.filter(i => i.status === "New").length;
@@ -57,7 +58,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
       </Link>
       <span className={styles.workspaceRole}><ShieldCheck size={12} aria-hidden="true"/>Admin</span>
     </div>
-    <nav aria-label="Admin navigation" className={`${styles.navigation} ${styles.primaryNavigation}`}>{adminNavigation.map(({ label, href, icon: Icon }) => <Link key={href} href={href} className={mainHref === href ? styles.navActive : ""} aria-current={mainHref === href ? "page" : undefined} onClick={() => setSidebar(false)}><Icon size={18}/><span>{label}</span>{href === "/admin/inquiries" && newInquiries > 0 && <b>{newInquiries}</b>}</Link>)}</nav>
+    <nav aria-label="Admin navigation" className={`${styles.navigation} ${styles.primaryNavigation}`}>{visibleNavigation.map(({ label, href, icon: Icon }) => <Link key={href} href={href} className={mainHref === href ? styles.navActive : ""} aria-current={mainHref === href ? "page" : undefined} onClick={() => setSidebar(false)}><Icon size={18}/><span>{label}</span>{href === "/admin/inquiries" && newInquiries > 0 && <b>{newInquiries}</b>}</Link>)}</nav>
     <div className={styles.sidebarBottom}><button type="button" className={styles.sidebarLogout} aria-haspopup="dialog" onClick={() => { setSidebar(false); setProfile(false); setLogoutOpen(true); }}><LogOut size={18}/>Log out</button></div>
   </>;
   if (authState === "expired") return <div className={styles.sessionExpired} role="alert"><ShieldCheck size={32}/><h1>Session expired</h1><p>Returning you to sign in…</p><Link href="/admin/login?reason=expired">Sign in again</Link></div>;
@@ -87,7 +88,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
           </div>}
         </div>
       </div></header>
-      <main id="admin-main" className={styles.main}>{pageNavigation && <nav className={styles.pageNavigation} aria-label={pageNavigation.label}>{pageNavigation.items.map(({ label, href, icon: Icon }) => <Link key={href} href={href} className={isAdminRouteActive(pathname, href) ? styles.pageNavActive : ""} aria-current={isAdminRouteActive(pathname, href) ? "page" : undefined}><Icon size={16}/>{label}</Link>)}</nav>}{children}<footer className={styles.workspaceFooter}><span>SolyNext workspace</span><span>Session preview · Backend not connected</span></footer></main>
+      <main id="admin-main" className={styles.main}>{pageNavigation && <nav className={styles.pageNavigation} aria-label={pageNavigation.label}>{pageNavigation.items.filter(link=>!session.user.catalogOnly || ["/admin/services","/admin/industries"].includes(link.href)).map(({ label, href, icon: Icon }) => <Link key={href} href={href} className={isAdminRouteActive(pathname, href) ? styles.pageNavActive : ""} aria-current={isAdminRouteActive(pathname, href) ? "page" : undefined}><Icon size={16}/>{label}</Link>)}</nav>}{children}<footer className={styles.workspaceFooter}><span>SolyNext workspace</span><span>Session preview · Backend not connected</span></footer></main>
     </div>
     {toast && <div className={styles.toast} role="status"><CircleCheck size={19}/>{toast}</div>}
     {logoutOpen && <AdminLogoutDialog onClose={() => setLogoutOpen(false)}/>}

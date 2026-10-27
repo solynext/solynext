@@ -1,12 +1,20 @@
+import { lookupCatalogRedirect } from "@/lib/catalog/redirects";
 import { NextResponse, type NextRequest } from "next/server";
 import { ADMIN_COOKIE, safeAdminReturn, verifySession } from "@/lib/admin/auth/session";
 
 /** Next.js 16's middleware convention. Real authorization also runs in the DAL. */
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
+  if (request.nextUrl.pathname === "/services" || request.nextUrl.pathname === "/solutions" || request.nextUrl.pathname.startsWith("/services/") || request.nextUrl.pathname.startsWith("/solutions/")) {
+    const target = await lookupCatalogRedirect(request.nextUrl.pathname);
+    return target ? NextResponse.redirect(new URL(target, request.url), 301) : NextResponse.next();
+  }
   const session = verifySession(request.cookies.get(ADMIN_COOKIE)?.value);
   const isLogin = request.nextUrl.pathname === "/admin/login";
   // Login Server Actions POST here; they must be able to set/clear their cookies.
   if (isLogin && request.method === "POST") return NextResponse.next();
+  if (session?.user.catalogOnly && !isLogin && !/^\/admin\/(services|industries)(\/|$)/.test(request.nextUrl.pathname)) {
+    return NextResponse.redirect(new URL("/admin/services", request.url));
+  }
   let response: NextResponse;
   if (!session && !isLogin) {
     const url = new URL("/admin/login", request.url);
@@ -24,4 +32,4 @@ export function proxy(request: NextRequest) {
   return response;
 }
 
-export const config = { matcher: ["/admin/:path*"] };
+export const config = { matcher: ["/admin/:path*", "/services/:path*", "/solutions/:path*"] };

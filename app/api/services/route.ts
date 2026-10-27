@@ -1,0 +1,2 @@
+import { publicOfferings } from '@/lib/catalog/repository';
+export async function GET(){try{return Response.json({items:await publicOfferings('services')});}catch{return Response.json({error:'Content is temporarily unavailable.'},{status:503});}}

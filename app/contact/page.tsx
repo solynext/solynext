@@ -1,9 +1,6 @@
 import { getPageMetadata } from "@/lib/seo/metadata";
-import React from "react";
 import { ContactClient } from "./ContactClient";
-
-export async function generateMetadata() { return getPageMetadata("/contact"); }
-
-export default function ContactPage() {
-  return <ContactClient />;
-}
+import { publicOfferings } from "@/lib/catalog/repository";
+import { InquiryForm } from "@/components/catalog/InquiryForm";
+export async function generateMetadata(){return getPageMetadata("/contact");}
+export default async function ContactPage({searchParams}:{searchParams:Promise<{service?:string;industry?:string;solution?:string}>}){const context=await searchParams;if(!context.service&&!context.industry&&!context.solution)return <ContactClient/>;const[services,industries]=await Promise.all([publicOfferings("services"),publicOfferings("industries")]);return <main id="main-content" className="premium-contact"><div className="premium-container"><p className="eyebrow">START A CONVERSATION</p><h1>Tell us about your project</h1><div className="contact-form-panel" style={{maxWidth:800,marginBlock:30}}><InquiryForm services={services} industries={industries} serviceSlug={context.service} industrySlug={context.industry} solution={context.solution}/></div></div></main>;}

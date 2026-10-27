@@ -1,0 +1,3 @@
+import { Laptop,ShoppingBag,Layers3,Smartphone,Wrench,PenTool,Paintbrush,ChartColumnIncreasing,Users,Lightbulb,ShieldCheck,Building2,GraduationCap,Plane,Store,Heart,Truck,Sofa,Leaf,House,Globe,type LucideIcon } from "lucide-react";
+export const catalogIcons:Record<string,LucideIcon>={Laptop,ShoppingBag,Layers3,Smartphone,Wrench,PenTool,Paintbrush,ChartColumnIncreasing,Users,Lightbulb,ShieldCheck,Building2,GraduationCap,Plane,Store,Heart,Truck,Sofa,Leaf,House,Globe};
+export function CatalogIcon({name,size=26}:{name:string;size?:number}){const Icon=catalogIcons[name]||Building2;return <Icon size={size} strokeWidth={1.7} aria-hidden="true"/>;}

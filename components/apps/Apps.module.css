@@ -259,4 +259,30 @@
 .adminColumns .rowActions{margin-left:auto;gap:4px}
 .adminColumns .rowActions button{width:31px;height:31px}
 .manager .addGame{background:#147e9c}
-@media(max-width:850px){.adminColumns{grid-template-columns:1fr;gap:28px}}
+@media(max-width:850px){.adminColumns{grid-template-columns:1fr;gap:28px}}@media(max-width:400px){.catalogTitleRow .catalogTabs{gap:6px;flex-wrap:wrap}.catalogTitleRow .catalogTabs button{gap:6px;padding-right:9px}.catalogTabs button .tabArrow{display:none}}
+
+.adminFilters{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.adminFilters button{min-height:38px;padding:8px 18px;border:1px solid #e1e7ef;border-radius:999px;background:#fff;color:#63748b;font:inherit;font-size:13px;font-weight:500;cursor:pointer}
+.adminFilters button:hover{background:#f3f8ff;border-color:#b8d4f5}
+.adminFilters button[aria-pressed="true"]{background:#1767d4;border-color:#1767d4;color:#fff}
+.adminFilters button:focus-visible{outline:2px solid #2684e8;outline-offset:3px}
+.adminFilters>span{margin-left:auto;color:#7b8a9e;font-size:12px}
+
+.adminSearch{display:flex;align-items:center;gap:9px;margin-left:auto;width:260px;max-width:100%;min-height:38px;padding:0 12px;background:#fff;border:1px solid #dce4ee;border-radius:999px;color:#8794a6}
+.adminSearch:focus-within{border-color:#68a7ed;box-shadow:0 0 0 3px #2684e810}
+.adminSearch svg{flex-shrink:0}
+.adminSearch input{width:100%;min-width:0;min-height:36px;padding:0!important;border:0!important;background:transparent!important;outline:none!important;box-shadow:none!important;font:inherit;font-size:13px;color:#344660}
+.adminFilters>.adminSearch+span{margin-left:0}
+@media(max-width:600px){.adminSearch{order:2;width:100%;margin-left:0}.adminFilters>span{margin-left:auto}}
+
+.appTile .downloadButton{display:inline-flex;align-items:center;justify-content:center;gap:6px;margin:9px auto 0;padding:7px 14px;border-radius:999px;background:#edf6ff;color:#1266cc;font-size:12px;font-weight:600}
+a.appTile{text-decoration:none}
+
+/* Prominent download links with a generous touch target and keyboard focus. */
+.appTile .downloadButton{width:100%;box-sizing:border-box;min-height:46px;margin:12px 0 0;padding:12px 14px;gap:8px;border-radius:12px;background:#1467d5;color:#fff;font-size:14px;font-weight:600;text-decoration:none;transition:background 160ms ease}
+.appTile .downloadButton:hover{background:#0c53b2}
+.appTile .downloadButton:focus-visible{outline:3px solid #0755b7;outline-offset:4px;box-shadow:0 0 0 2px #fff}
+div.appTile{cursor:default}
+.platformLabel{font-size:13px;font-weight:500;margin:0 0 10px;color:#445268}
+.platformChoices{display:flex;flex-wrap:wrap;gap:12px 20px}
+.platformChoices .check{display:flex;align-items:center;gap:7px;font-size:13px}

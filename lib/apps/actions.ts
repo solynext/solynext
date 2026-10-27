@@ -20,10 +20,11 @@ export async function saveCatalogApp(form: FormData): Promise<Result> {
     const hasPhoto = photo instanceof File && photo.size > 0;
     const kind = form.get("kind");
     let category = String(form.get("category") || "").trim();
+    if (kind === "download") category = `Downloads · ${form.get("downloadType") === "game" ? "Games" : "Apps"}`;
     if (kind === "game" && !/\bgames?\b/i.test(category)) category = `Games · ${category}`;
     if (kind === "app" && /\bgames?\b/i.test(category)) throw new Error("App: Choose an app category, or use Add game.");
     // Validate all text before doing image work.
-    let value = validateApp({ id: previous?.id || randomUUID(), name: form.get("name"), description: form.get("description"), details: form.get("details"), url: form.get("url"), image: previous?.image || "/api/app-images/00000000-0000-0000-0000-000000000000.webp", category, developer: form.get("developer"), version: form.get("version"), status: form.get("status"), featured: form.get("featured") === "on", order: Number(form.get("order")), updatedAt: new Date().toISOString() });
+    let value = validateApp({ platforms: kind === "download" ? form.getAll("platforms") : [], id: previous?.id || randomUUID(), name: form.get("name"), description: form.get("description"), details: form.get("details"), url: form.get("url"), image: previous?.image || "/api/app-images/00000000-0000-0000-0000-000000000000.webp", category, developer: form.get("developer"), version: form.get("version"), status: form.get("status"), featured: form.get("featured") === "on", order: Number(form.get("order")), updatedAt: new Date().toISOString() });
     if (!hasPhoto && !previous) throw new Error("App: Upload an image for your app.");
     if (hasPhoto) {
       if (photo.size > 4 * 1024 * 1024 || !["image/jpeg", "image/png", "image/webp"].includes(photo.type)) throw new Error("App: Use a JPG, PNG, or WebP image up to 4 MB.");
@@ -52,3 +53,4 @@ export async function deleteCatalogApp(id: string): Promise<Result> {
   try { const items = await appStore.update(items => items.filter(item => item.id !== id)); refresh(); return { items }; }
   catch { return { error:"Could not delete the app. Try again." }; }
 }
+

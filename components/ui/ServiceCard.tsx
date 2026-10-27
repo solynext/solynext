@@ -1,25 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, Laptop, Paintbrush, ChartColumnIncreasing, Users, Layers3, Smartphone, PenTool } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { CatalogIcon } from "@/components/catalog/CatalogIcon";
+import type { Service } from "@/lib/catalog/model";
 import styles from "@/components/home/GrowthHero.module.css";
-
-const appearances = {
-  "web-development": { title: "Web Development", description: "Modern, high-performance websites that convert.", icon: Laptop, tone: "blue" },
-  "graphic-design-branding": { title: "Graphic Design", description: "Creative designs that make your brand stand out.", icon: Paintbrush, tone: "purple" },
-  "digital-marketing": { title: "Digital Marketing", description: "Data-driven strategies for real growth.", icon: ChartColumnIncreasing, tone: "teal" },
-  "social-media-management": { title: "Social Media Management", description: "Engaging content that builds your community.", icon: Users, tone: "pink" },
-  "software-development": { icon: Layers3, tone: "blue" },
-  "mobile-development": { icon: Smartphone, tone: "teal" },
-  "ui-ux-design": { icon: PenTool, tone: "purple" },
-};
-export const featuredServiceSlugs = ["web-development", "graphic-design-branding", "digital-marketing", "social-media-management"];
-export function ServiceCard({ slug, title, description }: { slug: string; title: string; description: string }) {
-  const appearance = appearances[slug as keyof typeof appearances];
-  const Icon = appearance?.icon ?? Laptop;
-  const displayTitle = appearance && "title" in appearance ? appearance.title : title;
-  const displayDescription = appearance && "description" in appearance ? appearance.description : description;
-  return <Link href={`/services/${slug}`} className={styles.card} data-service-tone={appearance?.tone ?? "blue"}>
-    <span className={styles.icon}><Icon aria-hidden="true"/></span>
-    <h3>{displayTitle}</h3><p>{displayDescription}</p>
-    <span className={styles.cardArrow}><ArrowRight aria-hidden="true"/></span>
-  </Link>;
-}
+export function ServiceCard({service}:{service:Service}){return <Link href={`/services/${service.slug}`} className={styles.card} data-service-tone={service.category==="design"?"purple":service.category==="grow"?"teal":"blue"}><span className={styles.icon}><CatalogIcon name={service.icon}/></span><small style={{fontSize:10,letterSpacing:1,color:"#6b7f98",marginBottom:9}}>{service.tag}</small><h3>{service.name}</h3><p>{service.card_summary}</p><span className={styles.cardArrow} aria-hidden="true"><ArrowRight/></span><span style={{fontSize:11,color:"#2464bf",marginTop:8}}>Learn more</span></Link>;}

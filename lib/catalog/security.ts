@@ -1,0 +1,22 @@
+import "server-only";
+import { createHmac, randomBytes, scryptSync, timingSafeEqual } from "node:crypto";
+import { sql } from "drizzle-orm";
+import { getCatalogDb, type CatalogDatabase } from "./db";
+import { requireAdmin } from "@/lib/admin/auth/dal";
+import type { Entity } from "./model";
+const scope=globalThis as typeof globalThis & {catalogSigningKey?:string;catalogLimits?:Map<string,{count:number;until:number}>};
+function key(){if(process.env.CATALOG_SIGNING_SECRET || process.env.ADMIN_SESSION_SECRET)return process.env.CATALOG_SIGNING_SECRET || process.env.ADMIN_SESSION_SECRET!;if(process.env.NODE_ENV==="production")throw new Error("Configure CATALOG_SIGNING_SECRET for catalog authentication.");return scope.catalogSigningKey ||= randomBytes(32).toString("hex");}
+function sign(value:Record<string,unknown>){const data=Buffer.from(JSON.stringify(value)).toString("base64url");return data+"."+createHmac("sha256",key()).update(data).digest("base64url");}
+function verify(token:string){try{if(token.length>4096)return null;const [data,sig]=token.split(".");const actual=Buffer.from(sig||"","base64url");const expected=createHmac("sha256",key()).update(data).digest();if(actual.length!==expected.length || !timingSafeEqual(actual,expected))return null;const value=JSON.parse(Buffer.from(data,"base64url").toString());return typeof value.exp==="number" && value.exp>Date.now()?value:null;}catch{return null;}}
+export type Actor={id:string;email:string;role:"super_admin"|"editor"};
+export async function actorByEmail(email:string,db:CatalogDatabase=getCatalogDb()):Promise<Actor>{const result=await db.execute<Actor>(sql`select id,email,role from solynext_catalog.admin_users where lower(email)=lower(${email})`);if(!result.rows[0])throw new Error("Forbidden: your account needs catalog access.");return result.rows[0];}
+export async function adminBootstrap(){const session=await requireAdmin(true);const actor=await actorByEmail(session.user.email);return {actor,token:sign({purpose:"catalog-admin",email:actor.email,exp:Math.min(session.expiresAt*1000,Date.now()+60*60*1000)})};}
+export async function requestActor(request:Request){const token=request.headers.get("authorization")?.replace(/^Bearer /,"")||"";const value=verify(token);if(value?.purpose!=="catalog-admin" || typeof value.email!=="string")throw new Error("Unauthorized");if(!["GET","HEAD"].includes(request.method)){const origin=request.headers.get("origin");if(origin && !sameOrigin(request))throw new Error("Forbidden: invalid request origin.");}return actorByEmail(value.email);}
+export function previewToken(entity:Entity,id:string){return sign({purpose:"catalog-preview",entity,id,exp:Date.now()+10*60*1000});}
+export function validPreview(token:string|undefined,entity:Entity,id:string){if(!token)return false;const value=verify(token);return value?.purpose==="catalog-preview" && value.entity===entity && value.id===id;}
+export function enforceRate(key:string,limit=8,windowMs=60000){const limits=scope.catalogLimits ||= new Map();const now=Date.now();for(const [id,item]of limits){if(item.until<now)limits.delete(id);}if(limits.size>10000)throw new Error("Rate limit exceeded. Try again shortly.");const previous=limits.get(key);if(previous && previous.count>=limit)throw new Error("Rate limit exceeded. Try again shortly.");limits.set(key,{count:(previous?.count||0)+1,until:previous?.until||now+windowMs});}
+export function passwordMatches(password:string,hash:string){try{const [salt,value]=hash.split(":");const actual=scryptSync(password,salt,64);const expected=Buffer.from(value,"hex");return expected.length===actual.length && timingSafeEqual(actual,expected);}catch{return false;}}
+export async function authenticateCatalogUser(email:string,password:string){if(!process.env.DATABASE_URL)return null;try{const result=await getCatalogDb().execute<{id:string;email:string;password_hash:string}>(sql`select id,email,password_hash from solynext_catalog.admin_users where lower(email)=lower(${email})`);const user=result.rows[0];return user && passwordMatches(password,user.password_hash)?{id:user.id,email:user.email}:null;}catch{return null;}}
+export function sameOrigin(request:Request){try{const origin=new URL(request.headers.get("origin")||"");const host=request.headers.get("host")||new URL(request.url).host;return ["http:","https:"].includes(origin.protocol)&&origin.host===host;}catch{return false;}}
+
+export function clearRateLimit(key:string){scope.catalogLimits?.delete(key);}

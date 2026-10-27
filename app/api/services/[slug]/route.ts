@@ -1,0 +1,2 @@
+import { publicDetail } from '@/lib/catalog/repository';
+export async function GET(_request:Request,{params}:{params:Promise<{slug:string}>}){try{const item=await publicDetail('services',(await params).slug);return item?Response.json({item}):Response.json({error:'Not found'},{status:404});}catch{return Response.json({error:'Content is temporarily unavailable.'},{status:503});}}
