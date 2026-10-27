@@ -2041,10 +2041,10 @@ body:has(.premium-header) .premium-header[data-scrolled="true"]{background:linea
 @media(min-width:1001px){
  :root{--home-header-height:89px}
  .premium-header .premium-nav{height:88px}
- .premium-header .brand-desktop-wordmark{width:190px}
+ .premium-header .brand-desktop-wordmark{width:170px}
 }
 @media(max-width:1000px){
- .premium-header .brand-desktop-wordmark{width:clamp(112px,33vw,170px)}
+ .premium-header .brand-desktop-wordmark{width:clamp(104px,30vw,154px)}
 }
 @media(max-width:767px){
  :root{--home-header-height:69px}
@@ -2164,3 +2164,4 @@ body:has(.premium-header) main>section{background-image:none!important}
 .premium-mobile-heading{flex-shrink:0}
 .mobile-sidebar-footer{margin-top:auto;padding:20px 0 4px;border-top:1px solid #edf1f5;flex-shrink:0}
 .mobile-sidebar-cta{display:flex;width:100%;align-items:center;justify-content:space-between;min-height:48px;padding:12px 18px;border-radius:14px;font-size:15px;font-weight:600;white-space:nowrap}
+
