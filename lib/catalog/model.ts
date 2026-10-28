@@ -16,14 +16,17 @@ const list=z.array(text(500)).max(80).default([]);
 const image=z.string().trim().max(2048).refine(value=>!value || /^\/api\/catalog-images\/[a-f0-9-]{36}\.webp$/.test(value) || /^\/images\/[a-zA-Z0-9_./-]+$/.test(value) || /^https:\/\//.test(value),"Use an uploaded image or HTTPS image URL.").nullable().default(null);
 export const solutionSchema=z.object({name:text(160),description:optionalText(1000),status:z.enum(["ready","build"])});
 export const faqSchema=z.object({question:text(300),answer:text(3000)});
+export const categorySchema=z.object({slug:text(60).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),name:text(80),display_order:z.number().int().min(0).max(9999).default(0)});
+export type ServiceCategory=z.infer<typeof categorySchema>;
+export const subServiceSchema=z.object({name:text(160),businesses:text(2000)});
 const common={
  id:z.string().uuid().optional(),slug:text(140).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/,"Use lowercase words separated by hyphens."),name:text(160),tagline:text(300),card_summary:text(120),overview:text(30000),icon:text(60),hero_image:image,
  technologies:list,suggested_solutions:z.array(solutionSchema).max(40).default([]),faqs:z.array(faqSchema).max(40).default([]),
  cta_heading:text(200),cta_text:text(1000),seo_title:optionalText(200),seo_description:optionalText(500),og_image:image,
  is_featured:z.boolean().default(false),featured_order:z.number().int().min(0).max(9999).nullable().default(null),display_order:z.number().int().min(0).max(9999).default(0),status:z.enum(["draft","published","archived"]).default("draft"),
- project_ids:z.array(z.string().uuid()).max(100).default([]),
+ project_ids:z.array(z.string().uuid()).max(100).default([]),portfolio_ids:z.array(text(100).regex(/^[a-zA-Z0-9-]+$/)).max(100).default([]),app_ids:z.array(text(100)).max(100).default([]),
 };
-export const serviceSchema=z.object({...common,tag:z.enum(tags),category:z.enum(categories),what_we_deliver:list,who_its_for:list,deliverables:list,
+export const serviceSchema=z.object({...common,tag:z.enum(tags),category:text(60).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),sub_services:z.array(subServiceSchema).max(80).default([]),related_service_ids:z.array(z.string().uuid()).max(100).default([]),what_we_deliver:list,who_its_for:list,deliverables:list,
  approach_steps:z.array(z.object({title:text(120),description:text(1500)})).length(4),engagement_options:z.array(z.enum(models)).min(1).max(3),industry_ids:z.array(z.string().uuid()).max(100).default([]),
 });
 export const businessSegmentSchema=z.object({name:text(160),solutions:text(2000)});
@@ -48,6 +51,8 @@ export type ServicesPageSettings=z.infer<typeof sectionSchemas.services_page>;
 export type IndustriesPageSettings=z.infer<typeof sectionSchemas.industries_page>;
 export const inquirySchema=z.object({name:text(120),email:z.string().trim().email().max(254),phone:optionalText(50),company:optionalText(160),message:text(6000),source_page:z.string().max(500).regex(/^\/(services|solutions|contact)(\/|\?|$)/),service_slug:optionalText(140),industry_slug:optionalText(140),solution_name:optionalText(160),website:z.string().max(200).optional()});
 export function emptyOffering(entity:Entity):ServiceInput|IndustryInput {
- const shared={slug:"",name:"",tagline:"",card_summary:"",overview:"",icon:entity==="services"?"Laptop":"Building2",hero_image:null,technologies:[],suggested_solutions:[],faqs:[],cta_heading:"Tell us about your project",cta_text:"Just the essentials. We can work through the details together.",seo_title:"",seo_description:"",og_image:null,is_featured:false,featured_order:null,display_order:0,status:"draft" as const,project_ids:[]};
- return entity==="services"?{...shared,tag:"BUILD",category:"build",what_we_deliver:[],who_its_for:[],deliverables:["Full source code and IP ownership"],approach_steps:defaultSteps,engagement_options:[...models],industry_ids:[]}:{...shared,business_segments:[],challenges:[],capabilities:[],outcomes:[],service_ids:[]};
+ const shared={slug:"",name:"",tagline:"",card_summary:"",overview:"",icon:entity==="services"?"Laptop":"Building2",hero_image:null,technologies:[],suggested_solutions:[],faqs:[],cta_heading:"Tell us about your project",cta_text:"Just the essentials. We can work through the details together.",seo_title:"",seo_description:"",og_image:null,is_featured:false,featured_order:null,display_order:0,status:"draft" as const,project_ids:[],portfolio_ids:[],app_ids:[]};
+ return entity==="services"?{...shared,tag:"BUILD",category:"build",sub_services:[],related_service_ids:[],what_we_deliver:[],who_its_for:[],deliverables:["Full source code and IP ownership"],approach_steps:defaultSteps,engagement_options:[...models],industry_ids:[]}:{...shared,business_segments:[],challenges:[],capabilities:[],outcomes:[],service_ids:[]};
 }
+
+export function featuredOfferings<T extends {is_featured:boolean;status:string;featured_order:number|null;display_order:number}>(items:T[],max:number):T[]{return items.filter(item=>item.status==="published"&&item.is_featured).sort((a,b)=>(a.featured_order??9999)-(b.featured_order??9999)||a.display_order-b.display_order).slice(0,max);}

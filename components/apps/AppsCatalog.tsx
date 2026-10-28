@@ -38,11 +38,11 @@ export function AppPlayer({ app, onClose }: { app:CatalogApp; onClose:()=>void }
     </div>
   </dialog>;
 }
-export function AppsCatalog({ apps, initialTab = "Apps" }: { apps:CatalogApp[]; initialTab?: "Apps" | "Games" | "Downloads" }) {
+export function AppsCatalog({ apps, initialTab = "Apps", initialAppId }: { apps:CatalogApp[]; initialAppId?:string; initialTab?: "Apps" | "Games" | "Downloads" }) {
   const [query,setQuery] = useState("");
   const [category,setCategory] = useState("All apps");
   const [tab,setTab] = useState<"Apps" | "Games" | "Downloads">(initialTab);
-  const [selected,setSelected] = useState<CatalogApp | null>(null);
+  const [selected,setSelected] = useState<CatalogApp | null>(()=>apps.find(app=>app.id===initialAppId&&!/downloads?/i.test(app.category))||null);
   const tabApps = apps.filter(app => tab === "Downloads" ? /\bdownloads?\b/i.test(app.category) : tab === "Games" ? /\bgames?\b/i.test(app.category) && !/\bdownloads?\b/i.test(app.category) : !/\b(games?|downloads?)\b/i.test(app.category));
   const categories = tab === "Downloads" ? ["All apps", ...downloadPlatforms] : ["All apps", ...new Set(tabApps.map(app => app.category))];
   const visible = tabApps.filter(app => (category === "All apps" || (tab === "Downloads" ? app.platforms?.includes(category) : app.category === category)) && `${app.name} ${app.description} ${app.category}`.toLowerCase().includes(query.trim().toLowerCase()));

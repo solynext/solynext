@@ -4,7 +4,7 @@
     "slug": "transport-automotive",
     "tagline": "Websites, booking platforms and operational tools for automotive businesses.",
     "card_summary": "Websites, booking platforms and operational tools for automotive businesses.",
-    "overview": "<p>Digital services for transport & automotive, shaped around the businesses and solutions below.</p>",
+    "overview": "<p>Help customers find a vehicle, book a ride or arrange a service with less back-and-forth. We connect public websites and mobile experiences with the inventory, fleet and booking tools your team uses every day.</p><p>We start by understanding your customers and operations, then scope the right combination of services. Explore the business specialisms and linked services below to see where we can help.</p>",
     "icon": "Truck",
     "hero_image": null,
     "business_segments": [
@@ -37,7 +37,11 @@
         "solutions": "Service booking website, appointment system"
       }
     ],
-    "challenges": [],
+    "challenges": [
+      "Availability and vehicle information spread across spreadsheets and messages",
+      "Slow inquiry follow-up and inconsistent booking records",
+      "Customers need clear prices, locations and service details before booking"
+    ],
     "capabilities": [
       "Consultation & Strategy",
       "Graphic Design & Branding",
@@ -46,7 +50,11 @@
       "Maintenance & Support",
       "Custom & Utility Apps"
     ],
-    "outcomes": [],
+    "outcomes": [
+      "A clearer route from vehicle discovery to inquiry or booking",
+      "Better visibility of fleet, inventory and appointment availability",
+      "Consistent customer communication across web and mobile"
+    ],
     "technologies": [],
     "suggested_solutions": [
       {
@@ -85,7 +93,20 @@
         "status": "build"
       }
     ],
-    "faqs": [],
+    "faqs": [
+      {
+        "question": "Can you tailor a solution for our transport & automotive business?",
+        "answer": "Yes. We start with your current workflows, customers and priorities, then define the scope, integrations and delivery plan before development."
+      },
+      {
+        "question": "Can we start small and expand later?",
+        "answer": "We can plan an initial release around your highest-priority workflow and agree on a roadmap for later features. Scope, timing and pricing are confirmed after discovery."
+      },
+      {
+        "question": "Can you connect our existing systems?",
+        "answer": "We review your current tools and available APIs during discovery. We then confirm which integrations are feasible and how data will move between them."
+      }
+    ],
     "cta_heading": "Let’s build for your business.",
     "cta_text": "Tell us which business you run and the website, app or system you need.",
     "seo_title": "Transport & Automotive Solutions | SolyNext",
@@ -108,14 +129,17 @@
       "consultation-strategy",
       "maintenance-support"
     ],
-    "project_names": []
+    "project_names": [],
+    "portfolio_ids": [
+      "pak-auto-parts"
+    ]
   },
   {
     "name": "Real Estate & Property",
     "slug": "real-estate",
     "tagline": "Property websites, listing portals and tools for agencies, developers and investors.",
     "card_summary": "Property websites, listing portals and tools for agencies, developers and investors.",
-    "overview": "<p>Digital services for real estate & property, shaped around the businesses and solutions below.</p>",
+    "overview": "<p>Give buyers, tenants and investors a clear view of your properties and projects. From agency websites to property marketplaces, we combine searchable listings, strong project presentation and lead workflows that help your team follow through.</p><p>We start by understanding your customers and operations, then scope the right combination of services. Explore the business specialisms and linked services below to see where we can help.</p>",
     "icon": "House",
     "hero_image": null,
     "business_segments": [
@@ -144,7 +168,11 @@
         "solutions": "Sale and rent listings, buyer request system, availability and deal tracking, agent dashboards"
       }
     ],
-    "challenges": [],
+    "challenges": [
+      "Property information and availability become outdated across channels",
+      "Inquiries arrive without enough detail for the sales team",
+      "Buyers need trustworthy project information and easy comparisons"
+    ],
     "capabilities": [
       "Consultation & Strategy",
       "Graphic Design & Branding",
@@ -153,7 +181,11 @@
       "Maintenance & Support",
       "Custom & Utility Apps"
     ],
-    "outcomes": [],
+    "outcomes": [
+      "Searchable, well-presented listings with clear inquiry paths",
+      "Organized lead capture and follow-up for agents",
+      "A consistent digital presence for each development and property"
+    ],
     "technologies": [],
     "suggested_solutions": [
       {
@@ -187,7 +219,20 @@
         "status": "build"
       }
     ],
-    "faqs": [],
+    "faqs": [
+      {
+        "question": "Can you tailor a solution for our real estate & property business?",
+        "answer": "Yes. We start with your current workflows, customers and priorities, then define the scope, integrations and delivery plan before development."
+      },
+      {
+        "question": "Can we start small and expand later?",
+        "answer": "We can plan an initial release around your highest-priority workflow and agree on a roadmap for later features. Scope, timing and pricing are confirmed after discovery."
+      },
+      {
+        "question": "Can you connect our existing systems?",
+        "answer": "We review your current tools and available APIs during discovery. We then confirm which integrations are feasible and how data will move between them."
+      }
+    ],
     "cta_heading": "Let’s build for your business.",
     "cta_text": "Tell us which business you run and the website, app or system you need.",
     "seo_title": "Real Estate & Property Solutions | SolyNext",
@@ -209,14 +254,17 @@
       "consultation-strategy",
       "maintenance-support"
     ],
-    "project_names": []
+    "project_names": [],
+    "portfolio_ids": [
+      "prime-property-hub"
+    ]
   },
   {
     "name": "Furniture & Interior",
     "slug": "furniture",
     "tagline": "Catalogs, online stores and custom-order tools for furniture and interior businesses.",
     "card_summary": "Catalogs, online stores and custom-order tools for furniture and interior businesses.",
-    "overview": "<p>Digital services for furniture & interior, shaped around the businesses and solutions below.</p>",
+    "overview": "<p>Turn collections, materials and craftsmanship into a useful buying experience. We build catalogs, quotation flows and order tools for furniture makers, showrooms and interior studios, with room for custom sizes, finishes and project requirements.</p><p>We start by understanding your customers and operations, then scope the right combination of services. Explore the business specialisms and linked services below to see where we can help.</p>",
     "icon": "Sofa",
     "hero_image": null,
     "business_segments": [
@@ -245,7 +293,11 @@
         "solutions": "Multi-vendor marketplace, seller dashboards"
       }
     ],
-    "challenges": [],
+    "challenges": [
+      "Customers struggle to compare dimensions, finishes and custom options",
+      "Quotation requests arrive with missing specifications",
+      "Catalog updates and custom-order progress are difficult to coordinate"
+    ],
     "capabilities": [
       "Consultation & Strategy",
       "Graphic Design & Branding",
@@ -254,7 +306,11 @@
       "Maintenance & Support",
       "Custom & Utility Apps"
     ],
-    "outcomes": [],
+    "outcomes": [
+      "Clearer product discovery and specification sharing",
+      "More complete quotation requests for custom work",
+      "A connected view of collections, inquiries and orders"
+    ],
     "technologies": [],
     "suggested_solutions": [
       {
@@ -288,7 +344,20 @@
         "status": "build"
       }
     ],
-    "faqs": [],
+    "faqs": [
+      {
+        "question": "Can you tailor a solution for our furniture & interior business?",
+        "answer": "Yes. We start with your current workflows, customers and priorities, then define the scope, integrations and delivery plan before development."
+      },
+      {
+        "question": "Can we start small and expand later?",
+        "answer": "We can plan an initial release around your highest-priority workflow and agree on a roadmap for later features. Scope, timing and pricing are confirmed after discovery."
+      },
+      {
+        "question": "Can you connect our existing systems?",
+        "answer": "We review your current tools and available APIs during discovery. We then confirm which integrations are feasible and how data will move between them."
+      }
+    ],
     "cta_heading": "Let’s build for your business.",
     "cta_text": "Tell us which business you run and the website, app or system you need.",
     "seo_title": "Furniture & Interior Solutions | SolyNext",
@@ -309,14 +378,15 @@
       "consultation-strategy",
       "maintenance-support"
     ],
-    "project_names": []
+    "project_names": [],
+    "portfolio_ids": []
   },
   {
     "name": "E-Commerce & Online Retail",
     "slug": "ecommerce",
     "tagline": "Online stores and marketplaces for products, brands and multi-category retail.",
     "card_summary": "Online stores and marketplaces for products, brands and multi-category retail.",
-    "overview": "<p>Digital services for e-commerce & online retail, shaped around the businesses and solutions below.</p>",
+    "overview": "<p>Build a shopping experience that supports the full journey, from finding a product to paying, delivery and repeat orders. We work on storefronts, marketplaces and connected operations for brands selling single categories or wide product ranges.</p><p>We start by understanding your customers and operations, then scope the right combination of services. Explore the business specialisms and linked services below to see where we can help.</p>",
     "icon": "ShoppingBag",
     "hero_image": null,
     "business_segments": [
@@ -353,7 +423,11 @@
         "solutions": "Multi-seller platform, payments, delivery integration, mobile shopping app"
       }
     ],
-    "challenges": [],
+    "challenges": [
+      "Product discovery and checkout create unnecessary friction",
+      "Inventory, orders and delivery updates live in separate tools",
+      "Marketing activity is difficult to connect to customer actions"
+    ],
     "capabilities": [
       "Consultation & Strategy",
       "Graphic Design & Branding",
@@ -362,7 +436,11 @@
       "Maintenance & Support",
       "Custom & Utility Apps"
     ],
-    "outcomes": [],
+    "outcomes": [
+      "A simpler route from browsing to checkout",
+      "Connected product, payment and order workflows",
+      "Useful reporting to guide merchandising and marketing decisions"
+    ],
     "technologies": [],
     "suggested_solutions": [
       {
@@ -406,7 +484,20 @@
         "status": "build"
       }
     ],
-    "faqs": [],
+    "faqs": [
+      {
+        "question": "Can you tailor a solution for our e-commerce & online retail business?",
+        "answer": "Yes. We start with your current workflows, customers and priorities, then define the scope, integrations and delivery plan before development."
+      },
+      {
+        "question": "Can we start small and expand later?",
+        "answer": "We can plan an initial release around your highest-priority workflow and agree on a roadmap for later features. Scope, timing and pricing are confirmed after discovery."
+      },
+      {
+        "question": "Can you connect our existing systems?",
+        "answer": "We review your current tools and available APIs during discovery. We then confirm which integrations are feasible and how data will move between them."
+      }
+    ],
     "cta_heading": "Let’s build for your business.",
     "cta_text": "Tell us which business you run and the website, app or system you need.",
     "seo_title": "E-Commerce & Online Retail Solutions | SolyNext",
@@ -428,14 +519,17 @@
       "consultation-strategy",
       "maintenance-support"
     ],
-    "project_names": []
+    "project_names": [],
+    "portfolio_ids": [
+      "noor-boutique"
+    ]
   },
   {
     "name": "Organic, Food & Wellness",
     "slug": "organic-food-wellness",
     "tagline": "Stores, packaging and ordering systems for food, organic and wellness brands.",
     "card_summary": "Stores, packaging and ordering systems for food, organic and wellness brands.",
-    "overview": "<p>Digital services for organic, food & wellness, shaped around the businesses and solutions below.</p>",
+    "overview": "<p>Present your products with clear ingredients, packaging and ordering information. We connect brand identity, online sales and repeat-order experiences for food, organic and wellness businesses, with content your team can maintain as products change.</p><p>We start by understanding your customers and operations, then scope the right combination of services. Explore the business specialisms and linked services below to see where we can help.</p>",
     "icon": "Leaf",
     "hero_image": null,
     "business_segments": [
@@ -464,7 +558,11 @@
         "solutions": "Menu website, order system"
       }
     ],
-    "challenges": [],
+    "challenges": [
+      "Product information, ingredients and pack sizes are inconsistent",
+      "Repeat orders rely on manual messages and reminders",
+      "Packaging and online content do not communicate a consistent brand"
+    ],
     "capabilities": [
       "Consultation & Strategy",
       "Graphic Design & Branding",
@@ -474,7 +572,11 @@
       "Custom & Utility Apps",
       "Packaging and label design, order and delivery tracking"
     ],
-    "outcomes": [],
+    "outcomes": [
+      "Consistent product information across packaging and online channels",
+      "Easier ordering and repeat purchases",
+      "A clearer brand experience for customers exploring your range"
+    ],
     "technologies": [],
     "suggested_solutions": [
       {
@@ -508,7 +610,20 @@
         "status": "build"
       }
     ],
-    "faqs": [],
+    "faqs": [
+      {
+        "question": "Can you tailor a solution for our organic, food & wellness business?",
+        "answer": "Yes. We start with your current workflows, customers and priorities, then define the scope, integrations and delivery plan before development."
+      },
+      {
+        "question": "Can we start small and expand later?",
+        "answer": "We can plan an initial release around your highest-priority workflow and agree on a roadmap for later features. Scope, timing and pricing are confirmed after discovery."
+      },
+      {
+        "question": "Can you connect our existing systems?",
+        "answer": "We review your current tools and available APIs during discovery. We then confirm which integrations are feasible and how data will move between them."
+      }
+    ],
     "cta_heading": "Let’s build for your business.",
     "cta_text": "Tell us which business you run and the website, app or system you need.",
     "seo_title": "Organic, Food & Wellness Solutions | SolyNext",
@@ -529,14 +644,15 @@
       "consultation-strategy",
       "maintenance-support"
     ],
-    "project_names": []
+    "project_names": [],
+    "portfolio_ids": []
   },
   {
     "name": "Travel, Tourism & Hospitality",
     "slug": "travel-tourism",
     "tagline": "Booking websites, travel platforms and inquiry systems for travel and hospitality.",
     "card_summary": "Booking websites, travel platforms and inquiry systems for travel and hospitality.",
-    "overview": "<p>Digital services for travel, tourism & hospitality, shaped around the businesses and solutions below.</p>",
+    "overview": "<p>Help travelers compare packages, understand requirements and book with confidence. We build websites, booking tools and operational systems for agencies, tour operators and accommodation providers, adapting the experience to seasonal demand and complex itineraries.</p><p>We start by understanding your customers and operations, then scope the right combination of services. Explore the business specialisms and linked services below to see where we can help.</p>",
     "icon": "Plane",
     "hero_image": null,
     "business_segments": [
@@ -569,7 +685,11 @@
         "solutions": "Mobile app for transport, hotel and location booking; travel marketplace"
       }
     ],
-    "challenges": [],
+    "challenges": [
+      "Packages, prices and seasonal availability change frequently",
+      "Inquiries and booking documents are scattered across conversations",
+      "Travelers need clear itineraries, inclusions and next steps"
+    ],
     "capabilities": [
       "Consultation & Strategy",
       "Graphic Design & Branding",
@@ -578,7 +698,11 @@
       "Maintenance & Support",
       "Custom & Utility Apps"
     ],
-    "outcomes": [],
+    "outcomes": [
+      "Better organized packages, inquiries and booking information",
+      "Clearer customer guidance before and after booking",
+      "Digital workflows that support seasonal campaigns and ongoing operations"
+    ],
     "technologies": [],
     "suggested_solutions": [
       {
@@ -617,7 +741,20 @@
         "status": "build"
       }
     ],
-    "faqs": [],
+    "faqs": [
+      {
+        "question": "Can you tailor a solution for our travel, tourism & hospitality business?",
+        "answer": "Yes. We start with your current workflows, customers and priorities, then define the scope, integrations and delivery plan before development."
+      },
+      {
+        "question": "Can we start small and expand later?",
+        "answer": "We can plan an initial release around your highest-priority workflow and agree on a roadmap for later features. Scope, timing and pricing are confirmed after discovery."
+      },
+      {
+        "question": "Can you connect our existing systems?",
+        "answer": "We review your current tools and available APIs during discovery. We then confirm which integrations are feasible and how data will move between them."
+      }
+    ],
     "cta_heading": "Let’s build for your business.",
     "cta_text": "Tell us which business you run and the website, app or system you need.",
     "seo_title": "Travel, Tourism & Hospitality Solutions | SolyNext",
@@ -640,14 +777,15 @@
       "consultation-strategy",
       "maintenance-support"
     ],
-    "project_names": []
+    "project_names": [],
+    "portfolio_ids": []
   },
   {
     "name": "Education",
     "slug": "education",
     "tagline": "Websites, learning platforms and management systems for education providers.",
     "card_summary": "Websites, learning platforms and management systems for education providers.",
-    "overview": "<p>Digital services for education, shaped around the businesses and solutions below.</p>",
+    "overview": "<p>Make your institution easier to discover and your daily administration easier to manage. We build education websites, admissions flows, management systems and learning experiences that connect students, parents, teachers and administrators.</p><p>We start by understanding your customers and operations, then scope the right combination of services. Explore the business specialisms and linked services below to see where we can help.</p>",
     "icon": "GraduationCap",
     "hero_image": null,
     "business_segments": [
@@ -676,7 +814,11 @@
         "solutions": "Booking and online class platform"
       }
     ],
-    "challenges": [],
+    "challenges": [
+      "Admissions information and inquiries are handled in separate channels",
+      "Parents and students lack a reliable place for updates",
+      "Administrative teams repeat data entry across records and reports"
+    ],
     "capabilities": [
       "Consultation & Strategy",
       "Graphic Design & Branding",
@@ -686,7 +828,11 @@
       "Custom & Utility Apps",
       "Online exam system, admissions marketing campaigns"
     ],
-    "outcomes": [],
+    "outcomes": [
+      "Clear admissions journeys and accessible institutional information",
+      "Connected portals for the people who need them",
+      "More consistent records, communication and reporting"
+    ],
     "technologies": [],
     "suggested_solutions": [
       {
@@ -720,7 +866,20 @@
         "status": "build"
       }
     ],
-    "faqs": [],
+    "faqs": [
+      {
+        "question": "Can you tailor a solution for our education business?",
+        "answer": "Yes. We start with your current workflows, customers and priorities, then define the scope, integrations and delivery plan before development."
+      },
+      {
+        "question": "Can we start small and expand later?",
+        "answer": "We can plan an initial release around your highest-priority workflow and agree on a roadmap for later features. Scope, timing and pricing are confirmed after discovery."
+      },
+      {
+        "question": "Can you connect our existing systems?",
+        "answer": "We review your current tools and available APIs during discovery. We then confirm which integrations are feasible and how data will move between them."
+      }
+    ],
     "cta_heading": "Let’s build for your business.",
     "cta_text": "Tell us which business you run and the website, app or system you need.",
     "seo_title": "Education Solutions | SolyNext",
@@ -742,14 +901,15 @@
       "consultation-strategy",
       "maintenance-support"
     ],
-    "project_names": []
+    "project_names": [],
+    "portfolio_ids": []
   },
   {
     "name": "Retail & Trading",
     "slug": "retail-trading",
     "tagline": "Point-of-sale, stock, order and delivery systems for retailers and traders.",
     "card_summary": "Point-of-sale, stock, order and delivery systems for retailers and traders.",
-    "overview": "<p>Digital services for retail & trading, shaped around the businesses and solutions below.</p>",
+    "overview": "<p>Connect the sales counter, stockroom and customer experience. We build practical websites, POS tools and inventory workflows for shops, distributors and trading businesses, matching the solution to the products, staff and sales channels you operate.</p><p>We start by understanding your customers and operations, then scope the right combination of services. Explore the business specialisms and linked services below to see where we can help.</p>",
     "icon": "Store",
     "hero_image": null,
     "business_segments": [
@@ -782,7 +942,11 @@
         "solutions": "Order and delivery management"
       }
     ],
-    "challenges": [],
+    "challenges": [
+      "Stock counts, purchasing and sales records do not stay aligned",
+      "Manual billing and reporting take time away from customers",
+      "Wholesale and retail customers need different pricing and ordering flows"
+    ],
     "capabilities": [
       "Consultation & Strategy",
       "Graphic Design & Branding",
@@ -791,7 +955,11 @@
       "Maintenance & Support",
       "Custom & Utility Apps"
     ],
-    "outcomes": [],
+    "outcomes": [
+      "Better visibility of stock, sales and purchasing",
+      "Simpler billing and reporting workflows",
+      "Connected ordering experiences for wholesale and retail customers"
+    ],
     "technologies": [],
     "suggested_solutions": [
       {
@@ -830,7 +998,20 @@
         "status": "build"
       }
     ],
-    "faqs": [],
+    "faqs": [
+      {
+        "question": "Can you tailor a solution for our retail & trading business?",
+        "answer": "Yes. We start with your current workflows, customers and priorities, then define the scope, integrations and delivery plan before development."
+      },
+      {
+        "question": "Can we start small and expand later?",
+        "answer": "We can plan an initial release around your highest-priority workflow and agree on a roadmap for later features. Scope, timing and pricing are confirmed after discovery."
+      },
+      {
+        "question": "Can you connect our existing systems?",
+        "answer": "We review your current tools and available APIs during discovery. We then confirm which integrations are feasible and how data will move between them."
+      }
+    ],
     "cta_heading": "Let’s build for your business.",
     "cta_text": "Tell us which business you run and the website, app or system you need.",
     "seo_title": "Retail & Trading Solutions | SolyNext",
@@ -852,6 +1033,12 @@
       "consultation-strategy",
       "maintenance-support"
     ],
-    "project_names": []
+    "project_names": [],
+    "portfolio_ids": [
+      "al-madina-traders",
+      "noor-boutique",
+      "fresh-basket",
+      "urban-chai"
+    ]
   }
 ]

@@ -20,7 +20,7 @@ export const adminPageNavigation = [
     { label: "All services", href: "/admin/services", icon: Layers3 },
     { label: "Homepage section", href: "/admin/services/settings/home-section", icon: LayoutDashboard },
     { label: "Services page", href: "/admin/services/settings/listing-page", icon: PanelsTopLeft },
-    { label: "Related work", href: "/admin/services/work", icon: FolderKanban },
+    { label: "Portfolio projects", href: "/admin/portfolio", icon: FolderKanban },
     { label: "Project inquiries", href: "/admin/services/inquiries", icon: Inbox },
   ] },
   { label: "Industry management", parent: "/admin/industries", items: [

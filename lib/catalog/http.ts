@@ -1,11 +1,12 @@
 import "server-only";
 import { ZodError,z } from "zod";
 import { requestActor,enforceRate } from "./security";
-import { listOfferings,getOffering,saveOffering,modifyOfferings,reorderOfferings,previewLink,refreshCatalog } from "./repository";
+import { listOfferings,getOffering,saveOffering,modifyOfferings,reorderOfferings,previewLink,refreshCatalog,listCategories,saveCategory,deleteCategory } from "./repository";
 import type { Entity } from "./model";
 export function apiError(error:unknown){const message=error instanceof Error?error.message:"Request failed.";const status=error instanceof ZodError?422:/Unauthorized/.test(message)?401:/Forbidden/.test(message)?403:/not found|no longer exists/.test(message)?404:/Rate limit/.test(message)?429:400;return Response.json({error:error instanceof ZodError?"Please check the highlighted fields.":message,fields:error instanceof ZodError?error.flatten().fieldErrors:undefined},{status,headers:{"Cache-Control":"no-store"}});}
 const ids=z.array(z.string().uuid()).min(1).max(500);
 export async function adminApi(request:Request,entity:Entity,path:string[]=[]){try{const actor=await requestActor(request);enforceRate(`admin:${actor.id}`,180);const[id,operation]=path;
+ if(entity==="services"&&id==="categories"){if(request.method==="GET")return Response.json({items:await listCategories()},{headers:{"Cache-Control":"no-store"}});if(request.method==="PUT"||request.method==="POST")await saveCategory(await request.json(),actor);else if(request.method==="DELETE")await deleteCategory(z.string().regex(/^[a-z0-9-]+$/).parse(operation),actor);else return Response.json({error:"Method not allowed"},{status:405});refreshCatalog();return Response.json({items:await listCategories()});}
  if(request.method==="GET"){if(operation==="preview")return Response.json({url:await previewLink(entity,z.string().uuid().parse(id))},{headers:{"Cache-Control":"no-store"}});if(id){const item=await getOffering(entity,z.string().uuid().parse(id));if(!item)return Response.json({error:"Not found"},{status:404});return Response.json({item},{headers:{"Cache-Control":"no-store"}});}return Response.json({items:await listOfferings(entity)},{headers:{"Cache-Control":"no-store"}});}
  const body=request.method==="DELETE"?{}:await request.json();
  if(request.method==="POST" && id==="reorder"){const data=z.object({ids,featured:z.boolean().optional()}).parse(body);await reorderOfferings(entity,data.ids,actor,data.featured);refreshCatalog();return Response.json({items:await listOfferings(entity)});}

@@ -21,7 +21,12 @@
       "Admin dashboards and customer portals",
       "CMS-based websites you can update yourself",
       "Website redesign and speed optimization",
-      "SEO-ready structure"
+      "SEO-ready structure",
+      "Showroom and catalog websites",
+      "Real estate agency websites",
+      "School and college websites",
+      "Travel and hotel websites",
+      "CMS-based websites"
     ],
     "who_its_for": [
       "Real estate agencies",
@@ -121,6 +126,52 @@
       "Noor Boutique",
       "Urban Chai",
       "Al Madina Traders"
+    ],
+    "sub_services": [
+      {
+        "name": "Business and corporate websites",
+        "businesses": "Agencies, traders, startups, service companies"
+      },
+      {
+        "name": "Landing pages and campaign sites",
+        "businesses": "Real estate projects, travel seasons, school admissions, product launches"
+      },
+      {
+        "name": "Portfolio and showcase websites",
+        "businesses": "Builders, interior designers, carpenters, workshops"
+      },
+      {
+        "name": "Showroom and catalog websites",
+        "businesses": "Furniture manufacturers, car dealers, home décor brands"
+      },
+      {
+        "name": "Real estate agency websites",
+        "businesses": "Property dealers, housing societies, developers"
+      },
+      {
+        "name": "School and college websites",
+        "businesses": "Schools, colleges, academies, training institutes"
+      },
+      {
+        "name": "Travel and hotel websites",
+        "businesses": "Umrah/Hajj agencies, tour operators, hotels, study abroad and visa agencies"
+      },
+      {
+        "name": "Custom web applications",
+        "businesses": "Any business with a specific workflow"
+      },
+      {
+        "name": "Admin dashboards and customer portals",
+        "businesses": "Dealers, agents, schools, distributors"
+      },
+      {
+        "name": "CMS-based websites",
+        "businesses": "Businesses that update content themselves"
+      },
+      {
+        "name": "Website redesign and speed optimization",
+        "businesses": "Businesses with an outdated or slow site"
+      }
     ]
   },
   {
@@ -145,7 +196,11 @@
       "Order tracking and customer accounts",
       "Subscription and repeat-order systems",
       "Custom order and quotation systems",
-      "Property, vehicle and listing marketplaces"
+      "Property, vehicle and listing marketplaces",
+      "Single-brand online stores",
+      "Vehicle listing marketplaces",
+      "Property marketplaces",
+      "Payment and delivery integration"
     ],
     "who_its_for": [
       "E-commerce sellers",
@@ -249,6 +304,44 @@
       "Noor Boutique",
       "Fresh Basket",
       "Pak Auto Parts"
+    ],
+    "sub_services": [
+      {
+        "name": "Single-brand online stores",
+        "businesses": "Fashion, cosmetics, perfume, footwear, electronics and gadget sellers"
+      },
+      {
+        "name": "Multi-vendor marketplaces",
+        "businesses": "Furniture, e-commerce, travel and organic product platforms"
+      },
+      {
+        "name": "Vehicle listing marketplaces",
+        "businesses": "Car dealers, used-car traders, buy and sell platforms"
+      },
+      {
+        "name": "Property marketplaces",
+        "businesses": "Real estate portals, property dealers, rental managers"
+      },
+      {
+        "name": "Product catalog and inventory management",
+        "businesses": "Showrooms, wholesalers, retailers"
+      },
+      {
+        "name": "Payment and delivery integration",
+        "businesses": "All online sellers"
+      },
+      {
+        "name": "Subscription and repeat-order systems",
+        "businesses": "Honey, dry fruit, herbal and wellness brands"
+      },
+      {
+        "name": "Custom order and quotation systems",
+        "businesses": "Furniture workshops, manufacturers, interior designers"
+      },
+      {
+        "name": "Order tracking and customer accounts",
+        "businesses": "All online stores"
+      }
     ]
   },
   {
@@ -273,7 +366,15 @@
       "Booking and appointment systems",
       "CRM and lead management",
       "Admin dashboards and internal tools",
-      "Third-party integrations and APIs"
+      "Third-party integrations and APIs",
+      "POS (point of sale) apps",
+      "Restaurant and café POS",
+      "Pharmacy POS",
+      "Wholesale and retail management",
+      "School management systems",
+      "Fleet and ride management",
+      "Inventory, billing and reporting",
+      "Admissions and parent portals"
     ],
     "who_its_for": [
       "Retail and trading",
@@ -372,6 +473,56 @@
     ],
     "project_names": [
       "Al Madina Traders"
+    ],
+    "sub_services": [
+      {
+        "name": "POS (point of sale) apps",
+        "businesses": "Grocery and mart, clothing, electronics, general stores"
+      },
+      {
+        "name": "Restaurant and café POS",
+        "businesses": "Restaurants, cafés, food outlets"
+      },
+      {
+        "name": "Pharmacy POS",
+        "businesses": "Pharmacies, medical stores"
+      },
+      {
+        "name": "Wholesale and retail management",
+        "businesses": "Traders, distributors, wholesalers"
+      },
+      {
+        "name": "School management systems",
+        "businesses": "Schools, colleges, academies"
+      },
+      {
+        "name": "Learning management systems (LMS)",
+        "businesses": "Online course providers, training institutes, tutors"
+      },
+      {
+        "name": "Booking and appointment systems",
+        "businesses": "Rent-a-car, hotels, workshops, tour operators, consultants"
+      },
+      {
+        "name": "Fleet and ride management",
+        "businesses": "Taxi services, rent-a-car companies"
+      },
+      {
+        "name": "CRM and lead management",
+        "businesses": "Real estate, car dealers, travel and visa agencies"
+      },
+      {
+        "name": "Inventory, billing and reporting",
+        "businesses": "Shops, warehouses, manufacturers"
+      },
+      {
+        "name": "Admissions and parent portals",
+        "businesses": "Schools, colleges"
+      },
+      {
+        "name": "Third-party integrations and APIs",
+        "businesses": "Any business connecting existing tools"
+      }
     ]
   },
   {
@@ -396,7 +547,10 @@
       "E-commerce shopping apps",
       "Customer and delivery apps",
       "Push notifications, maps and payments",
-      "App store publishing and updates"
+      "App store publishing and updates",
+      "Taxi rider and driver apps",
+      "All-in-one travel app (transport, hotel, location)",
+      "Parent and student apps"
     ],
     "who_its_for": [
       "Transport businesses",
@@ -484,7 +638,45 @@
       "education",
       "retail-trading"
     ],
-    "project_names": []
+    "project_names": [],
+    "sub_services": [
+      {
+        "name": "Android and iOS apps",
+        "businesses": "Any business needing a mobile presence"
+      },
+      {
+        "name": "Cross-platform apps",
+        "businesses": "Startups and small teams wanting one build for both platforms"
+      },
+      {
+        "name": "Taxi rider and driver apps",
+        "businesses": "Taxi and ride services"
+      },
+      {
+        "name": "All-in-one travel app (transport, hotel, location)",
+        "businesses": "Travel platforms, tourism companies"
+      },
+      {
+        "name": "E-commerce shopping apps",
+        "businesses": "Online stores, fashion, electronics brands"
+      },
+      {
+        "name": "Customer and delivery apps",
+        "businesses": "Food, grocery and organic product sellers"
+      },
+      {
+        "name": "Parent and student apps",
+        "businesses": "Schools, colleges"
+      },
+      {
+        "name": "Push notifications, maps and payments",
+        "businesses": "All app-based businesses"
+      },
+      {
+        "name": "App store publishing and updates",
+        "businesses": "All app owners"
+      }
+    ]
   },
   {
     "name": "Custom & Utility App Development (Web & Mobile)",
@@ -509,7 +701,11 @@
       "Form, report and document generators",
       "Lightweight booking and request apps",
       "Progressive web apps (PWA)",
-      "Integration with your existing systems"
+      "Integration with your existing systems",
+      "Calculators, quote and estimate tools",
+      "Trackers and planners (expense, stock, tasks)",
+      "Document, invoice and report generators",
+      "Integration with existing systems"
     ],
     "who_its_for": [
       "Small and medium businesses",
@@ -598,7 +794,41 @@
     "industry_slugs": [
       "*"
     ],
-    "project_names": []
+    "project_names": [],
+    "sub_services": [
+      {
+        "name": "Calculators, quote and estimate tools",
+        "businesses": "Builders, furniture workshops, travel agencies, car dealers"
+      },
+      {
+        "name": "Trackers and planners (expense, stock, tasks)",
+        "businesses": "Shops, traders, small teams"
+      },
+      {
+        "name": "Document, invoice and report generators",
+        "businesses": "Service businesses, consultants, schools"
+      },
+      {
+        "name": "Lightweight booking and request apps",
+        "businesses": "Workshops, salons, tutors, hotels"
+      },
+      {
+        "name": "Internal business tools and dashboards",
+        "businesses": "Teams replacing spreadsheets"
+      },
+      {
+        "name": "Workflow automation apps",
+        "businesses": "Any business with repetitive manual work"
+      },
+      {
+        "name": "Progressive web apps (PWA)",
+        "businesses": "Businesses wanting an app-like site without app stores"
+      },
+      {
+        "name": "Integration with existing systems",
+        "businesses": "Businesses with current software"
+      }
+    ]
   },
   {
     "name": "UI/UX & Product Design",
@@ -621,7 +851,8 @@
       "Design systems and style guides",
       "Dashboard and admin panel design",
       "Usability review of existing products",
-      "Developer handoff files"
+      "Developer handoff files",
+      "Marketplace and booking flow design"
     ],
     "who_its_for": [
       "Startups",
@@ -706,6 +937,40 @@
     ],
     "project_names": [
       "Noor Boutique"
+    ],
+    "sub_services": [
+      {
+        "name": "User research and journey mapping",
+        "businesses": "Startups and marketplaces"
+      },
+      {
+        "name": "Wireframes and clickable prototypes",
+        "businesses": "Anyone planning a new website or app"
+      },
+      {
+        "name": "Website and app UI design",
+        "businesses": "All industries"
+      },
+      {
+        "name": "Marketplace and booking flow design",
+        "businesses": "Property, vehicle, furniture and travel platforms"
+      },
+      {
+        "name": "Dashboard and admin panel design",
+        "businesses": "Software and POS products, school systems"
+      },
+      {
+        "name": "Design systems and style guides",
+        "businesses": "Growing products with many screens"
+      },
+      {
+        "name": "Usability review of existing products",
+        "businesses": "Businesses with low conversion or confusing sites"
+      },
+      {
+        "name": "Developer handoff files",
+        "businesses": "Teams building with their own developers"
+      }
     ]
   },
   {
@@ -730,7 +995,12 @@
       "Brochures, catalogs and prospectuses",
       "Business cards and stationery",
       "Property, vehicle and product listing graphics",
-      "Banners and promotional designs"
+      "Banners and promotional designs",
+      "Catalogs and brochures",
+      "Prospectuses and admission material",
+      "Property and project brochures",
+      "Vehicle and product listing graphics",
+      "Travel package creatives"
     ],
     "who_its_for": [
       "Organic and food brands",
@@ -821,6 +1091,48 @@
     ],
     "project_names": [
       "Urban Chai"
+    ],
+    "sub_services": [
+      {
+        "name": "Logo and brand identity",
+        "businesses": "New businesses and rebrands in all industries"
+      },
+      {
+        "name": "Brand guidelines",
+        "businesses": "Growing brands needing consistency"
+      },
+      {
+        "name": "Packaging and label design",
+        "businesses": "Honey, dry fruit, herbal, spice and perfume brands"
+      },
+      {
+        "name": "Catalogs and brochures",
+        "businesses": "Furniture, real estate, manufacturers"
+      },
+      {
+        "name": "Prospectuses and admission material",
+        "businesses": "Schools, colleges, academies"
+      },
+      {
+        "name": "Property and project brochures",
+        "businesses": "Developers, housing societies, builders"
+      },
+      {
+        "name": "Vehicle and product listing graphics",
+        "businesses": "Car dealers, online sellers"
+      },
+      {
+        "name": "Travel package creatives",
+        "businesses": "Umrah/Hajj, tour and hotel businesses"
+      },
+      {
+        "name": "Social media post and ad creatives",
+        "businesses": "All industries"
+      },
+      {
+        "name": "Business cards and stationery",
+        "businesses": "All businesses"
+      }
     ]
   },
   {
@@ -845,7 +1157,9 @@
       "Content marketing and blogging",
       "Local SEO and Google Business setup",
       "Analytics and monthly reporting",
-      "Conversion improvement"
+      "Conversion improvement",
+      "Admissions campaigns",
+      "Seasonal travel campaigns"
     ],
     "who_its_for": [
       "Real estate",
@@ -934,7 +1248,45 @@
     "industry_slugs": [
       "*"
     ],
-    "project_names": []
+    "project_names": [],
+    "sub_services": [
+      {
+        "name": "Search engine optimization (SEO)",
+        "businesses": "All industries"
+      },
+      {
+        "name": "Local SEO and Google Business setup",
+        "businesses": "Showrooms, shops, workshops, hotels, schools"
+      },
+      {
+        "name": "Google and Meta ads",
+        "businesses": "E-commerce, real estate, car dealers, travel"
+      },
+      {
+        "name": "Lead generation campaigns",
+        "businesses": "Real estate, car dealers, study abroad and visa agencies"
+      },
+      {
+        "name": "Admissions campaigns",
+        "businesses": "Schools, colleges, training institutes"
+      },
+      {
+        "name": "Seasonal travel campaigns",
+        "businesses": "Umrah/Hajj agencies, tour operators, northern-area hotels"
+      },
+      {
+        "name": "Email and WhatsApp marketing",
+        "businesses": "Online stores, schools, agencies"
+      },
+      {
+        "name": "Content marketing and blogging",
+        "businesses": "Organic and wellness brands, consultants, education"
+      },
+      {
+        "name": "Analytics and monthly reporting",
+        "businesses": "All clients on retainer"
+      }
+    ]
   },
   {
     "name": "Social Media Management",
@@ -958,7 +1310,12 @@
       "Community engagement",
       "Social media ads",
       "Product and listing promotion",
-      "Monthly performance reports"
+      "Monthly performance reports",
+      "Property listing content",
+      "Vehicle listing content",
+      "Product brand content",
+      "Travel season content packs",
+      "Community engagement and replies"
     ],
     "who_its_for": [
       "Real estate",
@@ -1047,7 +1404,53 @@
     "industry_slugs": [
       "*"
     ],
-    "project_names": []
+    "project_names": [],
+    "sub_services": [
+      {
+        "name": "Content strategy and monthly calendar",
+        "businesses": "All industries"
+      },
+      {
+        "name": "Post, reel and story design",
+        "businesses": "Fashion, food, furniture, cosmetics"
+      },
+      {
+        "name": "Page setup and optimization",
+        "businesses": "New and small businesses"
+      },
+      {
+        "name": "Scheduling and posting",
+        "businesses": "All industries"
+      },
+      {
+        "name": "Property listing content",
+        "businesses": "Real estate agencies, developers"
+      },
+      {
+        "name": "Vehicle listing content",
+        "businesses": "Car dealers, rent-a-car companies"
+      },
+      {
+        "name": "Product brand content",
+        "businesses": "Organic, wellness, cosmetics, fashion brands"
+      },
+      {
+        "name": "Travel season content packs",
+        "businesses": "Umrah/Hajj agencies, tour and hotel businesses"
+      },
+      {
+        "name": "Community engagement and replies",
+        "businesses": "Consumer-facing brands"
+      },
+      {
+        "name": "Social media ads",
+        "businesses": "E-commerce, real estate, education"
+      },
+      {
+        "name": "Monthly performance reports",
+        "businesses": "All retainer clients"
+      }
+    ]
   },
   {
     "name": "Consultation & Digital Strategy",
@@ -1071,7 +1474,9 @@
       "Project estimate and timeline",
       "Product roadmap and MVP planning",
       "Website and marketing audits",
-      "Digital transformation advice for traditional businesses"
+      "Digital transformation advice for traditional businesses",
+      "Website and marketing audit",
+      "Digital transformation advice"
     ],
     "who_its_for": [
       "First-time online business owners",
@@ -1152,7 +1557,41 @@
     "industry_slugs": [
       "*"
     ],
-    "project_names": []
+    "project_names": [],
+    "sub_services": [
+      {
+        "name": "Free initial consultation",
+        "businesses": "Anyone exploring a digital project"
+      },
+      {
+        "name": "Business and digital needs assessment",
+        "businesses": "Shops and traders going digital"
+      },
+      {
+        "name": "Scope definition and feature planning",
+        "businesses": "Marketplace, app and software projects"
+      },
+      {
+        "name": "Technology and platform recommendation",
+        "businesses": "Startups choosing what to build"
+      },
+      {
+        "name": "Project estimate and timeline",
+        "businesses": "All new projects"
+      },
+      {
+        "name": "Product roadmap and MVP planning",
+        "businesses": "Startups, marketplace founders"
+      },
+      {
+        "name": "Website and marketing audit",
+        "businesses": "Businesses with an existing site or campaigns"
+      },
+      {
+        "name": "Digital transformation advice",
+        "businesses": "Traditional businesses (retail, trading, education)"
+      }
+    ]
   },
   {
     "name": "Maintenance, Hosting & Support",
@@ -1246,6 +1685,32 @@
     "industry_slugs": [
       "*"
     ],
-    "project_names": []
+    "project_names": [],
+    "sub_services": [
+      {
+        "name": "Hosting and domain management",
+        "businesses": "All live websites and apps"
+      },
+      {
+        "name": "Security updates and backups",
+        "businesses": "All live platforms, especially stores and marketplaces"
+      },
+      {
+        "name": "Bug fixes and performance monitoring",
+        "businesses": "Marketplaces, booking systems, POS"
+      },
+      {
+        "name": "Content and feature updates",
+        "businesses": "Stores, school sites, property portals"
+      },
+      {
+        "name": "Ongoing SEO improvements",
+        "businesses": "Businesses relying on search traffic"
+      },
+      {
+        "name": "SLA-based priority support",
+        "businesses": "Platforms where downtime costs money (taxi, booking, POS)"
+      }
+    ]
   }
 ]

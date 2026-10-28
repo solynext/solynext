@@ -39,3 +39,47 @@ test('all eight supplied industries retain 53 business rows and the supplied ser
  assert.equal(industries.filter(item=>item.service_slugs.includes('mobile-development')).length,5);
  assert.throws(()=>model.industrySchema.parse({...industries[0],business_segments:[{name:'',solutions:''}]}));
 });
+
+test('supplied sub-services retain every business mapping',()=>{
+ assert.equal(seeds.reduce((sum,item)=>sum+item.sub_services.length,0),101);
+ assert.equal(seeds[0].sub_services.find(row=>row.name==='School and college websites').businesses,'Schools, colleges, academies, training institutes');
+ for(const seed of seeds){const parsed=model.serviceSchema.parse(seed);assert.equal(parsed.sub_services.length,seed.sub_services.length);}
+ assert.throws(()=>model.serviceSchema.parse({...seeds[0],sub_services:[{name:'',businesses:'Retail'}]}));
+});
+test('category CRUD enforces assignments and public collections hydrate reciprocal links',async()=>{
+ await repo.saveCategory({slug:'automation',name:'Automation',display_order:8},actor);
+ assert.ok((await repo.listCategories()).some(row=>row.slug==='automation'));
+ const sector=await repo.saveOffering('industries',{...model.emptyOffering('industries'),name:'Connected sector',slug:'connected-sector',tagline:'Sector',card_summary:'Connected sector',overview:'<p>Sector</p>',status:'published'},actor);
+ const service=await repo.saveOffering('services',{...seeds[0],slug:'connected-service',name:'Connected service',category:'automation',industry_ids:[sector.id],portfolio_ids:['stable-project-id'],app_ids:['stable-product-id']},actor);
+ const collection=await repo.listOfferings('services',true),industryCollection=await repo.listOfferings('industries',true);
+ assert.ok(collection.find(row=>row.id===service.id).industry_ids.includes(sector.id));
+ assert.ok(industryCollection.find(row=>row.id===sector.id).service_ids.includes(service.id));
+ assert.deepEqual(Array.from((await repo.getOffering('services',service.id)).portfolio_ids),['stable-project-id']);
+ assert.deepEqual(Array.from((await repo.getOffering('services',service.id)).app_ids),['stable-product-id']);
+ await assert.rejects(repo.deleteCategory('automation',actor),/Move services/);
+ await repo.saveCategory({slug:'automation',name:'Business Automation',display_order:2},actor);
+ assert.equal((await repo.listCategories()).find(row=>row.slug==='automation').name,'Business Automation');
+ await repo.saveOffering('services',{...service,category:'build'},actor);
+ await repo.deleteCategory('automation',actor);
+ assert.ok(!(await repo.listCategories()).some(row=>row.slug==='automation'));
+});
+test('industry content contains useful overviews, challenges, outcomes and FAQs',()=>{
+ const industries=JSON.parse(fs.readFileSync(new URL('../db/seeds/industries.json',import.meta.url),'utf8'));
+ for(const industry of industries){assert.ok(industry.overview.length>300);assert.ok(industry.challenges.length>=3);assert.ok(industry.outcomes.length>=3);assert.ok(industry.faqs.length>=3);}
+});
+
+test('home placement requires published AND featured with stable featured order and a limit',()=>{
+ const items=[{id:'draft',status:'draft',is_featured:true,featured_order:0,display_order:0},{id:'hidden',status:'published',is_featured:false,featured_order:0,display_order:0},{id:'later',status:'published',is_featured:true,featured_order:2,display_order:0},{id:'first',status:'published',is_featured:true,featured_order:1,display_order:1}];
+ assert.deepEqual(Array.from(model.featuredOfferings(items,1),row=>row.id),['first']);
+ assert.equal(model.featuredOfferings(items.slice(0,2),8).length,0);
+ assert.equal(items[2].id,'later');
+});
+
+test('industry portfolio migration fills missing links without replacing custom selections',async()=>{
+ const base={...model.emptyOffering('industries'),tagline:'A useful industry',card_summary:'Industry summary',overview:'<p>Industry overview</p>',status:'published'};
+ const automotive=await repo.saveOffering('industries',{...base,slug:'transport-automotive',name:'Automotive'},actor);
+ const property=await repo.saveOffering('industries',{...base,slug:'real-estate',name:'Property',portfolio_ids:['custom-project']},actor);
+ await pg.exec(fs.readFileSync(new URL('../db/migrations/005_industry_portfolio_links.sql',import.meta.url),'utf8'));
+ assert.deepEqual(Array.from((await repo.getOffering('industries',automotive.id)).portfolio_ids),['pak-auto-parts']);
+ assert.deepEqual(Array.from((await repo.getOffering('industries',property.id)).portfolio_ids),['custom-project']);
+});

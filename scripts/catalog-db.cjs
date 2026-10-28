@@ -1,5 +1,5 @@
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-try{process.loadEnvFile('.env.local')}catch{}
+const configuredEnv={...process.env};for(const file of ['.env','.env.local']){try{Object.assign(process.env,require('node:util').parseEnv(fs.readFileSync(file,'utf8')))}catch{}}Object.assign(process.env,configuredEnv);
 const{Pool}=require('pg');
 const ts=require('typescript'),vm=require('node:vm');const modelModule={exports:{}};vm.runInNewContext(ts.transpileModule(fs.readFileSync('lib/catalog/model.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,esModuleInterop:true}}).outputText,{module:modelModule,exports:modelModule.exports,require,URL});const{serviceSchema,industrySchema}=modelModule.exports;
 async function main(){if(!process.env.DATABASE_URL)throw Error('Configure DATABASE_URL in .env.local.');const pool=new Pool({connectionString:process.env.DATABASE_URL,connectionTimeoutMillis:15000});const client=await pool.connect();try{
