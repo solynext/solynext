@@ -8,7 +8,7 @@ const file = process.env.ADS_FILE || path.join(process.cwd(), ".data", "website-
 let pending: Promise<unknown> = Promise.resolve();
 async function read(): Promise<WebsiteAd[]> {
   let raw: string;
-  try { raw = await readFile(file, "utf8"); } catch (error) { if ((error as NodeJS.ErrnoException).code === "ENOENT") return []; throw error; }
+  try { raw = (process.env.ADS_FILE ? await readFile(/* turbopackIgnore: true */ process.env.ADS_FILE, "utf8") : await readFile(path.join(process.cwd(), ".data", "website-ads.json"), "utf8")); } catch (error) { if ((error as NodeJS.ErrnoException).code === "ENOENT") return []; throw error; }
   const data: unknown = JSON.parse(raw);
   if (!Array.isArray(data) || data.length > 100) throw new Error("Invalid ad storage.");
   return data.map(item => {
@@ -30,3 +30,4 @@ function update(transform: (items: WebsiteAd[]) => WebsiteAd[]) {
   return operation;
 }
 export const adStore = { read, update };
+

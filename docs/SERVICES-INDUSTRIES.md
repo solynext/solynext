@@ -73,3 +73,6 @@ npx tsc --noEmit
 The isolated tests run the actual PostgreSQL migration in PGlite (test dependency only), then verify seed validation, summary/slug restrictions, sanitization, CRUD, draft isolation, linked records, revisions, redirects, audit entries, delete roles and settings validation.
 
 Browser checks should cover: anonymous API denial; administrator/editor logins; draft 404 and signed preview; publishing; changing a published slug; featured ordering and limits; listing search; detail section order; solution contact prefilling and successful database persistence; linked industries/work; revalidation after settings changes; duplicate/archive/bulk actions; keyboard modal closure; mobile overflow. No Lighthouse score is claimed without running an audit against the deployed site.
+### Vercel deployment
+
+Set DATABASE_URL in Vercel Project Settings → Environment Variables for Production (and Preview if used), then redeploy. Local .env.local files are ignored and are not sent to Vercel. Use the PostgreSQL provider connection string with sslmode=verify-full; never commit credentials. Database-backed public queries wait for a request, so builds do not require a database connection. Serving those pages still requires the runtime environment variable. Run catalog:migrate and catalog:seed against the target database before serving catalog content.
