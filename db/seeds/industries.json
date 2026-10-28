@@ -1,0 +1,857 @@
+[
+  {
+    "name": "Transport & Automotive",
+    "slug": "transport-automotive",
+    "tagline": "Websites, booking platforms and operational tools for automotive businesses.",
+    "card_summary": "Websites, booking platforms and operational tools for automotive businesses.",
+    "overview": "<p>Digital services for transport & automotive, shaped around the businesses and solutions below.</p>",
+    "icon": "Truck",
+    "hero_image": null,
+    "business_segments": [
+      {
+        "name": "Taxi & ride services",
+        "solutions": "Mobile app (rider and driver), booking platform, admin dashboard, website"
+      },
+      {
+        "name": "Car dealers & showrooms",
+        "solutions": "Showroom website, inventory listing system, lead capture"
+      },
+      {
+        "name": "Car buy & sell (online)",
+        "solutions": "Vehicle marketplace, seller dashboards, inquiry management"
+      },
+      {
+        "name": "Rent-a-car",
+        "solutions": "Booking system, fleet and availability management, payments"
+      },
+      {
+        "name": "Used-car traders",
+        "solutions": "Classifieds-style listing portal, lead management"
+      },
+      {
+        "name": "Auto parts sellers",
+        "solutions": "E-commerce store, inventory management"
+      },
+      {
+        "name": "Auto workshops",
+        "solutions": "Service booking website, appointment system"
+      }
+    ],
+    "challenges": [],
+    "capabilities": [
+      "Consultation & Strategy",
+      "Graphic Design & Branding",
+      "Digital Marketing & SEO",
+      "Social Media Management",
+      "Maintenance & Support",
+      "Custom & Utility Apps"
+    ],
+    "outcomes": [],
+    "technologies": [],
+    "suggested_solutions": [
+      {
+        "name": "Taxi & ride services",
+        "description": "Mobile app (rider and driver), booking platform, admin dashboard, website",
+        "status": "build"
+      },
+      {
+        "name": "Car dealers & showrooms",
+        "description": "Showroom website, inventory listing system, lead capture",
+        "status": "build"
+      },
+      {
+        "name": "Car buy & sell (online)",
+        "description": "Vehicle marketplace, seller dashboards, inquiry management",
+        "status": "build"
+      },
+      {
+        "name": "Rent-a-car",
+        "description": "Booking system, fleet and availability management, payments",
+        "status": "build"
+      },
+      {
+        "name": "Used-car traders",
+        "description": "Classifieds-style listing portal, lead management",
+        "status": "build"
+      },
+      {
+        "name": "Auto parts sellers",
+        "description": "E-commerce store, inventory management",
+        "status": "build"
+      },
+      {
+        "name": "Auto workshops",
+        "description": "Service booking website, appointment system",
+        "status": "build"
+      }
+    ],
+    "faqs": [],
+    "cta_heading": "Let’s build for your business.",
+    "cta_text": "Tell us which business you run and the website, app or system you need.",
+    "seo_title": "Transport & Automotive Solutions | SolyNext",
+    "seo_description": "Websites, booking platforms and operational tools for automotive businesses.",
+    "og_image": null,
+    "is_featured": true,
+    "featured_order": 1,
+    "display_order": 1,
+    "status": "published",
+    "service_slugs": [
+      "web-development",
+      "ecommerce-development",
+      "software-development",
+      "mobile-development",
+      "custom-utility-apps",
+      "ui-ux-design",
+      "graphic-design-branding",
+      "digital-marketing",
+      "social-media-management",
+      "consultation-strategy",
+      "maintenance-support"
+    ],
+    "project_names": []
+  },
+  {
+    "name": "Real Estate & Property",
+    "slug": "real-estate",
+    "tagline": "Property websites, listing portals and tools for agencies, developers and investors.",
+    "card_summary": "Property websites, listing portals and tools for agencies, developers and investors.",
+    "overview": "<p>Digital services for real estate & property, shaped around the businesses and solutions below.</p>",
+    "icon": "House",
+    "hero_image": null,
+    "business_segments": [
+      {
+        "name": "Agencies & property dealers",
+        "solutions": "Agency website, listing portal, lead and inquiry system"
+      },
+      {
+        "name": "Housing societies & developers",
+        "solutions": "Project website (plots, payment plans), inquiry forms"
+      },
+      {
+        "name": "Builders & construction",
+        "solutions": "Portfolio website, project gallery, brochures"
+      },
+      {
+        "name": "Property investors",
+        "solutions": "Investment listing and deal portal"
+      },
+      {
+        "name": "Rental & property managers",
+        "solutions": "Rental listings, tenant request system"
+      },
+      {
+        "name": "Property marketplace (platform)",
+        "solutions": "Sale and rent listings, buyer request system, availability and deal tracking, agent dashboards"
+      }
+    ],
+    "challenges": [],
+    "capabilities": [
+      "Consultation & Strategy",
+      "Graphic Design & Branding",
+      "Digital Marketing & SEO",
+      "Social Media Management",
+      "Maintenance & Support",
+      "Custom & Utility Apps"
+    ],
+    "outcomes": [],
+    "technologies": [],
+    "suggested_solutions": [
+      {
+        "name": "Agencies & property dealers",
+        "description": "Agency website, listing portal, lead and inquiry system",
+        "status": "build"
+      },
+      {
+        "name": "Housing societies & developers",
+        "description": "Project website (plots, payment plans), inquiry forms",
+        "status": "build"
+      },
+      {
+        "name": "Builders & construction",
+        "description": "Portfolio website, project gallery, brochures",
+        "status": "build"
+      },
+      {
+        "name": "Property investors",
+        "description": "Investment listing and deal portal",
+        "status": "build"
+      },
+      {
+        "name": "Rental & property managers",
+        "description": "Rental listings, tenant request system",
+        "status": "build"
+      },
+      {
+        "name": "Property marketplace (platform)",
+        "description": "Sale and rent listings, buyer request system, availability and deal tracking, agent dashboards",
+        "status": "build"
+      }
+    ],
+    "faqs": [],
+    "cta_heading": "Let’s build for your business.",
+    "cta_text": "Tell us which business you run and the website, app or system you need.",
+    "seo_title": "Real Estate & Property Solutions | SolyNext",
+    "seo_description": "Property websites, listing portals and tools for agencies, developers and investors.",
+    "og_image": null,
+    "is_featured": true,
+    "featured_order": 2,
+    "display_order": 2,
+    "status": "published",
+    "service_slugs": [
+      "web-development",
+      "ecommerce-development",
+      "software-development",
+      "custom-utility-apps",
+      "ui-ux-design",
+      "graphic-design-branding",
+      "digital-marketing",
+      "social-media-management",
+      "consultation-strategy",
+      "maintenance-support"
+    ],
+    "project_names": []
+  },
+  {
+    "name": "Furniture & Interior",
+    "slug": "furniture",
+    "tagline": "Catalogs, online stores and custom-order tools for furniture and interior businesses.",
+    "card_summary": "Catalogs, online stores and custom-order tools for furniture and interior businesses.",
+    "overview": "<p>Digital services for furniture & interior, shaped around the businesses and solutions below.</p>",
+    "icon": "Sofa",
+    "hero_image": null,
+    "business_segments": [
+      {
+        "name": "Manufacturers",
+        "solutions": "Catalog website, wholesale inquiry system"
+      },
+      {
+        "name": "Showrooms & retailers",
+        "solutions": "E-commerce store, inventory and order management"
+      },
+      {
+        "name": "Home décor brands",
+        "solutions": "Branded online store, product content"
+      },
+      {
+        "name": "Carpenters & workshops",
+        "solutions": "Portfolio website, custom order and quotation form"
+      },
+      {
+        "name": "Interior designers",
+        "solutions": "Portfolio and consultation booking website"
+      },
+      {
+        "name": "Furniture marketplace (platform)",
+        "solutions": "Multi-vendor marketplace, seller dashboards"
+      }
+    ],
+    "challenges": [],
+    "capabilities": [
+      "Consultation & Strategy",
+      "Graphic Design & Branding",
+      "Digital Marketing & SEO",
+      "Social Media Management",
+      "Maintenance & Support",
+      "Custom & Utility Apps"
+    ],
+    "outcomes": [],
+    "technologies": [],
+    "suggested_solutions": [
+      {
+        "name": "Manufacturers",
+        "description": "Catalog website, wholesale inquiry system",
+        "status": "build"
+      },
+      {
+        "name": "Showrooms & retailers",
+        "description": "E-commerce store, inventory and order management",
+        "status": "build"
+      },
+      {
+        "name": "Home décor brands",
+        "description": "Branded online store, product content",
+        "status": "build"
+      },
+      {
+        "name": "Carpenters & workshops",
+        "description": "Portfolio website, custom order and quotation form",
+        "status": "build"
+      },
+      {
+        "name": "Interior designers",
+        "description": "Portfolio and consultation booking website",
+        "status": "build"
+      },
+      {
+        "name": "Furniture marketplace (platform)",
+        "description": "Multi-vendor marketplace, seller dashboards",
+        "status": "build"
+      }
+    ],
+    "faqs": [],
+    "cta_heading": "Let’s build for your business.",
+    "cta_text": "Tell us which business you run and the website, app or system you need.",
+    "seo_title": "Furniture & Interior Solutions | SolyNext",
+    "seo_description": "Catalogs, online stores and custom-order tools for furniture and interior businesses.",
+    "og_image": null,
+    "is_featured": true,
+    "featured_order": 3,
+    "display_order": 3,
+    "status": "published",
+    "service_slugs": [
+      "web-development",
+      "ecommerce-development",
+      "custom-utility-apps",
+      "ui-ux-design",
+      "graphic-design-branding",
+      "digital-marketing",
+      "social-media-management",
+      "consultation-strategy",
+      "maintenance-support"
+    ],
+    "project_names": []
+  },
+  {
+    "name": "E-Commerce & Online Retail",
+    "slug": "ecommerce",
+    "tagline": "Online stores and marketplaces for products, brands and multi-category retail.",
+    "card_summary": "Online stores and marketplaces for products, brands and multi-category retail.",
+    "overview": "<p>Digital services for e-commerce & online retail, shaped around the businesses and solutions below.</p>",
+    "icon": "ShoppingBag",
+    "hero_image": null,
+    "business_segments": [
+      {
+        "name": "Laptops & electronics",
+        "solutions": "Store with specs filters and comparison"
+      },
+      {
+        "name": "Smart devices (watches, earbuds)",
+        "solutions": "Store with product bundles"
+      },
+      {
+        "name": "Mobile accessories & gadgets",
+        "solutions": "Multi-category store"
+      },
+      {
+        "name": "Cosmetics & beauty",
+        "solutions": "Store with shade and variant selection"
+      },
+      {
+        "name": "Clothing & fashion",
+        "solutions": "Fashion storefront with sizes and variants"
+      },
+      {
+        "name": "Perfumes & fragrances",
+        "solutions": "Store with scent categories and gift sets"
+      },
+      {
+        "name": "Shoes & chappals",
+        "solutions": "Store with size and color options"
+      },
+      {
+        "name": "Multi-category marketplace",
+        "solutions": "Multi-seller platform, payments, delivery integration, mobile shopping app"
+      }
+    ],
+    "challenges": [],
+    "capabilities": [
+      "Consultation & Strategy",
+      "Graphic Design & Branding",
+      "Digital Marketing & SEO",
+      "Social Media Management",
+      "Maintenance & Support",
+      "Custom & Utility Apps"
+    ],
+    "outcomes": [],
+    "technologies": [],
+    "suggested_solutions": [
+      {
+        "name": "Laptops & electronics",
+        "description": "Store with specs filters and comparison",
+        "status": "build"
+      },
+      {
+        "name": "Smart devices (watches, earbuds)",
+        "description": "Store with product bundles",
+        "status": "build"
+      },
+      {
+        "name": "Mobile accessories & gadgets",
+        "description": "Multi-category store",
+        "status": "build"
+      },
+      {
+        "name": "Cosmetics & beauty",
+        "description": "Store with shade and variant selection",
+        "status": "build"
+      },
+      {
+        "name": "Clothing & fashion",
+        "description": "Fashion storefront with sizes and variants",
+        "status": "build"
+      },
+      {
+        "name": "Perfumes & fragrances",
+        "description": "Store with scent categories and gift sets",
+        "status": "build"
+      },
+      {
+        "name": "Shoes & chappals",
+        "description": "Store with size and color options",
+        "status": "build"
+      },
+      {
+        "name": "Multi-category marketplace",
+        "description": "Multi-seller platform, payments, delivery integration, mobile shopping app",
+        "status": "build"
+      }
+    ],
+    "faqs": [],
+    "cta_heading": "Let’s build for your business.",
+    "cta_text": "Tell us which business you run and the website, app or system you need.",
+    "seo_title": "E-Commerce & Online Retail Solutions | SolyNext",
+    "seo_description": "Online stores and marketplaces for products, brands and multi-category retail.",
+    "og_image": null,
+    "is_featured": true,
+    "featured_order": 4,
+    "display_order": 4,
+    "status": "published",
+    "service_slugs": [
+      "web-development",
+      "ecommerce-development",
+      "mobile-development",
+      "custom-utility-apps",
+      "ui-ux-design",
+      "graphic-design-branding",
+      "digital-marketing",
+      "social-media-management",
+      "consultation-strategy",
+      "maintenance-support"
+    ],
+    "project_names": []
+  },
+  {
+    "name": "Organic, Food & Wellness",
+    "slug": "organic-food-wellness",
+    "tagline": "Stores, packaging and ordering systems for food, organic and wellness brands.",
+    "card_summary": "Stores, packaging and ordering systems for food, organic and wellness brands.",
+    "overview": "<p>Digital services for organic, food & wellness, shaped around the businesses and solutions below.</p>",
+    "icon": "Leaf",
+    "hero_image": null,
+    "business_segments": [
+      {
+        "name": "Dry fruits & nuts",
+        "solutions": "Online store with weight options"
+      },
+      {
+        "name": "Honey",
+        "solutions": "Branded store with trust and certification section"
+      },
+      {
+        "name": "Herbal products & shilajit",
+        "solutions": "Store plus educational content"
+      },
+      {
+        "name": "Pink salt, spices & oils",
+        "solutions": "Brand website plus e-store"
+      },
+      {
+        "name": "Wellness & supplements",
+        "solutions": "Store with subscriptions and repeat orders"
+      },
+      {
+        "name": "Home food businesses",
+        "solutions": "Menu website, order system"
+      }
+    ],
+    "challenges": [],
+    "capabilities": [
+      "Consultation & Strategy",
+      "Graphic Design & Branding",
+      "Digital Marketing & SEO",
+      "Social Media Management",
+      "Maintenance & Support",
+      "Custom & Utility Apps",
+      "Packaging and label design, order and delivery tracking"
+    ],
+    "outcomes": [],
+    "technologies": [],
+    "suggested_solutions": [
+      {
+        "name": "Dry fruits & nuts",
+        "description": "Online store with weight options",
+        "status": "build"
+      },
+      {
+        "name": "Honey",
+        "description": "Branded store with trust and certification section",
+        "status": "build"
+      },
+      {
+        "name": "Herbal products & shilajit",
+        "description": "Store plus educational content",
+        "status": "build"
+      },
+      {
+        "name": "Pink salt, spices & oils",
+        "description": "Brand website plus e-store",
+        "status": "build"
+      },
+      {
+        "name": "Wellness & supplements",
+        "description": "Store with subscriptions and repeat orders",
+        "status": "build"
+      },
+      {
+        "name": "Home food businesses",
+        "description": "Menu website, order system",
+        "status": "build"
+      }
+    ],
+    "faqs": [],
+    "cta_heading": "Let’s build for your business.",
+    "cta_text": "Tell us which business you run and the website, app or system you need.",
+    "seo_title": "Organic, Food & Wellness Solutions | SolyNext",
+    "seo_description": "Stores, packaging and ordering systems for food, organic and wellness brands.",
+    "og_image": null,
+    "is_featured": true,
+    "featured_order": 5,
+    "display_order": 5,
+    "status": "published",
+    "service_slugs": [
+      "web-development",
+      "ecommerce-development",
+      "custom-utility-apps",
+      "ui-ux-design",
+      "graphic-design-branding",
+      "digital-marketing",
+      "social-media-management",
+      "consultation-strategy",
+      "maintenance-support"
+    ],
+    "project_names": []
+  },
+  {
+    "name": "Travel, Tourism & Hospitality",
+    "slug": "travel-tourism",
+    "tagline": "Booking websites, travel platforms and inquiry systems for travel and hospitality.",
+    "card_summary": "Booking websites, travel platforms and inquiry systems for travel and hospitality.",
+    "overview": "<p>Digital services for travel, tourism & hospitality, shaped around the businesses and solutions below.</p>",
+    "icon": "Plane",
+    "hero_image": null,
+    "business_segments": [
+      {
+        "name": "Umrah & Hajj agencies",
+        "solutions": "Package website, inquiry and booking system"
+      },
+      {
+        "name": "Study abroad consultants",
+        "solutions": "Country and university pages, lead form"
+      },
+      {
+        "name": "Work visa agencies (Gulf)",
+        "solutions": "Job and visa inquiry website, application tracking"
+      },
+      {
+        "name": "Tour operators & travel agencies",
+        "solutions": "Tour booking website, package platform"
+      },
+      {
+        "name": "Tourism companies (Pakistan and international)",
+        "solutions": "Destination marketing website, social media content"
+      },
+      {
+        "name": "Hotels & guest houses (northern areas)",
+        "solutions": "Hotel website, room booking system"
+      },
+      {
+        "name": "Travel platform (all-in-one)",
+        "solutions": "Mobile app for transport, hotel and location booking; travel marketplace"
+      }
+    ],
+    "challenges": [],
+    "capabilities": [
+      "Consultation & Strategy",
+      "Graphic Design & Branding",
+      "Digital Marketing & SEO",
+      "Social Media Management",
+      "Maintenance & Support",
+      "Custom & Utility Apps"
+    ],
+    "outcomes": [],
+    "technologies": [],
+    "suggested_solutions": [
+      {
+        "name": "Umrah & Hajj agencies",
+        "description": "Package website, inquiry and booking system",
+        "status": "build"
+      },
+      {
+        "name": "Study abroad consultants",
+        "description": "Country and university pages, lead form",
+        "status": "build"
+      },
+      {
+        "name": "Work visa agencies (Gulf)",
+        "description": "Job and visa inquiry website, application tracking",
+        "status": "build"
+      },
+      {
+        "name": "Tour operators & travel agencies",
+        "description": "Tour booking website, package platform",
+        "status": "build"
+      },
+      {
+        "name": "Tourism companies (Pakistan and international)",
+        "description": "Destination marketing website, social media content",
+        "status": "build"
+      },
+      {
+        "name": "Hotels & guest houses (northern areas)",
+        "description": "Hotel website, room booking system",
+        "status": "build"
+      },
+      {
+        "name": "Travel platform (all-in-one)",
+        "description": "Mobile app for transport, hotel and location booking; travel marketplace",
+        "status": "build"
+      }
+    ],
+    "faqs": [],
+    "cta_heading": "Let’s build for your business.",
+    "cta_text": "Tell us which business you run and the website, app or system you need.",
+    "seo_title": "Travel, Tourism & Hospitality Solutions | SolyNext",
+    "seo_description": "Booking websites, travel platforms and inquiry systems for travel and hospitality.",
+    "og_image": null,
+    "is_featured": true,
+    "featured_order": 6,
+    "display_order": 6,
+    "status": "published",
+    "service_slugs": [
+      "web-development",
+      "ecommerce-development",
+      "software-development",
+      "mobile-development",
+      "custom-utility-apps",
+      "ui-ux-design",
+      "graphic-design-branding",
+      "digital-marketing",
+      "social-media-management",
+      "consultation-strategy",
+      "maintenance-support"
+    ],
+    "project_names": []
+  },
+  {
+    "name": "Education",
+    "slug": "education",
+    "tagline": "Websites, learning platforms and management systems for education providers.",
+    "card_summary": "Websites, learning platforms and management systems for education providers.",
+    "overview": "<p>Digital services for education, shaped around the businesses and solutions below.</p>",
+    "icon": "GraduationCap",
+    "hero_image": null,
+    "business_segments": [
+      {
+        "name": "Schools",
+        "solutions": "School management system, website, parent portal"
+      },
+      {
+        "name": "Colleges & universities",
+        "solutions": "Website, admission portal"
+      },
+      {
+        "name": "Academies & coaching centers",
+        "solutions": "Website, online classes"
+      },
+      {
+        "name": "Online course providers",
+        "solutions": "LMS, payment system"
+      },
+      {
+        "name": "Training institutes",
+        "solutions": "Course website, enrollment system"
+      },
+      {
+        "name": "Tutors & education startups",
+        "solutions": "Booking and online class platform"
+      }
+    ],
+    "challenges": [],
+    "capabilities": [
+      "Consultation & Strategy",
+      "Graphic Design & Branding",
+      "Digital Marketing & SEO",
+      "Social Media Management",
+      "Maintenance & Support",
+      "Custom & Utility Apps",
+      "Online exam system, admissions marketing campaigns"
+    ],
+    "outcomes": [],
+    "technologies": [],
+    "suggested_solutions": [
+      {
+        "name": "Schools",
+        "description": "School management system, website, parent portal",
+        "status": "build"
+      },
+      {
+        "name": "Colleges & universities",
+        "description": "Website, admission portal",
+        "status": "build"
+      },
+      {
+        "name": "Academies & coaching centers",
+        "description": "Website, online classes",
+        "status": "build"
+      },
+      {
+        "name": "Online course providers",
+        "description": "LMS, payment system",
+        "status": "build"
+      },
+      {
+        "name": "Training institutes",
+        "description": "Course website, enrollment system",
+        "status": "build"
+      },
+      {
+        "name": "Tutors & education startups",
+        "description": "Booking and online class platform",
+        "status": "build"
+      }
+    ],
+    "faqs": [],
+    "cta_heading": "Let’s build for your business.",
+    "cta_text": "Tell us which business you run and the website, app or system you need.",
+    "seo_title": "Education Solutions | SolyNext",
+    "seo_description": "Websites, learning platforms and management systems for education providers.",
+    "og_image": null,
+    "is_featured": true,
+    "featured_order": 7,
+    "display_order": 7,
+    "status": "published",
+    "service_slugs": [
+      "web-development",
+      "software-development",
+      "mobile-development",
+      "custom-utility-apps",
+      "ui-ux-design",
+      "graphic-design-branding",
+      "digital-marketing",
+      "social-media-management",
+      "consultation-strategy",
+      "maintenance-support"
+    ],
+    "project_names": []
+  },
+  {
+    "name": "Retail & Trading",
+    "slug": "retail-trading",
+    "tagline": "Point-of-sale, stock, order and delivery systems for retailers and traders.",
+    "card_summary": "Point-of-sale, stock, order and delivery systems for retailers and traders.",
+    "overview": "<p>Digital services for retail & trading, shaped around the businesses and solutions below.</p>",
+    "icon": "Store",
+    "hero_image": null,
+    "business_segments": [
+      {
+        "name": "Grocery & mart stores",
+        "solutions": "POS app plus online ordering"
+      },
+      {
+        "name": "Wholesale & retail traders",
+        "solutions": "Stock and order management workspace"
+      },
+      {
+        "name": "Clothing & general stores",
+        "solutions": "POS plus online store"
+      },
+      {
+        "name": "Electronics shops",
+        "solutions": "POS plus warranty and inventory tracking"
+      },
+      {
+        "name": "Pharmacies & medical stores",
+        "solutions": "Pharmacy POS (stock, expiry, billing)"
+      },
+      {
+        "name": "Restaurants & cafés",
+        "solutions": "Restaurant POS plus menu website"
+      },
+      {
+        "name": "Distributors",
+        "solutions": "Order and delivery management"
+      }
+    ],
+    "challenges": [],
+    "capabilities": [
+      "Consultation & Strategy",
+      "Graphic Design & Branding",
+      "Digital Marketing & SEO",
+      "Social Media Management",
+      "Maintenance & Support",
+      "Custom & Utility Apps"
+    ],
+    "outcomes": [],
+    "technologies": [],
+    "suggested_solutions": [
+      {
+        "name": "Grocery & mart stores",
+        "description": "POS app plus online ordering",
+        "status": "build"
+      },
+      {
+        "name": "Wholesale & retail traders",
+        "description": "Stock and order management workspace",
+        "status": "build"
+      },
+      {
+        "name": "Clothing & general stores",
+        "description": "POS plus online store",
+        "status": "build"
+      },
+      {
+        "name": "Electronics shops",
+        "description": "POS plus warranty and inventory tracking",
+        "status": "build"
+      },
+      {
+        "name": "Pharmacies & medical stores",
+        "description": "Pharmacy POS (stock, expiry, billing)",
+        "status": "build"
+      },
+      {
+        "name": "Restaurants & cafés",
+        "description": "Restaurant POS plus menu website",
+        "status": "build"
+      },
+      {
+        "name": "Distributors",
+        "description": "Order and delivery management",
+        "status": "build"
+      }
+    ],
+    "faqs": [],
+    "cta_heading": "Let’s build for your business.",
+    "cta_text": "Tell us which business you run and the website, app or system you need.",
+    "seo_title": "Retail & Trading Solutions | SolyNext",
+    "seo_description": "Point-of-sale, stock, order and delivery systems for retailers and traders.",
+    "og_image": null,
+    "is_featured": true,
+    "featured_order": 8,
+    "display_order": 8,
+    "status": "published",
+    "service_slugs": [
+      "web-development",
+      "software-development",
+      "mobile-development",
+      "custom-utility-apps",
+      "ui-ux-design",
+      "graphic-design-branding",
+      "digital-marketing",
+      "social-media-management",
+      "consultation-strategy",
+      "maintenance-support"
+    ],
+    "project_names": []
+  }
+]

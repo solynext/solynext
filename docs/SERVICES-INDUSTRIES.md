@@ -76,3 +76,11 @@ Browser checks should cover: anonymous API denial; administrator/editor logins; 
 ### Vercel deployment
 
 Set DATABASE_URL in Vercel Project Settings → Environment Variables for Production (and Preview if used), then redeploy. Local .env.local files are ignored and are not sent to Vercel. Use the PostgreSQL provider connection string with sslmode=verify-full; never commit credentials. Database-backed public queries wait for a request, so builds do not require a database connection. Serving those pages still requires the runtime environment variable. Run catalog:migrate and catalog:seed against the target database before serving catalog content.
+
+## Supplied industry structure
+
+The industry seed now contains the eight supplied main categories and 53 business sub-categories. Migration `002_industry_business_segments.sql` stores each sub-category and its specific solutions together in `industries.business_segments`. The admin industry's **Businesses we serve** tab supports editing, adding, removing and reordering these rows. Shared services and the three shared-solution rows are retained under capabilities. Service links follow the supplied service-to-industry map.
+
+All eight initial industry records are published and featured. Homepage order is Hero → Services → Industries; the saved industry home-section limit is eight. The `/solutions` listing and `/solutions/[slug]` detail pages read the same PostgreSQL content as admin. Publishing and settings changes invalidate the shared caches. Re-running the seed preserves subsequent admin edits.
+
+For an existing deployment, apply `npm run catalog:migrate` before deploying this code. `npm run catalog:seed` imports missing industry records and links without overwriting existing edits.
