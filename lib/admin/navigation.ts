@@ -7,6 +7,8 @@ export const adminNavigation = [
   { label: "Projects", href: "/admin/projects", icon: FolderKanban },
   { label: "Clients", href: "/admin/clients", icon: Building2 },
   { label: "Team", href: "/admin/team", icon: Users },
+  { label: "Our Services", href: "/admin/services", icon: Layers3 },
+  { label: "Industries We Serve", href: "/admin/industries", icon: Building2 },
   { label: "Website", href: "/admin/content", icon: PanelsTopLeft },
   { label: "Apps", href: "/admin/apps", icon: AppWindow },
   { label: "Notifications", href: "/admin/notifications", icon: Bell },
@@ -14,6 +16,18 @@ export const adminNavigation = [
 ];
 
 export const adminPageNavigation = [
+  { label: "Service management", parent: "/admin/services", items: [
+    { label: "All services", href: "/admin/services", icon: Layers3 },
+    { label: "Homepage section", href: "/admin/services/settings/home-section", icon: LayoutDashboard },
+    { label: "Services page", href: "/admin/services/settings/listing-page", icon: PanelsTopLeft },
+    { label: "Related work", href: "/admin/services/work", icon: FolderKanban },
+    { label: "Project inquiries", href: "/admin/services/inquiries", icon: Inbox },
+  ] },
+  { label: "Industry management", parent: "/admin/industries", items: [
+    { label: "All industries", href: "/admin/industries", icon: Building2 },
+    { label: "Homepage section", href: "/admin/industries/settings/home-section", icon: LayoutDashboard },
+    { label: "Industries page", href: "/admin/industries/settings/listing-page", icon: PanelsTopLeft },
+  ] },
   { label: "Project management", parent: "/admin/projects", items: [
     { label: "Projects", href: "/admin/projects", icon: FolderKanban },
     { label: "Tasks", href: "/admin/tasks", icon: ListTodo },
@@ -25,8 +39,6 @@ export const adminPageNavigation = [
   ] },
   { label: "Website management", parent: "/admin/content", items: [
     { label: "Content & insights", href: "/admin/content", icon: PanelsTopLeft },
-    { label: "Services", href: "/admin/services", icon: Layers3 },
-    { label: "Industries", href: "/admin/industries", icon: Building2 },
     { label: "Public portfolio", href: "/admin/portfolio", icon: FolderKanban },
     { label: "Reviews", href: "/admin/reviews", icon: Star },
     { label: "Media", href: "/admin/media", icon: Image },
@@ -56,3 +68,5 @@ export function isAdminRouteActive(pathname: string, href: string) {
 export function getAdminPageNavigation(pathname: string) {
   return adminPageNavigation.find(group => group.items.some(item => isAdminRouteActive(pathname, item.href)));
 }
+
+

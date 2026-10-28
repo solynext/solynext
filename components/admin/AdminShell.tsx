@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Bell, ChevronDown, ChevronRight, Menu, X, LogOut, UserRound, Settings, CircleCheck, ShieldCheck, ArrowUpRight, Trash2, Activity, Globe } from "lucide-react";
-import { adminNavigation, adminSearchNavigation, getAdminPageNavigation, isAdminRouteActive } from "@/lib/admin/navigation";
+import { adminNavigation, adminSearchNavigation, getAdminPageNavigation } from "@/lib/admin/navigation";
 import { useAdmin } from "./AdminProvider";
 import { AdminDialog } from "./AdminDialog";
 import { AdminSearchInput } from "./AdminControls";
@@ -24,8 +24,8 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
   const [logoutOpen, setLogoutOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const visibleNavigation = session.user.catalogOnly ? allLinks.filter(link => ["/admin/services","/admin/industries"].includes(link.href)) : adminNavigation;
-  const searchLinks = allLinks.filter(link => (!session.user.catalogOnly || ["/admin/services","/admin/industries"].includes(link.href)) && `${link.label} ${link.keywords} ${link.href.replaceAll("-", " ")}`.toLowerCase().includes(search.trim().toLowerCase()));
+  const visibleNavigation = session.user.catalogOnly ? adminNavigation.filter(link => ["/admin/services","/admin/industries"].includes(link.href)) : adminNavigation;
+  const searchLinks = allLinks.filter(link => (!session.user.catalogOnly || /^\/admin\/(services|industries)(\/|$)/.test(link.href)) && `${link.label} ${link.keywords} ${link.href.replaceAll("-", " ")}`.toLowerCase().includes(search.trim().toLowerCase()));
   const unread = events.filter(item => !item.read).length;
   const initials = session.user.name.trim().split(/\s+/).slice(0, 2).map(part => part[0]).join("").toUpperCase() || "A";
   const mobileDialog = useRef<HTMLDialogElement>(null);
@@ -33,7 +33,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
   const currentLink = allLinks.find(link => link.href === pathname || (link.href !== "/admin" && pathname.startsWith(link.href + "/")));
   const pageNavigation = getAdminPageNavigation(pathname);
   const mainHref = session.user.catalogOnly ? (pathname.startsWith("/admin/industries") ? "/admin/industries" : "/admin/services") : pageNavigation?.parent ?? currentLink?.href;
-  const title = pageNavigation?.items.find(item => isAdminRouteActive(pathname, item.href))?.label ?? currentLink?.label ?? "Workspace";
+  const title = pageNavigation?.items.find(item => pathname === item.href)?.label ?? currentLink?.label ?? "Workspace";
   const isDetail = Boolean(currentLink && pathname !== currentLink.href);
   const newInquiries = collections.inquiries.filter(i => i.status === "New").length;
   useEffect(() => {
@@ -88,7 +88,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
           </div>}
         </div>
       </div></header>
-      <main id="admin-main" className={styles.main}>{pageNavigation && <nav className={styles.pageNavigation} aria-label={pageNavigation.label}>{pageNavigation.items.filter(link=>!session.user.catalogOnly || ["/admin/services","/admin/industries"].includes(link.href)).map(({ label, href, icon: Icon }) => <Link key={href} href={href} className={isAdminRouteActive(pathname, href) ? styles.pageNavActive : ""} aria-current={isAdminRouteActive(pathname, href) ? "page" : undefined}><Icon size={16}/>{label}</Link>)}</nav>}{children}<footer className={styles.workspaceFooter}><span>SolyNext workspace</span><span>Session preview · Backend not connected</span></footer></main>
+      <main id="admin-main" className={styles.main}>{pageNavigation && <nav className={styles.pageNavigation} aria-label={pageNavigation.label}>{pageNavigation.items.filter(link=>!session.user.catalogOnly || /^\/admin\/(services|industries)(\/|$)/.test(link.href)).map(({ label, href, icon: Icon }) => <Link key={href} href={href} className={pathname === href ? styles.pageNavActive : ""} aria-current={pathname === href ? "page" : undefined}><Icon size={16}/>{label}</Link>)}</nav>}{children}<footer className={styles.workspaceFooter}><span>SolyNext workspace</span><span>{/^\/admin\/(services|industries)(\/|$)/.test(pathname) ? "Database content · Published changes sync to the website" : "Company administration"}</span></footer></main>
     </div>
     {toast && <div className={styles.toast} role="status"><CircleCheck size={19}/>{toast}</div>}
     {logoutOpen && <AdminLogoutDialog onClose={() => setLogoutOpen(false)}/>}
@@ -96,3 +96,4 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
     {notifications && <AdminDialog title="Notifications" description={`${unread} unread updates · Stay on top of your workspace.`} onClose={() => setNotifications(false)}><div className={styles.notificationList}><div className={styles.notificationActions} role="group" aria-label="Notification actions"><button className={styles.textButton} disabled={!unread} onClick={() => markRead()}>Read all</button><button className={styles.textButton} disabled={!events.length} onClick={removeAllNotifications}>Remove all</button></div>{events.slice(0,5).map(item => <div className={`${styles.notificationEntry} ${!item.read ? styles.unreadNotification : ""}`} key={item.id}><Link href={item.href ?? "/admin/activity"} onClick={() => { markRead(item.id); setNotifications(false); }}><span className={styles.notificationIcon}><Bell size={20}/></span><div><strong>{item.title}</strong><p>{item.detail}</p><small>{item.time}{!item.read ? " · Unread" : ""}</small></div></Link><button className={styles.iconButton} aria-label={`Delete notification: ${item.title}`} title="Delete notification" onClick={() => deleteNotification(item.id)}><Trash2 size={17}/></button></div>)}{!events.length && <div className={styles.emptyState}><Bell size={30}/><h2>No notifications</h2><p>New workspace updates will appear here.</p></div>}<div className={styles.formActions}><Link href="/admin/notifications" onClick={() => setNotifications(false)}>View notification center →</Link></div></div></AdminDialog>}
   </div>;
 }
+
