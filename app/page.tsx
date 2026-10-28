@@ -12,12 +12,12 @@ import { getPublicProjects } from "@/lib/portfolio/repository";
 import { getPublicClients } from "@/lib/clients/repository";
 import { ArrowUpRight, Globe2, GitBranch, ShieldCheck } from "lucide-react";
 
-import { IndustriesSection } from "@/components/home/IndustriesSection";
+import { HomeServices, HomeIndustries } from "@/components/catalog/HomeSections";
 import { EngagementSection } from "@/components/home/EngagementSection";
 import { DeliverablesSection } from "@/components/home/DeliverablesSection";
 import { InsightsSection } from "@/components/home/InsightsSection";
 import { PartnershipSection } from "@/components/home/PartnershipSection";
-import { GrowthHero, GrowthServices } from "@/components/home/GrowthHero";
+import { GrowthHero } from "@/components/home/GrowthHero";
 
 const steps = [
   ["Discover", "Understand your users, goals, and the problem worth solving."],
@@ -34,8 +34,8 @@ export default async function HomePage() {
   const reviews = projects.flatMap(project => project.testimonial ? [{ id: project.id, ...project.testimonial, project: project.title, slug: project.slug }] : []);
   return <main id="main-content" className={`premium-home ${styles.home}`}>
     <GrowthHero />
-    <GrowthServices />
-    <IndustriesSection />
+    <HomeServices />
+    <HomeIndustries />
 
     <ClientTicker clients={clients} />
 
@@ -60,5 +60,6 @@ export default async function HomePage() {
     <ProjectCTA/>
   </main>;
 }
+
 
 
