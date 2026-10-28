@@ -77,7 +77,7 @@ export function TechSolutionsChatbot() {
     if (open && transcript.current) transcript.current.scrollTop = transcript.current.scrollHeight;
   }, [open, messages, pending, error]);
 
-  const minimize = () => { setOpen(false); launcher.current?.focus({ preventScroll: true }); };
+  const minimize = () => { setOpen(false); requestAnimationFrame(() => launcher.current?.focus({ preventScroll: true })); };
   const clear = () => {
     request.current?.abort(); request.current = null; failedRequest.current = null;
     setMessages([{ id: "welcome", role: "assistant", text: welcomeMessage }]);
@@ -142,3 +142,4 @@ export function TechSolutionsChatbot() {
     <button ref={launcher} type="button" className={styles.launcher} aria-label={open ? "Minimize SolyNext chat" : "Open SolyNext chat"} aria-expanded={open} aria-controls="solynext-chat" aria-haspopup="dialog" onClick={() => open ? minimize() : setOpen(true)}>{open ? <X size={23}/> : <MessageCircle size={25}/>}</button>
   </aside>;
 }
+

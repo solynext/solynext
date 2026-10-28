@@ -189,3 +189,21 @@
 .card[data-service-tone="purple"] .icon{background:#f5f3ff;color:#9650ff}
 .card[data-service-tone="teal"] .icon{background:#edfdf9;color:#00bea7}
 .card[data-service-tone="pink"] .icon{background:#fff1f5;color:#ff397d}
+/* Bring the hero copy closer to the header. */
+@media(min-width:701px){.hero{align-items:flex-start}.hero .copy{padding-top:24px}}
+@media(max-width:700px){.hero .copy{padding-top:18px}}
+
+/* Add breathing room around the hero description. */
+.hero .description{margin-top:32px;margin-bottom:40px}
+@media(max-width:700px){.hero .description{margin-top:26px;margin-bottom:32px}}
+.hero .description{margin-bottom:56px}
+@media(max-width:700px){.hero .description{margin-bottom:44px}}
+
+
+
+
+/* Refined service label above the hero headline. */
+.hero .copy>.eyebrow{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:9px 15px;border:1px solid #cce0f5;border-radius:999px;background:#f3f9ffeb;color:#346897;font-size:11px;font-weight:600;letter-spacing:.1em;line-height:1.5;margin-bottom:24px;white-space:nowrap}
+.hero .copy>.eyebrow::before{content:"";width:6px;height:6px;flex-shrink:0;border-radius:50%;background:#2684df}
+@media(max-width:700px){.hero .copy>.eyebrow{font-size:clamp(7px,1.9vw,10px);padding:8px 12px;gap:7px;letter-spacing:.06em;margin-bottom:22px}}
+

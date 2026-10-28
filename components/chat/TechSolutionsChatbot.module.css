@@ -54,3 +54,17 @@
 .user .bubble{background:linear-gradient(125deg,#bad8ff 0%,#d4c1ff 52%,#f7bad6 100%);border-color:#d8dff1;color:#253b58;box-shadow:0 3px 12px #243d5a08}
 /* Center-cropped 1:1 assistant portrait. */
 .avatarPhoto{display:block;width:100%;height:100%;aspect-ratio:1;object-fit:cover;object-position:center}
+/* Taller assistant window on desktop, capped to the available viewport. */
+@media(min-width:1024px){.panel{height:660px}}
+
+/* The open conversation replaces its launcher and uses the freed space. */
+.open + .launcher{display:none}
+@media(min-width:641px){.panel{bottom:0;max-height:calc(var(--chat-viewport-height,100dvh) - 44px)}}
+@media(min-width:1024px){.panel{height:760px}}
+
+/* A subtle, thin border while composing a message. */
+
+.composer input:focus,.composer input:focus-visible{border:1px solid #c5d5e9!important;outline:none!important;outline-offset:0!important;box-shadow:none!important}
+
+
+.composer input{border:1px solid #c5d5e9!important}

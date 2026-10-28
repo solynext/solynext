@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Globe2, Mail, MapPin, Shield } from "lucide-react";
+import { ArrowUpRight, Globe2, Mail, MapPin, Shield, Building2, Layers3, BriefcaseBusiness, ListChecks, BadgeDollarSign, BookOpen, Users, Code2, Palette, Megaphone, MessagesSquare, Scale } from "lucide-react";
 import styles from "./Footer.module.css";
 import { BrandLogo } from "@/components/ui/BrandLogo";
 import { BrandWordmark } from "@/components/ui/BrandWordmark";
 
 const companyLinks = [
-  { label: "About SolyNext", href: "/about" },
-  { label: "Solutions", href: "/solutions" },
-  { label: "Case studies", href: "/portfolio" },
-  { label: "Our process", href: "/process" },
-  { label: "Pricing & models", href: "/pricing" },
-  { label: "Digital insights", href: "/blog" },
-  { label: "Careers", href: "/careers" },
+  { label: "About SolyNext", icon: Building2, href: "/about" },
+  { label: "Solutions", icon: Layers3, href: "/solutions" },
+  { label: "Case studies", icon: BriefcaseBusiness, href: "/portfolio" },
+  { label: "Our process", icon: ListChecks, href: "/process" },
+  { label: "Pricing & models", icon: BadgeDollarSign, href: "/pricing" },
+  { label: "Digital insights", icon: BookOpen, href: "/blog" },
+  { label: "Careers", icon: Users, href: "/careers" },
 ];
 
 export function Footer() {
@@ -58,11 +58,11 @@ export function Footer() {
           </div>
 
           <nav aria-label="Services">
-            <h2 className={styles.heading}>Services</h2>
+            <h2 className={styles.heading}><Layers3 size={17} aria-hidden="true"/>Services</h2>
             <ul className={styles.links}>
               {serviceLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link href={link.href}>{/design|brand/i.test(link.label)?<Palette size={16} aria-hidden="true"/>:/marketing/i.test(link.label)?<Megaphone size={16} aria-hidden="true"/>:/social/i.test(link.label)?<MessagesSquare size={16} aria-hidden="true"/>:<Code2 size={16} aria-hidden="true"/>}<span>{link.label}</span></Link>
                 </li>
               ))}
               <li>
@@ -74,18 +74,18 @@ export function Footer() {
           </nav>
 
           <nav aria-label="Company">
-            <h2 className={styles.heading}>Company</h2>
+            <h2 className={styles.heading}><Building2 size={17} aria-hidden="true"/>Company</h2>
             <ul className={styles.links}>
               {companyLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link href={link.href}><link.icon size={16} aria-hidden="true"/><span>{link.label}</span></Link>
                 </li>
               ))}
             </ul>
           </nav>
 
           <div className={styles.contact}>
-            <h2 className={styles.heading}>Get in touch</h2>
+            <h2 className={styles.heading}><MessagesSquare size={17} aria-hidden="true"/>Get in touch</h2>
             <p className="mb-4 max-w-xs text-xs leading-relaxed text-slate-400">
               Tell us what you are planning. Our team can help you work through scope, approach, and next steps.
             </p>
@@ -105,12 +105,13 @@ export function Footer() {
         <div className={styles.bottom}>
           <p>© {currentYear} SolyNext Technologies. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <Link href="/privacy-policy">Privacy Policy</Link>
-            <Link href="/terms">Terms of Service</Link>
-            <Link href="/technologies">Technology stack</Link>
+            <Link href="/privacy-policy"><Shield size={14} aria-hidden="true"/>Privacy Policy</Link>
+            <Link href="/terms"><Scale size={14} aria-hidden="true"/>Terms of Service</Link>
+            <Link href="/technologies"><Code2 size={14} aria-hidden="true"/>Technology stack</Link>
           </div>
         </div>
       </div>
     </footer>
   );
 }
+
