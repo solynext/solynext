@@ -23,13 +23,6 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <div className={styles.intro} aria-labelledby="footer-next-heading">
-          <div>
-            <span className={styles.eyebrow}>YOUR NEXT CHAPTER</span>
-            <h2 id="footer-next-heading">Build your brand.<br /><span>Grow your business.</span></h2>
-          </div>
-          <div className={styles.introAction}><p>A fresh perspective. A clear path forward.</p><Link href="/contact" className={styles.cta}>Let’s build together<span className={styles.ctaIcon}> <ArrowUpRight size={20} aria-hidden="true" /></span></Link></div>
-        </div>
         <div className={styles.grid}>
           <div className="space-y-4">
             <Link

@@ -44,6 +44,74 @@
 @media(max-width:700px){.listHero{padding-top:36px}.listHero h1{font-size:38px}.homeServicesGrid,.homeIndustryGrid{grid-template-columns:1fr}.homeIndustryGrid>.industryCard:nth-child(odd){border-right:0}.homeIndustryGrid>.industryCard{padding:26px 0;min-height:0}.homeIndustrySection{padding-top:40px;padding-bottom:40px}.detailHero{grid-template-columns:1fr;padding-top:32px;gap:24px}.detailHero h1{font-size:38px}.heroAside{padding:24px;gap:15px}.heroAside>strong{font-size:24px}.detailNav{top:65px;margin-left:-6px;margin-right:-6px}.detailNav a{padding:8px 12px;font-size:11px}.businessSegments article{padding:24px 0 24px 32px}.businessSegments article:nth-child(odd){border-right:0}.businessSegments article:nth-child(even) .itemNumber{left:0}.businessSegments .itemNumber{top:28px}.finalCta{padding:28px}.catalogCount{padding-left:0;border:0}.serviceCard h3{font-size:23px}}
 @media(prefers-reduced-motion:reduce){.serviceCard,.industryCard{transition:none}.serviceCard:hover{transform:none}}
 
+/* Home services reference layout */
+.homeServicesSection{background:linear-gradient(180deg,#f5f8fd 0%,#f8faff 100%);color:#0b1220}
+.homeServicesSection :global(.premium-container){width:min(1440px,calc(100% - 9.8%));max-width:none}
+.homeServicesHeading{display:flex!important;flex-direction:column;align-items:center!important;gap:0;margin:0 auto 26px!important;text-align:center}
+.homeServicesHeading :global(.eyebrow){margin:0 0 13px;color:#075ef5;font-size:12px;font-weight:750;letter-spacing:.2em}
+.homeServicesHeading h2{margin:0;color:#090f1d;font-size:clamp(38px,4.2vw,60px)!important;font-weight:750;line-height:1.02;letter-spacing:-.055em}
+.homeServicesHeading h2 span{color:#075ef5}
+.homeServicesIntro{margin:14px 0 0!important;color:#627089!important;font-size:clamp(16px,1.45vw,21px)!important;line-height:1.5!important}
+.desktopBreak{display:block}
+.homeServicesGrid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px}
+.homeServiceCard{display:flex;min-width:0;min-height:385px;flex-direction:column;align-items:stretch;padding:28px 30px 25px;border:1px solid #d8e2f0;border-radius:20px;background:#ffffffed;box-shadow:0 8px 24px #1b3d6b08;transition:border-color .2s,box-shadow .2s,transform .2s}
+.homeServiceCard:hover{border-color:#a9c4eb;box-shadow:0 14px 32px #1b3d6b12;transform:translateY(-3px)}
+.homeServicePhase{align-self:flex-start;margin-bottom:23px;padding:8px 17px;border-radius:999px;background:#075ef5;color:#fff;font-size:13px;font-weight:750;letter-spacing:.08em}
+.homeServiceCard h3{max-width:17ch;margin:0 0 14px;color:#090f1d;font-size:clamp(24px,2.15vw,32px);font-weight:720;line-height:1.12;letter-spacing:-.045em}
+.homeServiceCard>p{min-height:52px;margin:0 0 20px;color:#627089;font-size:clamp(15px,1.25vw,18px);line-height:1.5}
+.homeServiceCard ul{display:grid;gap:0;margin:auto 0 0;padding:17px 0 0;border-top:1px solid #e4eaf3;list-style:none}
+.homeServiceCard li+li{border-top:1px solid #edf1f7}
+.homeServiceCard li a{display:flex;min-height:50px;align-items:center;justify-content:space-between;gap:8px;color:#101827;text-decoration:none;font-size:clamp(13px,1.05vw,15px);font-weight:550;line-height:1.3}
+.homeServiceCard li a:hover{color:#075ef5}
+.homeServiceCard li a span{display:grid;width:34px;height:34px;flex:none;place-items:center;border:1px solid #a9c4eb;border-radius:50%;color:#075ef5;transition:background .2s,color .2s}
+.homeServiceCard li a:hover span{background:#075ef5;color:white}
+.homeServicesCta{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-top:22px;padding:18px 22px 18px 30px;border:1px solid #d8e2f0;border-radius:18px;background:#fff}
+.homeServicesCtaCopy h3{margin:0 0 3px;color:#090f1d;font-size:clamp(20px,1.8vw,26px);line-height:1.25;font-weight:700;letter-spacing:-.035em}
+.homeServicesCtaCopy p{margin:0;color:#627089;font-size:16px;line-height:1.45}
+.homeServicesButton{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:54px;flex:none;padding:0 24px;border-radius:11px;background:#075ef5;color:#fff;text-decoration:none;font-size:16px;font-weight:650;transition:background .2s,transform .2s}
+.homeServicesButton:hover{background:#004dcc;transform:translateY(-1px)}
+@media(max-width:1000px){.homeServicesHeading{grid-template-columns:minmax(0,1.1fr) minmax(250px,.9fr);gap:30px}.homeServicesHeading h2{font-size:clamp(36px,5vw,52px)}.homeServiceCard{padding:22px;min-height:230px}.homeServiceCard h3{font-size:21px}.homeServiceCard>p{font-size:15px}.homeServiceCard li{font-size:12px}.homeServiceCard li+li::before{margin-inline:8px}}
+.homeServicesSection .homeServicesHeading h2{font-size:clamp(38px,4.2vw,60px)!important}
+@media(min-width:701px) and (max-width:1000px){.homeServicesGrid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px}.homeServiceCard{min-height:360px;padding:21px 18px}.homeServiceCard h3{font-size:clamp(20px,2.5vw,25px)}.homeServiceCard>p{font-size:14px}.homeServiceCard li a{min-height:46px;font-size:13px}.homeServiceCard li a span{width:30px;height:30px}}
+@media(max-width:700px){.homeServicesSection :global(.premium-container){width:calc(100% - 40px)}.homeServicesHeading{margin-bottom:22px!important}.homeServicesHeading h2{font-size:clamp(34px,8.7vw,46px)!important}.homeServicesHeading :global(.eyebrow){margin-bottom:11px;font-size:10px}.homeServicesIntro{margin-top:11px!important;font-size:15px!important}.desktopBreak{display:none}.homeServicesGrid{grid-template-columns:1fr!important;gap:12px}.homeServiceCard{min-height:0;padding:21px 20px 18px;border-radius:15px}.homeServicePhase{margin-bottom:18px;padding:7px 14px;font-size:11px}.homeServiceCard h3{max-width:20ch;font-size:24px}.homeServiceCard>p{min-height:0;margin-bottom:16px;font-size:15px}.homeServiceCard ul{padding-top:12px}.homeServiceCard li a{min-height:48px;font-size:14px}.homeServiceCard li a span{width:31px;height:31px}.homeServicesCta{align-items:stretch;flex-direction:column;gap:16px;margin-top:15px;padding:19px;border-radius:15px}.homeServicesCtaCopy h3{font-size:20px}.homeServicesCtaCopy p{font-size:14px}.homeServicesButton{width:100%;min-height:49px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){.homeServiceCard,.homeServiceArrow,.homeServicesButton{transition:none}.homeServiceCard:hover,.homeServicesButton:hover{transform:none}}
+
+/* Homepage industries horizontal carousel */
+.homeIndustryCarousel{overflow:hidden;background:#fff;color:#0b1220}
+.homeIndustryContainer{width:calc(100% - 9.8%);max-width:1440px;margin-inline:auto}
+.homeIndustryHeader{display:flex;align-items:center;justify-content:space-between;gap:28px;margin:0 14px 27px}
+.homeIndustryEyebrow{margin:0 0 12px;color:#075ef5;font-size:12px;font-weight:700;letter-spacing:.19em}
+.homeIndustryHeader h2{margin:0;color:#0b1220;font-size:clamp(36px,3.6vw,54px);line-height:1.05;letter-spacing:-.05em;font-weight:700}
+.homeIndustryHeader h2 span{color:#075ef5}
+.homeIndustrySubheading{margin:9px 0 0;color:#59657a;font-size:clamp(15px,1.15vw,17px);line-height:1.5}
+.homeIndustryControls{display:flex;flex:none;gap:12px}
+.homeIndustryControls button{display:grid;width:50px;height:50px;place-items:center;border:1px solid #cdd6e5;border-radius:50%;background:#fff;color:#6b778c;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.homeIndustryControls button:last-child{background:#075ef5;border-color:#075ef5;color:#fff}
+.homeIndustryControls button:hover:not(:disabled){border-color:#075ef5;background:#075ef5;color:#fff}
+.homeIndustryControls button:disabled{opacity:.42;cursor:default}
+.homeIndustryTrack{display:flex;gap:18px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 14px 8px;touch-action:pan-x}
+.homeIndustryTrack::-webkit-scrollbar{display:none}
+.homeIndustryCard{display:flex;flex:0 0 clamp(280px,25vw,380px);min-width:0;flex-direction:column;overflow:hidden;scroll-snap-align:start;border:1px solid #dce3ec;border-radius:15px;background:#fff;color:#0b1220;text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}
+.homeIndustryCard:hover{transform:translateY(-3px);border-color:#b5c7e3;box-shadow:0 12px 30px #09214b13}
+.homeIndustryImage{position:relative;aspect-ratio:1.65;overflow:hidden;background:#edf3fa}
+.homeIndustryImage img{object-fit:cover;transition:transform .4s}
+.homeIndustryCard:hover .homeIndustryImage img{transform:scale(1.035)}
+.homeIndustryBody{position:relative;display:flex;min-height:174px;flex:1;flex-direction:column;padding:19px 21px 18px}
+.homeIndustryNumber{color:#075ef5;font-size:13px;font-weight:700;letter-spacing:.04em}
+.homeIndustryBody h3{margin:8px 44px 7px 0;color:#0b1220;font-size:clamp(20px,1.5vw,23px);line-height:1.25;font-weight:650;letter-spacing:-.035em}
+.homeIndustryBody p{max-width:calc(100% - 28px);margin:0;color:#657187;font-size:clamp(14px,1.05vw,16px);line-height:1.5}
+.homeIndustryArrow{position:absolute;right:19px;bottom:18px;display:grid;width:44px;height:44px;place-items:center;border-radius:50%;background:#075ef5;color:#fff;transition:transform .2s}
+.homeIndustryCard:hover .homeIndustryArrow{transform:translate(2px,-2px)}
+.homeIndustryFooter{display:flex;align-items:center;gap:20px;margin:18px 14px 0}
+.homeIndustryProgress{height:6px;flex:1;overflow:hidden;border-radius:99px;background:#e1e6ee}
+.homeIndustryProgress span{display:block;height:100%;border-radius:inherit;background:#075ef5;transition:width .2s}
+.homeIndustryCount{min-width:58px;color:#707b8f;font-size:13px;text-align:right;font-variant-numeric:tabular-nums}
+.homeIndustryLink{display:inline-flex;align-items:center;gap:8px;margin:15px 14px 0;color:#075ef5;text-decoration:none;font-size:15px;font-weight:600}
+.homeIndustryLink:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:800px){.homeIndustryContainer{width:calc(100% - 48px)}.homeIndustryHeader{margin-inline:12px}.homeIndustryControls{gap:10px}.homeIndustryControls button{width:52px;height:52px}.homeIndustryCard{flex-basis:min(68vw,400px)}.homeIndustryBody{min-height:190px;padding:22px}.homeIndustryArrow{width:48px;height:48px;right:19px;bottom:19px}}
+@media(max-width:600px){.homeIndustryContainer{width:calc(100% - 24px)}.homeIndustryHeader{align-items:flex-start;gap:18px;margin:0 10px 23px}.homeIndustryEyebrow{margin-bottom:11px;font-size:10px}.homeIndustryHeader h2{font-size:clamp(32px,8vw,43px)}.homeIndustrySubheading{font-size:14px}.homeIndustryControls{gap:7px;padding-top:22px}.homeIndustryControls button{width:38px;height:38px}.homeIndustryControls button svg{width:17px;height:17px}.homeIndustryTrack{gap:14px;padding:0 10px 6px}.homeIndustryCard{flex-basis:82vw;border-radius:13px}.homeIndustryImage{aspect-ratio:1.42}.homeIndustryBody{min-height:168px;padding:18px}.homeIndustryNumber{font-size:12px}.homeIndustryBody h3{font-size:20px;margin:8px 43px 6px 0}.homeIndustryBody p{font-size:14px;max-width:calc(100% - 24px)}.homeIndustryArrow{width:40px;height:40px;right:14px;bottom:16px}.homeIndustryArrow svg{width:19px;height:19px}.homeIndustryFooter{gap:13px;margin:16px 10px 0}.homeIndustryProgress{height:5px}.homeIndustryCount{font-size:12px;min-width:48px}.homeIndustryLink{margin:15px 10px 0;font-size:15px}}
+@media(prefers-reduced-motion:reduce){.homeIndustryCard,.homeIndustryImage img,.homeIndustryArrow,.homeIndustryControls button,.homeIndustryProgress span{transition:none}.homeIndustryCard:hover{transform:none}}
+
 .homeServicesGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.homeServicesGrid>.serviceCard:first-child{grid-column:auto}
 .page .hero h1{margin:14px 0 20px}.serviceCard h3{margin-bottom:12px}.serviceCard>p{margin-bottom:20px}.page .section>h2{margin-bottom:24px}.heroAside>p{margin:0}
 @media(max-width:700px){.homeServicesGrid{grid-template-columns:1fr}}

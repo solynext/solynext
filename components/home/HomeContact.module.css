@@ -1,0 +1,35 @@
+.section{padding:48px 0 36px;background:#fff}
+.layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,64px);align-items:center;max-width:1080px;margin:auto}
+.intro{padding:8px 0}
+.eyebrow{margin:0;color:#1767cf;font-size:12px;font-weight:700;letter-spacing:2.5px}
+.intro h2{margin:18px 0 14px;color:#091426;font-size:clamp(36px,4.4vw,58px);font-weight:650;line-height:1.04;letter-spacing:-.05em}
+.intro h2 span{color:#1767ff}
+.description{max-width:360px;margin:0;color:#697991;font-size:15px;line-height:1.65}
+.consultation{display:flex;align-items:center;gap:9px;margin:18px 0 22px;color:#0e192d;font-size:13px;font-weight:600}
+.consultation>span{display:grid;width:24px;height:24px;place-items:center;border-radius:50%;background:#1767ff;color:white}
+.contactItem{display:flex;align-items:center;gap:13px;margin-top:14px;color:#1767ff;text-decoration:none}
+.contactItem>svg{flex:none}
+.contactItem span{display:grid;gap:5px;min-width:0}
+.contactItem small{color:#5e6e86;font-size:11px;font-weight:700;letter-spacing:1.5px}
+.contactItem strong{color:#121d30;font-size:14px;font-weight:500;line-height:1.45;overflow-wrap:anywhere}
+.links{display:flex;flex-wrap:wrap;gap:14px 28px;margin-top:34px}
+.links a{display:inline-flex;align-items:center;gap:6px;color:#1767ff;font-size:14px;font-weight:650;text-decoration:none}
+.links a:hover{text-decoration:underline;text-underline-offset:4px}
+.links a:focus-visible,.contactItem:focus-visible{outline:2px solid #1767cf;outline-offset:4px;border-radius:4px}
+.panel{min-width:0;padding:26px clamp(22px,3vw,34px);border:1px solid #e4eaf2;border-radius:18px;background:#f7f9fc;box-shadow:0 8px 24px #233e5b08}
+.panel h3{margin:0;color:#091426;font-size:24px;font-weight:650;letter-spacing:-.035em;line-height:1.2}
+.panelLead{margin:6px 0 18px;color:#718098;font-size:14px;line-height:1.5}
+.panel :global(.project-form){gap:12px;margin:0}
+.panel :global(.project-form label){display:grid;gap:6px;color:#101c30;font-size:13px;font-weight:600}
+.panel :global(.project-form input),.panel :global(.project-form select),.panel :global(.project-form textarea){box-sizing:border-box;width:100%;min-height:42px;padding:10px 12px;border:1px solid #cbd6e4;border-radius:9px;background:#fff!important;color:#18263a;font:inherit;font-size:13px;font-weight:400}
+.panel :global(.project-form input::placeholder),.panel :global(.project-form textarea::placeholder){color:#8998ad;opacity:1}
+.panel :global(.project-form :is(input,select,textarea):focus-visible){outline:2px solid #83b1fa;outline-offset:2px}
+.panel :global(.project-form textarea){min-height:78px;resize:vertical}
+.panel :global(.project-form .form-pair){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.panel :global(.project-form .form-disclosure){margin:0;color:#718098;font-size:11px;line-height:1.5}
+.panel :global(.project-form>.p-button){display:flex;width:100%;min-height:46px;align-items:center;justify-content:center;gap:10px;border:0;border-radius:9px;background:#1767ff;color:#fff;font-size:13px}
+.panel :global(.project-form>.p-button:hover){background:#0955df}
+.panel :global(.form-status){display:flex;gap:12px;padding:16px;border:1px solid #cbd6e4;border-radius:12px;background:#fff;color:#18263a}
+.panel :global(.form-status p){font-size:13px;line-height:1.6}
+@media(max-width:900px){.section{padding:40px 0 30px}.layout{grid-template-columns:1fr;gap:22px;max-width:680px}.intro{padding:0}.intro h2{font-size:clamp(36px,7vw,52px);margin:14px 0 10px}.description{font-size:15px}.consultation{margin:14px 0}.panel{max-width:none}}
+@media(max-width:560px){.section{padding:32px 0 24px}.layout{gap:18px}.panel{padding:20px 16px;border-radius:15px}.panelLead{font-size:13px;margin-bottom:14px}.panel :global(.project-form .form-pair){grid-template-columns:1fr;gap:12px}.contactItem strong{font-size:13px}}
