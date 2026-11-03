@@ -11,7 +11,7 @@ function load(file, imports = {}, globals = {}) {
   vm.runInNewContext(source, {
     module: compiled, exports: compiled.exports,
     require: name => name === 'server-only' ? {} : imports[name] ?? (name === 'node:timers/promises' ? { setTimeout: async () => {} } : name.startsWith('./') ? load(`lib/chat/${name.slice(2)}.ts`, imports, globals) : (() => { throw Error(`Unexpected import ${name}`); })()),
-    Request, Response, Headers, URL, Buffer, AbortSignal, AbortController, DOMException, TextEncoder, ...globals,
+    Request, Response, Headers, URL, Buffer, AbortSignal, AbortController, DOMException, TextEncoder, process: { env: {} }, ...globals,
   });
   return compiled.exports;
 }
@@ -111,18 +111,19 @@ test('limiter bounds per-visitor and total requests and resets after one minute'
 });
 
 const providerOptions = { apiKey: 'test-secret-only', model: 'test-model', history: [...history, { role: 'user', text: 'Which design services?' }], sources: company.companyKnowledge, intent: 'service', language: 'en', signal: new AbortController().signal };
-const providerResponse = text => Response.json({ candidates: [{ finishReason: 'STOP', content: { parts: [{ text: JSON.stringify({ text, links: [{ href: '/contact', label: 'Forged label' }, { href: '/admin' }, { href: 'javascript:alert(1)' }, { href: 'https://evil.test' }, { href: 'https://react.dev/learn' }] }) }] } }] });
+const providerResponse = text => Response.json({ choices: [{ finish_reason: 'stop', message: { content: JSON.stringify({ text, links: [{ href: '/contact', label: 'Forged label' }, { href: '/admin' }, { href: 'javascript:alert(1)' }, { href: 'https://evil.test' }, { href: 'https://react.dev/learn' }] }) } }] });
 
 test('provider receives source-grounded instructions and conversation but returns only approved links', async () => {
   let sent;
   const provider = load('lib/chat/provider.ts', {}, { fetch: async (url, options) => { sent = { url, ...options }; return providerResponse('Verified answer'); } });
   const result = await provider.generateReply(providerOptions);
-  assert.equal(sent.headers['x-goog-api-key'], 'test-secret-only');
+  assert.equal(sent.url, 'https://openrouter.ai/api/v1/chat/completions');
+  assert.equal(sent.headers.Authorization, 'Bearer test-secret-only');
   assert.ok(!sent.url.includes('test-secret-only'));
   const payload = JSON.parse(sent.body);
-  assert.ok(!payload.systemInstruction.parts[0].text.includes('test-secret-only'));
-  assert.match(payload.systemInstruction.parts[0].text, /general-purpose|NO live internet|Never invent pricing/);
-  assert.equal(payload.contents[1].role, 'model');
+  assert.ok(!payload.messages[0].content.includes('test-secret-only'));
+  assert.match(payload.messages[0].content, /general-purpose|NO live internet|Never invent pricing/);
+  assert.equal(payload.messages[2].role, 'assistant');
   assert.equal(result.links.length, 2);
   assert.equal(result.links[0].label, 'Contact SolyNext');
   assert.equal(result.links[1].href, 'https://react.dev/learn');
@@ -142,7 +143,7 @@ test('transient provider errors retry once; bad credentials and long quota waits
 });
 
 test('blocked, invalid and oversized output is rejected without treating it as AI success', async () => {
-  for (const body of [{}, { candidates: [{ finishReason: 'SAFETY' }] }, { candidates: [{ finishReason: 'STOP', content: { parts: [{ text: 'null' }] } }] }, { candidates: [{ finishReason: 'STOP', content: { parts: [{ text: JSON.stringify({ text: 'x'.repeat(6001) }) }] } }] }]) {
+  for (const body of [{}, { choices: [{ finish_reason: 'content_filter' }] }, { choices: [{ finish_reason: 'stop', message: { content: 'null' } }] }, { choices: [{ finish_reason: 'stop', message: { content: JSON.stringify({ text: 'x'.repeat(6001) }) } }] }]) {
     const provider = load('lib/chat/provider.ts', {}, { fetch: async () => Response.json(body) });
     await assert.rejects(provider.generateReply(providerOptions));
   }
@@ -164,7 +165,7 @@ function route({ key = '', providerFails = false, portfolioFails = false } = {})
     '@/lib/chat/intelligence': intelligence, '@/lib/chat/offline': offline, '@/lib/chat/request': requestTools,
     '@/lib/chat/provider': { ...provider, generateReply: async input => { captured.push(input); if (providerFails) throw new provider.ChatProviderError('quota', 429); return { text: 'Generated answer', links: [] }; } },
     '@/lib/portfolio/repository': { getPublicProjects: async () => { if (portfolioFails) throw Error('private path'); return [{ slug: 'published', title: 'Published example', summary: 'Public summary', industry: 'Retail', technologies: ['React'], privateId: 'must-not-cross-boundary' }]; } },
-  }, { process: { env: { GEMINI_API_KEY: key } } });
+  }, { process: { env: { OPENROUTER_API_KEY: key } } });
   return { ...api, captured };
 }
 const apiRequest = (body = { message: 'What is React?', history: [], page: '/' }, headers = {}) => new Request('http://0.0.0.0:3000/api/chat', { method: 'POST', headers: { 'content-type': 'application/json', host: 'localhost:3000', origin: 'http://localhost:3000', ...headers }, body: JSON.stringify(body) });

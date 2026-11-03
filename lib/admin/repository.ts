@@ -4,6 +4,7 @@ import { requireAdmin } from "./auth/dal";
 import type { AdminCollections } from "./types";
 import { portfolioStore } from "@/lib/portfolio/repository";
 import { clientStore } from "@/lib/clients/repository";
+import { reviewStore } from "@/lib/reviews/repository";
 
 export interface AdminRepository { getCollections(): Promise<AdminCollections> }
 
@@ -13,6 +14,7 @@ export const adminRepository: AdminRepository = {
     await requireAdmin();
     const collections = structuredClone(adminMockData);
     collections.clients = await clientStore.read();
+    collections.reviews = await reviewStore.read();
     try {
       collections.portfolio = (await portfolioStore.read()).map(project => ({ id: project.id, title: project.title, category: project.industry, description: project.summary, status: project.status, updatedAt: project.updatedAt, image: project.featuredImage, url: project.projectUrl, projectId: project.projectId || undefined, clientId: project.clientId, technologies: project.technologies, completionDate: project.completionDate, featured: project.featured, displayOrder: project.displayOrder }));
     } catch { collections.portfolio = []; }

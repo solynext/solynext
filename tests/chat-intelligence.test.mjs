@@ -5,13 +5,13 @@ import vm from 'node:vm';
 import ts from 'typescript';
 
 const modules = new Map();
-function load(name) {
+function load(name, globals = {}) {
   if (modules.has(name)) return modules.get(name);
   const source = fs.readFileSync(new URL(`../lib/chat/${name}.ts`, import.meta.url), 'utf8');
   const code = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
   const compiled = { exports: {} };
   modules.set(name, compiled.exports);
-  vm.runInNewContext(code, { module: compiled, exports: compiled.exports, require: name => load(name.replace('./','')), setTimeout, clearTimeout, DOMException });
+  vm.runInNewContext(code, { module: compiled, exports: compiled.exports, require: name => load(name.replace('./','')), setTimeout, clearTimeout, DOMException, Response, ...globals });
   return compiled.exports;
 }
 const { analyzeQuestion } = load('analysis');
@@ -84,6 +84,10 @@ test('unclear requests ask a follow-up and replies expose no internal relevance 
 });
 
 test('async adapter forwards actual conversation history to the response engine', async () => {
-  const { chatService }=load('service');const reply=await chatService.reply({message:'For my clothing business',history:[user('I need a website'),user('For my clothing business')]},new AbortController().signal);
-  assert.match(reply.text,/clothing.*website/);
+  let sent;
+  const { chatService }=load('service',{fetch:async(url,options)=>{sent={url,body:JSON.parse(options.body)};return Response.json({text:'AI answer'});}});
+  const reply=await chatService.reply({message:'For my clothing business',history:[user('I need a website'),user('For my clothing business')]},new AbortController().signal);
+  assert.equal(sent.url,'/api/chat');
+  assert.equal(sent.body.history.at(-1).text,'For my clothing business');
+  assert.equal(reply.text,'AI answer');
 });

@@ -15,7 +15,7 @@
 
 /* Connected catalog: shared colors, distinct service and industry layouts. */
 .page{background:linear-gradient(180deg,#f3f7ff 0,white 650px)}
-.listHero{max-width:100%;padding:64px 0 46px;border-bottom:1px solid #dce6f2;margin-bottom:32px;position:relative}
+.listHero{max-width:100%;padding:44px 0 38px;border-bottom:1px solid #dce6f2;margin-bottom:32px;position:relative}
 .listHero h1{max-width:850px;font-size:clamp(38px,5vw,68px)}
 .catalogCount{font-size:12px;color:#526782;padding-left:20px;border-left:1px solid #cbd8e9}
 .results{display:flex;align-items:center;gap:16px;color:#526782;font-size:12px;margin-bottom:24px}.results button{color:#2464bf;text-decoration:underline;cursor:pointer;background:none;border:0;font:inherit}
@@ -117,3 +117,67 @@
 @media(max-width:700px){.homeServicesGrid{grid-template-columns:1fr}}
 
 .section{scroll-margin-top:170px}@media(max-width:700px){.section{scroll-margin-top:145px}}
+
+/* Keep service filters on the left and search aligned to the right. */
+.page:has(.filters [aria-label='Service category']) .filters{flex-wrap:nowrap}
+.page:has(.filters [aria-label='Service category']) .filters .chips{order:0;flex:1;margin:0}
+.page:has(.filters [aria-label='Service category']) .filters .search{order:1;width:min(320px,35%);flex:0 1 320px}
+@media(max-width:700px){.page:has(.filters [aria-label='Service category']) .filters{align-items:stretch;flex-wrap:wrap;gap:8px}.page:has(.filters [aria-label='Service category']) .filters .chips{order:0;width:100%}.page:has(.filters [aria-label='Service category']) .filters .search{order:1;width:100%;flex:1 1 100%}}
+.page:has(.filters [aria-label='Service category']) .filters .search{border-radius:999px;padding:9px 17px}
+.page:has(.filters [aria-label='Service category']) .filters .search:focus-within{border-color:#8fb5e6;outline:2px solid #8fb5e6;outline-offset:2px}
+
+/* Compact four-column services catalog cards on wide screens. */
+.page:has(.filters [aria-label='Service category']) .cardGrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.page:has(.filters [aria-label='Service category']) .serviceCard{padding:19px;border-radius:13px}
+.page:has(.filters [aria-label='Service category']) .serviceCard h3{font-size:18px}
+@media(min-width:701px) and (max-width:1000px){.page:has(.filters [aria-label='Service category']) .cardGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.page:has(.filters [aria-label='Service category']) .cardGrid{grid-template-columns:1fr}}
+
+.page:has(.filters [aria-label='Service category']) .results{justify-content:flex-end;text-align:right}
+
+/* Restrained, information-first service cards. */
+.page:has(.filters [aria-label='Service category']) .serviceCard{gap:0;padding:18px;border:1px solid #e1e7ef;border-radius:10px;background:#fff;box-shadow:none;transition:border-color .16s,background .16s}
+.page:has(.filters [aria-label='Service category']) .serviceCard:hover{transform:none;border-color:#b7c9df;background:#fbfcfe;box-shadow:none}
+.page:has(.filters [aria-label='Service category']) .serviceTop{gap:9px;margin-bottom:18px}
+.page:has(.filters [aria-label='Service category']) .serviceTop .cardIcon{width:34px;height:34px;border-radius:9px;background:#f0f4f8;color:#526782}
+.page:has(.filters [aria-label='Service category']) .serviceTag{font-size:9px;letter-spacing:.7px;color:#68788c}
+.page:has(.filters [aria-label='Service category']) .serviceArrow{width:17px;height:17px;color:#78889b}
+.page:has(.filters [aria-label='Service category']) .serviceCard h3{margin-bottom:8px;font-size:17px;font-weight:600;letter-spacing:-.35px;line-height:1.35;color:#26384d}
+.page:has(.filters [aria-label='Service category']) .serviceCard>p{margin-bottom:15px;font-size:12px;line-height:1.65;color:#617084}
+.page:has(.filters [aria-label='Service category']) .serviceCard ul{gap:6px;margin-bottom:18px}
+.page:has(.filters [aria-label='Service category']) .serviceCard li{font-size:11px;line-height:1.5;color:#53657a}
+.page:has(.filters [aria-label='Service category']) .serviceCard li:before{content:'•';color:#8293a6;font-weight:400}
+.page:has(.filters [aria-label='Service category']) .serviceCard>.cardLink{margin-top:auto;padding-top:12px;border-top:1px solid #edf0f4;color:#365d8c;font-size:11px;font-weight:600}
+.page:has(.filters [aria-label='Service category']) .serviceCard>.cardLink>span{color:#7d8998;font-size:10px}
+/* Modern, crisp service catalog cards. */
+.page:has(.filters [aria-label='Service category']) .serviceCard{position:relative;gap:0;padding:20px;border:1px solid #e5eaf1;border-radius:15px;background:linear-gradient(180deg,#fff 0%,#fcfdff 100%);box-shadow:0 1px 2px #20334a06;transition:border-color .18s,box-shadow .18s,transform .18s}
+.page:has(.filters [aria-label='Service category']) .serviceCard:hover{transform:translateY(-2px);border-color:#c9d8eb;background:#fff;box-shadow:0 8px 22px #20334a0c}
+.page:has(.filters [aria-label='Service category']) .serviceTop{gap:10px;margin-bottom:19px}
+.page:has(.filters [aria-label='Service category']) .serviceTop .cardIcon{width:36px;height:36px;border:1px solid #e7edf5;border-radius:11px;background:#f5f8fc;color:#35689f}
+.page:has(.filters [aria-label='Service category']) .serviceTag{font-size:9px;letter-spacing:.8px;color:#6f8196}
+.page:has(.filters [aria-label='Service category']) .serviceArrow{width:17px;height:17px;color:#7892b0;transition:transform .18s,color .18s}
+.page:has(.filters [aria-label='Service category']) .serviceCard:hover .serviceArrow{transform:translate(2px,-2px);color:#2866ad}
+.page:has(.filters [aria-label='Service category']) .serviceCard h3{margin-bottom:8px;font-size:18px;font-weight:620;letter-spacing:-.45px;line-height:1.35;color:#24374e}
+.page:has(.filters [aria-label='Service category']) .serviceCard>p{margin-bottom:16px;font-size:12px;line-height:1.7;color:#63748a}
+.page:has(.filters [aria-label='Service category']) .serviceCard ul{gap:7px;margin-bottom:19px}
+.page:has(.filters [aria-label='Service category']) .serviceCard li{font-size:11px;line-height:1.5;color:#52657c}
+.page:has(.filters [aria-label='Service category']) .serviceCard li:before{content:'';left:1px;top:.62em;width:5px;height:5px;border-radius:50%;background:#91a8c3}
+.page:has(.filters [aria-label='Service category']) .serviceCard>.cardLink{margin-top:auto;padding-top:13px;border-top:1px solid #edf1f6;color:#315f91;font-size:11px;font-weight:600}
+.page:has(.filters [aria-label='Service category']) .serviceCard>.cardLink>span{color:#8491a1;font-size:10px;font-weight:450}
+/* Modern, professional process step cards. */
+.page:has(.filters [aria-label='Service category']) .steps{gap:14px}
+.page:has(.filters [aria-label='Service category']) .steps article{position:relative;min-width:0;padding:22px 20px 20px;border:1px solid #e4eaf1;border-radius:15px;background:linear-gradient(180deg,#fff,#fbfcfe);box-shadow:0 2px 8px #20334a06;transition:transform .18s,border-color .18s,box-shadow .18s}
+.page:has(.filters [aria-label='Service category']) .steps article:hover{transform:translateY(-2px);border-color:#c8d8eb;box-shadow:0 9px 22px #20334a0b}
+.page:has(.filters [aria-label='Service category']) .steps small{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid #e1eaf5;border-radius:10px;background:#f2f6fb;color:#3e6b9d;font-size:11px;font-weight:650;letter-spacing:.3px}
+.page:has(.filters [aria-label='Service category']) .steps h3{margin:18px 0 8px;color:#26384e;font-size:17px;font-weight:620;letter-spacing:-.35px;line-height:1.4}
+.page:has(.filters [aria-label='Service category']) .steps p{margin:0;color:#65758a;font-size:12px;line-height:1.75}
+@media(max-width:700px){.page:has(.filters [aria-label='Service category']) .steps{grid-template-columns:1fr;gap:10px}.page:has(.filters [aria-label='Service category']) .steps article{padding:18px}.page:has(.filters [aria-label='Service category']) .steps h3{margin-top:13px}}
+.page:has(.filters [aria-label='Service category']) .stepMarker{display:inline-grid;place-items:center;width:34px;height:34px;border:1px solid #e1eaf5;border-radius:10px;background:#f2f6fb}
+.page:has(.filters [aria-label='Service category']) .stepMarker>span{display:block;width:10px;height:10px;border-radius:50%;background:#4b77aa}
+.page:has(.filters [aria-label='Service category']) .steps article:nth-child(2) .stepMarker>span{width:10px;height:10px;border-radius:2px;transform:rotate(45deg);background:#6986ae}
+.page:has(.filters [aria-label='Service category']) .steps article:nth-child(3) .stepMarker>span{width:12px;height:8px;border-radius:999px;background:#4b77aa}
+.page:has(.filters [aria-label='Service category']) .steps article:nth-child(4) .stepMarker>span{width:9px;height:9px;border-radius:2px;background:#6986ae}
+.page:has(.filters [aria-label='Service category']) .stepMarker{color:#426f9e}
+.page:has(.filters [aria-label='Service category']) .stepMarker>span{display:none}
+/* Pill shape for search on all public catalog listings. */
+.page .filters .search{border-radius:999px}

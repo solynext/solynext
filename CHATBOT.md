@@ -1,23 +1,19 @@
-# SolyNext service assistant
+# SolyNext assistant
 
-The floating chatbot appears on public routes through `PublicSiteFrame`. Admin routes are excluded. It uses existing brand tokens and Geist typography; its CSS is scoped to the widget.
+The floating assistant appears on public routes through `PublicSiteFrame`; admin routes are excluded. It sends chat requests to the same-origin `/api/chat` Route Handler. When `OPENROUTER_API_KEY` is configured on the server, replies are generated with the OpenRouter Chat Completions API using `OPENROUTER_MODEL` (default: `openai/gpt-4o`). The API key is never sent to the browser. Without a key, or when the provider is unavailable, the endpoint returns a clearly limited local answer.
 
-This is a frontend service guide. Replies are curated text, not AI-generated answers. A local intent and conversation-frame analyzer considers the requested solution, business goal, industry, platform, features, and recent user turns before choosing a response. Completed conversations save in this browser's local storage and restore after reload, including their project context. The chat does not submit inquiries or send conversations to a backend; contact links take visitors to the existing contact page.
+The assistant can answer general questions and provide technology and SolyNext service guidance. Its server prompt includes relevant published company, service, technology, FAQ, blog, and public portfolio information. User messages and bounded recent conversation history are sent to OpenRouter when AI is enabled. Do not enter credentials, API keys, payment details, or sensitive personal or business information. Provider processing is subject to OpenRouter's privacy terms. Requests are not stored in the application's server database; completed conversations are retained in browser storage for up to seven days, capped at the welcome message and the latest 100 exchanges. The Delete conversation control clears saved history and aborts a pending request.
 
-The header's clear-chat control removes the saved conversation, resets project context, and cancels any pending reply. The assistant uses a female illustrated avatar and the user a male illustrated avatar. Local history is bounded to the welcome and the latest 100 completed exchanges. An in-flight question does not replace the last completed saved conversation. Invalid storage is ignored, restored links are restricted to existing public service/contact routes, and blocked storage produces a notice while the chat remains usable.
-
-The internal relevance bands are highly relevant (80–100), partially relevant (40–79), and irrelevant (0–39). Scores are deterministic routing heuristics, not measured semantic probabilities. Scores, evidence, and classification metadata never appear in replies. Partial business goals get digital-service guidance; unrelated advice gets an apology and a service redirect. Bounded follow-ups carry project context, explicit changes can select another solution, and unrelated/new-project turns clear stale requirements. The analyzer is intentionally bounded and may ask for clarification; it does not claim unrestricted natural-language understanding.
+The endpoint validates same-origin requests, content type, request size, message/history shape, and rate limits. Generated links are restricted to approved public site routes and documentation. Replies are rendered as text. AI responses do not send inquiries, book appointments, or make external changes; confirm service availability, pricing, and commitments with the team.
 
 ## Integration points
 
-- `components/chat/TechSolutionsChatbot.tsx`: presentation, local conversation state, accessible controls, typing/error feedback, and viewport handling.
-- `lib/chat/types.ts`: request, message, reply, and asynchronous service contracts.
-- `lib/chat/responses.ts`: welcome, quick actions, service routing, and the out-of-scope redirect.
-- `lib/chat/analysis.ts`: intent detection, private relevance scores, and reconstruction of recent conversation context.
-- `lib/chat/capabilities.ts`: curated capabilities, service URLs, and published technologies, grounded in `data/mockData.ts`.
-- `lib/chat/history.ts`: versioned browser persistence, validation, safe restored links, retention limits, and clearing.
-- `lib/chat/service.ts`: cancellable local response adapter. Replace `reply(request, signal)` with a request to your backend while retaining the UI. The request includes conversation history; the reply contains plain text and optional links.
+- `components/chat/TechSolutionsChatbot.tsx`: accessible widget UI, browser history, request cancellation, and page context.
+- `app/api/chat/route.ts`: request validation, rate limiting, public knowledge retrieval, provider selection, and offline fallback.
+- `lib/chat/provider.ts`: OpenRouter request/response handling, bounded retry and timeout behavior, and approved-link validation.
+- `lib/chat/service.ts`: cancellable browser adapter for the same-origin endpoint.
+- `lib/chat/knowledge.ts` and `data/chat/knowledge.ts`: retrieval from published company and site content.
+- `lib/chat/prompt.ts`: assistant behavior and safety instructions.
+- `lib/chat/history.ts`: validated, bounded browser persistence and safe restored links.
 
-For a future AI integration, keep provider credentials on the server, enforce the SolyNext-only topic boundary on the backend, validate generated links, and render replies as text. The current UI handles failed requests with retry/contact actions and aborts pending work on unmount.
-
-Run `node --test tests/chat*.test.mjs` to check relevance bands, industry versus request intent, business bridges, context changes, metadata privacy, capability boundaries, service routing, adapter history forwarding, and cancellation. The existing Next.js production build fetches Geist Google Fonts and requires network access.
+Set `OPENROUTER_API_KEY` in the local server environment or deployment secret manager. Optionally set `OPENROUTER_MODEL`; never use a `NEXT_PUBLIC_` prefix for provider credentials. `node --test tests/chat*.test.mjs` runs the focused assistant tests. The production build fetches Geist Google Fonts and requires network access.

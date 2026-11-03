@@ -4,11 +4,11 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import ts from 'typescript';
 
-function load(name, imports = {}) {
+function load(name, imports = {}, globals = {}) {
   const source = fs.readFileSync(new URL(`../lib/chat/${name}.ts`, import.meta.url), 'utf8');
   const code = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
   const compiled = { exports: {} };
-  vm.runInNewContext(code, { module: compiled, exports: compiled.exports, require: name => imports[name] ?? load(name.replace("./", "")), setTimeout, clearTimeout, DOMException });
+  vm.runInNewContext(code, { module: compiled, exports: compiled.exports, require: name => imports[name] ?? load(name.replace("./", "")), setTimeout, clearTimeout, DOMException, Response, ...globals });
   return compiled.exports;
 }
 const responses = load('responses');
@@ -30,21 +30,21 @@ test('service questions route to the corresponding existing service page', () =>
   assert.equal(responses.getPredefinedReply('UI/UX design for a mobile app').links[0].href,'/services/ui-ux-design');
   assert.match(responses.getPredefinedReply('I need payments and login').text,/first release/);
 });
-test('pending local replies can be cancelled without completing an abandoned conversation', async () => {
-  const { chatService } = load('service', { './responses': responses });
+test('pending requests can be cancelled without making an API call', async () => {
+  let called = false;
+  const { chatService } = load('service', {}, { fetch: async () => { called = true; return Response.json({ text: 'unexpected' }); } });
   const controller = new AbortController();
-  const request = chatService.reply({message:'Our Services',history:[]}, controller.signal);
   controller.abort();
-  await assert.rejects(request, { name:'AbortError' });
+  await assert.rejects(chatService.reply({message:'Our Services',history:[]}, controller.signal), { name:'AbortError' });
+  assert.equal(called, false);
 });
 
-test('local assistant shows a pending interval and redirects unrelated questions without network access', async () => {
-  const { chatService } = load('service', { './responses': responses });
-  const controller = new AbortController();
-  let completed = false;
-  const pending = chatService.reply({ message: 'Tell me a joke', history: [] }, controller.signal).then(reply => { completed = true; return reply; });
-  await new Promise(resolve => setTimeout(resolve, 30));
-  assert.equal(completed, false);
-  const reply = await pending;
-  assert.match(reply.text, /SolyNext.*technology services/);
+test('chat requests use the same-origin AI endpoint and keep only approved links', async () => {
+  const { chatService } = load('service', {}, { fetch: async url => {
+    assert.equal(url, '/api/chat');
+    return Response.json({ text: 'AI reply', links: [{ label: 'Admin', href: '/admin' }, { label: 'Contact', href: '/contact' }] });
+  } });
+  const reply = await chatService.reply({ message: 'Tell me a joke', history: [] }, new AbortController().signal);
+  assert.equal(reply.text, 'AI reply');
+  assert.deepEqual(reply.links.map(link => link.href), ['/contact']);
 });

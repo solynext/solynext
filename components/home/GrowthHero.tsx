@@ -12,12 +12,7 @@ const heroFont = Geist({ subsets: ["latin"], display: "swap", variable: "--font-
 
 const titleLines = ["Web Development, Design &", "Marketing for brands ready", "to grow your brand"];
 function TypedTitleLines({ mobile = false }: { mobile?: boolean }) {
-  let characterIndex = 0;
-  const characterCount = titleLines.join("").length;
-  return <span className={mobile ? styles.mobileHeading : styles.desktopHeading} aria-hidden="true">{titleLines.map((line, lineIndex) => <span className={styles.headlineLine} key={line}>{Array.from(line).map((character, index) => {
-    const delay = characterIndex++ * (1.68 / (characterCount - 1));
-    return <span key={index} className={`${styles.typedCharacter} ${lineIndex === 2 && index >= 3 ? styles.typedAccent : ""}`} style={{ animationDelay: `${delay}s` }}>{character}</span>;
-  })}</span>)}</span>;
+  return <span className={mobile ? styles.mobileHeading : styles.desktopHeading} aria-hidden="true">{titleLines.map((line, lineIndex) => <span className={styles.headlineLine} key={line}>{lineIndex === 2 ? <>to <span className={styles.typedAccent}>grow your brand</span></> : line}</span>)}</span>;
 }
 export function GrowthHero() {
   return <section className={`${styles.hero} ${heroFont.variable}`} aria-labelledby="growth-heading">

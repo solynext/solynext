@@ -44,7 +44,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="space-y-2">
             <h2 className="text-base font-bold text-[#050505]">Website assistant</h2>
-            <p>The SolyNext assistant provides predefined guidance about our services. Conversations are processed in your browser without an external AI provider. The application does not store chat transcripts in its server database. Browser history is limited to the most recent 100 exchanges, capped by storage size, and expires after seven days without activity. Use Delete conversation to remove saved history immediately. Confirm project scope, quotations and commitments with our team.</p>
+            <p>When the assistant is enabled with a server-side OpenRouter API key, messages and recent conversation history are sent to OpenRouter to generate replies and are subject to OpenRouter&apos;s privacy terms. The API key is kept on the server. If AI is not configured or unavailable, the assistant may provide limited local answers instead. The application does not store chat transcripts in its server database. Completed chat history is saved in your browser, is limited to the most recent 100 exchanges, and expires after seven days without activity. Use Delete conversation to remove saved history immediately. Do not enter passwords, API keys, payment details, or sensitive personal or business information. Confirm project scope, quotations and commitments with our team.</p>
           </section>
 
           <section className="space-y-2">
@@ -68,4 +68,3 @@ export default function PrivacyPolicyPage() {
     </main>
   );
 }
-

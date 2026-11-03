@@ -8,6 +8,7 @@ import type { AdminCollections, AdminRecord, ManagementSection, AdminActivity, A
 import { initialActivity, initialNotifications } from "@/data/admin/activity";
 import { removeRecords } from "@/lib/admin/selectors";
 import { saveClient, deleteClients } from "@/lib/clients/actions";
+import { saveReview, deleteReviews } from "@/lib/reviews/actions";
 import type { AdminPhoto } from "@/lib/admin/profile/types";
 
 interface AdminState {
@@ -64,6 +65,16 @@ export function AdminProvider({ session, initialData, initialPhoto, children }: 
       }).catch(() => notify("Could not save client. Try again."));
       return;
     }
+    if (section === "reviews") {
+      notify("Saving review…");
+      void saveReview(record).then(result => {
+        if (result.error || !result.items) { notify(result.error || "Could not save review."); return; }
+        setCollections(previous => ({ ...previous, reviews: result.items }));
+        log(`${record.title} ${exists ? "updated" : "added"}`, section);
+        notify(["Approved", "Published"].includes(record.status) ? "Review saved and published to the public reviews page." : "Review saved. Approve or publish it to show it publicly.");
+      }).catch(() => notify("Could not save review. Try again."));
+      return;
+    }
     setCollections(previous => ({ ...previous, [section]: exists ? previous[section].map(item => item.id === record.id ? record : item) : [record, ...previous[section]] }));
     log(`${record.title} ${exists ? "updated" : "added"}`, section); notify(`${exists ? "Updated" : "Added"} in this preview. The public website is unchanged.`);
   };
@@ -76,6 +87,16 @@ export function AdminProvider({ session, initialData, initialPhoto, children }: 
         log(`${ids.length} client records removed`, section);
         notify("Clients removed from storage and the homepage.");
       }).catch(() => notify("Could not remove clients. Try again."));
+      return;
+    }
+    if (section === "reviews") {
+      notify("Removing review…");
+      void deleteReviews(ids).then(result => {
+        if (result.error || !result.items) { notify(result.error || "Could not remove review."); return; }
+        setCollections(previous => ({ ...previous, reviews: result.items }));
+        log(`${ids.length} review${ids.length === 1 ? "" : "s"} removed`, section);
+        notify("Review removed from storage and the public website.");
+      }).catch(() => notify("Could not remove review. Try again."));
       return;
     }
     setCollections(previous => removeRecords(previous, section, ids));

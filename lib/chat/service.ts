@@ -1,23 +1,36 @@
-import { getPredefinedReply } from "./responses";
+import { isPublicChatLink } from "./references";
 import type { ChatService } from "./types";
 
-/** Local service guidance. No messages are sent to an external provider. */
 export const chatService: ChatService = {
-  async reply({ message, history }, signal) {
+  async reply({ message, history, page }, signal) {
     signal.throwIfAborted();
-    // Keep the typing indicator visible and cancel immediately when chat is cleared.
-    await new Promise<void>((resolve, reject) => {
-      const onAbort = () => {
-        clearTimeout(timer);
-        reject(signal.reason ?? new DOMException("Aborted", "AbortError"));
-      };
-      const timer = setTimeout(() => {
-        signal.removeEventListener("abort", onAbort);
-        resolve();
-      }, 650);
-      signal.addEventListener("abort", onAbort, { once: true });
+    const conversation = history.map(({ role, text }) => ({ role, text }));
+    if (conversation.at(-1)?.role !== "user" || conversation.at(-1)?.text !== message) {
+      conversation.push({ role: "user", text: message });
+    }
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message,
+        history: conversation.slice(-12),
+        page,
+      }),
+      cache: "no-store",
+      signal,
     });
     signal.throwIfAborted();
-    return getPredefinedReply(message, history);
+    if (!response.ok) throw new Error("Chat request failed");
+    const result: unknown = await response.json();
+    if (!result || typeof result !== "object" || !("text" in result) || typeof result.text !== "string" || !result.text.trim() || result.text.length > 6000) {
+      throw new Error("Invalid chat response");
+    }
+    const links = "links" in result && Array.isArray(result.links)
+      ? result.links.filter((link): link is { label: string; href: string } => Boolean(
+        link && typeof link === "object" && "label" in link && typeof link.label === "string" &&
+        "href" in link && typeof link.href === "string" && isPublicChatLink(link.href),
+      )).slice(0, 3)
+      : [];
+    return { text: result.text.trim(), ...(links.length ? { links } : {}) };
   },
 };

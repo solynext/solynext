@@ -10,7 +10,7 @@ export function validateChatRequest(value: unknown) {
     return { id: String(index), role: turn.role, text: turn.text };
   });
   const text = message.trim();
-  return { message: text, history: conversationWindow(clean, text), page: typeof page === "string" && /^\/(?!\/)[a-zA-Z0-9/_-]{0,180}$/.test(page) ? page : undefined };
+  return { message: text, history: conversationWindow(clean, text).map((turn, index) => ({ ...turn, id: String(index) })), page: typeof page === "string" && /^\/(?!\/)[a-zA-Z0-9/_-]{0,180}$/.test(page) ? page : undefined };
 }
 
 /** Process-local resource bound; use trusted edge/shared limits for multi-instance deployments. */

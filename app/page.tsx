@@ -2,7 +2,7 @@ import styles from "./Home.module.css";
 import { getPageMetadata } from "@/lib/seo/metadata";
 import { ProjectCTA } from "@/components/home/ProjectCTA";
 import { ClientReviews } from "@/components/home/ClientReviews";
-import { getPublicProjects } from "@/lib/portfolio/repository";
+import { getPublicReviews } from "@/lib/reviews/repository";
 
 import { HomeServices, HomeIndustries } from "@/components/catalog/HomeSections";
 import { GrowthHero } from "@/components/home/GrowthHero";
@@ -14,8 +14,7 @@ import { HomeContact } from "@/components/home/HomeContact";
 export async function generateMetadata() { return getPageMetadata("/"); }
 
 export default async function HomePage() {
-  const projects = await getPublicProjects();
-  const reviews = projects.flatMap(project => project.testimonial ? [{ id: project.id, ...project.testimonial, project: project.title, slug: project.slug }] : []);
+  const reviews = await getPublicReviews(true);
   return <main id="main-content" className={`premium-home ${styles.home}`}>
     <GrowthHero />
     <HomeApproach />
@@ -25,7 +24,7 @@ export default async function HomePage() {
     <AppStoreSection />
     <ProjectCTA />
 
-    <ClientReviews reviews={reviews}/>
+    <ClientReviews reviews={reviews} limit={3} showAllLink />
 
     <HomeContact />
   </main>;

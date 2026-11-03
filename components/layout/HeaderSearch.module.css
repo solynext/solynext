@@ -1,4 +1,4 @@
-.inlineSearch{position:relative;width:220px;flex-shrink:0}
+.inlineSearch{position:relative;width:250px;flex-shrink:0}
 .searchField{display:flex;align-items:center;gap:9px;min-height:42px;padding:8px 12px;border:0;border-radius:24px;background:#fff;color:#64748b}
 .searchField input{width:100%;min-width:0;min-height:26px;padding:0!important;font:inherit;font-size:13px;color:#253b58;background:transparent!important;border:0!important;border-radius:0!important;outline:none!important;box-shadow:none!important}
 .searchField>svg{flex-shrink:0}
@@ -24,4 +24,4 @@
 
 .searchField{min-height:40px;padding-top:3px;padding-bottom:3px}
 
-@media(min-width:1151px) and (max-width:1400px){.inlineSearch{width:160px}}
+@media(min-width:1151px) and (max-width:1400px){.inlineSearch{width:200px}}

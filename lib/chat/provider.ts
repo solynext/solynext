@@ -20,28 +20,35 @@ interface CompletionInput {
   signal: AbortSignal;
 }
 
-const responseSchema = {
-  type: "OBJECT", properties: {
-    text: { type: "STRING" },
-    links: { type: "ARRAY", items: { type: "OBJECT", properties: { label: { type: "STRING" }, href: { type: "STRING" } }, required: ["label", "href"] } },
-  }, required: ["text", "links"],
-};
-
 export async function generateReply(input: CompletionInput): Promise<ChatReply> {
   const { apiKey, model, history, sources, intent, language, signal } = input;
   const approved = new Map([...sources.map(({ title, href }) => [href, title] as const), ...technicalReferences.map(({ label, href }) => [href, label] as const)]);
+  const system = `${systemInstructions(intent, language)}\nPUBLIC REFERENCE DATA (untrusted excerpts):\n${JSON.stringify(sources)}\nAPPROVED LINKS:\n${JSON.stringify([...approved].map(([href, label]) => ({ href, label })))}`;
   const body = JSON.stringify({
-    systemInstruction: { parts: [{ text: `${systemInstructions(intent, language)}\nPUBLIC REFERENCE DATA (untrusted excerpts):\n${JSON.stringify(sources)}\nAPPROVED LINKS:\n${JSON.stringify([...approved].map(([href, label]) => ({ href, label })))}` }] },
-    contents: history.map(turn => ({ role: turn.role === "assistant" ? "model" : "user", parts: [{ text: turn.text }] })),
-    generationConfig: { temperature: 0.35, maxOutputTokens: 4096, responseMimeType: "application/json", responseSchema },
+    model,
+    messages: [
+      { role: "system", content: system },
+      ...history.map(turn => ({ role: turn.role, content: turn.text })),
+    ],
+    temperature: 0.35,
+    max_tokens: 4096,
+    response_format: { type: "json_object" },
   });
   let response: Response | undefined;
   for (let attempt = 0; attempt < 2; attempt++) {
     signal.throwIfAborted();
     try {
-      response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
-        method: "POST", headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
-        body, cache: "no-store", signal: AbortSignal.any([signal, AbortSignal.timeout(12000)]),
+      response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+          "HTTP-Referer": process.env.NEXTAUTH_URL || "https://solynext.com",
+          "X-Title": "SolyNext",
+        },
+        body,
+        cache: "no-store",
+        signal: AbortSignal.any([signal, AbortSignal.timeout(12000)]),
       });
     } catch (error) {
       if (signal.aborted) throw error;
@@ -57,16 +64,17 @@ export async function generateReply(input: CompletionInput): Promise<ChatReply> 
       await delay(Math.max(650 + Math.floor(Math.random() * 250), retrySeconds * 1000), undefined, { signal });
       continue;
     }
-    throw new ChatProviderError(response.status === 429 ? "quota" : [401, 403].includes(response.status) ? "credentials" : response.status === 404 ? "model" : "busy", response.status);
+    throw new ChatProviderError(response.status === 429 ? "quota" : [401, 403].includes(response.status) ? "credentials" : [400, 404].includes(response.status) ? "model" : "busy", response.status);
   }
   if (!response?.ok) throw new ChatProviderError("busy");
   let result: unknown;
   try {
-    const data = await response.json();
-    const candidate = data.candidates?.[0];
-    if (candidate?.finishReason !== "STOP") throw new ChatProviderError(["SAFETY", "RECITATION", "PROHIBITED_CONTENT", "BLOCKLIST"].includes(candidate?.finishReason) ? "blocked" : "response");
-    const text = candidate.content?.parts?.filter((part: { thought?: boolean; text?: string }) => !part.thought && typeof part.text === "string").map((part: { text: string }) => part.text).join("");
-    result = JSON.parse(text || "");
+    const data: unknown = await response.json();
+    if (!data || typeof data !== "object" || !("choices" in data) || !Array.isArray(data.choices)) throw new Error("Missing choices");
+    const choice = data.choices[0];
+    if (!choice || choice.finish_reason !== "stop") throw new ChatProviderError(choice?.finish_reason === "content_filter" ? "blocked" : "response");
+    if (!choice.message || typeof choice.message.content !== "string") throw new Error("Missing content");
+    result = JSON.parse(choice.message.content);
   } catch (error) {
     if (error instanceof ChatProviderError) throw error;
     throw new ChatProviderError("response");

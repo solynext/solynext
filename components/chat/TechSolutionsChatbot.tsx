@@ -108,7 +108,7 @@ export function TechSolutionsChatbot() {
     const message: ChatMessage = { id: crypto.randomUUID(), role: "user", text };
     const history = [...messages, message];
     setMessages(history); setDraft("");
-    void respond({ message: text, history });
+    void respond({ message: text, history, page: window.location.pathname });
   };
 
   return <aside ref={widget} className={styles.widget} aria-label="SolyNext service assistant" onKeyDown={event => { if (open && event.key === "Escape") { event.stopPropagation(); minimize(); } }}>
@@ -129,17 +129,18 @@ export function TechSolutionsChatbot() {
       </div>
       <form className={styles.composer} onSubmit={event => { event.preventDefault(); send(draft); }}>
         <label className={styles.srOnly} htmlFor="solynext-chat-input">Your message</label>
-        <input ref={input} id="solynext-chat-input" value={draft} onChange={event => setDraft(event.target.value)} onKeyDown={event => {
-          if (event.key === "Enter") {
-            event.preventDefault();
-            if (!event.nativeEvent.isComposing && event.nativeEvent.keyCode !== 229 && !event.repeat) send(draft);
-          }
-        }} enterKeyHint="send" maxLength={1000} placeholder="Type a message" autoComplete="off"/>
-        <button type="submit" aria-label="Send message" disabled={!draft.trim() || pending || Boolean(error) || !historyReady}><Send size={18}/></button>
+        <div className={styles.composerField}>
+          <input ref={input} id="solynext-chat-input" value={draft} onChange={event => setDraft(event.target.value)} onKeyDown={event => {
+            if (event.key === "Enter") {
+              event.preventDefault();
+              if (!event.nativeEvent.isComposing && event.nativeEvent.keyCode !== 229 && !event.repeat) send(draft);
+            }
+          }} enterKeyHint="send" maxLength={1000} placeholder="Type a message" autoComplete="off"/>
+          <button type="submit" aria-label="Send message" disabled={!draft.trim() || pending || Boolean(error) || !historyReady}><Send size={18}/></button>
+        </div>
       </form>
       <p className={styles.footnote}>{storageNotice && <span role="status">{storageNotice} </span>}<Link href="/contact" onClick={minimize}>Contact our team</Link></p>
     </section>
     <button ref={launcher} type="button" className={styles.launcher} aria-label={open ? "Minimize SolyNext chat" : "Open SolyNext chat"} aria-expanded={open} aria-controls="solynext-chat" aria-haspopup="dialog" onClick={() => open ? minimize() : setOpen(true)}>{open ? <X size={23}/> : <MessageCircle size={25}/>}</button>
   </aside>;
 }
-
