@@ -40,10 +40,10 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Content Management Systems with Custom Workflows",
     ],
     processSteps: [
-      { step: "01", title: "Architecture", description: "Define data schemas, API contracts, and hosting topology." },
-      { step: "02", title: "UI Components", description: "Build reusable, accessible components in Figma and React." },
-      { step: "03", title: "Integration", description: "Connect APIs, databases, authentication, and caching layers." },
-      { step: "04", title: "Testing & Launch", description: "Run automated tests, optimize speed, and deploy live." },
+      { title: "Architecture", description: "Define data schemas, API contracts, and hosting topology." },
+      { title: "UI Components", description: "Build reusable, accessible components in Figma and React." },
+      { title: "Integration", description: "Connect APIs, databases, authentication, and caching layers." },
+      { title: "Testing & Launch", description: "Run automated tests, optimize speed, and deploy live." },
     ],
     deliverables: [
       "Clean TypeScript codebase with unit and integration tests",
@@ -85,10 +85,10 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Automated ETL Pipelines and Third-Party API Integrations",
     ],
     processSteps: [
-      { step: "01", title: "Discovery", description: "Map business rules, operational flows, and integration needs." },
-      { step: "02", title: "Data Modeling", description: "Design normalized database schemas and API specifications." },
-      { step: "03", title: "Development", description: "Build backend services with automated testing coverage." },
-      { step: "04", title: "Deployment", description: "Verify end-to-end user flows and deploy to cloud servers." },
+      { title: "Discovery", description: "Map business rules, operational flows, and integration needs." },
+      { title: "Data Modeling", description: "Design normalized database schemas and API specifications." },
+      { title: "Development", description: "Build backend services with automated testing coverage." },
+      { title: "Deployment", description: "Verify end-to-end user flows and deploy to cloud servers." },
     ],
     deliverables: [
       "Modular backend services and database schema migrations",
@@ -130,10 +130,10 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Live Location Tracking, Maps, and Push Notifications",
     ],
     processSteps: [
-      { step: "01", title: "UX Flows", description: "Map touch-friendly screens and navigation transitions." },
-      { step: "02", title: "Prototype", description: "Set up native navigation and offline storage layers." },
-      { step: "03", title: "Build & Sync", description: "Connect APIs, biometric auth, and push notification feeds." },
-      { step: "04", title: "Store QA", description: "Test on real devices and manage App Store submissions." },
+      { title: "UX Flows", description: "Map touch-friendly screens and navigation transitions." },
+      { title: "Prototype", description: "Set up native navigation and offline storage layers." },
+      { title: "Build & Sync", description: "Connect APIs, biometric auth, and push notification feeds." },
+      { title: "Store QA", description: "Test on real devices and manage App Store submissions." },
     ],
     deliverables: [
       "Production-ready IPA and APK/AAB build files",
@@ -175,10 +175,10 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Usability Testing and User Feedback Iteration",
     ],
     processSteps: [
-      { step: "01", title: "User Research", description: "Audit user pain points and define key screen flows." },
-      { step: "02", title: "Wireframes", description: "Map out structural layout and core navigation." },
-      { step: "03", title: "Visual Design", description: "Establish colors, typography, and atomic UI tokens." },
-      { step: "04", title: "Dev Handoff", description: "Prepare interactive prototypes and component specs." },
+      { title: "User Research", description: "Audit user pain points and define key screen flows." },
+      { title: "Wireframes", description: "Map out structural layout and core navigation." },
+      { title: "Visual Design", description: "Establish colors, typography, and atomic UI tokens." },
+      { title: "Dev Handoff", description: "Prepare interactive prototypes and component specs." },
     ],
     deliverables: [
       "Organized Figma source file with interactive components",
@@ -220,10 +220,10 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Social Media Graphic Packs and Ad Creatives",
     ],
     processSteps: [
-      { step: "01", title: "Positioning", description: "Define your brand values, audience, and industry niche." },
-      { step: "02", title: "Concepts", description: "Explore 3 distinct creative directions and logo sketches." },
-      { step: "03", title: "Refinement", description: "Refine selected direction with geometric precision." },
-      { step: "04", title: "Brand Assets", description: "Export master asset kits and comprehensive guidelines." },
+      { title: "Positioning", description: "Define your brand values, audience, and industry niche." },
+      { title: "Concepts", description: "Explore 3 distinct creative directions and logo sketches." },
+      { title: "Refinement", description: "Refine selected direction with geometric precision." },
+      { title: "Brand Assets", description: "Export master asset kits and comprehensive guidelines." },
     ],
     deliverables: [
       "Master vector logo files in AI, EPS, SVG, PNG, and PDF",
@@ -265,10 +265,10 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Lead Generation Funnels and Landing Page Development",
     ],
     processSteps: [
-      { step: "01", title: "Audit", description: "Audit current tracking, GA4 events, and past campaigns." },
-      { step: "02", title: "Strategy", description: "Identify high-intent keywords and target buyer audiences." },
-      { step: "03", title: "Launch", description: "Deploy targeted ad campaigns and optimized landing pages." },
-      { step: "04", title: "Optimize", description: "Review performance weekly and reallocate budget to winners." },
+      { title: "Audit", description: "Audit current tracking, GA4 events, and past campaigns." },
+      { title: "Strategy", description: "Identify high-intent keywords and target buyer audiences." },
+      { title: "Launch", description: "Deploy targeted ad campaigns and optimized landing pages." },
+      { title: "Optimize", description: "Review performance weekly and reallocate budget to winners." },
     ],
     deliverables: [
       "Live Looker Studio performance dashboard",
@@ -310,10 +310,10 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Monthly Reach, Follower Growth, and Engagement Reports",
     ],
     processSteps: [
-      { step: "01", title: "Pillars", description: "Define your brand voice, content themes, and target tags." },
-      { step: "02", title: "Batching", description: "Create monthly content calendars with copy and visuals." },
-      { step: "03", title: "Publishing", description: "Schedule posts automatically at peak audience engagement times." },
-      { step: "04", title: "Community", description: "Monitor discussions and reply to followers promptly." },
+      { title: "Pillars", description: "Define your brand voice, content themes, and target tags." },
+      { title: "Batching", description: "Create monthly content calendars with copy and visuals." },
+      { title: "Publishing", description: "Schedule posts automatically at peak audience engagement times." },
+      { title: "Community", description: "Monitor discussions and reply to followers promptly." },
     ],
     deliverables: [
       "Shared editorial calendar with approval workflows",
@@ -355,10 +355,10 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Logo Animation and Video Intro/Outro Packs",
     ],
     processSteps: [
-      { step: "01", title: "Script", description: "Write clear, narrative scripts and visual storyboards." },
-      { step: "02", title: "Voice & Audio", description: "Record professional voiceovers and select licensed tracks." },
-      { step: "03", title: "Animation", description: "Animate vector assets and render fluid scene transitions." },
-      { step: "04", title: "Delivery", description: "Master in 4K resolution with captions for silent autoplay." },
+      { title: "Script", description: "Write clear, narrative scripts and visual storyboards." },
+      { title: "Voice & Audio", description: "Record professional voiceovers and select licensed tracks." },
+      { title: "Animation", description: "Animate vector assets and render fluid scene transitions." },
+      { title: "Delivery", description: "Master in 4K resolution with captions for silent autoplay." },
     ],
     deliverables: [
       "Master video files in 4K UHD and 1080p (MP4 format)",

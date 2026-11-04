@@ -11,10 +11,10 @@
 .questions{display:grid;gap:12px;padding-top:5px;min-width:0}
 .item{border:1px solid #e4eaf3;border-radius:18px;background:#fff;overflow:hidden;transition:border-color .25s ease,box-shadow .25s ease,background .25s ease}
 .item summary{display:flex;align-items:center;gap:16px;cursor:pointer;list-style:none;padding:23px 22px;min-height:80px}.item summary::-webkit-details-marker{display:none}
-.number{font-size:10px;font-weight:500;color:#8a9bb2;flex-shrink:0;font-variant-numeric:tabular-nums}.question{flex:1;min-width:0;font-size:14px;font-weight:500;line-height:1.6;color:#25364d}
+.question{flex:1;min-width:0;font-size:14px;font-weight:500;line-height:1.6;color:#25364d}
 .toggle{display:grid;place-items:center;flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1px solid #e5ebf4;background:#f6f8fc;color:#7184a1;transition:background .25s ease,color .25s ease}.toggle svg{transition:transform .3s ease}
-.item[open]{border-color:#c8dbfa;background:linear-gradient(120deg,#f4f8ff,#fff);box-shadow:0 8px 24px #2563eb07}.item[open] .number{color:var(--brand)}.item[open] .toggle{background:var(--brand);border-color:var(--brand);color:#fff}.item[open] .toggle svg{transform:rotate(45deg)}
-.answer{margin:0 22px 24px 52px;padding-top:16px;border-top:1px solid #e1eafa}.answer p{font-size:13px;line-height:1.9;color:#64748b;overflow-wrap:anywhere}.item[open] .answer{animation:answer-in .25s ease both}
+.item[open]{border-color:#c8dbfa;background:linear-gradient(120deg,#f4f8ff,#fff);box-shadow:0 8px 24px #2563eb07}.item[open] .toggle{background:var(--brand);border-color:var(--brand);color:#fff}.item[open] .toggle svg{transform:rotate(45deg)}
+.answer{margin:0 22px 24px;padding-top:16px;border-top:1px solid #e1eafa}.answer p{font-size:13px;line-height:1.9;color:#64748b;overflow-wrap:anywhere}.item[open] .answer{animation:answer-in .25s ease both}
 .item summary:focus-visible,.contactCard a:focus-visible{outline:3px solid var(--brand);outline-offset:-4px;border-radius:14px}
 @keyframes answer-in{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
 @media(hover:hover){.item:hover{border-color:#bfd2ef;box-shadow:0 5px 18px #2563eb06}.contactCard a:hover{text-decoration:underline;text-underline-offset:4px}}

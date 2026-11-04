@@ -15,7 +15,7 @@ const pages = [
   ["Our delivery process", "/process"], ["Careers", "/careers"],
 ].map(([title, href]) => ({ title, href, category: "Pages", detail: "Explore SolyNext", keywords: title }));
 const baseRecords = [
-  ...BLOG_POSTS_DATA.map(p => ({ title: p.title, href: `/insights/${p.slug}`, category: "Blog", detail: p.excerpt, keywords: p.tags.join(" ") })),
+  ...BLOG_POSTS_DATA.map(p => ({ title: p.title, href: `/blog/${p.slug}`, category: "Blog", detail: p.excerpt, keywords: p.tags.join(" ") })),
   ...TECHNOLOGIES_DATA.map(t => ({ title: t.name, href: "/technologies", category: "Technologies", detail: t.description, keywords: t.category })),
   ...pages,
 ];

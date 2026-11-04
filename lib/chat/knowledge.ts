@@ -8,7 +8,7 @@ export function buildKnowledge(): KnowledgeEntry[] {
     ...SERVICES_DATA.map(service => ({ id: `service:${service.slug}`, title: service.title, href: `/services/${service.slug}`, keywords: [service.category, ...service.technologies], content: [service.tagline, service.fullDescription, `Features: ${service.features.join("; ")}`, `Deliverables: ${service.deliverables.join("; ")}`, `Indicative timeline: ${service.estimatedTimeline}. Engagement: ${service.startingPriceTier}. Confirm scope and commitments with the team.`].join("\n") })),
     ...FAQS_DATA.map((faq, index) => ({ id: `faq:${index}`, title: faq.question, href: "/", keywords: [faq.category], content: faq.answer })),
     ...TECHNOLOGIES_DATA.map(technology => ({ id: `technology:${technology.name}`, title: technology.name, href: "/technologies", keywords: [technology.category, ...technology.popularUseCases], content: `${technology.description}\nPublished expertise: ${technology.proficiencyLevel}.` })),
-    ...BLOG_POSTS_DATA.map(post => ({ id: `article:${post.slug}`, title: post.title, href: `/insights/${post.slug}`, keywords: post.tags, content: [post.excerpt, ...post.content].join("\n") })),
+    ...BLOG_POSTS_DATA.map(post => ({ id: `article:${post.slug}`, title: post.title, href: `/blog/${post.slug}`, keywords: post.tags, content: [post.excerpt, ...post.content].join("\n") })),
   ];
 }
 

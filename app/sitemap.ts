@@ -14,7 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...seoPages,
     ...(await publicOfferings("services")).map(service => ({ path: `/services/${service.slug}`, lastModified: service.updated_at })),
     ...(await publicOfferings("industries")).map(industry => ({ path: `/industries/${industry.slug}`, lastModified: industry.updated_at })),
-    ...BLOG_POSTS_DATA.map(post => ({ path: `/insights/${post.slug}`, lastModified: post.publishedDate })),
+    ...BLOG_POSTS_DATA.map(post => ({ path: `/blog/${post.slug}`, lastModified: post.publishedDate })),
     ...projects.map(project => ({ path: `/portfolio/${project.slug}`, lastModified: project.updatedAt })),
   ];
   return paths.filter(({ path }) => resolvePageSeo(settings, path).index).map(({ path, lastModified }) => ({

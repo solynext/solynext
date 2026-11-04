@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import styles from "./HomeApproach.module.css";
 
@@ -15,8 +14,7 @@ export function HomeApproach() {
         <h2 id="home-approach-title">What your business needs.<br/>Connected in <span>one place.</span></h2>
       </header>
       <div className={styles.outcomes}>
-        {outcomes.map((outcome, index) => <article className={styles.outcome} key={index}>
-          <span className={styles.outcomeNumber}>0{index + 1}</span>
+        {outcomes.map((outcome) => <article className={styles.outcome} key={String(outcome.detail)}>
           <div className={styles.circleContent}>
             <h3>{outcome.title}</h3>
             <p>{outcome.detail}</p>

@@ -14,11 +14,11 @@ export function InsightsSection() {
   return <section className={styles.section} id="insights" aria-labelledby="insights-title"><div className="premium-container">
     <div className={styles.heading}>
       <div><p className={styles.kicker}><span/>IDEAS FROM THE TEAM</p><h2 id="insights-title">Fresh ideas.<br/><span>Better decisions.</span></h2></div>
-      <div className={styles.aside}><Link href="/insights" className={styles.allLink}>All insights <ArrowUpRight size={18} aria-hidden="true"/></Link></div>
+      <div className={styles.aside}><Link href="/blog" className={styles.allLink}>All insights <ArrowUpRight size={18} aria-hidden="true"/></Link></div>
     </div>
     <div className={styles.grid}>{BLOG_POSTS_DATA.slice(0, 3).map((post, index) => {
       const Icon = artwork[index];
-      return <Link key={post.id} href={`/insights/${post.slug}`} className={styles.article} data-tone={index}>
+      return <Link key={post.id} href={`/blog/${post.slug}`} className={styles.article} data-tone={index}>
         <div className={styles.art} aria-hidden="true"><div className={styles.iconTile}><Icon size={36} strokeWidth={1.5}/></div></div>
         <div className={styles.content}><div className={styles.meta}><span>{post.category}</span><span>{post.readTime}</span></div><h3>{shortTitles[post.slug] ?? post.title}</h3><p className={styles.excerpt}>{post.excerpt}</p><span className={styles.readLink}>Read article <ArrowUpRight size={17} aria-hidden="true"/></span>
         </div>

@@ -47,12 +47,11 @@ export function HomeIndustriesCarousel({ industries, subheading }: { industries:
         </div>
       </header>
       <div className={c.homeIndustryTrack} id="home-industries-track" ref={track} onScroll={onScroll} aria-label="Industries">
-        {industries.map((industry, index) => <Link className={c.homeIndustryCard} href={`/industries/${industry.slug}`} key={industry.id} data-industry-card>
+        {industries.map((industry) => <Link className={c.homeIndustryCard} href={`/industries/${industry.slug}`} key={industry.id} data-industry-card>
           <div className={c.homeIndustryImage}>
             <Image src={industry.hero_image || fallbackImages[industry.slug] || "/images/hero-tech.jpg"} alt="" fill sizes="(max-width: 700px) 82vw, (max-width: 1100px) 48vw, 30vw" unoptimized={Boolean(industry.hero_image?.startsWith("https://"))}/>
           </div>
           <div className={c.homeIndustryBody}>
-            <span className={c.homeIndustryNumber}>{String(index + 1).padStart(2, "0")}</span>
             <h3>{industry.name}</h3>
             <p>{industry.card_summary}</p>
             <span className={c.homeIndustryArrow} aria-hidden="true"><ArrowUpRight size={23}/></span>

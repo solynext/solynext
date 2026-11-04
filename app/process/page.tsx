@@ -10,7 +10,6 @@ export async function generateMetadata() { return getPageMetadata("/process"); }
 export default function ProcessPage() {
   const fullSteps = [
     {
-      num: "01",
       title: "Discovery & Needs Analysis",
       timing: "Week 1",
       description:
@@ -18,7 +17,6 @@ export default function ProcessPage() {
       deliverables: ["Product Requirement Document (PRD)", "User Persona Maps", "Technical Scope & Milestones Matrix"],
     },
     {
-      num: "02",
       title: "Technical Feasibility & Research",
       timing: "Week 1 - 2",
       description:
@@ -26,7 +24,6 @@ export default function ProcessPage() {
       deliverables: ["Technical Feasibility Report", "Third-Party Integration Contracts", "Risk Mitigation Strategy"],
     },
     {
-      num: "03",
       title: "System Architecture & Data Modeling",
       timing: "Week 2",
       description:
@@ -34,7 +31,6 @@ export default function ProcessPage() {
       deliverables: ["Entity Relationship Diagram (ERD)", "API Swagger / OpenAPI Spec", "Cloud Infrastructure Topology"],
     },
     {
-      num: "04",
       title: "UI/UX Prototyping & Design Systems",
       timing: "Week 2 - 4",
       description:
@@ -42,7 +38,6 @@ export default function ProcessPage() {
       deliverables: ["Clickable Interactive Figma Prototype", "Design Token & Component Library", "Usability Test Summary"],
     },
     {
-      num: "05",
       title: "Agile Sprint Engineering",
       timing: "Week 4 - 8+",
       description:
@@ -50,7 +45,6 @@ export default function ProcessPage() {
       deliverables: ["Bi-Weekly Sprint Review Demos", "Clean TypeScript Codebase in GitHub", "Automated CI/CD Test Pipeline"],
     },
     {
-      num: "06",
       title: "QA, Security & Performance Hardening",
       timing: "Final Sprint",
       description:
@@ -58,7 +52,6 @@ export default function ProcessPage() {
       deliverables: ["Quality Assurance Audit Report", "Lighthouse 90+ Score Proof", "OWASP Security Verification"],
     },
     {
-      num: "07",
       title: "Production Deployment & Cutover",
       timing: "Launch Week",
       description:
@@ -66,7 +59,6 @@ export default function ProcessPage() {
       deliverables: ["Production Cloud Environment", "Automated Database Backup Policies", "Launch Checklist Signoff"],
     },
     {
-      num: "08",
       title: "30-Day Warranty & Evolution SLA",
       timing: "Post-Launch",
       description:
@@ -80,23 +72,20 @@ export default function ProcessPage() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader as="h1"
           kicker="Delivery Framework"
-          title="Our 8-Stage Process"
+          title="Our Delivery Process"
           description="A transparent engineering roadmap from initial discovery to launch and ongoing support."
         />
 
         <div className="space-y-8 relative before:absolute before:inset-0 before:left-7 sm:before:left-8 before:w-0.5 before:bg-[#202738] before:hidden md:before:block">
           {fullSteps.map((step) => (
             <div
-              key={step.num}
+              key={step.title}
               data-card-tone={cardTone(step.title)}
               className="visual-card relative p-6 sm:p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] transition-colors"
             >
               <CardMotif kind={step.title}/>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                 <div className="flex items-center gap-3">
-                  <span className="text-xl font-bold font-mono text-[#00D9FF] tabular-nums">
-                    {step.num}.
-                  </span>
                   <h2 className="text-lg font-bold text-white">
                     {step.title}
                   </h2>

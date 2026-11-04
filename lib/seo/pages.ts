@@ -52,7 +52,7 @@ export const seoPages: { path: string; label: string; title?: string; descriptio
     "description": "Transparent engagement models: Fixed-scope milestones, dedicated engineering teams, and monthly SLA retainers."
   },
   {
-    "path": "/insights",
+    "path": "/blog",
     "label": "Blog",
     "title": "SolyNext Blog | Ideas for Digital Teams",
     "description": "Ideas on web, design, marketing, and building a stronger online presence from the SolyNext team."

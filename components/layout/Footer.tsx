@@ -12,7 +12,7 @@ const companyLinks = [
   { label: "Portfolio", icon: BriefcaseBusiness, href: "/portfolio" },
   { label: "Our process", icon: ListChecks, href: "/process" },
   { label: "Pricing & models", icon: BadgeDollarSign, href: "/pricing" },
-  { label: "Blog", icon: BookOpen, href: "/insights" },
+  { label: "Blog", icon: BookOpen, href: "/blog" },
   { label: "Careers", icon: Users, href: "/careers" },
 ];
 

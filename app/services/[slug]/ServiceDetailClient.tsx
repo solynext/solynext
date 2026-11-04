@@ -127,12 +127,9 @@ export function ServiceDetailClient({ service }: ServiceDetailClientProps) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {service.processSteps.map((step) => (
               <div
-                key={step.step}
+                key={step.title}
                 className="visual-card p-6 rounded-2xl border border-[#202738] bg-[#0a0d15]"
               >
-                <div className="text-xl font-bold font-mono text-[#00D9FF] mb-2">
-                  {step.step}.
-                </div>
                 <h3 className="text-base font-bold text-white mb-1.5">
                   {step.title}
                 </h3>

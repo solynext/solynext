@@ -22,28 +22,28 @@ export default function TermsPage() {
 
         <div className="space-y-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#050505]">1. Engagement Overview</h2>
+            <h2 className="text-base font-bold text-[#050505]">Engagement Overview</h2>
             <p>
               By accessing the SolyNext web platform or contracting engineering services from SolyNext Technologies, you agree to comply with standard professional commercial terms governing engagement scoping, intellectual property, and warranties.
             </p>
           </section>
 
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#050505]">2. Intellectual Property (IP) Ownership</h2>
+            <h2 className="text-base font-bold text-[#050505]">Intellectual Property (IP) Ownership</h2>
             <p>
               Unless otherwise agreed in a customized Master Services Agreement (MSA), SolyNext assigns 100% of all custom-developed source code, database architectures, graphics, and design assets to the client upon satisfactory receipt of agreed milestone payments. SolyNext retains no proprietary claim over client business logic.
             </p>
           </section>
 
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#050505]">3. Warranty & Defect Remediation</h2>
+            <h2 className="text-base font-bold text-[#050505]">Warranty &amp; Defect Remediation</h2>
             <p>
               Standard software engineering deliveries from SolyNext include an explicit 30-day post-launch bug warranty during which reproducible defects against the signed Product Requirement Document (PRD) are resolved at zero additional charge.
             </p>
           </section>
 
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#050505]">4. Governing Law</h2>
+            <h2 className="text-base font-bold text-[#050505]">Governing Law</h2>
             <p>
               Formal commercial contracts may be executed under mutual international jurisdictions or Pakistani commercial arbitration laws as specified in the individual project Statement of Work (SOW).
             </p>

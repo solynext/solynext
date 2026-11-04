@@ -21,7 +21,7 @@ export function BlogClient() {
   return <main id="main-content" className={styles.page}>
     <section className={styles.hero}>
       <div className={styles.container}>
-        <p className={styles.kicker}>INSIGHTS</p>
+        <p className={styles.kicker}>BLOG</p>
         <h1>Ideas and perspectives for digital teams</h1>
         <p className={styles.heroDescription}>Practical thinking on engineering, design, and growing a business online.</p>
       </div>

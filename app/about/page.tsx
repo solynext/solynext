@@ -65,7 +65,7 @@ export default function AboutPage() {
     <section className={styles.valuesSection}>
       <div className={styles.container}>
         <div className={styles.centerHeading}><p className={styles.kicker}>WHAT GUIDES US</p><h2>Principles behind <span>every project.</span></h2><p>The way we work matters as much as what we deliver.</p></div>
-        <div className={styles.valuesGrid}>{values.map(({ title, description, icon: Icon }, index) => <article className={styles.valueCard} key={title}><span className={styles.valueNumber}>0{index + 1}</span><span className={styles.valueIcon}><Icon size={20} aria-hidden="true" /></span><h3>{title}</h3><p>{description}</p></article>)}</div>
+        <div className={styles.valuesGrid}>{values.map(({ title, description, icon: Icon }) => <article className={styles.valueCard} key={title}><span className={styles.valueIcon}><Icon size={20} aria-hidden="true" /></span><h3>{title}</h3><p>{description}</p></article>)}</div>
       </div>
     </section>
 

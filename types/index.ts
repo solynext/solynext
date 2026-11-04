@@ -19,7 +19,7 @@ export interface ServiceItem {
   solution: string;
   keyBenefits: string[];
   features: string[];
-  processSteps: { step: string; title: string; description: string }[];
+  processSteps: { title: string; description: string }[];
   deliverables: string[];
   technologies: string[];
   featuredImage: string;

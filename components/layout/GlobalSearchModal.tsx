@@ -211,7 +211,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
                     {filteredBlog.map((post) => (
                       <Link
                         key={post.id}
-                        href={`/insights/${post.slug}`}
+                        href={`/blog/${post.slug}`}
                         onClick={onClose}
                         className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#121724] transition-colors group"
                       >

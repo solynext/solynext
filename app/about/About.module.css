@@ -44,7 +44,6 @@
 .valuesGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .valueCard{position:relative;min-width:0;padding:23px 21px 24px;border:1px solid #e5ebf3;border-radius:15px;background:linear-gradient(155deg,#fff 0%,#fbfcfe 100%);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
 .valueCard:hover{transform:translateY(-3px);border-color:#c9d9ef;box-shadow:0 12px 28px #19355310}
-.valueNumber{position:absolute;top:24px;right:21px;color:#9aabc0;font-size:10px;font-weight:700;letter-spacing:.08em}
 .valueIcon{display:grid;width:42px;height:42px;place-items:center;border-radius:12px;background:#edf4ff;color:#1767e8}
 .valueCard h3{margin:21px 0 9px;color:#182941;font-size:16px;font-weight:650;line-height:1.35;letter-spacing:-.02em}
 .valueCard p{margin:0;color:#68788d;font-size:13px;line-height:1.65}

@@ -22,21 +22,21 @@ export default function PrivacyPolicyPage() {
 
         <div className="space-y-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#050505]">1. Scope of Privacy Commitment</h2>
+            <h2 className="text-base font-bold text-[#050505]">Scope of Privacy Commitment</h2>
             <p>
               SolyNext Technologies (&quot;SolyNext&quot;, &quot;we&quot;, &quot;our&quot;) respects the privacy and confidentiality of visitors, clients, and partners. This policy outlines how information gathered through our web platform and client scoping questionnaires is handled.
             </p>
           </section>
 
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#050505]">2. Information Collected</h2>
+            <h2 className="text-base font-bold text-[#050505]">Information Collected</h2>
             <p>
               Project inquiry and career forms prepare a draft in your email application. The website does not transmit or store those form entries on a server. When you send the email, SolyNext receives the details you choose to share, such as your name, email address, project requirements, or portfolio link.
             </p>
           </section>
 
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#050505]">3. Use of Project Information & Confidentiality</h2>
+            <h2 className="text-base font-bold text-[#050505]">Use of Project Information &amp; Confidentiality</h2>
             <p>
               Project descriptions, architectural schemas, and trade information submitted to SolyNext are treated as strictly confidential commercial information. We do not sell, license, or share inquiry data with third-party advertisers. All data is utilized exclusively for generating technical scopes, engineering estimates, or executing mutual contracts.
             </p>
@@ -48,14 +48,14 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#050505]">4. Data Security</h2>
+            <h2 className="text-base font-bold text-[#050505]">Data Security</h2>
             <p>
               We implement industry-standard encryption protocols (TLS/HTTPS) across all digital channels and internal repositories to protect data from unauthorized access or leakage.
             </p>
           </section>
 
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#050505]">5. Direct Inquiries</h2>
+            <h2 className="text-base font-bold text-[#050505]">Direct Inquiries</h2>
             <p>
               For questions regarding privacy, data deletion, or NDA requests, contact our compliance officer at{" "}
               <a href="mailto:solynextsolutions@gmail.com" className="text-[#0057FF] hover:underline font-semibold">

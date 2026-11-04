@@ -10,7 +10,7 @@ import { HeaderSearch } from "./HeaderSearch";
 import { WebsiteNotificationBell } from "@/components/notifications/WebsiteNotificationBell";
 import { ConsultationModal } from "@/components/ui/ConsultationModal";
 
-const links = [{href:"/",label:"Home",icon:Home},{href:"/services",label:"Services",icon:Layers3},{href:"/industries",label:"Industries",icon:Building2},{href:"/collaboration",label:"Collaboration",icon:Handshake},{href:"/about",label:"About",icon:Users},{href:"/insights",label:"Blog",icon:BookOpen},{href:"/contact",label:"Contact",icon:Mail}];
+const links = [{href:"/",label:"Home",icon:Home},{href:"/services",label:"Services",icon:Layers3},{href:"/industries",label:"Industries",icon:Building2},{href:"/collaboration",label:"Collaboration",icon:Handshake},{href:"/about",label:"About",icon:Users},{href:"/blog",label:"Blog",icon:BookOpen},{href:"/contact",label:"Contact",icon:Mail}];
 
 function subscribeToScroll(onChange: () => void) {
  window.addEventListener("scroll", onChange, { passive: true });

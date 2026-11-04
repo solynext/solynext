@@ -5,35 +5,30 @@ import { SectionHeader } from "../ui/SectionHeader";
 export function ProcessSection() {
   const steps = [
     {
-      step: "01",
       timeline: "Days 1–5",
       title: "Discover",
       description: "Align on business goals, technical needs, user journeys, and sprint goals.",
       deliverable: "Technical Scope & Plan",
     },
     {
-      step: "02",
       timeline: "Days 6–12",
       title: "Plan & Design",
       description: "Shape user flows, interface prototypes, and the underlying system architecture.",
       deliverable: "Prototype & Architecture",
     },
     {
-      step: "03",
       timeline: "Sprints 1–2",
       title: "Build & Integrate",
       description: "Develop in focused sprints, connect APIs, and share working staging builds.",
       deliverable: "Working Staging Build",
     },
     {
-      step: "04",
       timeline: "Pre-launch",
       title: "Quality & Security",
       description: "Test key user journeys, device compatibility, performance, and security.",
       deliverable: "QA Sign-off",
     },
     {
-      step: "05",
       timeline: "Launch + 30 days",
       title: "Launch & Support",
       description: "Deploy, hand over the source code, and support the release with a 30-day warranty.",
@@ -53,14 +48,11 @@ export function ProcessSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {steps.map((st) => (
             <div
-              key={st.step}
+              key={st.title}
               className="p-7 lg:p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] hover:bg-[#0f131f] transition-all duration-200 flex flex-col justify-between group"
             >
               <div>
-                <div className="flex items-center justify-between mb-5">
-                  <span className="text-2xl font-bold font-mono text-[#00D9FF] tabular-nums">
-                    {st.step}
-                  </span>
+                <div className="flex items-center justify-end mb-5">
                   <span className="text-[11px] font-mono text-slate-300 bg-[#06080e] px-2.5 py-1 rounded-full border border-[#202738] font-semibold">
                     {st.timeline}
                   </span>

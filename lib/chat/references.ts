@@ -16,7 +16,7 @@ export const technicalReferences = [
   { label: "Google SEO guidance", href: "https://developers.google.com/search/docs" },
 ];
 
-const publicPages = new Set(["/", "/about", "/contact", "/services", "/pricing", "/process", "/portfolio", "/technologies", "/industries", "/insights", "/collaboration", "/careers", "/privacy-policy"]);
+const publicPages = new Set(["/", "/about", "/contact", "/services", "/pricing", "/process", "/portfolio", "/technologies", "/industries", "/blog", "/collaboration", "/careers", "/privacy-policy"]);
 export function isPublicChatLink(href: string) {
   return publicPages.has(href) || /^\/(?:services|portfolio|blog)\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(href) || technicalReferences.some(reference => reference.href === href);
 }
