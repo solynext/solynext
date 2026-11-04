@@ -39,7 +39,7 @@ export function ProcessSection() {
   useEffect(() => {
     if (!visible) return;
     if (reducedMotion) return;
-    const delay = activeStage === stages.length ? 1900 : 1100;
+    const delay = activeStage === stages.length ? 2300 : 1600;
     const timer = window.setTimeout(() => {
       setActiveStage(activeStage === stages.length ? 0 : activeStage + 1);
     }, delay);
