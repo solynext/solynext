@@ -66,3 +66,10 @@
 
 .quote:not(.quoteExpanded){max-height:1.75em;white-space:nowrap;text-overflow:ellipsis}
 .quoteExpanded{max-height:600px;white-space:normal;overflow-wrap:anywhere}
+.list[data-auto-scroll="true"]{height:220px;overflow:hidden}
+.reviewTrack{animation:reviewReel 28s linear infinite;will-change:transform}
+.list:is(:hover,:focus-within) .reviewTrack{animation-play-state:paused}
+.reviewTrack>div>.review:first-child{border-top:1px solid #edf1f5}
+@keyframes reviewReel{to{transform:translateY(-12.5%)}}
+@media(max-width:760px){.list[data-auto-scroll="true"]{height:250px}}
+@media(prefers-reduced-motion:reduce){.list[data-auto-scroll="true"]{height:auto;overflow:visible}.reviewTrack{animation:none;transform:none;will-change:auto}.reviewTrack>div:not(:first-child){display:none}}

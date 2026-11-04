@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bell, ChevronDown, ChevronRight, Menu, X, LogOut, UserRound, Settings, CircleCheck, ShieldCheck, ArrowUpRight, Trash2, Activity, Globe } from "lucide-react";
+import { Bell, ChevronDown, ChevronRight, Menu, X, LogOut, UserRound, Settings, CircleCheck, ShieldCheck, ArrowUpRight, Trash2, Activity, Globe, Search } from "lucide-react";
 import { adminNavigation, adminSearchNavigation, getAdminPageNavigation } from "@/lib/admin/navigation";
 import { useAdmin } from "./AdminProvider";
 import { AdminDialog } from "./AdminDialog";
@@ -56,7 +56,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
         <BrandLogo size={40} className={styles.workspaceMark}/>
         <span className={styles.workspaceBrandText}><strong>SolyNext<span>.</span></strong><small>Company workspace</small></span>
       </Link>
-      <span className={styles.workspaceRole}><ShieldCheck size={12} aria-hidden="true"/>Admin</span>
+      <Link href="/" target="_blank" rel="noopener noreferrer" className={styles.workspaceVisit} aria-label="Visit Website (opens in a new tab)">Visit Website<ArrowUpRight size={15}/></Link>
     </div>
     <nav aria-label="Admin navigation" className={`${styles.navigation} ${styles.primaryNavigation}`}>{visibleNavigation.map(({ label, href, icon: Icon }) => <Link key={href} href={href} className={mainHref === href ? styles.navActive : ""} aria-current={mainHref === href ? "page" : undefined} onClick={() => setSidebar(false)}><Icon size={18}/><span>{label}</span>{href === "/admin/inquiries" && newInquiries > 0 && <b>{newInquiries}</b>}</Link>)}</nav>
     <div className={styles.sidebarBottom}><button type="button" className={styles.sidebarLogout} aria-haspopup="dialog" onClick={() => { setSidebar(false); setProfile(false); setLogoutOpen(true); }}><LogOut size={18}/>Log out</button></div>
@@ -69,7 +69,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
     <dialog ref={mobileDialog} className={styles.mobileSidebar} aria-label="Admin navigation" onCancel={event => { event.preventDefault(); setSidebar(false); }}><button className={styles.mobileClose} onClick={() => setSidebar(false)} aria-label="Close navigation"><X size={20}/></button>{navigation}</dialog>
     <div className={styles.workspace}>
       <header className={styles.topbar}><div className={styles.topbarLeft}><button className={`${styles.iconButton} ${styles.mobileMenu}`} onClick={() => setSidebar(true)} aria-label="Open admin navigation" aria-expanded={sidebar}><Menu size={21}/></button><nav className={styles.breadcrumbs} aria-label="Breadcrumb"><Link href="/admin">Workspace</Link><ChevronRight size={14}/>{isDetail ? <><Link href={currentLink?.href ?? "/admin"}>{title}</Link><ChevronRight size={14}/><span aria-current="page">Details</span></> : <span aria-current="page">{title}</span>}</nav></div><div className={styles.topbarActions}>
-        <Link href="/" target="_blank" rel="noopener noreferrer" className={styles.visitWebsite} aria-label="Visit Website (opens in a new tab)"><span>Visit Website</span><ArrowUpRight size={17}/></Link>
+        <button type="button" className={styles.headerSearch} onClick={() => { setProfile(false); setNotifications(false); setSearch(""); setSearchOpen(true); }} aria-label="Search workspace" aria-haspopup="dialog"><Search size={16}/><span>Search...</span></button>
         <button className={styles.notificationButton} onClick={() => { setProfile(false); setSearchOpen(false); setNotifications(true); }} aria-label="Open notifications" aria-haspopup="dialog"><Bell size={19}/>{unread > 0 && <i/>}</button>
         <div className={styles.profileContainer} ref={profileRef} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setProfile(false); }}>
           <button className={styles.profileTrigger} onClick={() => { setProfile(!profile); setNotifications(false); }} aria-label="Open admin account menu" aria-expanded={profile} aria-controls="admin-account-menu"><AdminAvatar image={profilePhoto.image} initials={initials} className={styles.avatar}/><span className={styles.profileName}>{session.user.name}<small>Administrator</small></span><ChevronDown size={14}/></button>

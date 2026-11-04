@@ -2,7 +2,7 @@ import { AppWindow, LayoutDashboard, FolderKanban, Layers3, Braces, Building2, S
 
 /** Only primary destinations appear in the sidebar. Related tools stay in pages. */
 export const adminNavigation = [
-  { label: "Dashboad", href: "/admin", icon: LayoutDashboard },
+  { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { label: "Inquiries", href: "/admin/inquiries", icon: Inbox },
   { label: "Projects", href: "/admin/projects", icon: FolderKanban },
   { label: "Clients", href: "/admin/clients", icon: Building2 },
@@ -20,7 +20,6 @@ export const adminPageNavigation = [
     { label: "All services", href: "/admin/services", icon: Layers3 },
     { label: "Homepage section", href: "/admin/services/settings/home-section", icon: LayoutDashboard },
     { label: "Services page", href: "/admin/services/settings/listing-page", icon: PanelsTopLeft },
-    { label: "Portfolio projects", href: "/admin/portfolio", icon: FolderKanban },
     { label: "Project inquiries", href: "/admin/services/inquiries", icon: Inbox },
   ] },
   { label: "Industry management", parent: "/admin/industries", items: [
@@ -39,7 +38,7 @@ export const adminPageNavigation = [
   ] },
   { label: "Website management", parent: "/admin/content", items: [
     { label: "Content & insights", href: "/admin/content", icon: PanelsTopLeft },
-    { label: "Public portfolio", href: "/admin/portfolio", icon: FolderKanban },
+    { label: "Portfolio projects", href: "/admin/portfolio", icon: FolderKanban },
     { label: "Reviews", href: "/admin/reviews", icon: Star },
     { label: "Media", href: "/admin/media", icon: Image },
     { label: "Technologies", href: "/admin/technologies", icon: Braces },

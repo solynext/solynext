@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { ArrowUpRight, FolderKanban, Building2, Plus, ListTodo, CalendarDays, Inbox, Star, ArrowRight, CircleAlert } from "lucide-react";
+import { ArrowUpRight, FolderKanban, Building2, Plus, ListTodo, CalendarDays, Inbox, Star, ArrowRight, CircleAlert, Activity } from "lucide-react";
 import { deliveryMetrics, activeProject, DEMO_DATE, initials } from "@/lib/admin/selectors";
 import { useAdmin } from "./AdminProvider";
 import { AdminPageHeading, StatusBadge, ProgressBar, formatAdminDate } from "./AdminUI";
@@ -14,6 +14,19 @@ export function AdminDashboard() {
   const blocked = data.tasks.filter(item => item.status === "Blocked");
   const reviews = data.reviews.filter(item => item.status === "Pending");
   const projects = data.projects.filter(activeProject).sort((a, b) => (a.deadline ?? "9999").localeCompare(b.deadline ?? "9999"));
+  const chartProjects = projects.slice(0, 7);
+  const chartWidth = 720;
+  const chartTop = 18;
+  const chartBottom = 166;
+  const chartLeft = 38;
+  const chartRight = 700;
+  const chartPoints = chartProjects.map((project, index) => {
+    const x = chartProjects.length === 1 ? (chartLeft + chartRight) / 2 : chartLeft + index * (chartRight - chartLeft) / (chartProjects.length - 1);
+    const y = chartBottom - Math.max(0, Math.min(100, project.progress ?? 0)) / 100 * (chartBottom - chartTop);
+    return { project, x, y, progress: Math.max(0, Math.min(100, project.progress ?? 0)) };
+  });
+  const chartLine = chartPoints.map(({ x, y }, index) => `${index ? "L" : "M"} ${x} ${y}`).join(" ");
+  const chartArea = chartPoints.length ? `${chartLine} L ${chartPoints[chartPoints.length - 1].x} ${chartBottom} L ${chartPoints[0].x} ${chartBottom} Z` : "";
   const overdue = projects.filter(item => item.deadline && item.deadline < DEMO_DATE);
   const stats = [
     { label: "New inquiries", value: inquiries.length, detail: "Awaiting first response", icon: Inbox, tone: "pink", href: "inquiries" },
@@ -29,16 +42,38 @@ export function AdminDashboard() {
   ].filter(item => item.count > 0);
 
   return <>
-    <AdminPageHeading title="Dashboad" description="Client conversations, project delivery, and your next priorities.">
+    <AdminPageHeading title="Dashboard" description="Client conversations, project delivery, and your next priorities.">
       <Link href="/admin/projects?new=1" className={`${styles.button} ${styles.primary}`}><Plus size={17}/>New project</Link>
     </AdminPageHeading>
-    <div className={styles.dashboardMeta}><span><CalendarDays size={14}/>Sample snapshot · 06 Oct 2026</span><Link href="/admin/work-progress">Delivery overview<ArrowUpRight size={14}/></Link></div>
+    <div className={styles.dashboardMeta}><span><CalendarDays size={14}/>Workspace overview</span><Link href="/admin/work-progress">Delivery overview<ArrowUpRight size={14}/></Link></div>
     <div className={styles.overviewStats}>{stats.map(({ label, value, detail, icon: Icon, tone, href }) =>
       <Link key={label} href={`/admin/${href}`} className={`${styles.statCard} visual-card`} data-card-tone={tone}>
         <div><span className={`${styles.statIcon} ${styles[tone]}`}><Icon size={20}/></span><ArrowUpRight size={16}/></div>
         <p>{label}</p><strong>{value}</strong><small>{detail}</small>
       </Link>
     )}</div>
+    <section className={`${styles.panel} ${styles.progressChartPanel}`} aria-labelledby="progress-chart-title">
+      <div className={styles.progressChartHeader}>
+        <div><span className={styles.chartKicker}><Activity size={14}/>CURRENT DELIVERY SNAPSHOT</span><h2 id="progress-chart-title">Project progress</h2><p>Current completion for active projects, ordered by due date.</p></div>
+        <span className={styles.chartProjectCount}>{projects.length} active {projects.length === 1 ? "project" : "projects"}</span>
+      </div>
+      {chartPoints.length ? <>
+        <div className={styles.progressChartWrap}>
+          <div className={styles.chartAxisLabels} aria-hidden="true"><span>100%</span><span>50%</span><span>0%</span></div>
+          <svg className={styles.progressChartSvg} viewBox={`0 0 ${chartWidth} 190`} role="img" aria-label={`Current completion progress for ${chartPoints.length} active projects, ordered by due date`}>
+            <defs><linearGradient id="delivery-area-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stopColor="#3478d4" stopOpacity=".2"/><stop offset="100%" stopColor="#3478d4" stopOpacity="0"/></linearGradient></defs>
+            {[chartTop, (chartTop + chartBottom) / 2, chartBottom].map(y => <line key={y} className={styles.chartGridLine} x1={chartLeft} x2={chartRight} y1={y} y2={y}/>)}
+            {chartPoints.length > 1 && <path className={styles.chartArea} d={chartArea}/>}
+            {chartPoints.length > 1 && <path className={styles.chartTrace} d={chartLine}/>}
+            {chartPoints.map(({ project, x, y, progress }, index) => <g key={project.id} className={styles.chartDataPoint} style={{ "--point-index": index } as React.CSSProperties}>
+              <circle className={styles.chartPointHalo} cx={x} cy={y} r="10"/>
+              <circle className={styles.chartPoint} cx={x} cy={y} r="4.5" tabIndex={0} role="img" aria-label={`${project.title}: ${progress}% complete`}><title>{project.title}: {progress}% complete</title></circle>
+            </g>)}
+          </svg>
+        </div>
+        <div className={styles.chartProjectLegend} aria-label="Projects in progress chart">{chartPoints.map(({ project, progress }, index) => <Link key={project.id} href={`/admin/projects/${project.id}`} title={`${project.title}: ${progress}% complete`}><i style={{ "--point-index": index } as React.CSSProperties}/><span>{project.title}</span><strong>{progress}%</strong></Link>)}</div>
+      </> : <div className={styles.chartEmpty}><Activity size={22}/><span>No active projects to chart yet.</span><Link href="/admin/projects">View projects<ArrowRight size={14}/></Link></div>}
+    </section>
     <div className={styles.businessGrid}>
       <section className={`${styles.panel} ${styles.deliveryPanel} visual-card`} data-card-tone="blue">
         <div className={styles.panelHeading}><div><h2>Active projects</h2><p>Upcoming delivery, ordered by deadline</p></div><Link href="/admin/projects">View all<ArrowUpRight size={15}/></Link></div>
@@ -67,12 +102,12 @@ export function AdminDashboard() {
           {!inquiries.length && <p className={styles.inlineEmpty}>No new inquiries. Existing conversations are in your inbox.</p>}
         </div>
       </section>
-      <section className={`${styles.panel} visual-card`} data-card-tone="purple">
-        <div className={styles.panelHeading}><div><h2>Recent activity</h2><p>Updates from your workspace</p></div><Link href="/admin/activity">View all<ArrowUpRight size={15}/></Link></div>
-        <ol className={styles.timeline}>{activity.slice(0, 4).map(item => <li key={item.id}><i/><div><Link href={item.href ?? "/admin/activity"}><strong>{item.title}</strong></Link><p>{item.detail}</p><small>{item.time}</small></div></li>)}</ol>
+      <section className={`${styles.panel} ${styles.activityPanel} visual-card`} data-card-tone="purple">
+        <div className={styles.panelHeading}><div><span className={styles.sectionKicker}>WORKSPACE LOG</span><h2>Recent activity</h2><p>Updates from your workspace</p></div><div className={styles.activityHeadingActions}><span className={styles.activityCount}>{activity.length} updates</span><Link href="/admin/activity">View all<ArrowUpRight size={15}/></Link></div></div>
+        <ol className={`${styles.timeline} ${styles.activityTimeline}`}>{activity.slice(0, 4).map(item => <li key={item.id}><i/><Link href={item.href ?? "/admin/activity"}><strong>{item.title}</strong><p>{item.detail}</p><small>{item.time}</small></Link></li>)}</ol>
         {!activity.length && <p className={styles.inlineEmpty}>Workspace updates will appear here.</p>}
       </section>
     </div>
-    <div className={styles.websiteShortcuts}><span>Website essentials</span><Link href="/admin/services">Services<ArrowUpRight size={14}/></Link><Link href="/admin/portfolio">Portfolio<ArrowUpRight size={14}/></Link><Link href="/admin/content">Content<ArrowUpRight size={14}/></Link><Link href="/admin/media">Media<ArrowUpRight size={14}/></Link></div>
+    <div className={styles.websiteShortcuts}><span>Website essentials</span><Link href="/admin/services">Services<ArrowUpRight size={14}/></Link><Link href="/admin/portfolio">Portfolio<ArrowUpRight size={14}/></Link><Link href="/admin/reviews">Reviews<ArrowUpRight size={14}/></Link><Link href="/admin/content">Content<ArrowUpRight size={14}/></Link><Link href="/admin/media">Media<ArrowUpRight size={14}/></Link></div>
   </>;
 }

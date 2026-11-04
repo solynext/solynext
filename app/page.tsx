@@ -24,7 +24,7 @@ export default async function HomePage() {
     <AppStoreSection />
     <ProjectCTA />
 
-    <ClientReviews reviews={reviews} limit={3} showAllLink />
+    <ClientReviews reviews={reviews} limit={3} showAllLink autoScroll />
 
     <HomeContact />
   </main>;
