@@ -6,6 +6,21 @@ import { ArrowRight, Search } from "lucide-react";
 import { BLOG_POSTS_DATA } from "@/data/mockData";
 import styles from "./Blog.module.css";
 
+const cardCopy: Record<string, { title: string; description: string }> = {
+  "nextjs-app-router-enterprise-patterns": {
+    title: "Building better apps with Next.js",
+    description: "Practical patterns for fast, reliable web apps.",
+  },
+  "reducing-churn-through-b2b-saas-ux": {
+    title: "Designing software people want to use",
+    description: "Simple UX improvements that help users stay.",
+  },
+  "pakistan-tech-ecosystem-global-advantage": {
+    title: "Building with Pakistan’s tech talent",
+    description: "A closer look at teams working across borders.",
+  },
+};
+
 export function BlogClient() {
   const [selectedCat, setSelectedCat] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
@@ -37,10 +52,10 @@ export function BlogClient() {
         </div>
         <div className={styles.resultsLine}><h2>Articles</h2><p>{filtered.length} {filtered.length === 1 ? "article" : "articles"}</p></div>
         {filtered.length ? <div className={styles.articleList}>{filtered.map((post) => <article className={styles.article} key={post.id}>
-          <div className={styles.meta}><span className={styles.category}>{post.category}</span><span>{post.publishedDate}</span><span>{post.readTime}</span></div>
-          <h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3>
-          <p className={styles.excerpt}>{post.excerpt}</p>
-          <div className={styles.articleFooter}><p>By <strong>{post.author.name}</strong><span>{post.author.role}</span></p><Link className={styles.readLink} href={`/blog/${post.slug}`}>Read article <ArrowRight size={16} aria-hidden="true" /></Link></div>
+          <div className={styles.meta}><span className={styles.category}>{post.category}</span></div>
+          <h3><Link href={`/blog/${post.slug}`}>{cardCopy[post.slug]?.title ?? post.title}</Link></h3>
+          <p className={styles.excerpt}>{cardCopy[post.slug]?.description ?? post.excerpt}</p>
+          <div className={styles.articleFooter}><Link className={styles.readLink} href={`/blog/${post.slug}`}>Read article <ArrowRight size={16} aria-hidden="true" /></Link></div>
         </article>)}</div> : <div className={styles.empty}><h3>No articles found</h3><p>Try another search or select a different category.</p><button type="button" onClick={() => { setSearchQuery(""); setSelectedCat("All"); }}>Clear filters</button></div>}
       </div>
     </section>

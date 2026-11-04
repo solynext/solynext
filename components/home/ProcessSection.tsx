@@ -1,96 +1,73 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { SectionHeader } from "../ui/SectionHeader";
+import { useEffect, useRef, useState } from "react";
+import { ArrowRight, Check, Code2, Compass, PanelsTopLeft, Rocket, ShieldCheck } from "lucide-react";
+import styles from "./ProcessSection.module.css";
+
+const stages = [
+  { title: "Discover", timeline: "Project kickoff", description: "Align on your goals, users, scope, and measures of success.", deliverable: "A clear project plan", icon: Compass },
+  { title: "Plan & design", timeline: "Product definition", description: "Map user journeys and shape the experience before development.", deliverable: "Approved designs", icon: PanelsTopLeft },
+  { title: "Build & integrate", timeline: "Focused delivery", description: "Develop in clear milestones and connect the tools you rely on.", deliverable: "Working product", icon: Code2 },
+  { title: "Test & refine", timeline: "Before release", description: "Check quality, usability, security, and performance across devices.", deliverable: "Launch-ready release", icon: ShieldCheck },
+  { title: "Launch & support", timeline: "Ongoing partnership", description: "Go live with a smooth handover and support for what comes next.", deliverable: "A supported launch", icon: Rocket },
+];
 
 export function ProcessSection() {
-  const steps = [
-    {
-      timeline: "Days 1–5",
-      title: "Discover",
-      description: "Align on business goals, technical needs, user journeys, and sprint goals.",
-      deliverable: "Technical Scope & Plan",
-    },
-    {
-      timeline: "Days 6–12",
-      title: "Plan & Design",
-      description: "Shape user flows, interface prototypes, and the underlying system architecture.",
-      deliverable: "Prototype & Architecture",
-    },
-    {
-      timeline: "Sprints 1–2",
-      title: "Build & Integrate",
-      description: "Develop in focused sprints, connect APIs, and share working staging builds.",
-      deliverable: "Working Staging Build",
-    },
-    {
-      timeline: "Pre-launch",
-      title: "Quality & Security",
-      description: "Test key user journeys, device compatibility, performance, and security.",
-      deliverable: "QA Sign-off",
-    },
-    {
-      timeline: "Launch + 30 days",
-      title: "Launch & Support",
-      description: "Deploy, hand over the source code, and support the release with a 30-day warranty.",
-      deliverable: "Production Handover",
-    },
-  ];
+  const sectionRef = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
-  return (
-    <section className="py-20 lg:py-32 border-b border-[#1c212f] bg-[#000000] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          kicker="How We Work"
-          title="Simple, Predictable Process"
-          description="Clear milestones from day one to launch and beyond."
-        />
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      setVisible(entry.isIntersecting);
+    }, { threshold: 0.24 });
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-          {steps.map((st) => (
-            <div
-              key={st.title}
-              className="p-7 lg:p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] hover:bg-[#0f131f] transition-all duration-200 flex flex-col justify-between group"
-            >
-              <div>
-                <div className="flex items-center justify-end mb-5">
-                  <span className="text-[11px] font-mono text-slate-300 bg-[#06080e] px-2.5 py-1 rounded-full border border-[#202738] font-semibold">
-                    {st.timeline}
-                  </span>
-                </div>
+  useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setReducedMotion(preference.matches);
+    preference.addEventListener("change", updatePreference);
+    return () => preference.removeEventListener("change", updatePreference);
+  }, []);
 
-                <h3 className="text-lg font-bold text-white mb-2.5 group-hover:text-[#00D9FF] transition-colors">
-                  {st.title}
-                </h3>
+  const [activeStage, setActiveStage] = useState(0);
+  useEffect(() => {
+    if (!visible) return;
+    if (reducedMotion) return;
+    const delay = activeStage === stages.length ? 1900 : 1100;
+    const timer = window.setTimeout(() => {
+      setActiveStage(activeStage === stages.length ? 0 : activeStage + 1);
+    }, delay);
+    return () => window.clearTimeout(timer);
+  }, [visible, activeStage, reducedMotion]);
 
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-                  {st.description}
-                </p>
-              </div>
+  const progress = Math.min(activeStage, stages.length - 1) / (stages.length - 1) * 100;
 
-              <div className="pt-4 border-t border-[#1c212f]">
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                  Deliverable:
-                </p>
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#00D9FF]">
-                  <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                  <span>{st.deliverable}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Link to full process page */}
-        <div className="mt-14 text-center">
-          <Link
-            href="/process"
-            className="inline-flex items-center gap-2 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white bg-[#0a0d15] hover:bg-[#0f131f] border border-[#202738] hover:border-[#00D9FF] hover:text-[#00D9FF] rounded-xl transition-all"
-          >
-            <span>View Full Delivery Framework</span>
-            <ArrowRight className="w-4 h-4 text-[#00D9FF]" />
-          </Link>
-        </div>
+  return <section ref={sectionRef} className={styles.section} aria-labelledby="process-section-title" data-visible={visible}>
+    <div className={styles.container}>
+      <header className={styles.heading}>
+        <p className={styles.eyebrow}>HOW WE WORK</p>
+        <h2 id="process-section-title">A clear path from<br/><span>idea to launch.</span></h2>
+        <p>Know what happens next at every stage of your project.</p>
+      </header>
+      <div className={styles.grid}>
+        <div className={styles.rail} aria-hidden="true"><span className={styles.railProgress} style={{ width: `${progress}%` }}/><span className={styles.traveler} style={{ left: `${progress}%` }}/></div>
+        {stages.map(({ title, timeline, description, deliverable, icon: Icon }, index) => {
+          const state = index < activeStage ? "complete" : index === activeStage ? "active" : "upcoming";
+          return <article className={styles.card} key={title} data-state={state} aria-current={state === "active" ? "step" : undefined}>
+          <div className={styles.cardTop}><span className={styles.icon}><Icon size={20} strokeWidth={1.8} aria-hidden="true"/></span><span className={styles.status} aria-hidden="true">{state === "complete" ? <Check size={13}/> : state === "active" ? <span/> : null}</span><span className={styles.timeline}>{timeline}</span></div>
+          <h3>{title}</h3>
+          <p className={styles.description}>{description}</p>
+          <div className={styles.deliverable}><Check size={15} aria-hidden="true"/><span>{deliverable}</span></div>
+        </article>;
+        })}
       </div>
-    </section>
-  );
+      <Link href="/process" className={styles.link}>Explore our process <ArrowRight size={17} aria-hidden="true"/></Link>
+    </div>
+  </section>;
 }
