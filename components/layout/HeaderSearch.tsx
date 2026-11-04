@@ -11,11 +11,11 @@ import styles from "./HeaderSearch.module.css";
 
 const pages = [
   ["SolyNext Apps", "/solynext-apps"], ["About SolyNext", "/about"], ["Contact & start a project", "/contact"],
-  ["Pricing & project estimator", "/pricing"], ["Industry solutions", "/solutions"],
+  ["Pricing & project estimator", "/pricing"], ["Industries", "/industries"],
   ["Our delivery process", "/process"], ["Careers", "/careers"],
 ].map(([title, href]) => ({ title, href, category: "Pages", detail: "Explore SolyNext", keywords: title }));
 const baseRecords = [
-  ...BLOG_POSTS_DATA.map(p => ({ title: p.title, href: `/blog/${p.slug}`, category: "Insights", detail: p.excerpt, keywords: p.tags.join(" ") })),
+  ...BLOG_POSTS_DATA.map(p => ({ title: p.title, href: `/insights/${p.slug}`, category: "Blog", detail: p.excerpt, keywords: p.tags.join(" ") })),
   ...TECHNOLOGIES_DATA.map(t => ({ title: t.name, href: "/technologies", category: "Technologies", detail: t.description, keywords: t.category })),
   ...pages,
 ];
@@ -35,7 +35,7 @@ export function HeaderSearch() {
     loaded.current = true;
     try {
       const [services,industries] = await Promise.all([fetch("/api/services").then(response=>response.ok?response.json():{items:[]}),fetch("/api/industries").then(response=>response.ok?response.json():{items:[]})]);
-      setCatalog([...(services.items as Offering[]).map(item=>({title:item.name,href:`/services/${item.slug}`,category:"Services",detail:item.card_summary,keywords:item.technologies.join(" ")})),...(industries.items as Offering[]).map(item=>({title:item.name,href:`/solutions/${item.slug}`,category:"Industries",detail:item.card_summary,keywords:item.technologies.join(" ")}))]);
+      setCatalog([...(services.items as Offering[]).map(item=>({title:item.name,href:`/services/${item.slug}`,category:"Services",detail:item.card_summary,keywords:item.technologies.join(" ")})),...(industries.items as Offering[]).map(item=>({title:item.name,href:`/industries/${item.slug}`,category:"Industries",detail:item.card_summary,keywords:item.technologies.join(" ")}))]);
       const response = await fetch("/api/projects", { cache: "no-store" });
       if (!response.ok) { loaded.current = false; return; }
       const data = await response.json();

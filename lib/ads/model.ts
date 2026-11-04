@@ -1,4 +1,4 @@
-export const adPages = ["/", "/about", "/services", "/solutions", "/technologies", "/portfolio", "/blog", "/pricing", "/contact", "/careers", "/process"] as const;
+export const adPages = ["/", "/about", "/services", "/industries", "/technologies", "/portfolio", "/insights", "/pricing", "/contact", "/careers", "/process", "/collaboration"] as const;
 export interface AdInput {
   name: string; title: string; description: string; label: string;
   button: string; url: string; image: string; background: string; foreground: string;

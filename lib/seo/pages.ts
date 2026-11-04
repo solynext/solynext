@@ -22,8 +22,14 @@ export const seoPages: { path: string; label: string; title?: string; descriptio
     "description": "Explore websites and business software for wholesale, fashion, automotive, grocery, hospitality, and real estate clients."
   },
   {
-    "path": "/solutions",
-    "label": "Solutions",
+    "path": "/collaboration",
+    "label": "Collaboration",
+    "title": "Partnerships & Collaboration | SolyNext",
+    "description": "Partner with SolyNext on products, client services, and new business ideas. Explore collaboration options for agencies, experts, product owners, and investors."
+  },
+  {
+    "path": "/industries",
+    "label": "Industries",
     "title": "Industry Solutions & Problem Solving — SolyNext",
     "description": "Tailored technology solutions designed for E-Commerce, FinTech, Healthcare, Real Estate, SaaS, and Logistics."
   },
@@ -46,9 +52,9 @@ export const seoPages: { path: string; label: string; title?: string; descriptio
     "description": "Transparent engagement models: Fixed-scope milestones, dedicated engineering teams, and monthly SLA retainers."
   },
   {
-    "path": "/blog",
-    "label": "Insights",
-    "title": "Digital Insights & Creative Ideas | SolyNext",
+    "path": "/insights",
+    "label": "Blog",
+    "title": "SolyNext Blog | Ideas for Digital Teams",
     "description": "Ideas on web, design, marketing, and building a stronger online presence from the SolyNext team."
   },
   {

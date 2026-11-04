@@ -66,10 +66,14 @@
 
 .quote:not(.quoteExpanded){max-height:1.75em;white-space:nowrap;text-overflow:ellipsis}
 .quoteExpanded{max-height:600px;white-space:normal;overflow-wrap:anywhere}
-.list[data-auto-scroll="true"]{height:220px;overflow:hidden}
+.ratingStar{position:relative;display:inline-flex;flex:none;width:15px;height:15px;color:#e1e7ed}
+.ratingStar>svg{width:100%;height:100%}
+.ratingStar>.ratingStarFill{position:absolute;inset:0;color:#f3a331}
+@media(max-width:420px){.ratingStar{width:14px;height:14px}}
+.list[data-auto-scroll="true"]{height:320px;overflow:hidden}
 .reviewTrack{animation:reviewReel 28s linear infinite;will-change:transform}
 .list:is(:hover,:focus-within) .reviewTrack{animation-play-state:paused}
 .reviewTrack>div>.review:first-child{border-top:1px solid #edf1f5}
 @keyframes reviewReel{to{transform:translateY(-12.5%)}}
-@media(max-width:760px){.list[data-auto-scroll="true"]{height:250px}}
+@media(max-width:760px){.list[data-auto-scroll="true"]{height:340px}}
 @media(prefers-reduced-motion:reduce){.list[data-auto-scroll="true"]{height:auto;overflow:visible}.reviewTrack{animation:none;transform:none;will-change:auto}.reviewTrack>div:not(:first-child){display:none}}

@@ -4,7 +4,7 @@ import { ADMIN_COOKIE, safeAdminReturn, verifySession } from "@/lib/admin/auth/s
 
 /** Next.js 16's middleware convention. Real authorization also runs in the DAL. */
 export async function proxy(request: NextRequest) {
-  if (request.nextUrl.pathname === "/services" || request.nextUrl.pathname === "/solutions" || request.nextUrl.pathname.startsWith("/services/") || request.nextUrl.pathname.startsWith("/solutions/")) {
+  if (request.nextUrl.pathname === "/services" || request.nextUrl.pathname === "/industries" || request.nextUrl.pathname.startsWith("/services/") || request.nextUrl.pathname.startsWith("/industries/")) {
     const target = await lookupCatalogRedirect(request.nextUrl.pathname);
     return target ? NextResponse.redirect(new URL(target, request.url), 301) : NextResponse.next();
   }
@@ -32,4 +32,4 @@ export async function proxy(request: NextRequest) {
   return response;
 }
 
-export const config = { matcher: ["/admin/:path*", "/services/:path*", "/solutions/:path*"] };
+export const config = { matcher: ["/admin/:path*", "/services/:path*", "/industries/:path*"] };

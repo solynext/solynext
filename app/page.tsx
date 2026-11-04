@@ -10,6 +10,7 @@ import { HomeApproach } from "@/components/home/HomeApproach";
 import { WhySolyNext } from "@/components/home/WhySolyNext";
 import { AppStoreSection } from "@/components/home/AppStoreSection";
 import { HomeContact } from "@/components/home/HomeContact";
+import { PartnershipSection } from "@/components/home/PartnershipSection";
 
 export async function generateMetadata() { return getPageMetadata("/"); }
 
@@ -22,9 +23,10 @@ export default async function HomePage() {
     <HomeIndustries />
     <WhySolyNext />
     <AppStoreSection />
+    <PartnershipSection />
     <ProjectCTA />
 
-    <ClientReviews reviews={reviews} limit={3} showAllLink autoScroll />
+    <ClientReviews reviews={reviews} limit={4} showAllLink autoScroll />
 
     <HomeContact />
   </main>;

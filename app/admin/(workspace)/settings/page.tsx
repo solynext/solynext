@@ -12,9 +12,9 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
   const pages = [
     ...seoPages,
     ...services.map(service => ({ path: `/services/${service.slug}`, label: service.name, title: service.seo_title || `${service.name} | SolyNext Services`, description: service.seo_description || service.card_summary })),
-    ...industries.map(industry => ({ path: `/solutions/${industry.slug}`, label: industry.name, title: industry.seo_title || `${industry.name} | SolyNext`, description: industry.seo_description || industry.card_summary })),
+    ...industries.map(industry => ({ path: `/industries/${industry.slug}`, label: industry.name, title: industry.seo_title || `${industry.name} | SolyNext`, description: industry.seo_description || industry.card_summary })),
     ...projects.map(project => ({ path: `/portfolio/${project.slug}`, label: project.client || project.title, title: `${project.title} | SolyNext Case Study`, description: project.summary })),
-    ...BLOG_POSTS_DATA.map(post => ({ path: `/blog/${post.slug}`, label: post.title, title: `${post.title} | SolyNext Insights`, description: post.excerpt })),
+    ...BLOG_POSTS_DATA.map(post => ({ path: `/insights/${post.slug}`, label: post.title, title: `${post.title} | SolyNext Insights`, description: post.excerpt })),
   ];
   return <AdminSettings seo={seo} seoPages={pages} initialTab={(await searchParams).tab}/>;
 }

@@ -22,7 +22,7 @@ export function ClientReviews({ reviews, limit, showAllLink = false, autoScroll 
         <div className={styles.person}><h3>{review.author}</h3><p>{[review.role, review.company].filter(Boolean).join(" · ")}</p></div>
       </div>
       <div className={styles.reviewActions}>
-        <span className={styles.rating} aria-label={`${review.rating ?? 5} out of 5 stars`}>{Array.from({ length: 5 }, (_, i) => <Star key={i} size={15} fill="currentColor" aria-hidden="true" style={{ opacity: i < (review.rating ?? 5) ? 1 : 0.25 }} />)}</span>
+        <span className={styles.rating} aria-label={`${review.rating ?? 5} out of 5 stars`}>{Array.from({ length: 5 }, (_, i) => { const fill = Math.max(0, Math.min(1, (review.rating ?? 5) - i)); return <span className={styles.ratingStar} key={i} aria-hidden="true"><Star size={15} fill="currentColor"/><Star className={styles.ratingStarFill} size={15} fill="currentColor" style={{ clipPath: `inset(0 ${100 - fill * 100}% 0 0)` }}/></span>; })}</span>
         <button type="button" className={styles.expandButton} tabIndex={loopCopy ? -1 : undefined} aria-label={`${isExpanded ? "Collapse" : "Expand"} review by ${review.author}`} aria-expanded={isExpanded} aria-controls={quoteId} onClick={() => setExpanded(current => isExpanded ? current.filter(id => id !== review.id) : [...current, review.id])}><ChevronDown size={18} aria-hidden="true"/></button>
       </div>
       <p id={quoteId} className={`${styles.quote} ${isExpanded ? styles.quoteExpanded : ""}`}>“{review.quote}”</p>

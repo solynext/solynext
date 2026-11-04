@@ -799,3 +799,6 @@
   .overviewStats > a, .chartArea, .chartTrace, .chartDataPoint { animation: none; opacity: 1; stroke-dashoffset: 0; }
   .chartProjectLegend a { transition: none; }
 }
+.stars .ratingStar { position: relative; display: inline-flex; flex: none; width: 18px; height: 18px; color: #e1e7ed; }
+.stars .ratingStar > svg { width: 100%; height: 100%; }
+.stars .ratingStar > .ratingStarFill { position: absolute; inset: 0; color: #439bd5; }

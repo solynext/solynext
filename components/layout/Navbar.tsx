@@ -4,13 +4,13 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Home, Layers3, Building2, BriefcaseBusiness, Users, BookOpen, Mail, ChevronRight, X } from "lucide-react";
+import { Home, Layers3, Building2, Handshake, Users, BookOpen, Mail, ChevronRight, X } from "lucide-react";
 import { BrandWordmark } from "@/components/ui/BrandWordmark";
 import { HeaderSearch } from "./HeaderSearch";
 import { WebsiteNotificationBell } from "@/components/notifications/WebsiteNotificationBell";
 import { ConsultationModal } from "@/components/ui/ConsultationModal";
 
-const links = [{href:"/",label:"Home",icon:Home},{href:"/services",label:"Services",icon:Layers3},{href:"/solutions",label:"Industries",icon:Building2},{href:"/portfolio",label:"Our work",icon:BriefcaseBusiness},{href:"/about",label:"About",icon:Users},{href:"/blog",label:"Insights",icon:BookOpen},{href:"/contact",label:"Contact",icon:Mail}];
+const links = [{href:"/",label:"Home",icon:Home},{href:"/services",label:"Services",icon:Layers3},{href:"/industries",label:"Industries",icon:Building2},{href:"/collaboration",label:"Collaboration",icon:Handshake},{href:"/about",label:"About",icon:Users},{href:"/insights",label:"Blog",icon:BookOpen},{href:"/contact",label:"Contact",icon:Mail}];
 
 function subscribeToScroll(onChange: () => void) {
  window.addEventListener("scroll", onChange, { passive: true });

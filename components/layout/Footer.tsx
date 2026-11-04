@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Globe2, Mail, MapPin, Shield, Building2, Layers3, BriefcaseBusiness, ListChecks, BadgeDollarSign, BookOpen, Users, Code2, Palette, Megaphone, MessagesSquare, Scale } from "lucide-react";
+import { ArrowUpRight, Globe2, Mail, MapPin, Shield, Building2, Layers3, BriefcaseBusiness, ListChecks, BadgeDollarSign, BookOpen, Users, Code2, Palette, Megaphone, MessagesSquare, Scale, Handshake } from "lucide-react";
 import styles from "./Footer.module.css";
 import { BrandLogo } from "@/components/ui/BrandLogo";
 import { BrandWordmark } from "@/components/ui/BrandWordmark";
 
 const companyLinks = [
   { label: "About SolyNext", icon: Building2, href: "/about" },
-  { label: "Solutions", icon: Layers3, href: "/solutions" },
-  { label: "Case studies", icon: BriefcaseBusiness, href: "/portfolio" },
+  { label: "Collaboration", icon: Handshake, href: "/collaboration" },
+  { label: "Industries", icon: Layers3, href: "/industries" },
+  { label: "Portfolio", icon: BriefcaseBusiness, href: "/portfolio" },
   { label: "Our process", icon: ListChecks, href: "/process" },
   { label: "Pricing & models", icon: BadgeDollarSign, href: "/pricing" },
-  { label: "Digital insights", icon: BookOpen, href: "/blog" },
+  { label: "Blog", icon: BookOpen, href: "/insights" },
   { label: "Careers", icon: Users, href: "/careers" },
 ];
 

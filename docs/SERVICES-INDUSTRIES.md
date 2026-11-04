@@ -38,8 +38,8 @@ Use `super_admin` instead of `editor` for delete permission. Every mutation chec
 - `/`: published, featured services ordered by featured order and limited by the saved home settings; featured industries use equivalent settings.
 - `/services`: all published services, category grouping, search and filters; editable optional sections.
 - `/services/[slug]`: service details, industries, work, solutions, engagement, FAQs, contact context and previous/next navigation.
-- `/solutions`: published industries.
-- `/solutions/[slug]`: industry details and linked services/work.
+- `/industries`: published industries.
+- `/industries/[slug]`: industry details and linked services/work.
 - `/contact?service=slug&industry=slug&solution=name`: contextual inquiry form writes to the catalog database. The existing non-contextual contact page remains unchanged.
 
 Drafts and archives return 404 on public pages/APIs. Signed preview URLs expire after ten minutes and use noindex metadata. Deleted records are excluded everywhere. Published slug changes create HTTP 301 redirects, including flattened redirects after multiple renames. Service/FAQ JSON-LD is escaped against script injection. Rich text is sanitized on save.
@@ -81,6 +81,6 @@ Set DATABASE_URL in Vercel Project Settings → Environment Variables for Produc
 
 The industry seed now contains the eight supplied main categories and 53 business sub-categories. Migration `002_industry_business_segments.sql` stores each sub-category and its specific solutions together in `industries.business_segments`. The admin industry's **Businesses we serve** tab supports editing, adding, removing and reordering these rows. Shared services and the three shared-solution rows are retained under capabilities. Service links follow the supplied service-to-industry map.
 
-All eight initial industry records are published and featured. Homepage order is Hero → Services → Industries; the saved industry home-section limit is eight. The `/solutions` listing and `/solutions/[slug]` detail pages read the same PostgreSQL content as admin. Publishing and settings changes invalidate the shared caches. Re-running the seed preserves subsequent admin edits.
+All eight initial industry records are published and featured. Homepage order is Hero → Services → Industries; the saved industry home-section limit is eight. The `/industries` listing and `/industries/[slug]` detail pages read the same PostgreSQL content as admin. Publishing and settings changes invalidate the shared caches. Re-running the seed preserves subsequent admin edits.
 
 For an existing deployment, apply `npm run catalog:migrate` before deploying this code. `npm run catalog:seed` imports missing industry records and links without overwriting existing edits.

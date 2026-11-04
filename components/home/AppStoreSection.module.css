@@ -1,13 +1,13 @@
 .section{padding:clamp(52px,6vw,82px) 0;background:#fff;color:#0b1220}
 .container{width:min(1500px,calc(100% - 5%));margin-inline:auto}
-.heading{max-width:850px;margin:0 auto 25px;text-align:center}
+.heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;max-width:1200px;margin:0 auto 25px;text-align:left}
 .eyebrow{margin:0 0 14px;color:#075ef5;font-size:11px;font-weight:750;letter-spacing:.2em}
 .heading h2{margin:0;color:#090f1d;font-size:clamp(38px,4.3vw,62px);font-weight:760;line-height:1.02;letter-spacing:-.055em}
 .heading h2 span{color:#075ef5}
 .heading>p:last-child{max-width:700px;margin:15px auto 0;color:#586782;font-size:clamp(15px,1.25vw,18px);line-height:1.55}
-.searchBar{display:flex;align-items:center;gap:17px;max-width:980px;min-height:62px;margin:0 auto 17px;padding:7px 8px 7px 20px;border:1px solid #dce4ee;border-radius:12px;background:#fff;box-shadow:0 7px 20px #102b5008;color:#71809a}
-.searchBar>span{flex:1;font-size:15px}
-.searchBar>a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 19px;border-radius:9px;background:#075ef5;color:#fff;text-decoration:none;font-size:14px;font-weight:650}
+.headingLink{display:inline-flex;align-items:center;gap:7px;flex:none;margin-bottom:5px;color:#075ef5;font-size:14px;font-weight:650;text-decoration:none;transition:gap .16s ease}
+.headingLink:hover{gap:11px}
+.headingLink:focus-visible{outline:3px solid #80a5d3;outline-offset:4px;border-radius:4px}
 .categories{display:flex;justify-content:center;gap:clamp(20px,3.3vw,48px);margin:0 auto 22px}
 .categories a{padding:7px 0;color:#586782;text-decoration:none;font-size:14px;font-weight:550;border-bottom:2px solid transparent}
 .categories a:hover,.categories .active{color:#075ef5;border-color:#075ef5}
@@ -26,5 +26,5 @@
 .customBuild p{margin:0;color:#e6efff;font-size:14px;line-height:1.5}
 .customBuild>a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:45px;flex:none;padding:0 17px;border-radius:9px;background:#fff;color:#075ef5;text-decoration:none;font-size:14px;font-weight:650}
 @media(max-width:800px){.container{width:calc(100% - 48px)}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 15px}.card:last-child{grid-column:1/-1}.card:last-child .preview{aspect-ratio:2.1}.categories{gap:20px;flex-wrap:wrap}.categories a{font-size:13px}}
-@media(max-width:600px){.section{padding:40px 0 44px}.container{width:calc(100% - 36px)}.heading{margin-bottom:20px}.eyebrow{font-size:9px;margin-bottom:11px}.heading h2{font-size:clamp(33px,8.7vw,43px)}.heading>p:last-child{margin-top:11px;font-size:14px}.searchBar{gap:10px;min-height:54px;margin-bottom:13px;padding:6px 6px 6px 12px;border-radius:10px}.searchBar>svg{width:18px}.searchBar>span{font-size:12px}.searchBar>a{min-height:40px;padding-inline:11px;font-size:12px}.categories{justify-content:flex-start;gap:9px 18px;margin-bottom:17px}.categories a{font-size:12px;padding:5px 0}.grid{grid-template-columns:1fr;gap:18px}.card:last-child{grid-column:auto}.card:last-child .preview,.preview{aspect-ratio:1.55;border-radius:11px}.cardCopy{padding-top:9px}.cardCopy strong{font-size:17px}.cardCopy small{font-size:12px}.cardCopy>svg{width:19px}.customBuild{align-items:stretch;flex-direction:column;gap:14px;margin-top:19px;padding:17px;border-radius:11px}.customBuild h3{font-size:18px}.customBuild p{font-size:13px}.customBuild>a{width:100%;min-height:43px;font-size:13px}}
-@media(prefers-reduced-motion:reduce){.preview img{transition:none}}
+@media(max-width:600px){.section{padding:40px 0 44px}.container{width:calc(100% - 36px)}.heading{align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:20px}.heading h2{flex:1 1 100%;font-size:clamp(30px,7.8vw,40px)}.headingLink{margin:0 0 0 auto;font-size:12px;white-space:nowrap}.categories{justify-content:flex-start;gap:9px 18px;margin-bottom:17px}.categories a{font-size:12px;padding:5px 0}.grid{grid-template-columns:1fr;gap:18px}.card:last-child{grid-column:auto}.card:last-child .preview,.preview{aspect-ratio:1.55;border-radius:11px}.cardCopy{padding-top:9px}.cardCopy strong{font-size:17px}.cardCopy small{font-size:12px}.cardCopy>svg{width:19px}.customBuild{align-items:stretch;flex-direction:column;gap:14px;margin-top:19px;padding:17px;border-radius:11px}.customBuild h3{font-size:18px}.customBuild p{font-size:13px}.customBuild>a{width:100%;min-height:43px;font-size:13px}}
+@media(prefers-reduced-motion:reduce){.preview img,.headingLink{transition:none}}

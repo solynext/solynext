@@ -16,5 +16,16 @@
 .page :global(.project-form input),.page :global(.project-form select),.page :global(.project-form textarea){background:#f9fbfd!important;border:1px solid #e1e8f0;border-radius:10px!important;padding:12px 14px;min-height:46px}
 .page :global(.project-form input:focus),.page :global(.project-form select:focus),.page :global(.project-form textarea:focus){outline:2px solid #91bdec;outline-offset:2px}
 .page :global(.project-form .p-button){width:100%;justify-content:space-between;min-height:48px;border-radius:12px;font-size:13px}
+.inquiryPanel :global(.contactForm){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:none;margin-top:26px}
+.inquiryPanel :global(.contactForm label){min-width:0;gap:7px;color:#465a74;font-size:12px;font-weight:550}
+.inquiryPanel :global(.contactForm label:has(textarea)){grid-column:1/-1}
+.inquiryPanel :global(.contactForm :is(input,select,textarea)){width:100%;min-height:47px;padding:12px 14px;border:1px solid #dfe7f0;border-radius:11px;background:#f9fbfd;color:#1d2c40;font:inherit;font-size:14px;transition:border-color .18s,box-shadow .18s,background .18s}
+.inquiryPanel :global(.contactForm textarea){min-height:132px;resize:vertical;line-height:1.6}
+.inquiryPanel :global(.contactForm :is(input,select,textarea):focus){border-color:#7ca9e2;background:#fff;outline:0;box-shadow:0 0 0 3px #1767cf18}
+.inquiryPanel :global(.contactForm input[readonly]){background:#f1f6fd;color:#315b8a;font-weight:600}
+.inquiryPanel :global(.contactForm .honeypot){position:absolute;left:-9999px}
+.inquiryPanel :global(.contactForm .error),.inquiryPanel :global(.contactForm button){grid-column:1/-1}
+.inquiryPanel :global(.contactForm button){display:flex;width:100%;align-items:center;justify-content:space-between;min-height:49px;border-radius:11px;font-size:13px}
+.inquiryPanel :global(.contactForm .status){grid-column:1/-1;padding:18px;border:1px solid #ccebd9;border-radius:12px;background:#effaf3;color:#237650;font-size:14px;line-height:1.6}
 @media(max-width:850px){.layout{grid-template-columns:1fr;gap:28px}.intro{padding:0}.page{padding:36px 0 48px}.page .intro h1{font-size:46px;letter-spacing:-1.8px}.description{max-width:520px;margin-bottom:16px}.next{display:none}.location{margin-bottom:0}.page .panel{padding:26px;max-width:640px;width:100%}}
-@media(max-width:480px){.page .panel{padding:22px 18px;border-radius:20px}.formHeading h2{font-size:18px}.formHeading .icon{width:38px;height:38px;border-radius:12px}.page .intro h1{font-size:42px}.description{font-size:14px}.page :global(.form-pair){grid-template-columns:1fr;gap:20px}}
+@media(max-width:480px){.page .panel{padding:22px 18px;border-radius:20px}.formHeading h2{font-size:18px}.formHeading .icon{width:38px;height:38px;border-radius:12px}.page .intro h1{font-size:42px}.description{font-size:14px}.page :global(.form-pair){grid-template-columns:1fr;gap:20px}.inquiryPanel :global(.contactForm){grid-template-columns:1fr;gap:14px}.inquiryPanel :global(.contactForm label:has(textarea)){grid-column:auto}.inquiryPanel :global(.contactForm .error),.inquiryPanel :global(.contactForm button){grid-column:auto}}

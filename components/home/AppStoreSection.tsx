@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Search } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import styles from "./AppStoreSection.module.css";
 
 const collections = [
@@ -14,12 +14,8 @@ export function AppStoreSection() {
     <div className={styles.container}>
       <header className={styles.heading}>
         <h2 id="app-store-heading">Your business needs it.<br/><span>Find it here.</span></h2>
+        <Link className={styles.headingLink} href="/solynext-apps">Explore all apps <ArrowUpRight size={17} aria-hidden="true"/></Link>
       </header>
-      <div className={styles.searchBar}>
-        <Search size={21} aria-hidden="true"/>
-        <span>What does your business need?</span>
-        <Link href="/solynext-apps">Explore solutions <ArrowUpRight size={18} aria-hidden="true"/></Link>
-      </div>
       <nav className={styles.categories} aria-label="Explore SolyNext collections">
         <Link href="/solynext-apps" className={styles.active}>Business software</Link>
         <Link href="/services/web-development">Websites</Link>
