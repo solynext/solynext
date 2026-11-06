@@ -1,248 +1,137 @@
 "use client";
 
-import { CardMotif, cardTone } from "@/components/ui/CardMotif";
-
-import React, { useState } from "react";
-import { MapPin, ArrowRight, CheckCircle2, X, Loader2 } from "lucide-react";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import Link from "next/link";
+import { ArrowDown, ArrowRight, ArrowUpRight, Check, MapPin, Sparkles, X } from "lucide-react";
 import { JOB_OPENINGS_DATA } from "@/data/mockData";
-import { JobOpening } from "@/types";
+import type { JobOpening } from "@/types";
+import styles from "./Careers.module.css";
+
+const filters = ["All roles", "Engineering", "Design", "Marketing"] as const;
+const waysOfWorking = [
+  { title: "Business goals first", description: "Build around real needs, the people using the work, and the outcome it should support." },
+  { title: "Clear communication", description: "Share context, explain decisions, and keep the work easy to follow." },
+  { title: "Practical collaboration", description: "Bring engineering, design, and growth together to solve connected problems." },
+];
 
 export function CareersClient() {
+  const [department, setDepartment] = useState<(typeof filters)[number]>("All roles");
   const [selectedJob, setSelectedJob] = useState<JobOpening | null>(null);
-  const [isApplying, setIsApplying] = useState(false);
   const [applicantName, setApplicantName] = useState("");
   const [applicantEmail, setApplicantEmail] = useState("");
-  const [applicantResume, setApplicantResume] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [applicantProfile, setApplicantProfile] = useState("");
+  const [draftReady, setDraftReady] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
-  const perks = [
-    { title: "Top-Tier Compensation", desc: "Competitive PKR & USD-pegged salaries reviewed bi-annually based on technical growth." },
-    { title: "Modern Hardware Stack", desc: "Latest Apple MacBook Pro (M-series) + dual 4K monitors and ergonomic office setup." },
-    { title: "Flexible Hybrid / Remote", desc: "Work from our Islamabad or Lahore hubs or coordinate seamlessly from home." },
-    { title: "Annual Learning Stipend", desc: "$1,000 annual budget for technical certifications, book libraries, and global conferences." },
-    { title: "Comprehensive Health", desc: "Full outpatient and inpatient medical insurance for you, spouse, and dependents." },
-    { title: "High-Caliber Global Projects", desc: "Build systems directly for clients in London, New York, Munich, and Dubai." },
-  ];
+  const visibleJobs = useMemo(() => department === "All roles" ? JOB_OPENINGS_DATA : JOB_OPENINGS_DATA.filter(job => job.department === department), [department]);
 
-  const handleApplySubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    const subject = encodeURIComponent('Application: ' + selectedJob?.title);
-    const body = encodeURIComponent('Name: ' + applicantName + '\nEmail: ' + applicantEmail + '\nPortfolio / resume link: ' + applicantResume);
-    window.location.href = 'mailto:solynextsolutions@gmail.com?subject=' + subject + '&body=' + body;
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-  };
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    if (selectedJob && !dialog.open) dialog.showModal();
+    if (!selectedJob && dialog.open) dialog.close();
+  }, [selectedJob]);
 
-  const closeApplyModal = () => {
-    setIsApplying(false);
+  const closeApplication = () => {
     setSelectedJob(null);
-    setIsSubmitted(false);
+    setDraftReady(false);
     setApplicantName("");
     setApplicantEmail("");
-    setApplicantResume("");
+    setApplicantProfile("");
   };
 
-  return (
-    <main id="main-content" className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader as="h1"
-          kicker="Careers"
-          title="Join Our Team"
-          description="Build scalable software alongside experienced engineers. Hybrid and remote roles available."
-        />
+  const prepareApplication = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!selectedJob) return;
+    const subject = encodeURIComponent(`Application: ${selectedJob.title}`);
+    const body = encodeURIComponent(`Role: ${selectedJob.title}\nName: ${applicantName}\nEmail: ${applicantEmail}\nPortfolio / LinkedIn / GitHub: ${applicantProfile}\n\nI will attach my CV or resume before sending.`);
+    window.location.href = `mailto:solynextsolutions@gmail.com?subject=${subject}&body=${body}`;
+    setDraftReady(true);
+  };
 
-        {/* Culture & Perks Grid */}
-        <div className="mb-20">
-          <h2 className="text-xl font-bold text-white mb-6 text-center">
-            Why Engineers &amp; Designers Flourish at SolyNext
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {perks.map((p) => (
-              <div
-                key={p.title}
-                data-card-tone={cardTone(p.title)}
-                className="visual-card p-6 rounded-2xl border border-[#202738] bg-[#0a0d15]"
-              >
-              <CardMotif kind={p.title}/>
-                <h3 className="text-sm font-bold text-white mb-1.5">{p.title}</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">{p.desc}</p>
-              </div>
-            ))}
+  return <main id="main-content" className={styles.page}>
+    <section className={styles.hero}>
+      <div className={styles.container}>
+        <div className={styles.heroGrid}>
+          <div className={styles.heroCopy}>
+            <p className={styles.eyebrow}><span/>CAREERS AT SOLYNEXT</p>
+            <h1>Make digital work<br/><span>move business forward.</span></h1>
+            <p className={styles.heroLead}>Bring your craft to work across engineering, design, and digital growth. Help businesses solve practical problems and build better online experiences.</p>
+            <div className={styles.heroActions}><Link href="#open-roles" className={styles.primaryLink}>Explore open roles <ArrowRight size={17} aria-hidden="true"/></Link><a href="mailto:solynextsolutions@gmail.com?subject=Career%20inquiry" className={styles.secondaryLink}>Share your profile <ArrowUpRight size={16} aria-hidden="true"/></a></div>
+            <div className={styles.locationLine}><MapPin size={16} aria-hidden="true"/><span>Islamabad &amp; Lahore, Pakistan</span><i aria-hidden="true"/><span>Some roles are remote</span></div>
           </div>
-        </div>
-
-        {/* Open Roles */}
-        <div className="mb-16">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h2 className="text-2xl font-bold text-white">Current Open Positions</h2>
-              <p className="text-xs text-slate-400 mt-1">
-                Explore available roles across our engineering, design, and growth teams.
-              </p>
-            </div>
-            <span className="text-xs font-mono font-bold text-[#00D9FF] bg-[#00D9FF]/10 px-3 py-1 rounded-full border border-[#00D9FF]/20">
-              {JOB_OPENINGS_DATA.length} Openings Active
-            </span>
+          <div className={styles.heroVisual} aria-label="SolyNext brings engineering, design, and growth together">
+            <div className={styles.visualTop}><span><i/> DIGITAL WORK, BUILT TOGETHER</span><Sparkles size={17} aria-hidden="true"/></div>
+            <div className={styles.visualHeadline}>One team.<br/><span>Many disciplines.</span></div>
+            <p className={styles.visualCopy}>From the first idea to the experience people use.</p>
+            <div className={styles.disciplineTrack} aria-hidden="true"><span>Engineering</span><b/><span>Design</span><b/><span>Growth</span></div>
+            <div className={styles.visualGrid} aria-hidden="true"><span/><span/><span/><span/><span/><span/><span/><span/><span/></div>
+            <div className={styles.visualFooter}><span>ISLAMABAD · LAHORE</span><span>WORKING WORLDWIDE</span></div>
           </div>
-
-          <div className="space-y-4">
-            {JOB_OPENINGS_DATA.map((job) => (
-              <div
-                key={job.id}
-                data-card-tone={cardTone(job.department)}
-                className="visual-card p-6 sm:p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] transition-all flex flex-col md:flex-row md:items-center justify-between gap-6"
-              >
-                <div>
-                  <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400 mb-2">
-                    <span className="font-bold text-[#00D9FF] uppercase tracking-wider">{job.department}</span>
-                    <span aria-hidden="true" className="text-slate-600">·</span>
-                    <span className="flex items-center gap-1 font-medium text-slate-300">
-                      <MapPin className="w-3.5 h-3.5 text-[#00D9FF]" />
-                      {job.location}
-                    </span>
-                    <span aria-hidden="true" className="text-slate-600">·</span>
-                    <span>{job.experience}</span>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-white mb-2">{job.title}</h3>
-                  <p className="text-xs text-slate-300 max-w-2xl leading-relaxed">{job.overview}</p>
-                </div>
-
-                <div className="shrink-0 flex items-center gap-3">
-                  <button
-                    onClick={() => {
-                      setSelectedJob(job);
-                      setIsApplying(true);
-                    }}
-                    className="px-5 py-2.5 text-xs font-extrabold text-black bg-gradient-to-r from-[#0057FF] to-[#00D9FF] hover:brightness-110 rounded-xl transition-all whitespace-nowrap inline-flex items-center gap-1.5 cursor-pointer shadow-lg shadow-[#0057FF]/25"
-                  >
-                    <span>Apply for Role</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-black" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* General Application Callout */}
-        <div className="visual-card p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
-          <h2 className="text-lg font-bold text-white mb-2">Don&apos;t See Your Exact Role?</h2>
-          <p className="text-xs text-slate-300 max-w-lg mx-auto mb-4">
-            We are constantly looking for exceptional senior engineers, cloud architects, and creative directors. Send your portfolio or GitHub directly to our founders.
-          </p>
-          <a
-            href="mailto:solynextsolutions@gmail.com?subject=Open Engineering Application"
-            className="text-xs font-bold text-[#00D9FF] hover:underline inline-flex items-center gap-1 transition-colors"
-          >
-            <span>Email solynextsolutions@gmail.com</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </a>
         </div>
       </div>
+    </section>
 
-      {/* Application Modal */}
-      {isApplying && selectedJob && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-xs" onClick={closeApplyModal} />
-          <div className="relative w-full max-w-xl bg-[#0a0d15] border border-[#202738] rounded-2xl p-6 sm:p-8 z-10 my-8 text-white shadow-2xl">
-            <button
-              onClick={closeApplyModal} aria-label="Close application"
-              className="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-lg hover:bg-[#151b2a] cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
+    <section className={styles.workSection} aria-labelledby="work-heading">
+      <div className={styles.container}>
+        <div className={styles.sectionHeading}><div><p className={styles.sectionKicker}>HOW WE WORK</p><h2 id="work-heading">Good work starts<br/><span>with clear thinking.</span></h2></div><p>We bring different skills together around business goals, useful experiences, and work that can make a real difference.</p></div>
+        <div className={styles.valuesGrid}>{waysOfWorking.map((value,index)=><article className={styles.valueCard} key={value.title}><span className={styles.valueMarker} aria-hidden="true">{String.fromCharCode(65+index)}</span><h3>{value.title}</h3><p>{value.description}</p></article>)}</div>
+        <div className={styles.capabilityRow}><span>Web development</span><span>Product design</span><span>Digital marketing</span><span>Social media</span><Link href="/about">About SolyNext <ArrowUpRight size={15} aria-hidden="true"/></Link></div>
+      </div>
+    </section>
 
-            {isSubmitted ? (
-              <div className="py-8 text-center">
-                <div className="w-12 h-12 bg-[#00D9FF]/10 text-[#00D9FF] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#00D9FF]/20">
-                  <CheckCircle2 className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Application draft prepared</h3>
-                <p className="text-xs text-slate-300 max-w-sm mx-auto mb-6">
-                  Your email app should open a draft for <strong className="text-white">{selectedJob.title}</strong>. Send the draft to complete your application. If it did not open, email your details and resume link to solynextsolutions@gmail.com.
-                </p>
-                <button
-                  onClick={closeApplyModal}
-                  className="px-6 py-2 bg-gradient-to-r from-[#0057FF] to-[#00D9FF] hover:brightness-110 text-black font-extrabold text-xs rounded-xl shadow-lg shadow-[#0057FF]/25"
-                >
-                  Close Window
-                </button>
-              </div>
-            ) : (
-              <div>
-                <p className="text-xs font-bold text-[#00D9FF] uppercase tracking-wider mb-1">
-                  Candidate Application
-                </p>
-                <h3 className="text-xl font-bold text-white mb-1">{selectedJob.title}</h3>
-                <p className="text-xs text-slate-400 mb-6">
-                  {selectedJob.department} · {selectedJob.location}
-                </p>
-
-                <form onSubmit={handleApplySubmit} className="space-y-4">
-                  <div>
-                    <label htmlFor="applicant-name" className="block text-xs font-semibold text-slate-300 mb-1">Full Name *</label>
-                    <input id="applicant-name"
-                      type="text"
-                      required
-                      value={applicantName}
-                      onChange={(e) => setApplicantName(e.target.value)}
-                      placeholder="e.g. Daniyal Khan"
-                      className="w-full bg-[#06080e] border border-[#202738] rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-[#00D9FF]"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="applicant-email" className="block text-xs font-semibold text-slate-300 mb-1">Email Address *</label>
-                    <input id="applicant-email"
-                      type="email"
-                      required
-                      value={applicantEmail}
-                      onChange={(e) => setApplicantEmail(e.target.value)}
-                      placeholder="daniyal@example.com"
-                      className="w-full bg-[#06080e] border border-[#202738] rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-[#00D9FF]"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="applicant-resume" className="block text-xs font-semibold text-slate-300 mb-1">LinkedIn or GitHub Profile *</label>
-                    <input id="applicant-resume"
-                      type="url"
-                      required
-                      value={applicantResume}
-                      onChange={(e) => setApplicantResume(e.target.value)}
-                      placeholder="https://github.com/... or https://linkedin.com/in/..."
-                      className="w-full bg-[#06080e] border border-[#202738] rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-[#00D9FF]"
-                    />
-                  </div>
-
-                  <div className="pt-2 border-t border-[#1c212f] flex justify-end gap-2">
-                    <button
-                      type="button"
-                      onClick={closeApplyModal}
-                      className="px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white rounded-lg hover:bg-[#121724] cursor-pointer"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="px-5 py-2 text-xs font-extrabold text-black bg-gradient-to-r from-[#0057FF] to-[#00D9FF] hover:brightness-110 rounded-xl flex items-center gap-1.5 cursor-pointer shadow-lg shadow-[#0057FF]/25"
-                    >
-                      {isSubmitting ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : null}
-                      <span>Prepare application email</span>
-                    </button>
-                  </div>
-                </form>
-              </div>
-            )}
-          </div>
+    <section id="open-roles" className={styles.rolesSection} aria-labelledby="roles-heading">
+      <div className={styles.container}>
+        <div className={styles.rolesHeading}>
+          <div><p className={styles.sectionKicker}>OPEN POSITIONS</p><h2 id="roles-heading">Find your next role.</h2><p>Explore the current opportunities and see where your skills can contribute.</p></div>
+          <span className={styles.roleCount}>{JOB_OPENINGS_DATA.length} current roles</span>
         </div>
-      )}
-    </main>
-  );
-}
+        <div className={styles.roleFilters} role="group" aria-label="Filter open roles">{filters.map(filter=><button key={filter} type="button" aria-pressed={department===filter} onClick={()=>setDepartment(filter)}>{filter}</button>)}</div>
+        <div className={styles.jobList}>
+          {visibleJobs.map(job=><article className={styles.jobCard} key={job.id}>
+            <div className={styles.jobMain}>
+              <div className={styles.jobMeta}><span>{job.department}</span><i/><span>{job.type}</span><i/><span><MapPin size={13} aria-hidden="true"/>{job.location}</span><i/><span>{job.experience}</span></div>
+              <h3>{job.title}</h3>
+              <p className={styles.jobOverview}>{job.overview}</p>
+              <details className={styles.jobDetails}>
+                <summary>Role details <ArrowDown size={15} aria-hidden="true"/></summary>
+                <div className={styles.jobDetailGrid}>
+                  <div><h4>What you’ll work on</h4><ul>{job.responsibilities.map(item=><li key={item}>{item}</li>)}</ul></div>
+                  <div><h4>What you’ll bring</h4><ul>{job.requirements.map(item=><li key={item}>{item}</li>)}</ul></div>
+                </div>
+              </details>
+            </div>
+            <button type="button" className={styles.applyButton} onClick={()=>setSelectedJob(job)}>Apply for this role <ArrowUpRight size={16} aria-hidden="true"/></button>
+          </article>)}
+          {visibleJobs.length===0&&<p className={styles.emptyRoles}>No roles in this area right now. Share your profile for future opportunities.</p>}
+        </div>
+      </div>
+    </section>
 
+    <section className={styles.applySection} aria-labelledby="apply-heading">
+      <div className={styles.container}>
+        <div className={styles.applyPanel}>
+          <div><p className={styles.sectionKicker}>YOUR APPLICATION</p><h2 id="apply-heading">A clear way to get started.</h2><p>Choose a role, review what it involves, and share your experience with our team. The application form prepares an email draft so you can attach your CV or resume before sending.</p></div>
+          <div className={styles.applySteps}><div><span>Choose a role</span><p>Find the opening that fits your experience.</p></div><div><span>Share your work</span><p>Add a profile link and relevant examples.</p></div><div><span>Send your email</span><p>Review the draft and attach your CV.</p></div></div>
+        </div>
+        <div className={styles.generalApplication}><div><h3>Don’t see the right opening?</h3><p>Send a short introduction and a link to your work. We’ll keep your profile in mind for relevant roles.</p></div><a href="mailto:solynextsolutions@gmail.com?subject=Career%20inquiry">Email our team <ArrowUpRight size={16} aria-hidden="true"/></a></div>
+      </div>
+    </section>
+
+    <dialog ref={dialogRef} className={styles.dialog} aria-labelledby="application-title" onCancel={event=>{event.preventDefault();closeApplication();}} onClick={event=>{if(event.target===event.currentTarget)closeApplication();}}>
+      {selectedJob&&<div className={styles.dialogContent}>
+        <button type="button" className={styles.dialogClose} aria-label="Close application" onClick={closeApplication}><X size={20} aria-hidden="true"/></button>
+        {draftReady?<div className={styles.draftSuccess}><span><Check size={21} aria-hidden="true"/></span><p className={styles.sectionKicker}>APPLICATION DRAFT</p><h2 id="application-title">Your email is ready.</h2><p>Review the message in your email app, attach your CV or resume, and send it to complete your application for <strong>{selectedJob.title}</strong>.</p><a href="mailto:solynextsolutions@gmail.com?subject=Career%20application">Open email again <ArrowUpRight size={16} aria-hidden="true"/></a></div>:<>
+          <p className={styles.sectionKicker}>APPLY FOR A ROLE</p><h2 id="application-title">{selectedJob.title}</h2><p className={styles.dialogMeta}>{selectedJob.department} · {selectedJob.location} · {selectedJob.experience}</p>
+          <form className={styles.applicationForm} onSubmit={prepareApplication}>
+            <label>Full name<input required autoComplete="name" value={applicantName} onChange={event=>setApplicantName(event.target.value)} placeholder="Your name"/></label>
+            <label>Email address<input required type="email" autoComplete="email" value={applicantEmail} onChange={event=>setApplicantEmail(event.target.value)} placeholder="you@example.com"/></label>
+            <label>LinkedIn, GitHub or portfolio URL<input required type="url" value={applicantProfile} onChange={event=>setApplicantProfile(event.target.value)} placeholder="https://"/></label>
+            <p className={styles.formNote}>The site prepares an email draft. Attach your CV or resume before sending.</p>
+            <div className={styles.formActions}><button type="button" className={styles.cancelButton} onClick={closeApplication}>Cancel</button><button type="submit" className={styles.submitButton}>Prepare email draft <ArrowRight size={16} aria-hidden="true"/></button></div>
+          </form>
+        </>}
+      </div>}
+    </dialog>
+  </main>;
+}

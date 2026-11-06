@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { TrendingUp } from "lucide-react";
+import { ArrowUpRight, TrendingUp } from "lucide-react";
 import { CASE_STUDIES_DATA } from "@/data/mockData";
 import styles from "./FeaturedProjects.module.css";
 

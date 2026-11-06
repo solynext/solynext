@@ -7,9 +7,8 @@
 .library{padding:28px 0 88px}
 .toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:20px;border-bottom:1px solid #e6ebf1}
 .filters{display:flex;flex-wrap:wrap;gap:5px}
-.filters button{min-height:36px;padding:0 12px;border:1px solid transparent;border-radius:7px;background:transparent;color:#5d6b7d;font:inherit;font-size:12px;font-weight:600;cursor:pointer}
-.filters button:hover{background:#f4f6f9;color:#263950}
-.filters .activeFilter{border-color:#d7e2ef;background:#f0f5fb;color:#225b9a}
+.filters button{min-height:36px;padding:0 12px;border:1px solid transparent;border-radius:999px;background:transparent;color:#5d6b7d;font:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:background .22s ease,color .22s ease,border-color .22s ease}
+.filters button:hover,.filters button:focus-visible,.filters .activeFilter{border-color:#0b8ff4;background:linear-gradient(120deg,#075ef5,#00bce8);color:#fff}
 .search{display:flex;width:min(260px,100%);min-height:39px;align-items:center;gap:8px;padding:0 10px;border:1px solid #d9e0e8;border-radius:7px;background:#fff;color:#728196}
 .search:focus-within{border-color:#8aa9cf;box-shadow:0 0 0 2px #2862b410}
 .search input{width:100%;min-width:0;padding:0!important;border:0!important;border-radius:0!important;outline:0!important;background:transparent!important;box-shadow:none!important;color:#25374e;font:inherit;font-size:12px}
