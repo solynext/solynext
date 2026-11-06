@@ -1,0 +1,30 @@
+npm notice run solynext@0.1.0 dev
+npm notice run next dev -p 3000 -H 0.0.0.0
+▲ Next.js 16.3.7 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://0.0.0.0:3000
+- Environments: .env.local
+✓ Ready in 1332ms
+✓ Running next.config.ts took 95ms
+- Experiments (use with caution):
+  · serverActions
+
+ GET /services 200 in 5.0s (next.js: 1955ms, proxy.ts: 665ms, application-code: 2.4s)
+ GET /api/services 200 in 470ms (next.js: 390ms, application-code: 81ms)
+ GET /api/ads 200 in 491ms (next.js: 136ms, application-code: 354ms)
+ GET /api/ads 200 in 37ms (next.js: 9ms, application-code: 27ms)
+ GET /api/services 200 in 41ms (next.js: 22ms, application-code: 19ms)
+ GET /services 200 in 403ms (next.js: 13ms, proxy.ts: 46ms, application-code: 343ms)
+ GET /api/notifications 200 in 139ms (next.js: 105ms, application-code: 34ms)
+[browser] Image with src "/_next/static/media/solynext-wordmark.2rl6o_vt5l24b.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET /api/notifications 200 in 30ms (next.js: 12ms, application-code: 17ms)
+ GET /api/notifications 200 in 42ms (next.js: 22ms, application-code: 20ms)
+ GET /services 200 in 2.6s (next.js: 14ms, proxy.ts: 9ms, application-code: 2.5s)
+[browser] Image with src "/_next/static/media/solynext-wordmark.2rl6o_vt5l24b.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET /api/ads 200 in 79ms (next.js: 32ms, application-code: 47ms)
+ GET /api/notifications 200 in 83ms (next.js: 15ms, application-code: 69ms)
+ GET /api/notifications 200 in 53ms (next.js: 17ms, application-code: 35ms)
+ GET /api/ads 200 in 33ms (next.js: 19ms, application-code: 14ms)
+ GET /api/services 200 in 37ms (next.js: 7ms, application-code: 30ms)
