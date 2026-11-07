@@ -31,7 +31,7 @@ export function ServicesOverview({ standalone = false }: { standalone?: boolean 
         ) : (
           <>
             <h2 id={headingId} className={styles.heading}>Our services. <span>Your next step.</span></h2>
-            <p className={styles.intro}>Web development, marketing, business management and AI automation — from one team.</p>
+            <p className={styles.intro}>Web development, marketing, business management<br />and AI automation — from one team.</p>
           </>
         )}
         <div className={styles.grid} id={standalone ? "service-categories" : undefined}>

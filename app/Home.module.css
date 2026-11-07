@@ -14,3 +14,12 @@
 @media(max-width:1100px){.home>section:not(:first-child)>:global(.premium-container){width:calc(100% - 64px)}}
 @media(max-width:700px){.home{--home-section-space:48px}.home>section:not(:first-child)>:global(.premium-container){width:calc(100% - 40px)}.home :global(.p-section-heading){gap:20px;margin-bottom:26px;align-items:flex-start}.home :global(.p-section-heading h2){font-size:32px}.home>section:has(:global(#client-ticker-title)){padding-block:26px}.home :global(.premium-work-grid){gap:26px}}
 
+
+.home > section:has(+ :global(#services)) {
+  border-block-end: 0;
+  padding-block-end: clamp(16px, 2vw, 24px);
+}
+
+.home > section:global(#services) {
+  padding-block-start: clamp(16px, 2vw, 24px);
+}
