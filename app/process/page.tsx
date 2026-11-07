@@ -1,9 +1,7 @@
 import { getPageMetadata } from "@/lib/seo/metadata";
-import { CardMotif, cardTone } from "@/components/ui/CardMotif";
-import React from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+import { ArrowRight, Check, Code2, Database, Layers3, PenTool, RefreshCw, Rocket, Search, ShieldCheck } from "lucide-react";
+import styles from "./Process.module.css";
 
 export async function generateMetadata() { return getPageMetadata("/process"); }
 
@@ -15,6 +13,7 @@ export default function ProcessPage() {
       description:
         "We conduct structured discovery sessions to unpack your business model, customer workflows, regulatory constraints, and technical goals. We define clear success metrics.",
       deliverables: ["Product Requirement Document (PRD)", "User Persona Maps", "Technical Scope & Milestones Matrix"],
+      icon: Search,
     },
     {
       title: "Technical Feasibility & Research",
@@ -22,6 +21,7 @@ export default function ProcessPage() {
       description:
         "Our senior architects evaluate third-party API capabilities, benchmark database read/write loads, and test integration edge cases to de-risk development early.",
       deliverables: ["Technical Feasibility Report", "Third-Party Integration Contracts", "Risk Mitigation Strategy"],
+      icon: Layers3,
     },
     {
       title: "System Architecture & Data Modeling",
@@ -29,6 +29,7 @@ export default function ProcessPage() {
       description:
         "We draft normalized relational database schemas, define microservice communication protocols, and design secure OAuth/RBAC authorization boundaries.",
       deliverables: ["Entity Relationship Diagram (ERD)", "API Swagger / OpenAPI Spec", "Cloud Infrastructure Topology"],
+      icon: Database,
     },
     {
       title: "UI/UX Prototyping & Design Systems",
@@ -36,6 +37,7 @@ export default function ProcessPage() {
       description:
         "We translate user flows into clickable Figma prototypes. We author atomic design tokens for typography, spacing, and colors to ensure developer fidelity.",
       deliverables: ["Clickable Interactive Figma Prototype", "Design Token & Component Library", "Usability Test Summary"],
+      icon: PenTool,
     },
     {
       title: "Agile Sprint Engineering",
@@ -43,6 +45,7 @@ export default function ProcessPage() {
       description:
         "We execute in two-week bi-weekly sprints. Every sprint produces test-backed, deployed code accessible on private staging preview environments.",
       deliverables: ["Bi-Weekly Sprint Review Demos", "Clean TypeScript Codebase in GitHub", "Automated CI/CD Test Pipeline"],
+      icon: Code2,
     },
     {
       title: "QA, Security & Performance Hardening",
@@ -50,6 +53,7 @@ export default function ProcessPage() {
       description:
         "We run automated end-to-end tests, execute synthetic load stress tests, verify WCAG accessibility, and conduct dependency vulnerability scans.",
       deliverables: ["Quality Assurance Audit Report", "Lighthouse 90+ Score Proof", "OWASP Security Verification"],
+      icon: ShieldCheck,
     },
     {
       title: "Production Deployment & Cutover",
@@ -57,6 +61,7 @@ export default function ProcessPage() {
       description:
         "We orchestrate blue/green or rolling zero-downtime releases, configure real-time error telemetry (Sentry), and verify domain SSL certs and DNS propagation.",
       deliverables: ["Production Cloud Environment", "Automated Database Backup Policies", "Launch Checklist Signoff"],
+      icon: Rocket,
     },
     {
       title: "30-Day Warranty & Evolution SLA",
@@ -64,74 +69,41 @@ export default function ProcessPage() {
       description:
         "Every project includes a 30-day bug warranty where our engineers address any unexpected edge cases. Ongoing SLA maintenance retainers are available.",
       deliverables: ["30-Day Post-Launch Bug Warranty", "Technical Maintenance Runbook", "Quarterly Growth Roadmap"],
+      icon: RefreshCw,
     },
   ];
 
   return (
-    <main id="main-content" className="flex-1 py-16 sm:py-24 bg-[#000000] text-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader as="h1"
-          kicker="Delivery Framework"
-          title="Our Delivery Process"
-          description="A transparent engineering roadmap from initial discovery to launch and ongoing support."
-        />
+    <main id="main-content" className={styles.page}>
+      <div className={styles.container}>
+        <header className={styles.hero}>
+          <p className={styles.eyebrow}><span/>DELIVERY FRAMEWORK</p>
+          <h1>Our Delivery Process</h1>
+          <p>A transparent engineering roadmap from initial discovery to launch and ongoing support.</p>
+        </header>
 
-        <div className="space-y-8 relative before:absolute before:inset-0 before:left-7 sm:before:left-8 before:w-0.5 before:bg-[#202738] before:hidden md:before:block">
-          {fullSteps.map((step) => (
-            <div
-              key={step.title}
-              data-card-tone={cardTone(step.title)}
-              className="visual-card relative p-6 sm:p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] hover:border-[#00D9FF] transition-colors"
-            >
-              <CardMotif kind={step.title}/>
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-                <div className="flex items-center gap-3">
-                  <h2 className="text-lg font-bold text-white">
-                    {step.title}
-                  </h2>
-                </div>
-                <span className="text-xs font-mono text-slate-300 bg-[#06080e] px-2.5 py-1 rounded-full border border-[#202738] font-semibold self-start sm:self-auto">
-                  {step.timing}
-                </span>
+        <div className={styles.timeline}>
+          {fullSteps.map((step) => {
+            const StepIcon = step.icon;
+            return <article className={styles.stage} key={step.title}>
+              <div className={styles.stageIcon}><StepIcon size={19} strokeWidth={1.8} aria-hidden="true"/></div>
+              <div className={styles.stageHeading}>
+                <h2>{step.title}</h2>
+                <span>{step.timing}</span>
               </div>
-
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-                {step.description}
-              </p>
-
-              <div className="visual-card p-4 rounded-xl bg-[#06080e] border border-[#202738]">
-                <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
-                  Stage Deliverables:
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-slate-200">
-                  {step.deliverables.map((del, i) => (
-                    <div key={i} className="flex items-center gap-2 font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#00D9FF] shrink-0" />
-                      <span>{del}</span>
-                    </div>
-                  ))}
-                </div>
+              <p className={styles.stageDescription}>{step.description}</p>
+              <div className={styles.deliverables}>
+                <h3>Stage deliverables</h3>
+                <ul>{step.deliverables.map((deliverable) => <li key={deliverable}><Check size={14} aria-hidden="true"/><span>{deliverable}</span></li>)}</ul>
               </div>
-            </div>
-          ))}
+            </article>;
+          })}
         </div>
 
-        {/* Collaboration Guarantee */}
-        <div className="visual-card mt-16 p-8 rounded-2xl border border-[#202738] bg-[#0a0d15] text-center">
-          <h2 className="text-xl font-bold text-white mb-2">
-            Transparent Collaboration
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto mb-6">
-            We work directly in your Slack or Teams channels, host weekly sprint demos, and provide live staging access.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 text-xs font-extrabold text-black bg-gradient-to-r from-[#0057FF] to-[#00D9FF] hover:brightness-110 rounded-xl transition-all shadow-lg shadow-[#0057FF]/25"
-          >
-            <span>Start Your Project</span>
-            <ArrowRight className="w-3.5 h-3.5 text-black" />
-          </Link>
-        </div>
+        <section className={styles.collaboration}>
+          <div><p className={styles.eyebrow}><span/>WORKING TOGETHER</p><h2>Transparent collaboration.</h2><p>We work directly in your Slack or Teams channels, host weekly sprint demos, and provide live staging access.</p></div>
+          <Link href="/contact">Start your project <ArrowRight size={17} aria-hidden="true"/></Link>
+        </section>
       </div>
     </main>
   );

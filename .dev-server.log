@@ -4,215 +4,64 @@ npm notice run next dev -p 3000 -H 0.0.0.0
 - Local:         http://localhost:3000
 - Network:       http://0.0.0.0:3000
 - Environments: .env.local
-✓ Ready in 1332ms
-✓ Running next.config.ts took 95ms
+✓ Ready in 4.6s
+✓ Running next.config.ts took 681ms
 - Experiments (use with caution):
   · serverActions
 
- GET /services 200 in 5.0s (next.js: 1955ms, proxy.ts: 665ms, application-code: 2.4s)
- GET /api/services 200 in 470ms (next.js: 390ms, application-code: 81ms)
- GET /api/ads 200 in 491ms (next.js: 136ms, application-code: 354ms)
- GET /api/ads 200 in 37ms (next.js: 9ms, application-code: 27ms)
- GET /api/services 200 in 41ms (next.js: 22ms, application-code: 19ms)
- GET /services 200 in 403ms (next.js: 13ms, proxy.ts: 46ms, application-code: 343ms)
- GET /api/notifications 200 in 139ms (next.js: 105ms, application-code: 34ms)
-[browser] Image with src "/_next/static/media/solynext-wordmark.2rl6o_vt5l24b.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
- GET /api/notifications 200 in 30ms (next.js: 12ms, application-code: 17ms)
- GET /api/notifications 200 in 42ms (next.js: 22ms, application-code: 20ms)
- GET /services 200 in 2.6s (next.js: 14ms, proxy.ts: 9ms, application-code: 2.5s)
-[browser] Image with src "/_next/static/media/solynext-wordmark.2rl6o_vt5l24b.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
- GET /api/ads 200 in 79ms (next.js: 32ms, application-code: 47ms)
- GET /api/notifications 200 in 83ms (next.js: 15ms, application-code: 69ms)
- GET /api/notifications 200 in 53ms (next.js: 17ms, application-code: 35ms)
- GET /api/ads 200 in 33ms (next.js: 19ms, application-code: 14ms)
- GET /api/services 200 in 37ms (next.js: 7ms, application-code: 30ms)
- GET /api/notifications 200 in 35ms (next.js: 14ms, application-code: 22ms)
- GET /api/notifications 200 in 27ms (next.js: 10ms, application-code: 17ms)
- GET /api/notifications 200 in 34ms (next.js: 10ms, application-code: 24ms)
-✓ Compiled in 1498ms
- GET /services 200 in 2.7s (next.js: 11ms, proxy.ts: 7ms, application-code: 2.7s)
- GET /api/notifications 200 in 33ms (next.js: 14ms, application-code: 18ms)
- GET /api/notifications 200 in 23ms (next.js: 9ms, application-code: 14ms)
- GET /api/notifications 200 in 29ms (next.js: 11ms, application-code: 18ms)
- GET /api/notifications 200 in 29ms (next.js: 13ms, application-code: 16ms)
-✓ Compiled in 649ms
- GET /services 200 in 1979ms (next.js: 10ms, proxy.ts: 16ms, application-code: 1953ms)
- GET /api/notifications 200 in 38ms (next.js: 16ms, application-code: 22ms)
- GET / 200 in 509ms (next.js: 122ms, application-code: 387ms)
- GET /api/ads 200 in 88ms (next.js: 31ms, application-code: 58ms)
- GET /api/services 200 in 87ms (next.js: 8ms, application-code: 79ms)
-[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
- GET /api/ads 200 in 110ms (next.js: 11ms, application-code: 99ms)
- GET /api/services 200 in 57ms (next.js: 29ms, application-code: 28ms)
- GET /api/notifications 200 in 19ms (next.js: 7ms, application-code: 13ms)
-✓ Compiled in 1086ms
- GET /api/notifications 200 in 39ms (next.js: 19ms, application-code: 20ms)
- GET /services 200 in 2.8s (next.js: 14ms, proxy.ts: 10ms, application-code: 2.7s)
- GET /api/ads 200 in 47ms (next.js: 31ms, application-code: 16ms)
- GET /api/ads 200 in 48ms (next.js: 9ms, application-code: 39ms)
- GET /api/notifications 200 in 19ms (next.js: 6ms, application-code: 13ms)
- GET / 200 in 224ms (next.js: 29ms, application-code: 195ms)
- GET /api/ads 200 in 45ms (next.js: 9ms, application-code: 36ms)
- GET /api/services 200 in 44ms (next.js: 25ms, application-code: 20ms)
- GET /api/ads 200 in 42ms (next.js: 13ms, application-code: 29ms)
- GET /api/services 200 in 41ms (next.js: 8ms, application-code: 33ms)
- GET /api/notifications 200 in 24ms (next.js: 9ms, application-code: 16ms)
- GET /api/notifications 200 in 34ms (next.js: 16ms, application-code: 18ms)
- GET /api/notifications 200 in 46ms (next.js: 27ms, application-code: 19ms)
- GET /api/notifications 200 in 41ms (next.js: 9ms, application-code: 31ms)
- GET /api/notifications 200 in 31ms (next.js: 15ms, application-code: 16ms)
- GET / 200 in 1082ms (next.js: 10ms, application-code: 1072ms)
- GET /api/notifications 200 in 27ms (next.js: 8ms, application-code: 19ms)
- GET /api/notifications 200 in 19ms (next.js: 7ms, application-code: 12ms)
- GET / 200 in 944ms (next.js: 10ms, application-code: 934ms)
- GET /api/notifications 200 in 39ms (next.js: 12ms, application-code: 27ms)
- GET / 200 in 1350ms (next.js: 18ms, application-code: 1332ms)
-[browser] Image with src "/_next/static/media/solynext-wordmark.2rl6o_vt5l24b.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
- GET /api/notifications 200 in 25ms (next.js: 9ms, application-code: 16ms)
- GET /api/ads 200 in 37ms (next.js: 8ms, application-code: 29ms)
- GET /api/services 200 in 39ms (next.js: 24ms, application-code: 15ms)
- GET /api/notifications 200 in 20ms (next.js: 6ms, application-code: 15ms)
- GET /api/services 200 in 17ms (next.js: 5ms, application-code: 12ms)
- GET /api/ads 200 in 22ms (next.js: 5ms, application-code: 16ms)
- GET /api/services 200 in 27ms (next.js: 6ms, application-code: 21ms)
- GET /api/services 200 in 33ms (next.js: 8ms, application-code: 24ms)
- GET /api/notifications 200 in 22ms (next.js: 8ms, application-code: 13ms)
- GET /api/notifications 200 in 19ms (next.js: 6ms, application-code: 13ms)
- GET /blog 200 in 110ms (next.js: 60ms, application-code: 49ms)
-[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
- GET /api/ads 200 in 70ms (next.js: 39ms, application-code: 31ms)
- GET /api/notifications 200 in 31ms (next.js: 13ms, application-code: 18ms)
- GET /api/notifications 200 in 22ms (next.js: 9ms, application-code: 13ms)
- GET /api/notifications 200 in 16ms (next.js: 5ms, application-code: 11ms)
- GET /api/notifications 200 in 24ms (next.js: 9ms, application-code: 14ms)
- GET /api/notifications 200 in 29ms (next.js: 13ms, application-code: 16ms)
- GET / 200 in 261ms (next.js: 12ms, application-code: 249ms)
- GET /api/notifications 200 in 28ms (next.js: 10ms, application-code: 17ms)
- GET /api/services 200 in 41ms (next.js: 6ms, application-code: 35ms)
- GET /api/ads 200 in 45ms (next.js: 26ms, application-code: 19ms)
- GET /api/ads 200 in 47ms (next.js: 15ms, application-code: 31ms)
- GET /api/services 200 in 40ms (next.js: 23ms, application-code: 17ms)
- GET /services 200 in 2.8s (next.js: 11ms, proxy.ts: 15ms, application-code: 2.8s)
- GET /api/ads 200 in 31ms (next.js: 7ms, application-code: 24ms)
- GET /api/ads 200 in 25ms (next.js: 6ms, application-code: 18ms)
- GET /api/notifications 200 in 23ms (next.js: 9ms, application-code: 14ms)
- GET /collaboration 200 in 123ms (next.js: 58ms, application-code: 65ms)
- GET /api/ads 200 in 44ms (next.js: 8ms, application-code: 36ms)
- GET /api/ads 200 in 45ms (next.js: 27ms, application-code: 17ms)
- GET /api/notifications 200 in 25ms (next.js: 11ms, application-code: 14ms)
- GET /api/notifications 200 in 28ms (next.js: 11ms, application-code: 17ms)
- GET /api/notifications 200 in 28ms (next.js: 12ms, application-code: 17ms)
- GET /api/notifications 200 in 29ms (next.js: 13ms, application-code: 16ms)
- GET /api/notifications 200 in 16ms (next.js: 5ms, application-code: 11ms)
- GET /api/notifications 200 in 28ms (next.js: 12ms, application-code: 16ms)
- GET /api/notifications 200 in 16ms (next.js: 5ms, application-code: 11ms)
- GET /api/notifications 200 in 22ms (next.js: 9ms, application-code: 13ms)
- GET /api/notifications 200 in 22ms (next.js: 9ms, application-code: 13ms)
- GET /api/notifications 200 in 17ms (next.js: 6ms, application-code: 12ms)
- GET /api/notifications 200 in 16ms (next.js: 5ms, application-code: 11ms)
- GET /api/notifications 200 in 44ms (next.js: 12ms, application-code: 32ms)
- GET /api/notifications 200 in 17ms (next.js: 5ms, application-code: 12ms)
- GET /api/notifications 200 in 18ms (next.js: 7ms, application-code: 12ms)
- GET /api/notifications 200 in 17ms (next.js: 6ms, application-code: 12ms)
- GET /api/notifications 200 in 33ms (next.js: 19ms, application-code: 14ms)
- GET /api/notifications 200 in 18ms (next.js: 6ms, application-code: 12ms)
- GET /api/notifications 200 in 33ms (next.js: 12ms, application-code: 20ms)
- GET /api/notifications 200 in 16ms (next.js: 5ms, application-code: 11ms)
- GET /api/notifications 200 in 22ms (next.js: 8ms, application-code: 14ms)
- GET /api/notifications 200 in 23ms (next.js: 11ms, application-code: 12ms)
- GET /api/notifications 200 in 28ms (next.js: 13ms, application-code: 15ms)
- GET /api/notifications 200 in 16ms (next.js: 5ms, application-code: 12ms)
- GET /api/notifications 200 in 30ms (next.js: 15ms, application-code: 15ms)
- GET /api/notifications 200 in 25ms (next.js: 10ms, application-code: 15ms)
- GET /api/notifications 200 in 16ms (next.js: 5ms, application-code: 11ms)
- GET /api/notifications 200 in 17ms (next.js: 5ms, application-code: 12ms)
- GET /api/notifications 200 in 27ms (next.js: 12ms, application-code: 14ms)
- GET /api/notifications 200 in 25ms (next.js: 11ms, application-code: 14ms)
- GET /api/notifications 200 in 24ms (next.js: 9ms, application-code: 14ms)
- GET /api/notifications 200 in 21ms (next.js: 7ms, application-code: 14ms)
- GET /api/notifications 200 in 24ms (next.js: 11ms, application-code: 13ms)
- GET /api/notifications 200 in 26ms (next.js: 12ms, application-code: 13ms)
- GET /api/notifications 200 in 30ms (next.js: 12ms, application-code: 17ms)
- GET /api/notifications 200 in 27ms (next.js: 11ms, application-code: 16ms)
- GET /api/notifications 200 in 23ms (next.js: 9ms, application-code: 13ms)
- GET /api/notifications 200 in 31ms (next.js: 13ms, application-code: 19ms)
- GET /api/notifications 200 in 27ms (next.js: 11ms, application-code: 15ms)
-revalidating cache with key: async (key)=>getSection(key)-catalog-sections-["industries_page"] Error: Failed query: select data from solynext_catalog.page_sections where key=$1
-params: industries_page
-    at async getSection (lib\catalog\repository.ts:22:133)
-  20 | ...on saveCategory(input:unknown,actor:Actor){const data=categorySchema.parse(input);await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${data...
-  21 | ...on deleteCategory(slug:string,actor:Actor){await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${slug} for update`);const used=await tx.exec...
-> 22 | ...on getSection<K extends SectionKey>(key:K):Promise<ReturnType<(typeof sectionSchemas)[K]["parse"]>>{const result=await getCatalogDb().execute<{data:unknown}>(sql`select data from solynext_catalog.page_sections where key=${key}`...
-     |                                                                                                                     ^
-  23 | ...ection=unstable_cache(async(key:SectionKey)=>getSection(key),["catalog-sections"],{tags:["catalog-sections"],revalidate:3600});
-  24 | ...on publicOfferings(entity:Entity){await connection();return cachedPublicOfferings(entity);}
-  25 | ...on publicSection(key:SectionKey){await connection();return cachedPublicSection(key);} {
-  query: 'select data from solynext_catalog.page_sections where key=$1',
-  params: [ 'industries_page' ],
-  [cause]: Error: getaddrinfo ENOTFOUND ep-round-silence-b5vp6dkr-pooler.c-7.us-east-2.aws.neon.tech
-      at async getSection (lib\catalog\repository.ts:22:133)
-    20 | ...on saveCategory(input:unknown,actor:Actor){const data=categorySchema.parse(input);await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${data...
-    21 | ...on deleteCategory(slug:string,actor:Actor){await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${slug} for update`);const used=await tx.exec...
-  > 22 | ...on getSection<K extends SectionKey>(key:K):Promise<ReturnType<(typeof sectionSchemas)[K]["parse"]>>{const result=await getCatalogDb().execute<{data:unknown}>(sql`select data from solynext_catalog.page_sections where key=${key}`...
-       |                                                                                                                     ^
-    23 | ...ection=unstable_cache(async(key:SectionKey)=>getSection(key),["catalog-sections"],{tags:["catalog-sections"],revalidate:3600});
-    24 | ...on publicOfferings(entity:Entity){await connection();return cachedPublicOfferings(entity);}
-    25 | ...on publicSection(key:SectionKey){await connection();return cachedPublicSection(key);} {
-    errno: -3008,
-    code: 'ENOTFOUND',
-    syscall: 'getaddrinfo',
-    hostname: 'ep-round-silence-b5vp6dkr-pooler.c-7.us-east-2.aws.neon.tech'
-  }
-}
- GET /industries 200 in 401ms (next.js: 84ms, proxy.ts: 9ms, application-code: 308ms)
- GET /api/ads 200 in 86ms (next.js: 51ms, application-code: 36ms)
-⨯ Error: Failed query: select * from solynext_catalog.service_categories order by display_order,name
+ GET / 200 in 4.4s (next.js: 967ms, application-code: 3.4s)
+revalidating cache with key: async (entity)=>listOfferings(entity, true)-catalog-offerings-v2-["services"] Error: Failed query: select o.*,coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_catalog.service_projects where service_id=o.id),'[]'::jsonb) as project_ids from solynext_catalog.services o where o.deleted_at is null and o.status='published' order by o.display_order,o.name
 params: 
-    at async listCategories (lib\catalog\repository.ts:19:80)
-    at async ServicesPage (app\services\page.tsx:5:90)
+    at async listOfferings (lib\catalog\repository.ts:15:15)
+  13 | export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDatabase=getCatalogDb()):Promise<Offering[]>{
+  14 |  const relation=entity==="services"?sql`coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_cata...
+> 15 |  const result=await db.execute<Record<string,unknown>>(sql`select o.*,${relation} from ${table(entity)} o where o.deleted_at is null ${publicOnly?sql`and o.status='published'`:sql``} order by o.display_order,o.name`);return result...
+     |               ^
+  16 | }
   17 | export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=a...
-  18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600});
-> 19 | export async function listCategories():Promise<ServiceCategory[]>{const result=await getCatalogDb().execute<ServiceCategory>(sql`select * from solynext_catalog.service_categories order by display_order,name`);return result.rows;}
-     |                                                                                ^
-  20 | export async function saveCategory(input:unknown,actor:Actor){const data=categorySchema.parse(input);await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories w...
-  21 | export async function deleteCategory(slug:string,actor:Actor){await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${slug} for update`);const us...
-  22 | export async function getSection<K extends SectionKey>(key:K):Promise<ReturnType<(typeof sectionSchemas)[K]["parse"]>>{const result=await getCatalogDb().execute<{data:unknown}>(sql`select data from solynext_catalog.page_sections w... {
-  query: 'select * from solynext_catalog.service_categories order by display_order,name',
+  18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600}); {
+  query: "select o.*,coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_catalog.service_projects where service_id=o.id),'[]'::jsonb) as project_ids from solynext_catalog.services o where o.deleted_at is null and o.status='published' order by o.display_order,o.name",
   params: [],
-  digest: '3065204012',
-  [cause]: Error: getaddrinfo ENOTFOUND ep-round-silence-b5vp6dkr-pooler.c-7.us-east-2.aws.neon.tech
-      at async listCategories (lib\catalog\repository.ts:19:80)
-      at async ServicesPage (app\services\page.tsx:5:90)
+  [cause]: AggregateError: 
+      at async listOfferings (lib\catalog\repository.ts:15:15)
+    13 | export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDatabase=getCatalogDb()):Promise<Offering[]>{
+    14 |  const relation=entity==="services"?sql`coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_cata...
+  > 15 |  const result=await db.execute<Record<string,unknown>>(sql`select o.*,${relation} from ${table(entity)} o where o.deleted_at is null ${publicOnly?sql`and o.status='published'`:sql``} order by o.display_order,o.name`);return result...
+       |               ^
+    16 | }
     17 | export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=a...
-    18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600});
-  > 19 | export async function listCategories():Promise<ServiceCategory[]>{const result=await getCatalogDb().execute<ServiceCategory>(sql`select * from solynext_catalog.service_categories order by display_order,name`);return result.rows;}
-       |                                                                                ^
-    20 | export async function saveCategory(input:unknown,actor:Actor){const data=categorySchema.parse(input);await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories w...
-    21 | export async function deleteCategory(slug:string,actor:Actor){await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${slug} for update`);const us...
-    22 | export async function getSection<K extends SectionKey>(key:K):Promise<ReturnType<(typeof sectionSchemas)[K]["parse"]>>{const result=await getCatalogDb().execute<{data:unknown}>(sql`select data from solynext_catalog.page_sections w... {
-    errno: -3008,
-    code: 'ENOTFOUND',
-    syscall: 'getaddrinfo',
-    hostname: 'ep-round-silence-b5vp6dkr-pooler.c-7.us-east-2.aws.neon.tech'
+    18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600}); {
+    code: 'EACCES',
+    [errors]: [ [Error], [Error], [Error] ]
   }
 }
- GET /services 200 in 74ms (next.js: 10ms, proxy.ts: 8ms, application-code: 56ms)
-[browser] Uncaught Error: Failed query: select * from solynext_catalog.service_categories order by display_order,name
+revalidating cache with key: async (entity)=>listOfferings(entity, true)-catalog-offerings-v2-["industries"] Error: Failed query: select o.*,coalesce((select jsonb_agg(service_id) from solynext_catalog.service_industries where industry_id=o.id),'[]'::jsonb) as service_ids,coalesce((select jsonb_agg(project_id) from solynext_catalog.industry_projects where industry_id=o.id),'[]'::jsonb) as project_ids from solynext_catalog.industries o where o.deleted_at is null and o.status='published' order by o.display_order,o.name
 params: 
-    at  listCategories (lib\catalog\repository.ts:19:80)
-    at  ServicesPage (app\services\page.tsx:5:90)
+    at async listOfferings (lib\catalog\repository.ts:15:15)
+  13 | export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDatabase=getCatalogDb()):Promise<Offering[]>{
+  14 |  const relation=entity==="services"?sql`coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_cata...
+> 15 |  const result=await db.execute<Record<string,unknown>>(sql`select o.*,${relation} from ${table(entity)} o where o.deleted_at is null ${publicOnly?sql`and o.status='published'`:sql``} order by o.display_order,o.name`);return result...
+     |               ^
+  16 | }
   17 | export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=a...
-  18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600});
-> 19 | export async function listCategories():Promise<ServiceCategory[]>{const result=await getCatalogDb().execute<ServiceCategory>(sql`select * from solynext_catalog.service_categories order by display_order,name`);return result.rows;}
-     |                                                                                ^
-  20 | export async function saveCategory(input:unknown,actor:Actor){const data=categorySchema.parse(input);await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories w...
-  21 | export async function deleteCategory(slug:string,actor:Actor){await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${slug} for update`);const us...
-  22 | export async function getSection<K extends SectionKey>(key:K):Promise<ReturnType<(typeof sectionSchemas)[K]["parse"]>>{const result=await getCatalogDb().execute<{data:unknown}>(sql`select data from solynext_catalog.page_sections w...
-revalidating cache with key: async (key)=>getSection(key)-catalog-sections-["industries_page"] Error: Failed query: select data from solynext_catalog.page_sections where key=$1
-params: industries_page
+  18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600}); {
+  query: "select o.*,coalesce((select jsonb_agg(service_id) from solynext_catalog.service_industries where industry_id=o.id),'[]'::jsonb) as service_ids,coalesce((select jsonb_agg(project_id) from solynext_catalog.industry_projects where industry_id=o.id),'[]'::jsonb) as project_ids from solynext_catalog.industries o where o.deleted_at is null and o.status='published' order by o.display_order,o.name",
+  params: [],
+  [cause]: AggregateError: 
+      at async listOfferings (lib\catalog\repository.ts:15:15)
+    13 | export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDatabase=getCatalogDb()):Promise<Offering[]>{
+    14 |  const relation=entity==="services"?sql`coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_cata...
+  > 15 |  const result=await db.execute<Record<string,unknown>>(sql`select o.*,${relation} from ${table(entity)} o where o.deleted_at is null ${publicOnly?sql`and o.status='published'`:sql``} order by o.display_order,o.name`);return result...
+       |               ^
+    16 | }
+    17 | export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=a...
+    18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600}); {
+    code: 'EACCES',
+    [errors]: [ [Error], [Error], [Error] ]
+  }
+}
+revalidating cache with key: async (key)=>getSection(key)-catalog-sections-["home_industries_section"] Error: Failed query: select data from solynext_catalog.page_sections where key=$1
+params: home_industries_section
     at async getSection (lib\catalog\repository.ts:22:133)
   20 | ...on saveCategory(input:unknown,actor:Actor){const data=categorySchema.parse(input);await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${data...
   21 | ...on deleteCategory(slug:string,actor:Actor){await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${slug} for update`);const used=await tx.exec...
@@ -222,8 +71,8 @@ params: industries_page
   24 | ...on publicOfferings(entity:Entity){await connection();return cachedPublicOfferings(entity);}
   25 | ...on publicSection(key:SectionKey){await connection();return cachedPublicSection(key);} {
   query: 'select data from solynext_catalog.page_sections where key=$1',
-  params: [ 'industries_page' ],
-  [cause]: Error: getaddrinfo ENOTFOUND ep-round-silence-b5vp6dkr-pooler.c-7.us-east-2.aws.neon.tech
+  params: [ 'home_industries_section' ],
+  [cause]: AggregateError: 
       at async getSection (lib\catalog\repository.ts:22:133)
     20 | ...on saveCategory(input:unknown,actor:Actor){const data=categorySchema.parse(input);await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${data...
     21 | ...on deleteCategory(slug:string,actor:Actor){await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${slug} for update`);const used=await tx.exec...
@@ -232,395 +81,311 @@ params: industries_page
     23 | ...ection=unstable_cache(async(key:SectionKey)=>getSection(key),["catalog-sections"],{tags:["catalog-sections"],revalidate:3600});
     24 | ...on publicOfferings(entity:Entity){await connection();return cachedPublicOfferings(entity);}
     25 | ...on publicSection(key:SectionKey){await connection();return cachedPublicSection(key);} {
-    errno: -3008,
-    code: 'ENOTFOUND',
-    syscall: 'getaddrinfo',
-    hostname: 'ep-round-silence-b5vp6dkr-pooler.c-7.us-east-2.aws.neon.tech'
+    code: 'EACCES',
+    [errors]: [ [Error], [Error], [Error] ]
   }
 }
- GET /industries 200 in 211ms (next.js: 12ms, proxy.ts: 11ms, application-code: 188ms)
-[browser] Image with src "/_next/static/media/solynext-wordmark.2rl6o_vt5l24b.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
- GET /api/notifications 200 in 83ms (next.js: 10ms, application-code: 72ms)
- GET /api/ads 200 in 110ms (next.js: 41ms, application-code: 70ms)
- GET /api/notifications 200 in 116ms (next.js: 67ms, application-code: 49ms)
- GET /api/ads 200 in 56ms (next.js: 22ms, application-code: 33ms)
- GET /api/services 200 in 61ms (next.js: 34ms, application-code: 27ms)
- GET / 200 in 264ms (next.js: 18ms, application-code: 246ms)
- GET /api/services 200 in 37ms (next.js: 6ms, application-code: 31ms)
- GET /api/ads 200 in 42ms (next.js: 26ms, application-code: 16ms)
-[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
- GET /api/ads 200 in 57ms (next.js: 16ms, application-code: 41ms)
- GET /api/services 200 in 52ms (next.js: 27ms, application-code: 24ms)
- GET /api/notifications 200 in 33ms (next.js: 13ms, application-code: 20ms)
- GET /api/notifications 200 in 21ms (next.js: 8ms, application-code: 13ms)
- GET /api/notifications 200 in 21ms (next.js: 9ms, application-code: 13ms)
- GET /api/notifications 200 in 25ms (next.js: 11ms, application-code: 13ms)
- GET /api/notifications 200 in 23ms (next.js: 8ms, application-code: 15ms)
- GET /api/notifications 200 in 22ms (next.js: 8ms, application-code: 14ms)
- GET /api/notifications 200 in 20ms (next.js: 8ms, application-code: 12ms)
- GET /api/notifications 200 in 27ms (next.js: 8ms, application-code: 18ms)
- GET /api/notifications 200 in 24ms (next.js: 10ms, application-code: 14ms)
- GET /api/notifications 200 in 25ms (next.js: 10ms, application-code: 15ms)
- GET /api/notifications 200 in 31ms (next.js: 9ms, application-code: 22ms)
- GET /api/notifications 200 in 23ms (next.js: 9ms, application-code: 14ms)
- GET /api/notifications 200 in 46ms (next.js: 27ms, application-code: 19ms)
-✓ Compiled in 3.7s
- GET / 200 in 367ms (next.js: 140ms, application-code: 227ms)
-✓ Compiled in 1243ms
-✓ Compiled in 660ms
-✓ Compiled in 569ms
- GET / 200 in 939ms (next.js: 15ms, application-code: 924ms)
- GET /pricing 200 in 468ms (next.js: 122ms, application-code: 346ms)
- GET /api/notifications 200 in 39ms (next.js: 23ms, application-code: 15ms)
- GET /api/notifications 200 in 15ms (next.js: 5ms, application-code: 11ms)
- GET /api/notifications 200 in 31ms (next.js: 12ms, application-code: 19ms)
- GET /api/notifications 200 in 19ms (next.js: 6ms, application-code: 13ms)
- GET /api/notifications 200 in 26ms (next.js: 11ms, application-code: 15ms)
- GET /api/notifications 200 in 20ms (next.js: 8ms, application-code: 12ms)
- GET /api/notifications 200 in 25ms (next.js: 9ms, application-code: 16ms)
- GET /api/notifications 200 in 26ms (next.js: 14ms, application-code: 12ms)
- GET /api/notifications 200 in 25ms (next.js: 8ms, application-code: 17ms)
- GET /api/notifications 200 in 18ms (next.js: 6ms, application-code: 13ms)
- GET /api/notifications 200 in 27ms (next.js: 11ms, application-code: 16ms)
- GET /api/notifications 200 in 18ms (next.js: 6ms, application-code: 12ms)
- GET /api/notifications 200 in 16ms (next.js: 5ms, application-code: 11ms)
-✓ Compiled in 1457ms
- GET / 200 in 198ms (next.js: 30ms, application-code: 168ms)
-✓ Compiled in 3.7s
- GET / 200 in 201ms (next.js: 27ms, application-code: 174ms)
- GET /api/notifications 200 in 66ms (next.js: 46ms, application-code: 20ms)
-✓ Compiled in 1761ms
- GET /api/notifications 200 in 20ms (next.js: 6ms, application-code: 14ms)
-✓ Compiled in 1126ms
- GET /api/notifications 200 in 36ms (next.js: 21ms, application-code: 15ms)
- GET /api/notifications 200 in 22ms (next.js: 7ms, application-code: 15ms)
-✓ Compiled in 1555ms
- GET / 200 in 1094ms (next.js: 14ms, application-code: 1079ms)
- GET /api/notifications 200 in 23ms (next.js: 9ms, application-code: 15ms)
- GET /api/notifications 200 in 21ms (next.js: 8ms, application-code: 13ms)
-✓ Compiled in 634ms
- GET /api/notifications 200 in 36ms (next.js: 8ms, application-code: 28ms)
- GET /api/notifications 200 in 37ms (next.js: 20ms, application-code: 17ms)
-✓ Compiled in 3.4s
- GET / 200 in 248ms (next.js: 27ms, application-code: 221ms)
- GET /api/notifications 200 in 43ms (next.js: 27ms, application-code: 16ms)
-✓ Compiled in 2.3s
-✓ Compiled in 1133ms
- GET /api/notifications 200 in 31ms (next.js: 16ms, application-code: 15ms)
- GET /process 200 in 191ms (next.js: 97ms, application-code: 93ms)
- GET /api/ads 200 in 43ms (next.js: 25ms, application-code: 18ms)
- GET /api/notifications 200 in 20ms (next.js: 5ms, application-code: 15ms)
- GET /terms 200 in 107ms (next.js: 60ms, application-code: 47ms)
- GET /api/ads 200 in 48ms (next.js: 32ms, application-code: 16ms)
- GET /api/notifications 200 in 23ms (next.js: 9ms, application-code: 14ms)
- GET /api/notifications 200 in 21ms (next.js: 7ms, application-code: 14ms)
- GET /api/notifications 200 in 27ms (next.js: 12ms, application-code: 15ms)
- GET /api/notifications 200 in 19ms (next.js: 7ms, application-code: 12ms)
- GET /api/notifications 200 in 22ms (next.js: 9ms, application-code: 14ms)
- GET /api/notifications 200 in 22ms (next.js: 9ms, application-code: 13ms)
- GET /api/notifications 200 in 33ms (next.js: 15ms, application-code: 17ms)
- GET /api/notifications 200 in 24ms (next.js: 9ms, application-code: 15ms)
- GET /api/notifications 200 in 47ms (next.js: 31ms, application-code: 16ms)
- GET /api/notifications 200 in 22ms (next.js: 7ms, application-code: 14ms)
- GET /api/notifications 200 in 22ms (next.js: 9ms, application-code: 13ms)
- GET /api/notifications 200 in 20ms (next.js: 8ms, application-code: 13ms)
- GET /api/notifications 200 in 22ms (next.js: 10ms, application-code: 12ms)
- GET /api/notifications 200 in 23ms (next.js: 7ms, application-code: 16ms)
- GET /api/notifications 200 in 42ms (next.js: 23ms, application-code: 19ms)
- GET /api/notifications 200 in 19ms (next.js: 5ms, application-code: 14ms)
- GET /api/notifications 200 in 23ms (next.js: 10ms, application-code: 14ms)
- GET /api/notifications 200 in 20ms (next.js: 8ms, application-code: 12ms)
-⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-✓ Compiled in 2.9s
- GET /terms 404 in 2.3s (next.js: 1866ms, application-code: 448ms)
- GET /terms 404 in 958ms (next.js: 813ms, application-code: 145ms)
- GET /terms 404 in 934ms (next.js: 75ms, application-code: 859ms)
- GET /api/notifications 200 in 184ms (next.js: 169ms, application-code: 15ms)
- GET /api/ads 200 in 183ms (next.js: 84ms, application-code: 98ms)
- GET /api/notifications 200 in 291ms (next.js: 9ms, application-code: 282ms)
- GET /api/ads 200 in 294ms (next.js: 21ms, application-code: 272ms)
- GET /api/services 200 in 333ms (next.js: 207ms, application-code: 126ms)
- GET /portfolio 200 in 306ms (next.js: 196ms, application-code: 110ms)
- GET /api/ads 200 in 49ms (next.js: 32ms, application-code: 17ms)
-[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
- GET /api/notifications 200 in 33ms (next.js: 19ms, application-code: 13ms)
- GET /portfolio 200 in 106ms (next.js: 21ms, application-code: 84ms)
- GET /api/notifications 200 in 28ms (next.js: 12ms, application-code: 16ms)
- GET /pricing 200 in 93ms (next.js: 38ms, application-code: 55ms)
- GET /api/ads 200 in 56ms (next.js: 39ms, application-code: 17ms)
+revalidating cache with key: async (key)=>getSection(key)-catalog-sections-["home_services_section"] Error: Failed query: select data from solynext_catalog.page_sections where key=$1
+params: home_services_section
+    at async getSection (lib\catalog\repository.ts:22:133)
+  20 | ...on saveCategory(input:unknown,actor:Actor){const data=categorySchema.parse(input);await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${data...
+  21 | ...on deleteCategory(slug:string,actor:Actor){await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${slug} for update`);const used=await tx.exec...
+> 22 | ...on getSection<K extends SectionKey>(key:K):Promise<ReturnType<(typeof sectionSchemas)[K]["parse"]>>{const result=await getCatalogDb().execute<{data:unknown}>(sql`select data from solynext_catalog.page_sections where key=${key}`...
+     |                                                                                                                     ^
+  23 | ...ection=unstable_cache(async(key:SectionKey)=>getSection(key),["catalog-sections"],{tags:["catalog-sections"],revalidate:3600});
+  24 | ...on publicOfferings(entity:Entity){await connection();return cachedPublicOfferings(entity);}
+  25 | ...on publicSection(key:SectionKey){await connection();return cachedPublicSection(key);} {
+  query: 'select data from solynext_catalog.page_sections where key=$1',
+  params: [ 'home_services_section' ],
+  [cause]: AggregateError: 
+      at async getSection (lib\catalog\repository.ts:22:133)
+    20 | ...on saveCategory(input:unknown,actor:Actor){const data=categorySchema.parse(input);await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${data...
+    21 | ...on deleteCategory(slug:string,actor:Actor){await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${slug} for update`);const used=await tx.exec...
+  > 22 | ...on getSection<K extends SectionKey>(key:K):Promise<ReturnType<(typeof sectionSchemas)[K]["parse"]>>{const result=await getCatalogDb().execute<{data:unknown}>(sql`select data from solynext_catalog.page_sections where key=${key}`...
+       |                                                                                                                     ^
+    23 | ...ection=unstable_cache(async(key:SectionKey)=>getSection(key),["catalog-sections"],{tags:["catalog-sections"],revalidate:3600});
+    24 | ...on publicOfferings(entity:Entity){await connection();return cachedPublicOfferings(entity);}
+    25 | ...on publicSection(key:SectionKey){await connection();return cachedPublicSection(key);} {
+    code: 'EACCES',
+    [errors]: [ [Error], [Error], [Error] ]
+  }
+}
+ GET /api/ads 200 in 328ms (next.js: 176ms, application-code: 151ms)
+ GET /api/notifications 200 in 338ms (next.js: 294ms, application-code: 45ms)
+ GET /api/notifications 200 in 404ms (next.js: 12ms, application-code: 392ms)
+ GET /api/ads 200 in 406ms (next.js: 28ms, application-code: 378ms)
+ GET /api/services 200 in 418ms (next.js: 291ms, application-code: 127ms)
+revalidating cache with key: async (entity)=>listOfferings(entity, true)-catalog-offerings-v2-["services"] Error: Failed query: select o.*,coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_catalog.service_projects where service_id=o.id),'[]'::jsonb) as project_ids from solynext_catalog.services o where o.deleted_at is null and o.status='published' order by o.display_order,o.name
+params: 
+    at async listOfferings (lib\catalog\repository.ts:15:15)
+  13 | export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDatabase=getCatalogDb()):Promise<Offering[]>{
+  14 |  const relation=entity==="services"?sql`coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_cata...
+> 15 |  const result=await db.execute<Record<string,unknown>>(sql`select o.*,${relation} from ${table(entity)} o where o.deleted_at is null ${publicOnly?sql`and o.status='published'`:sql``} order by o.display_order,o.name`);return result...
+     |               ^
+  16 | }
+  17 | export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=a...
+  18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600}); {
+  query: "select o.*,coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_catalog.service_projects where service_id=o.id),'[]'::jsonb) as project_ids from solynext_catalog.services o where o.deleted_at is null and o.status='published' order by o.display_order,o.name",
+  params: [],
+  [cause]: AggregateError: 
+      at async listOfferings (lib\catalog\repository.ts:15:15)
+    13 | export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDatabase=getCatalogDb()):Promise<Offering[]>{
+    14 |  const relation=entity==="services"?sql`coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_cata...
+  > 15 |  const result=await db.execute<Record<string,unknown>>(sql`select o.*,${relation} from ${table(entity)} o where o.deleted_at is null ${publicOnly?sql`and o.status='published'`:sql``} order by o.display_order,o.name`);return result...
+       |               ^
+    16 | }
+    17 | export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=a...
+    18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600}); {
+    code: 'EACCES',
+    [errors]: [ [Error], [Error], [Error] ]
+  }
+}
+ GET /api/services 200 in 63ms (next.js: 6ms, application-code: 57ms)
+revalidating cache with key: async (entity)=>listOfferings(entity, true)-catalog-offerings-v2-["services"] Error: Failed query: select o.*,coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_catalog.service_projects where service_id=o.id),'[]'::jsonb) as project_ids from solynext_catalog.services o where o.deleted_at is null and o.status='published' order by o.display_order,o.name
+params: 
+    at async listOfferings (lib\catalog\repository.ts:15:15)
+  13 | export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDatabase=getCatalogDb()):Promise<Offering[]>{
+  14 |  const relation=entity==="services"?sql`coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_cata...
+> 15 |  const result=await db.execute<Record<string,unknown>>(sql`select o.*,${relation} from ${table(entity)} o where o.deleted_at is null ${publicOnly?sql`and o.status='published'`:sql``} order by o.display_order,o.name`);return result...
+     |               ^
+  16 | }
+  17 | export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=a...
+  18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600}); {
+  query: "select o.*,coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_catalog.service_projects where service_id=o.id),'[]'::jsonb) as project_ids from solynext_catalog.services o where o.deleted_at is null and o.status='published' order by o.display_order,o.name",
+  params: [],
+  [cause]: AggregateError: 
+      at async listOfferings (lib\catalog\repository.ts:15:15)
+    13 | export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDatabase=getCatalogDb()):Promise<Offering[]>{
+    14 |  const relation=entity==="services"?sql`coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_cata...
+  > 15 |  const result=await db.execute<Record<string,unknown>>(sql`select o.*,${relation} from ${table(entity)} o where o.deleted_at is null ${publicOnly?sql`and o.status='published'`:sql``} order by o.display_order,o.name`);return result...
+       |               ^
+    16 | }
+    17 | export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=a...
+    18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600}); {
+    code: 'EACCES',
+    [errors]: [ [Error], [Error], [Error] ]
+  }
+}
+ GET /pricing 200 in 130ms (next.js: 70ms, application-code: 60ms)
  GET /api/ads 200 in 56ms (next.js: 10ms, application-code: 46ms)
- GET /terms 200 in 462ms (next.js: 57ms, application-code: 405ms)
- GET /api/notifications 200 in 28ms (next.js: 12ms, application-code: 15ms)
- GET /api/notifications 200 in 25ms (next.js: 8ms, application-code: 17ms)
- GET /api/notifications 200 in 29ms (next.js: 9ms, application-code: 20ms)
- GET /api/notifications 200 in 29ms (next.js: 9ms, application-code: 20ms)
- GET / 200 in 673ms (next.js: 182ms, application-code: 491ms)
- GET /api/ads 200 in 25ms (next.js: 7ms, application-code: 18ms)
- GET /api/services 200 in 46ms (next.js: 9ms, application-code: 38ms)
- GET /api/ads 200 in 55ms (next.js: 27ms, application-code: 27ms)
- GET /api/services 200 in 34ms (next.js: 8ms, application-code: 26ms)
- GET /portfolio 200 in 68ms (next.js: 11ms, application-code: 58ms)
- GET /api/ads 200 in 52ms (next.js: 12ms, application-code: 40ms)
- GET /api/notifications 200 in 28ms (next.js: 11ms, application-code: 18ms)
- GET /careers 200 in 102ms (next.js: 62ms, application-code: 40ms)
- GET /api/ads 200 in 56ms (next.js: 41ms, application-code: 15ms)
- GET /api/ads 200 in 49ms (next.js: 10ms, application-code: 40ms)
- GET /api/notifications 200 in 19ms (next.js: 5ms, application-code: 14ms)
- GET /api/notifications 200 in 31ms (next.js: 9ms, application-code: 22ms)
-⨯ ./app/pricing/page.tsx:2:1
-Error: Module not found: Can't resolve './PricingGuide'
-  [90m1 |[0m [36mimport[0m { getPageMetadata } [36mfrom[0m [32m"@/lib/seo/metadata"[0m;
-[31m[1m>[0m [90m2 |[0m [36mimport[0m { [33mPricingGuide[0m } [36mfrom[0m [32m"./PricingGuide"[0m;
-  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-  [90m3 |[0m
-  [90m4 |[0m [36mexport[0m [36masync[0m [36mfunction[0m generateMetadata() {
-  [90m5 |[0m   [36mreturn[0m getPageMetadata([32m"/pricing"[0m, {
-
-
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-⨯ ./app/pricing/page.tsx:2:1
-Error: Module not found: Can't resolve './PricingGuide'
-  [90m1 |[0m [36mimport[0m { getPageMetadata } [36mfrom[0m [32m"@/lib/seo/metadata"[0m;
-[31m[1m>[0m [90m2 |[0m [36mimport[0m { [33mPricingGuide[0m } [36mfrom[0m [32m"./PricingGuide"[0m;
-  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-  [90m3 |[0m
-  [90m4 |[0m [36mexport[0m [36masync[0m [36mfunction[0m generateMetadata() {
-  [90m5 |[0m   [36mreturn[0m getPageMetadata([32m"/pricing"[0m, {
-
-
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-⨯ ./app/pricing/PricingGuide.tsx:3:1
-Error: Module not found: Can't resolve './Pricing.module.css'
-  [90m1 |[0m [36mimport[0m [33mLink[0m [36mfrom[0m [32m"next/link"[0m;
-  [90m2 |[0m [36mimport[0m { [33mArrowRight[0m, [33mArrowUpRight[0m } [36mfrom[0m [32m"lucide-react"[0m;
-[31m[1m>[0m [90m3 |[0m [36mimport[0m styles [36mfrom[0m [32m"./Pricing.module.css"[0m;
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /api/notifications 200 in 29ms (next.js: 14ms, application-code: 15ms)
+ GET /api/notifications 200 in 25ms (next.js: 7ms, application-code: 18ms)
+ GET /blog 200 in 159ms (next.js: 89ms, application-code: 70ms)
+ GET /api/ads 200 in 95ms (next.js: 37ms, application-code: 58ms)
+ GET /api/notifications 200 in 54ms (next.js: 16ms, application-code: 38ms)
+ GET /process 200 in 205ms (next.js: 80ms, application-code: 125ms)
+ GET /api/ads 200 in 37ms (next.js: 16ms, application-code: 21ms)
+ GET /api/ads 200 in 25ms (next.js: 6ms, application-code: 18ms)
+ GET /api/notifications 200 in 26ms (next.js: 10ms, application-code: 17ms)
+ GET /api/notifications 200 in 62ms (next.js: 45ms, application-code: 17ms)
+ GET /api/notifications 200 in 62ms (next.js: 41ms, application-code: 21ms)
+ GET /api/notifications 200 in 19ms (next.js: 7ms, application-code: 12ms)
+ GET /api/notifications 200 in 22ms (next.js: 9ms, application-code: 13ms)
+ GET /api/notifications 200 in 20ms (next.js: 8ms, application-code: 12ms)
+ GET /api/notifications 200 in 27ms (next.js: 14ms, application-code: 13ms)
+ GET /api/notifications 200 in 42ms (next.js: 23ms, application-code: 19ms)
+ GET /api/notifications 200 in 43ms (next.js: 28ms, application-code: 15ms)
+ GET /api/notifications 200 in 58ms (next.js: 42ms, application-code: 16ms)
+ GET /pricing 200 in 64ms (next.js: 14ms, application-code: 51ms)
+ GET /api/ads 200 in 57ms (next.js: 15ms, application-code: 43ms)
+ GET /api/ads 200 in 56ms (next.js: 31ms, application-code: 26ms)
+ GET /api/notifications 200 in 29ms (next.js: 12ms, application-code: 17ms)
+ GET /api/notifications 200 in 38ms (next.js: 7ms, application-code: 31ms)
+ GET /api/notifications 200 in 17ms (next.js: 5ms, application-code: 12ms)
+⨯ ./app/process/page.tsx:4:1
+Error: Module not found: Can't resolve './Process.module.css'
+  [90m2 |[0m [36mimport[0m [33mLink[0m [36mfrom[0m [32m"next/link"[0m;
+  [90m3 |[0m [36mimport[0m { [33mArrowRight[0m, [33mCheck[0m, [33mCode2[0m, [33mDatabase[0m, [33mFlag[0m, [33mPenTool[0m, [33mRefreshCw[0m, [33mRocket[0m, [33mSearch[0m, [33mShie...[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m styles [36mfrom[0m [32m"./Process.module.css"[0m;
   [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-  [90m4 |[0m
-  [90m5 |[0m [36mconst[0m packages = [
-  [90m6 |[0m   {
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36masync[0m [36mfunction[0m generateMetadata() { [36mreturn[0m getPageMetadata([32m"/process"[0m); }
+  [90m7 |[0m
 
 
-
-Import trace:
-  Server Component:
-    ./app/pricing/PricingGuide.tsx
-    ./app/pricing/page.tsx
 
 https://nextjs.org/docs/messages/module-not-found
 
 
-⨯ ./app/pricing/PricingGuide.tsx:3:1
-Error: Module not found: Can't resolve './Pricing.module.css'
-  [90m1 |[0m [36mimport[0m [33mLink[0m [36mfrom[0m [32m"next/link"[0m;
-  [90m2 |[0m [36mimport[0m { [33mArrowRight[0m, [33mArrowUpRight[0m } [36mfrom[0m [32m"lucide-react"[0m;
-[31m[1m>[0m [90m3 |[0m [36mimport[0m styles [36mfrom[0m [32m"./Pricing.module.css"[0m;
+⨯ ./app/process/page.tsx:4:1
+Error: Module not found: Can't resolve './Process.module.css'
+  [90m2 |[0m [36mimport[0m [33mLink[0m [36mfrom[0m [32m"next/link"[0m;
+  [90m3 |[0m [36mimport[0m { [33mArrowRight[0m, [33mCheck[0m, [33mCode2[0m, [33mDatabase[0m, [33mFlag[0m, [33mPenTool[0m, [33mRefreshCw[0m, [33mRocket[0m, [33mSearch[0m, [33mShie...[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m styles [36mfrom[0m [32m"./Process.module.css"[0m;
   [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-  [90m4 |[0m
-  [90m5 |[0m [36mconst[0m packages = [
-  [90m6 |[0m   {
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36masync[0m [36mfunction[0m generateMetadata() { [36mreturn[0m getPageMetadata([32m"/process"[0m); }
+  [90m7 |[0m
 
 
-
-Import trace:
-  Server Component:
-    ./app/pricing/PricingGuide.tsx
-    ./app/pricing/page.tsx
 
 https://nextjs.org/docs/messages/module-not-found
 
 
- GET /careers 200 in 69ms (next.js: 12ms, application-code: 57ms)
- GET /pricing 200 in 263ms (next.js: 39ms, application-code: 223ms)
- GET /pricing 200 in 174ms (next.js: 12ms, application-code: 162ms)
- GET /pricing 200 in 251ms (next.js: 10ms, application-code: 241ms)
-[browser] ./app/pricing/page.tsx:2:1
-Error: Module not found: Can't resolve './PricingGuide'
-  1 | import { getPageMetadata } from "@/lib/seo/metadata";
-> 2 | import { PricingGuide } from "./PricingGuide";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  3 |
-  4 | export async function generateMetadata() {
-  5 |   return getPageMetadata("/pricing", {
-
-https://nextjs.org/docs/messages/module-not-found 
-[browser] ./app/pricing/PricingGuide.tsx:3:1
-Error: Module not found: Can't resolve './Pricing.module.css'
-  1 | import Link from "next/link";
-  2 | import { ArrowRight, ArrowUpRight } from "lucide-react";
-> 3 | import styles from "./Pricing.module.css";
+[browser] ./app/process/page.tsx:4:1
+Error: Module not found: Can't resolve './Process.module.css'
+  2 | import Link from "next/link";
+  3 | import { ArrowRight, Check, Code2, Database, Flag, PenTool, RefreshCw, Rocket, Search, Shie...
+> 4 | import styles from "./Process.module.css";
     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  4 |
-  5 | const packages = [
-  6 |   {
-
-Import trace:
-  Server Component:
-    ./app/pricing/PricingGuide.tsx
-    ./app/pricing/page.tsx
+  5 |
+  6 | export async function generateMetadata() { return getPageMetadata("/process"); }
+  7 |
 
 https://nextjs.org/docs/messages/module-not-found 
- GET /api/notifications 200 in 44ms (next.js: 27ms, application-code: 18ms)
- GET /api/notifications 200 in 31ms (next.js: 11ms, application-code: 20ms)
- GET /api/notifications 200 in 43ms (next.js: 13ms, application-code: 30ms)
- GET /api/notifications 200 in 47ms (next.js: 24ms, application-code: 23ms)
- GET /careers 200 in 124ms (next.js: 47ms, application-code: 77ms)
-⨯ ./app/careers/page.tsx:2:1
-Error: Module not found: Can't resolve './CareersClient'
-  [90m1 |[0m [36mimport[0m { getPageMetadata } [36mfrom[0m [32m"@/lib/seo/metadata"[0m;
-[31m[1m>[0m [90m2 |[0m [36mimport[0m { [33mCareersClient[0m } [36mfrom[0m [32m"./CareersClient"[0m;
-  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-  [90m3 |[0m
-  [90m4 |[0m [36mexport[0m [36masync[0m [36mfunction[0m generateMetadata() {
-  [90m5 |[0m   [36mreturn[0m getPageMetadata([32m"/careers"[0m, {
-
-
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-⨯ ./app/careers/page.tsx:2:1
-Error: Module not found: Can't resolve './CareersClient'
-  [90m1 |[0m [36mimport[0m { getPageMetadata } [36mfrom[0m [32m"@/lib/seo/metadata"[0m;
-[31m[1m>[0m [90m2 |[0m [36mimport[0m { [33mCareersClient[0m } [36mfrom[0m [32m"./CareersClient"[0m;
-  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-  [90m3 |[0m
-  [90m4 |[0m [36mexport[0m [36masync[0m [36mfunction[0m generateMetadata() {
-  [90m5 |[0m   [36mreturn[0m getPageMetadata([32m"/careers"[0m, {
-
-
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-⨯ ./app/careers/CareersClient.tsx:8:1
-Error: Module not found: Can't resolve './Careers.module.css'
-  [90m 6 |[0m [36mimport[0m { [33mJOB_OPENINGS_DATA[0m } [36mfrom[0m [32m"@/data/mockData"[0m;
-  [90m 7 |[0m [36mimport[0m [36mtype[0m { [33mJobOpening[0m } [36mfrom[0m [32m"@/types"[0m;
-[31m[1m>[0m [90m 8 |[0m [36mimport[0m styles [36mfrom[0m [32m"./Careers.module.css"[0m;
-  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-  [90m 9 |[0m
-  [90m10 |[0m [36mconst[0m filters = [[32m"All roles"[0m, [32m"Engineering"[0m, [32m"Design"[0m, [32m"Marketing"[0m] [36mas[0m [36mconst[0m;
-  [90m11 |[0m [36mconst[0m waysOfWorking = [
-
-
-
-Import trace:
-  Server Component:
-    ./app/careers/CareersClient.tsx
-    ./app/careers/page.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-⨯ ./app/careers/CareersClient.tsx:8:1
-Error: Module not found: Can't resolve './Careers.module.css'
-  [90m 6 |[0m [36mimport[0m { [33mJOB_OPENINGS_DATA[0m } [36mfrom[0m [32m"@/data/mockData"[0m;
-  [90m 7 |[0m [36mimport[0m [36mtype[0m { [33mJobOpening[0m } [36mfrom[0m [32m"@/types"[0m;
-[31m[1m>[0m [90m 8 |[0m [36mimport[0m styles [36mfrom[0m [32m"./Careers.module.css"[0m;
-  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-  [90m 9 |[0m
-  [90m10 |[0m [36mconst[0m filters = [[32m"All roles"[0m, [32m"Engineering"[0m, [32m"Design"[0m, [32m"Marketing"[0m] [36mas[0m [36mconst[0m;
-  [90m11 |[0m [36mconst[0m waysOfWorking = [
-
-
-
-Import trace:
-  Server Component:
-    ./app/careers/CareersClient.tsx
-    ./app/careers/page.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-⨯ ./app/careers/CareersClient.tsx:8:1
-Error: Module not found: Can't resolve './Careers.module.css'
-  [90m 6 |[0m [36mimport[0m { [33mJOB_OPENINGS_DATA[0m } [36mfrom[0m [32m"@/data/mockData"[0m;
-  [90m 7 |[0m [36mimport[0m [36mtype[0m { [33mJobOpening[0m } [36mfrom[0m [32m"@/types"[0m;
-[31m[1m>[0m [90m 8 |[0m [36mimport[0m styles [36mfrom[0m [32m"./Careers.module.css"[0m;
-  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-  [90m 9 |[0m
-  [90m10 |[0m [36mconst[0m filters = [[32m"All roles"[0m, [32m"Engineering"[0m, [32m"Design"[0m, [32m"Marketing"[0m] [36mas[0m [36mconst[0m;
-  [90m11 |[0m [36mconst[0m waysOfWorking = [
-
-
-
-Import trace:
-  Server Component:
-    ./app/careers/CareersClient.tsx
-    ./app/careers/page.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-⨯ ./app/careers/CareersClient.tsx:8:1
-Error: Module not found: Can't resolve './Careers.module.css'
-  [90m 6 |[0m [36mimport[0m { [33mJOB_OPENINGS_DATA[0m } [36mfrom[0m [32m"@/data/mockData"[0m;
-  [90m 7 |[0m [36mimport[0m [36mtype[0m { [33mJobOpening[0m } [36mfrom[0m [32m"@/types"[0m;
-[31m[1m>[0m [90m 8 |[0m [36mimport[0m styles [36mfrom[0m [32m"./Careers.module.css"[0m;
-  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-  [90m 9 |[0m
-  [90m10 |[0m [36mconst[0m filters = [[32m"All roles"[0m, [32m"Engineering"[0m, [32m"Design"[0m, [32m"Marketing"[0m] [36mas[0m [36mconst[0m;
-  [90m11 |[0m [36mconst[0m waysOfWorking = [
-
-
-
-Import trace:
-  Server Component:
-    ./app/careers/CareersClient.tsx
-    ./app/careers/page.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-
-
- GET /careers 200 in 91ms (next.js: 26ms, application-code: 65ms)
- GET /careers 200 in 196ms (next.js: 24ms, application-code: 172ms)
-[browser] ./app/careers/page.tsx:2:1
-Error: Module not found: Can't resolve './CareersClient'
-  1 | import { getPageMetadata } from "@/lib/seo/metadata";
-> 2 | import { CareersClient } from "./CareersClient";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  3 |
-  4 | export async function generateMetadata() {
-  5 |   return getPageMetadata("/careers", {
+[browser] ./app/process/page.tsx:4:1
+Error: Module not found: Can't resolve './Process.module.css'
+  2 | import Link from "next/link";
+  3 | import { ArrowRight, Check, Code2, Database, Flag, PenTool, RefreshCw, Rocket, Search, Shie...
+> 4 | import styles from "./Process.module.css";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export async function generateMetadata() { return getPageMetadata("/process"); }
+  7 |
 
 https://nextjs.org/docs/messages/module-not-found 
-[browser] ./app/careers/CareersClient.tsx:8:1
-Error: Module not found: Can't resolve './Careers.module.css'
-   6 | import { JOB_OPENINGS_DATA } from "@/data/mockData";
-   7 | import type { JobOpening } from "@/types";
->  8 | import styles from "./Careers.module.css";
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   9 |
-  10 | const filters = ["All roles", "Engineering", "Design", "Marketing"] as const;
-  11 | const waysOfWorking = [
-
-Import trace:
-  Server Component:
-    ./app/careers/CareersClient.tsx
-    ./app/careers/page.tsx
+[browser] ./app/process/page.tsx:4:1
+Error: Module not found: Can't resolve './Process.module.css'
+  2 | import Link from "next/link";
+  3 | import { ArrowRight, Check, Code2, Database, Flag, PenTool, RefreshCw, Rocket, Search, Shie...
+> 4 | import styles from "./Process.module.css";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export async function generateMetadata() { return getPageMetadata("/process"); }
+  7 |
 
 https://nextjs.org/docs/messages/module-not-found 
- GET /api/notifications 200 in 37ms (next.js: 8ms, application-code: 29ms)
- GET /api/notifications 200 in 21ms (next.js: 6ms, application-code: 15ms)
- GET /api/notifications 200 in 36ms (next.js: 18ms, application-code: 18ms)
- GET /careers 200 in 26ms (next.js: 12ms, application-code: 14ms)
- GET /careers 200 in 50ms (next.js: 10ms, application-code: 39ms)
- GET /careers 200 in 238ms (next.js: 10ms, application-code: 228ms)
+[browser] ./app/process/page.tsx:4:1
+Error: Module not found: Can't resolve './Process.module.css'
+  2 | import Link from "next/link";
+  3 | import { ArrowRight, Check, Code2, Database, Flag, PenTool, RefreshCw, Rocket, Search, Shie...
+> 4 | import styles from "./Process.module.css";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export async function generateMetadata() { return getPageMetadata("/process"); }
+  7 |
+
+https://nextjs.org/docs/messages/module-not-found 
+ GET /api/notifications 500 in 1253ms (next.js: 900ms, application-code: 352ms)
+[browser] ./app/process/page.tsx:4:1
+Error: Module not found: Can't resolve './Process.module.css'
+  2 | import Link from "next/link";
+  3 | import { ArrowRight, Check, Code2, Database, Flag, PenTool, RefreshCw, Rocket, Search, Shie...
+> 4 | import styles from "./Process.module.css";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export async function generateMetadata() { return getPageMetadata("/process"); }
+  7 |
+
+https://nextjs.org/docs/messages/module-not-found 
+ GET /pricing 200 in 76ms (next.js: 17ms, application-code: 59ms)
+ GET /api/notifications 200 in 32ms (next.js: 14ms, application-code: 18ms)
+ GET /portfolio 200 in 128ms (next.js: 71ms, application-code: 57ms)
+ GET /api/ads 200 in 37ms (next.js: 22ms, application-code: 16ms)
+ GET /api/notifications 200 in 31ms (next.js: 15ms, application-code: 15ms)
+ GET /pricing 200 in 61ms (next.js: 14ms, application-code: 48ms)
+ GET /api/ads 200 in 54ms (next.js: 16ms, application-code: 38ms)
+ GET /api/notifications 200 in 32ms (next.js: 15ms, application-code: 17ms)
+ GET /api/notifications 200 in 19ms (next.js: 7ms, application-code: 13ms)
+ GET /process 200 in 128ms (next.js: 50ms, application-code: 78ms)
+ GET /api/ads 200 in 53ms (next.js: 12ms, application-code: 41ms)
+ GET /api/notifications 200 in 44ms (next.js: 28ms, application-code: 17ms)
+ GET /api/notifications 200 in 63ms (next.js: 44ms, application-code: 19ms)
+ GET /api/notifications 200 in 33ms (next.js: 18ms, application-code: 16ms)
+ GET /api/notifications 200 in 19ms (next.js: 6ms, application-code: 13ms)
+ GET /process 200 in 137ms (next.js: 31ms, application-code: 106ms)
+ GET /api/notifications 200 in 36ms (next.js: 17ms, application-code: 19ms)
+ GET /process 200 in 256ms (next.js: 12ms, application-code: 244ms)
 [browser] Image with src "/_next/static/media/solynext-wordmark.2rl6o_vt5l24b.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
 Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
- GET /api/notifications 200 in 86ms (next.js: 54ms, application-code: 32ms)
- GET /api/services 200 in 76ms (next.js: 26ms, application-code: 51ms)
- GET /api/ads 200 in 87ms (next.js: 17ms, application-code: 70ms)
- GET /api/notifications 200 in 66ms (next.js: 12ms, application-code: 54ms)
- GET /api/ads 200 in 64ms (next.js: 25ms, application-code: 39ms)
- GET /api/services 200 in 68ms (next.js: 43ms, application-code: 25ms)
- GET /api/notifications 200 in 34ms (next.js: 12ms, application-code: 21ms)
- GET /api/notifications 200 in 20ms (next.js: 6ms, application-code: 13ms)
+ GET /api/ads 200 in 55ms (next.js: 30ms, application-code: 25ms)
+ GET /api/notifications 200 in 57ms (next.js: 12ms, application-code: 45ms)
+ GET /api/notifications 200 in 52ms (next.js: 11ms, application-code: 41ms)
+ GET /api/ads 200 in 54ms (next.js: 27ms, application-code: 27ms)
+ GET /api/services 200 in 62ms (next.js: 37ms, application-code: 25ms)
+revalidating cache with key: async (entity)=>listOfferings(entity, true)-catalog-offerings-v2-["services"] Error: Failed query: select o.*,coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_catalog.service_projects where service_id=o.id),'[]'::jsonb) as project_ids from solynext_catalog.services o where o.deleted_at is null and o.status='published' order by o.display_order,o.name
+params: 
+    at async listOfferings (lib\catalog\repository.ts:15:15)
+  13 | export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDatabase=getCatalogDb()):Promise<Offering[]>{
+  14 |  const relation=entity==="services"?sql`coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_cata...
+> 15 |  const result=await db.execute<Record<string,unknown>>(sql`select o.*,${relation} from ${table(entity)} o where o.deleted_at is null ${publicOnly?sql`and o.status='published'`:sql``} order by o.display_order,o.name`);return result...
+     |               ^
+  16 | }
+  17 | export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=a...
+  18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600}); {
+  query: "select o.*,coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_catalog.service_projects where service_id=o.id),'[]'::jsonb) as project_ids from solynext_catalog.services o where o.deleted_at is null and o.status='published' order by o.display_order,o.name",
+  params: [],
+  [cause]: AggregateError: 
+      at async listOfferings (lib\catalog\repository.ts:15:15)
+    13 | export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDatabase=getCatalogDb()):Promise<Offering[]>{
+    14 |  const relation=entity==="services"?sql`coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_cata...
+  > 15 |  const result=await db.execute<Record<string,unknown>>(sql`select o.*,${relation} from ${table(entity)} o where o.deleted_at is null ${publicOnly?sql`and o.status='published'`:sql``} order by o.display_order,o.name`);return result...
+       |               ^
+    16 | }
+    17 | export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=a...
+    18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600}); {
+    code: 'EACCES',
+    [errors]: [ [Error], [Error], [Error] ]
+  }
+}
+ GET /api/notifications 200 in 25ms (next.js: 13ms, application-code: 12ms)
  GET /api/notifications 200 in 39ms (next.js: 21ms, application-code: 18ms)
+ GET /api/notifications 200 in 47ms (next.js: 28ms, application-code: 19ms)
+ GET /process 200 in 293ms (next.js: 22ms, application-code: 271ms)
+ GET /api/notifications 200 in 27ms (next.js: 9ms, application-code: 18ms)
+ GET /api/services 200 in 46ms (next.js: 12ms, application-code: 34ms)
+ GET /api/ads 200 in 69ms (next.js: 9ms, application-code: 60ms)
+ GET /api/notifications 200 in 53ms (next.js: 33ms, application-code: 20ms)
+ GET /api/ads 200 in 72ms (next.js: 58ms, application-code: 14ms)
+revalidating cache with key: async (entity)=>listOfferings(entity, true)-catalog-offerings-v2-["services"] Error: Failed query: select o.*,coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_catalog.service_projects where service_id=o.id),'[]'::jsonb) as project_ids from solynext_catalog.services o where o.deleted_at is null and o.status='published' order by o.display_order,o.name
+params: 
+    at async listOfferings (lib\catalog\repository.ts:15:15)
+  13 | export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDatabase=getCatalogDb()):Promise<Offering[]>{
+  14 |  const relation=entity==="services"?sql`coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_cata...
+> 15 |  const result=await db.execute<Record<string,unknown>>(sql`select o.*,${relation} from ${table(entity)} o where o.deleted_at is null ${publicOnly?sql`and o.status='published'`:sql``} order by o.display_order,o.name`);return result...
+     |               ^
+  16 | }
+  17 | export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=a...
+  18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600}); {
+  query: "select o.*,coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_catalog.service_projects where service_id=o.id),'[]'::jsonb) as project_ids from solynext_catalog.services o where o.deleted_at is null and o.status='published' order by o.display_order,o.name",
+  params: [],
+  [cause]: AggregateError: 
+      at async listOfferings (lib\catalog\repository.ts:15:15)
+    13 | export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDatabase=getCatalogDb()):Promise<Offering[]>{
+    14 |  const relation=entity==="services"?sql`coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_cata...
+  > 15 |  const result=await db.execute<Record<string,unknown>>(sql`select o.*,${relation} from ${table(entity)} o where o.deleted_at is null ${publicOnly?sql`and o.status='published'`:sql``} order by o.display_order,o.name`);return result...
+       |               ^
+    16 | }
+    17 | export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=a...
+    18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600}); {
+    code: 'EACCES',
+    [errors]: [ [Error], [Error], [Error] ]
+  }
+}
+ GET /api/services 200 in 29ms (next.js: 8ms, application-code: 21ms)
+revalidating cache with key: async (entity)=>listOfferings(entity, true)-catalog-offerings-v2-["services"] Error: Failed query: select o.*,coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_catalog.service_projects where service_id=o.id),'[]'::jsonb) as project_ids from solynext_catalog.services o where o.deleted_at is null and o.status='published' order by o.display_order,o.name
+params: 
+    at async listOfferings (lib\catalog\repository.ts:15:15)
+  13 | export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDatabase=getCatalogDb()):Promise<Offering[]>{
+  14 |  const relation=entity==="services"?sql`coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_cata...
+> 15 |  const result=await db.execute<Record<string,unknown>>(sql`select o.*,${relation} from ${table(entity)} o where o.deleted_at is null ${publicOnly?sql`and o.status='published'`:sql``} order by o.display_order,o.name`);return result...
+     |               ^
+  16 | }
+  17 | export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=a...
+  18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600}); {
+  query: "select o.*,coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_catalog.service_projects where service_id=o.id),'[]'::jsonb) as project_ids from solynext_catalog.services o where o.deleted_at is null and o.status='published' order by o.display_order,o.name",
+  params: [],
+  [cause]: AggregateError: 
+      at async listOfferings (lib\catalog\repository.ts:15:15)
+    13 | export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDatabase=getCatalogDb()):Promise<Offering[]>{
+    14 |  const relation=entity==="services"?sql`coalesce((select jsonb_agg(industry_id) from solynext_catalog.service_industries where service_id=o.id),'[]'::jsonb) as industry_ids,coalesce((select jsonb_agg(project_id) from solynext_cata...
+  > 15 |  const result=await db.execute<Record<string,unknown>>(sql`select o.*,${relation} from ${table(entity)} o where o.deleted_at is null ${publicOnly?sql`and o.status='published'`:sql``} order by o.display_order,o.name`);return result...
+       |               ^
+    16 | }
+    17 | export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=a...
+    18 | const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600}); {
+    code: 'EACCES',
+    [errors]: [ [Error], [Error], [Error] ]
+  }
+}

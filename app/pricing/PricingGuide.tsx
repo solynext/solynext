@@ -1,11 +1,15 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { createPortal } from "react-dom";
+import { useEffect, useState } from "react";
+import { ArrowRight, ArrowUpRight, X, Orbit, Palette, ShoppingBag, PenTool, Store, Search, Boxes, Video, Code2, Settings2, Workflow } from "lucide-react";
 import styles from "./Pricing.module.css";
 
 const packages = [
   {
     name: "Basic",
-    tagline: "Build your professional online presence.",
+    tagline: "Build a professional online presence with consistent social media and brand support.",
     price: "PKR 30,000",
     groups: [
       { title: "Social media", items: ["Facebook, Instagram and TikTok management", "Weekly posts and short videos or reels", "Professional graphic design", "Content planning, scheduling and publishing"] },
@@ -15,7 +19,7 @@ const packages = [
   },
   {
     name: "Business Growth",
-    tagline: "Build a stronger digital presence and grow.",
+    tagline: "Bring your website, social media and digital marketing together to support steady growth.",
     price: "PKR 60,000",
     groups: [
       { title: "Social media", items: ["Facebook, Instagram, TikTok and LinkedIn", "Content planning and scheduling", "Graphic design, posts and reels", "Profile and page optimization", "SEO-friendly content"] },
@@ -27,7 +31,7 @@ const packages = [
   },
   {
     name: "Complete Business Management",
-    tagline: "Your business. Our team. One complete growth solution.",
+    tagline: "Get one team to manage your online presence, marketing, customer support and business growth.",
     price: "PKR 100,000",
     groups: [
       { title: "Complete digital presence", items: ["Facebook, Instagram, TikTok, LinkedIn and other relevant platforms", "Graphic design, video and reel content", "Content planning and publishing", "Profile optimization and SEO-friendly branding"] },
@@ -64,51 +68,63 @@ const individualServices = [
   },
 ];
 
-const otherServices = ["Graphic design and branding", "E-commerce website development", "Logo design", "Online store management", "SEO services", "Marketplace store management", "Content creation", "Custom software development", "Website management", "Business automation"];
+const otherServices = [
+  { name: "Graphic design and branding", icon: Palette },
+  { name: "E-commerce website development", icon: ShoppingBag },
+  { name: "Logo design", icon: PenTool },
+  { name: "Online store management", icon: Store },
+  { name: "SEO services", icon: Search },
+  { name: "Marketplace store management", icon: Boxes },
+  { name: "Content creation", icon: Video },
+  { name: "Custom software development", icon: Code2 },
+  { name: "Website management", icon: Settings2 },
+  { name: "Business automation", icon: Workflow },
+];
 
 function ServiceList({ items }: { items: string[] }) {
   return <ul className={styles.list}>{items.map(item=><li key={item}>{item}</li>)}</ul>;
 }
 
 export function PricingGuide() {
+  const [selected, setSelected] = useState<{ title: string; price: string; cadence: string; description: string; groups: { title: string; items: string[] }[]; note?: string } | null>(null);
+
+  useEffect(() => {
+    if (!selected) return;
+    const onKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") setSelected(null); };
+    document.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+    return () => { document.removeEventListener("keydown", onKeyDown); document.body.style.overflow = ""; };
+  }, [selected]);
+
   return (
     <main id="main-content" className={styles.page}>
       <div className={styles.container}>
-        <header className={styles.hero}>
-          <p className={styles.kicker}>SOLYNEXT PRICING GUIDE</p>
-          <h1>Clear plans.<br/><span>Fair prices.</span></h1>
-          <p className={styles.lead}>Professional digital services to help your business build an online presence, attract customers and grow. Choose a monthly package or pick only the service you need.</p>
-          <Link href="/contact" className={styles.heroLink}>Talk through your needs <ArrowUpRight size={17} aria-hidden="true"/></Link>
-        </header>
-
         <section className={styles.section} aria-labelledby="monthly-packages">
-          <div className={styles.sectionHeading}><div><p className={styles.kicker}>MONTHLY PACKAGES</p><h2 id="monthly-packages">Choose the right level of support.</h2></div><p>Every package can be customized to fit your business and requirements.</p></div>
+          <div className={styles.sectionHeading}><div><p className={styles.kicker}>MONTHLY PACKAGES</p><h2 id="monthly-packages">Choose the right level of support.</h2></div></div>
           <div className={styles.packages}>
-            {packages.map((item,index)=><article className={styles.package} key={item.name}>
-              <header className={styles.packageHeader}>
-                <div><span className={styles.packageLabel}>{index===0?"ESSENTIAL":index===1?"GROWTH":"FULL SERVICE"}</span><h3>{item.name}</h3><p>{item.tagline}</p></div>
-                <div className={styles.price}><strong>{item.price}</strong><span>per month</span></div>
-              </header>
-              <div className={styles.packageBody}>
-                <div className={styles.packageGroups}>{item.groups.map(group=><div className={styles.packageGroup} key={group.title}><h4>{group.title}</h4><ServiceList items={group.items}/></div>)}</div>
-              </div>
-              <div className={styles.bestFor}><strong>Best for:</strong> {item.bestFor}</div>
-            </article>)}
+            {packages.map((item,index)=><button type="button" className={`${styles.package} ${index===1?styles.packageFeatured:""}`} key={item.name} onClick={()=>setSelected({title:item.name,price:item.price,cadence:"per month",description:item.bestFor,groups:item.groups})} aria-label={`View ${item.name} package details`}>
+              <span className={styles.packageHead}>
+                <span className={styles.packageLabel}>{index===0?"ESSENTIAL":index===1?"GROWTH":"FULL SERVICE"}</span>
+                <span className={styles.packageTitle}>{item.name}</span>
+                <span className={styles.packagePrice}>{item.price}<small> / month</small></span>
+              </span>
+              <span className={styles.packageSummary}>{item.tagline}</span>
+              <span className={styles.packageBottom}><span className={styles.cardAction}>View details <ArrowRight size={15} aria-hidden="true"/></span></span>
+            </button>)}
           </div>
         </section>
 
         <section className={styles.section} aria-labelledby="individual-services">
           <div className={styles.sectionHeading}><div><p className={styles.kicker}>INDIVIDUAL SERVICES</p><h2 id="individual-services">Choose only what you need.</h2></div><p>Final pricing depends on the project details and agreed scope.</p></div>
           <div className={styles.individualGrid}>
-            {individualServices.map(item=><article className={styles.individual} key={item.name}>
-              <header><div><h3>{item.name}</h3><p>{item.cadence}</p></div><strong>{item.price}</strong></header>
-              <ServiceList items={item.items}/>
-              <p className={styles.note}>{item.note}</p>
-            </article>)}
+            {individualServices.map(item=><button type="button" className={styles.individual} key={item.name} onClick={()=>setSelected({title:item.name,price:item.price,cadence:item.cadence,description:"A focused service, scoped to your goals and requirements.",groups:[{title:"What’s included",items:item.items}],note:item.note})} aria-label={`View ${item.name} details`}>
+              <span className={styles.individualTop}><span><strong>{item.name}</strong><small>{item.cadence}</small></span><ArrowUpRight size={17} aria-hidden="true"/></span>
+              <span className={styles.individualBottom}><strong>{item.price}</strong><span className={styles.cardAction}>View details <ArrowRight size={15} aria-hidden="true"/></span></span>
+            </button>)}
           </div>
           <article className={styles.otherServices}>
-            <div><h3>Other services</h3><p>Custom quotation based on your requirements.</p></div>
-            <ul>{otherServices.map(item=><li key={item}>{item}</li>)}</ul>
+            <div className={styles.otherServicesIntro}><span className={styles.otherOrbit} aria-hidden="true"><Orbit size={28} strokeWidth={1.6}/><i/><i/><i/></span><h3>Other services</h3><p>Custom quotation based on your requirements.</p></div>
+            <ul>{otherServices.map(({name,icon:Icon})=><li key={name}><Icon size={16} strokeWidth={1.8} aria-hidden="true"/><span>{name}</span></li>)}</ul>
           </article>
         </section>
 
@@ -130,6 +146,17 @@ export function PricingGuide() {
         </section>
         <p className={styles.footerLine}>SolyNext · Build. Innovate. Grow.</p>
       </div>
+      {selected && typeof document !== "undefined" && createPortal(<div className={styles.modalBackdrop} onMouseDown={event=>{if(event.target===event.currentTarget)setSelected(null);}}>
+        <section className={styles.modal} role="dialog" aria-modal="true" aria-labelledby="pricing-modal-title">
+          <button type="button" className={styles.modalClose} onClick={()=>setSelected(null)} aria-label="Close details"><X size={19}/></button>
+          <p className={styles.kicker}>PRICING DETAILS</p><h2 id="pricing-modal-title">{selected.title}</h2>
+          <p className={styles.modalDescription}>{selected.description}</p>
+          <div className={styles.modalPrice}><strong>{selected.price}</strong><span>{selected.cadence}</span></div>
+          <div className={styles.modalGroups}>{selected.groups.map(group=><div key={group.title}><h3>{group.title}</h3><ServiceList items={group.items}/></div>)}</div>
+          {selected.note && <p className={styles.note}>{selected.note}</p>}
+          <Link href="/contact" className={styles.modalCta}>Discuss this option <ArrowRight size={17}/></Link>
+        </section>
+      </div>, document.body)}
     </main>
   );
 }

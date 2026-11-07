@@ -55,8 +55,8 @@ export function CareersClient() {
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}><span/>CAREERS AT SOLYNEXT</p>
-            <h1>Make digital work<br/><span>move business forward.</span></h1>
-            <p className={styles.heroLead}>Bring your craft to work across engineering, design, and digital growth. Help businesses solve practical problems and build better online experiences.</p>
+            <h1>Find your next<br/><span>role at SolyNext.</span></h1>
+            <p className={styles.heroLead}>Do meaningful digital work with a team that values craft, curiosity, and clear communication.</p>
             <div className={styles.heroActions}><Link href="#open-roles" className={styles.primaryLink}>Explore open roles <ArrowRight size={17} aria-hidden="true"/></Link><a href="mailto:solynextsolutions@gmail.com?subject=Career%20inquiry" className={styles.secondaryLink}>Share your profile <ArrowUpRight size={16} aria-hidden="true"/></a></div>
             <div className={styles.locationLine}><MapPin size={16} aria-hidden="true"/><span>Islamabad &amp; Lahore, Pakistan</span><i aria-hidden="true"/><span>Some roles are remote</span></div>
           </div>
