@@ -9,7 +9,7 @@ import { drizzle } from 'drizzle-orm/pglite';
 import { sql } from 'drizzle-orm';
 const nativeRequire=createRequire(import.meta.url);
 const pg=new PGlite();const db=drizzle(pg);const cache=new Map();
-function load(name){if(cache.has(name))return cache.get(name);const sandbox={exports:{}};cache.set(name,sandbox.exports);const source=fs.readFileSync(new URL(`../lib/catalog/${name}.ts`,import.meta.url),'utf8');const code=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,esModuleInterop:true}}).outputText;vm.runInNewContext(code,{module:sandbox,exports:sandbox.exports,require:specifier=>{if(specifier==='server-only')return{};if(specifier==='./db')return{getCatalogDb:()=>db};if(specifier==='./security')return{previewToken:()=> 'test-token'};if(specifier==='next/cache')return{unstable_cache:fn=>fn,revalidateTag:()=>{},revalidatePath:()=>{}};if(specifier.startsWith('./'))return load(specifier.slice(2));return nativeRequire(specifier);},URL,Date,JSON,Set,Map,crypto:globalThis.crypto});return sandbox.exports;}
+function load(name){if(cache.has(name))return cache.get(name);const sandbox={exports:{}};cache.set(name,sandbox.exports);const source=fs.readFileSync(new URL(`../lib/catalog/${name}.ts`,import.meta.url),'utf8');const code=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,esModuleInterop:true}}).outputText;vm.runInNewContext(code,{module:sandbox,exports:sandbox.exports,require:specifier=>{if(specifier==='server-only')return{};if(specifier==='./db')return{getCatalogDb:()=>db};if(specifier==='./security')return{previewToken:()=> 'test-token',requestActor:async()=>actor,enforceRate:()=>{}};if(specifier==='next/cache')return{unstable_cache:fn=>fn,revalidateTag:()=>{},revalidatePath:()=>{}};if(specifier.startsWith('./'))return load(specifier.slice(2));return nativeRequire(specifier);},URL,Date,JSON,Set,Map,Response,crypto:globalThis.crypto});return sandbox.exports;}
 const model=load('model'),repo=load('repository');const seeds=JSON.parse(fs.readFileSync(new URL('../db/seeds/services.json',import.meta.url),'utf8'));
 let actor;
 test.before(async()=>{for(const filename of fs.readdirSync(new URL('../db/migrations/',import.meta.url)).filter(name=>name.endsWith('.sql')).sort())await pg.exec(fs.readFileSync(new URL('../db/migrations/'+filename,import.meta.url),'utf8'));actor=(await db.execute(sql`insert into solynext_catalog.admin_users(email,password_hash,role) values('catalog-test@example.com','test-only','super_admin') returning id,email,role`)).rows[0];});
@@ -82,4 +82,35 @@ test('industry portfolio migration fills missing links without replacing custom 
  await pg.exec(fs.readFileSync(new URL('../db/migrations/005_industry_portfolio_links.sql',import.meta.url),'utf8'));
  assert.deepEqual(Array.from((await repo.getOffering('industries',automotive.id)).portfolio_ids),['pak-auto-parts']);
  assert.deepEqual(Array.from((await repo.getOffering('industries',property.id)).portfolio_ids),['custom-project']);
+});
+
+test('Services admin scopes category and service management to the public catalog', async () => {
+ const { adminApi } = load('http');
+ const { serviceCategoryPages } = load('service-category-pages');
+ const request = (method, path=[], body) => adminApi(new Request('http://localhost/api/admin/services', {
+  method, ...(body === undefined ? {} : {body:JSON.stringify(body)}),
+ }), 'services', path);
+ for (const [display_order, category] of serviceCategoryPages.entries()) {
+  await repo.saveCategory({slug:category.slug,name:category.title,display_order},actor);
+ }
+ const seed = {...seeds[0], project_ids:[], industry_ids:[]};
+ const service = await repo.saveOffering('services',{...seed,slug:'directory-test-service',category:'web-development'},actor);
+ const legacy = await repo.saveOffering('services',{...seed,slug:'legacy-test-service',category:'build'},actor);
+
+ const categories = (await (await request('GET',['categories'])).json()).items;
+ assert.deepEqual(categories.map(item=>item.slug),Array.from(serviceCategoryPages,item=>item.slug));
+ const rows = (await (await request('GET')).json()).items;
+ assert.deepEqual(rows.map(item=>item.id),[service.id]);
+ assert.equal((await request('GET',[legacy.id])).status,404);
+ assert.equal((await request('POST',['bulk'],{ids:[legacy.id],action:'archive'})).status,404);
+ assert.equal((await request('PUT',[service.id],{...service,category:'build'})).status,400);
+ assert.equal((await request('POST',['categories'],{slug:'extra',name:'Extra'})).status,201);
+ assert.equal((await request('POST',['categories'],{slug:'extra',name:'Duplicate'})).status,400);
+ assert.equal((await request('PUT',[service.id],{...service,category:'extra'})).status,200);
+ assert.equal((await request('DELETE',['categories','extra'])).status,400);
+ assert.equal((await request('PUT',['categories'],{...categories[0],name:'Web Development updated'})).status,200);
+ assert.equal((await request('PUT',[service.id],{...service,category:'marketing'})).status,200);
+ assert.equal((await repo.getOffering('services',service.id)).category,'marketing');
+ assert.equal((await request('DELETE',['categories','extra'])).status,200);
+ assert.ok(!(await repo.listDirectoryCategories()).some(item=>item.slug==='extra'));
 });

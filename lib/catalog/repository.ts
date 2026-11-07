@@ -37,8 +37,34 @@ export async function listCategories():Promise<ServiceCategory[]>{
  try{const result=await getCatalogDb().execute<ServiceCategory>(sql`select * from solynext_catalog.service_categories order by display_order,name`);return result.rows;}
  catch(error){if(isMissingServiceCategoriesTable(error))return legacyCategories;throw error;}
 }
-export async function saveCategory(input:unknown,actor:Actor){const data=categorySchema.parse(input);await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${data.slug} for update`);await tx.execute(sql`insert into solynext_catalog.service_categories(slug,name,display_order) values(${data.slug},${data.name},${data.display_order}) on conflict(slug) do update set name=excluded.name,display_order=excluded.display_order`);await audit(tx,actor,"category-save","service_categories",data.slug,before.rows[0],data);});}
-export async function deleteCategory(slug:string,actor:Actor){await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${slug} for update`);const used=await tx.execute(sql`select id from solynext_catalog.services where category=${slug} limit 1`);if(used.rows.length)throw new Error("Move services to another category before deleting this category (including archived services).");await tx.execute(sql`delete from solynext_catalog.service_categories where slug=${slug}`);await audit(tx,actor,"category-delete","service_categories",slug,before.rows[0],null);});}
+const legacyCategoryKeys = new Set(legacyCategories.map(category => category.slug));
+
+export function isDirectoryCategory(slug: string) {
+ return typeof slug === "string" && !!slug && !legacyCategoryKeys.has(slug);
+}
+
+export async function listDirectoryCategories() {
+ return (await listCategories()).filter(category => isDirectoryCategory(category.slug));
+}
+
+export async function listAdminOfferings(entity: Entity) {
+ const items = await listOfferings(entity);
+ return entity === "services" ? items.filter(item => "category" in item && isDirectoryCategory(item.category)) : items;
+}
+
+export async function saveCategory(input: unknown, actor: Actor, mode: "upsert" | "create" | "update" = "upsert") {
+ const data = categorySchema.parse(input);
+ await getCatalogDb().transaction(async tx => {
+  const before = await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${data.slug} for update`);
+  if (mode === "update" && !before.rows.length) throw new Error("Category not found.");
+  const conflict = mode === "create" ? sql`on conflict(slug) do nothing` : sql`on conflict(slug) do update set name=excluded.name,display_order=excluded.display_order`;
+  const result = await tx.execute(sql`insert into solynext_catalog.service_categories(slug,name,display_order)
+   values(${data.slug},${data.name},${data.display_order}) ${conflict} returning slug`);
+  if (!result.rows.length) throw new Error("This category key is already in use.");
+  await audit(tx,actor,"category-save","service_categories",data.slug,before.rows[0],data);
+ });
+}
+export async function deleteCategory(slug:string,actor:Actor){await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${slug} for update`);if(!before.rows.length)throw new Error("Category not found.");const used=await tx.execute(sql`select id from solynext_catalog.services where category=${slug} limit 1`);if(used.rows.length)throw new Error("Move services to another category before deleting this category (including archived services).");await tx.execute(sql`delete from solynext_catalog.service_categories where slug=${slug}`);await audit(tx,actor,"category-delete","service_categories",slug,before.rows[0],null);});}
 export async function getSection<K extends SectionKey>(key:K):Promise<ReturnType<(typeof sectionSchemas)[K]["parse"]>>{const result=await getCatalogDb().execute<{data:unknown}>(sql`select data from solynext_catalog.page_sections where key=${key}`);return sectionSchemas[key].parse(result.rows[0]?.data) as ReturnType<(typeof sectionSchemas)[K]["parse"]>;}
 const cachedPublicSection=unstable_cache(async(key:SectionKey)=>getSection(key),["catalog-sections"],{tags:["catalog-sections"],revalidate:3600});
 export async function publicOfferings(entity:Entity){await connection();return cachedPublicOfferings(entity);}
