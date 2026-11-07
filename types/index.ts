@@ -102,7 +102,7 @@ export interface JobOpening {
   id: string;
   title: string;
   department: "Engineering" | "Design" | "Product" | "Marketing";
-  location: "Islamabad (Hybrid)" | "Lahore (Hybrid)" | "Remote (Worldwide)";
+  location: "Islamabad (Hybrid)" | "Lahore (Hybrid)" | "Chota Lahore (Hybrid)" | "Remote (Worldwide)";
   type: "Full-Time" | "Contract";
   experience: string;
   overview: string;
