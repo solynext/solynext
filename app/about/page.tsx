@@ -14,9 +14,9 @@ const values = [
 ];
 
 const leadership = [
-  { name: "Bilal Ahmed", role: "Managing Director", bio: "12+ years leading software engineering and digital transformation projects across the UK, GCC, and South Asia.", location: "Islamabad, Pakistan" },
+  { name: "Bilal Ahmed", role: "Managing Director", bio: "12+ years leading software engineering and digital transformation projects across the UK, GCC, and South Asia.", location: "Chota Lahore, Pakistan" },
   { name: "Hamza Tariq", role: "Lead Architect", bio: "Specializes in high-concurrency Node.js, Go, and Next.js microservices with sub-second response times.", location: "Lahore, Pakistan" },
-  { name: "Sara Qasim", role: "Head of Product Design", bio: "Expert in enterprise user journeys, accessible design systems, and conversion-focused UI/UX.", location: "Islamabad, Pakistan" },
+  { name: "Sara Qasim", role: "Head of Product Design", bio: "Expert in enterprise user journeys, accessible design systems, and conversion-focused UI/UX.", location: "Chota Lahore, Pakistan" },
 ];
 
 export default function AboutPage() {
@@ -29,7 +29,7 @@ export default function AboutPage() {
             <h1>A digital partner for <span>business growth.</span></h1>
             <p className={styles.heroLead}>Helping businesses grow online through web development, creative design, digital marketing, and social media management.</p>
             <Link href="/contact" className={styles.primaryLink}>Talk with our team <ArrowRight size={18} aria-hidden="true" /></Link>
-            <div className={styles.heroMeta}><span><MapPin size={16} aria-hidden="true" /> Islamabad &amp; Lahore, Pakistan</span><i aria-hidden="true" /><span>Working with teams worldwide</span></div>
+            <div className={styles.heroMeta}><span><MapPin size={16} aria-hidden="true" /> Chota Lahore &amp; Lahore, Pakistan</span><i aria-hidden="true" /><span>Working with teams worldwide</span></div>
           </div>
           <div className={styles.heroVisual}>
             <Image src="/images/hero-tech.jpg" alt="A modern digital workspace" fill priority sizes="(max-width: 800px) 100vw, 48vw" className={styles.heroImage} />
@@ -44,7 +44,7 @@ export default function AboutPage() {
         <div className={styles.storyGrid}>
           <div className={styles.sectionHeading}><p className={styles.kicker}>OUR STORY</p><h2>One team across your <span>digital journey.</span></h2></div>
           <div className={styles.storyCopy}>
-            <p>Based in Islamabad and Lahore, Pakistan, SolyNext helps businesses build a stronger online presence with thoughtful digital services.</p>
+            <p>Based in Chota Lahore and Lahore, Pakistan, SolyNext helps businesses build a stronger online presence with thoughtful digital services.</p>
             <p>Our team brings web development, design, digital marketing, and social media management together in a clear, collaborative process.</p>
             <p>From a new website or brand identity to ongoing campaigns and social content, we tailor each engagement to your goals and audience.</p>
           </div>

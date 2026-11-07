@@ -38,7 +38,7 @@ export function Footer() {
             <div className={styles.details}>
               <span className="flex items-start gap-2">
                 <MapPin aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-[#00D9FF]" />
-                <span>Islamabad &amp; Lahore, Pakistan</span>
+                <span>Chota Lahore &amp; Lahore, Pakistan</span>
               </span>
               <span className="flex items-start gap-2">
                 <Globe2 aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-[#00D9FF]" />

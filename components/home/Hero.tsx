@@ -20,7 +20,7 @@ export function Hero() {
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#0a0d15] border border-[#202738]">
               <span className="w-2 h-2 rounded-full bg-[#00D9FF] animate-pulse" />
               <span className="text-xs font-semibold text-white">
-                Islamabad &amp; Lahore Engineering Hubs · Global Delivery
+                Chota Lahore &amp; Lahore Engineering Hubs · Global Delivery
               </span>
             </div>
 

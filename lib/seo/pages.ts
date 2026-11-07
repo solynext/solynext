@@ -61,13 +61,13 @@ export const seoPages: { path: string; label: string; title?: string; descriptio
     "path": "/careers",
     "label": "Careers",
     "title": "Careers & Engineering Roles — SolyNext",
-    "description": "Join SolyNext: open software engineering, UI/UX design, and digital marketing positions in Islamabad, Lahore, and remote worldwide."
+    "description": "Join SolyNext: open software engineering, UI/UX design, and digital marketing positions in Chota Lahore, Lahore, and remote worldwide."
   },
   {
     "path": "/contact",
     "label": "Contact",
     "title": "Contact & Project Inquiries — SolyNext",
-    "description": "Schedule a project discovery consultation with SolyNext solution architects. Islamabad & Lahore engineering hubs with global delivery."
+    "description": "Schedule a project discovery consultation with SolyNext solution architects. Chota Lahore & Lahore engineering hubs with global delivery."
   },
   {
     "path": "/privacy-policy",

@@ -24,7 +24,7 @@ export function TrustBar() {
         <div>
           <p className="home-trust-eyebrow">
             <Globe2 aria-hidden="true" className="h-4 w-4" />
-            Islamabad &amp; Lahore · Working with teams worldwide
+            Chota Lahore &amp; Lahore · Working with teams worldwide
           </p>
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-3">
             {industries.map(({ label, icon: Icon }) => (

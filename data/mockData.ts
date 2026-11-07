@@ -605,7 +605,7 @@ export const JOB_OPENINGS_DATA: JobOpening[] = [
     id: "senior-fullstack-engineer",
     title: "Senior Full-Stack Engineer (Next.js & Node.js)",
     department: "Engineering",
-    location: "Islamabad (Hybrid)",
+    location: "Chota Lahore (Hybrid)",
     type: "Full-Time",
     experience: "4+ years",
     overview:
@@ -673,7 +673,7 @@ export const FAQS_DATA: FAQItem[] = [
   {
     question: "Where is SolyNext based and how do you work with global clients?",
     answer:
-      "We are based in Pakistan (Islamabad & Lahore) and work with clients across the US, UK, Europe, and the Middle East with daily syncs and overlapping hours.",
+      "We are based in Pakistan (Chota Lahore & Lahore) and work with clients across the US, UK, Europe, and the Middle East with daily syncs and overlapping hours.",
     category: "General",
   },
   {

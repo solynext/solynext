@@ -58,7 +58,7 @@ export function CareersClient() {
             <h1>Find your next<br/><span>role at SolyNext.</span></h1>
             <p className={styles.heroLead}>Do meaningful digital work with a team that values craft, curiosity, and clear communication.</p>
             <div className={styles.heroActions}><Link href="#open-roles" className={styles.primaryLink}>Explore open roles <ArrowRight size={17} aria-hidden="true"/></Link><a href="mailto:solynextsolutions@gmail.com?subject=Career%20inquiry" className={styles.secondaryLink}>Share your profile <ArrowUpRight size={16} aria-hidden="true"/></a></div>
-            <div className={styles.locationLine}><MapPin size={16} aria-hidden="true"/><span>Islamabad &amp; Lahore, Pakistan</span><i aria-hidden="true"/><span>Some roles are remote</span></div>
+            <div className={styles.locationLine}><MapPin size={16} aria-hidden="true"/><span>Chota Lahore &amp; Lahore, Pakistan</span><i aria-hidden="true"/><span>Some roles are remote</span></div>
           </div>
           <div className={styles.heroVisual} aria-label="SolyNext brings engineering, design, and growth together">
             <div className={styles.visualTop}><span><i/> DIGITAL WORK, BUILT TOGETHER</span><Sparkles size={17} aria-hidden="true"/></div>
@@ -66,7 +66,7 @@ export function CareersClient() {
             <p className={styles.visualCopy}>From the first idea to the experience people use.</p>
             <div className={styles.disciplineTrack} aria-hidden="true"><span>Engineering</span><b/><span>Design</span><b/><span>Growth</span></div>
             <div className={styles.visualGrid} aria-hidden="true"><span/><span/><span/><span/><span/><span/><span/><span/><span/></div>
-            <div className={styles.visualFooter}><span>ISLAMABAD · LAHORE</span><span>WORKING WORLDWIDE</span></div>
+            <div className={styles.visualFooter}><span>CHOTA LAHORE · LAHORE</span><span>WORKING WORLDWIDE</span></div>
           </div>
         </div>
       </div>

@@ -16,7 +16,27 @@ export async function listOfferings(entity:Entity,publicOnly=false,db:CatalogDat
 }
 export async function getOffering(entity:Entity,idOrSlug:string,db:CatalogDatabase=getCatalogDb()):Promise<Offering|null>{const where=/^[a-f0-9-]{36}$/i.test(idOrSlug)?sql`id=${idOrSlug}::uuid`:sql`slug=${idOrSlug}`;const result=await db.execute<Record<string,unknown>>(sql`select * from ${table(entity)} where ${where} and deleted_at is null`);if(!result.rows[0])return null;const item=normalize(result.rows[0]);const links=entity==="services"?await db.execute<{industry_id:string}>(sql`select industry_id from solynext_catalog.service_industries where service_id=${item.id}::uuid`):await db.execute<{service_id:string}>(sql`select service_id from solynext_catalog.service_industries where industry_id=${item.id}::uuid`);if(entity==="services")(item as Service).industry_ids=links.rows.map(row=>(row as {industry_id:string}).industry_id);else (item as Industry).service_ids=links.rows.map(row=>(row as {service_id:string}).service_id);const projects=await db.execute<{project_id:string}>(entity==="services"?sql`select project_id from solynext_catalog.service_projects where service_id=${item.id}::uuid`:sql`select project_id from solynext_catalog.industry_projects where industry_id=${item.id}::uuid`);item.project_ids=projects.rows.map(row=>row.project_id);return item;}
 const cachedPublicOfferings=unstable_cache(async(entity:Entity)=>listOfferings(entity,true),["catalog-offerings-v2"],{tags:["catalog-services","catalog-industries"],revalidate:3600});
-export async function listCategories():Promise<ServiceCategory[]>{const result=await getCatalogDb().execute<ServiceCategory>(sql`select * from solynext_catalog.service_categories order by display_order,name`);return result.rows;}
+const legacyCategories:ServiceCategory[]=[
+ {slug:"build",name:"Development & Engineering",display_order:0},
+ {slug:"design",name:"Design & Branding",display_order:1},
+ {slug:"grow",name:"Marketing & Growth",display_order:2},
+ {slug:"advise",name:"Consultation & Strategy",display_order:3},
+ {slug:"support",name:"Hosting & Support",display_order:4},
+];
+function isMissingServiceCategoriesTable(error:unknown):boolean{
+ let current:unknown=error;
+ while(current&&typeof current==="object"){
+  const details=current as {code?:unknown;message?:unknown;query?:unknown;cause?:unknown};
+  const text=[details.message,details.query].filter(value=>typeof value==="string").join(" ");
+  if(details.code==="42P01"||/relation\s+["']?solynext_catalog\.service_categories["']?\s+does not exist/i.test(text)||/select\s+\*\s+from\s+solynext_catalog\.service_categories\s+order\s+by\s+display_order\s*,\s*name/i.test(text))return true;
+  current=details.cause;
+ }
+ return false;
+}
+export async function listCategories():Promise<ServiceCategory[]>{
+ try{const result=await getCatalogDb().execute<ServiceCategory>(sql`select * from solynext_catalog.service_categories order by display_order,name`);return result.rows;}
+ catch(error){if(isMissingServiceCategoriesTable(error))return legacyCategories;throw error;}
+}
 export async function saveCategory(input:unknown,actor:Actor){const data=categorySchema.parse(input);await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${data.slug} for update`);await tx.execute(sql`insert into solynext_catalog.service_categories(slug,name,display_order) values(${data.slug},${data.name},${data.display_order}) on conflict(slug) do update set name=excluded.name,display_order=excluded.display_order`);await audit(tx,actor,"category-save","service_categories",data.slug,before.rows[0],data);});}
 export async function deleteCategory(slug:string,actor:Actor){await getCatalogDb().transaction(async tx=>{const before=await tx.execute(sql`select * from solynext_catalog.service_categories where slug=${slug} for update`);const used=await tx.execute(sql`select id from solynext_catalog.services where category=${slug} limit 1`);if(used.rows.length)throw new Error("Move services to another category before deleting this category (including archived services).");await tx.execute(sql`delete from solynext_catalog.service_categories where slug=${slug}`);await audit(tx,actor,"category-delete","service_categories",slug,before.rows[0],null);});}
 export async function getSection<K extends SectionKey>(key:K):Promise<ReturnType<(typeof sectionSchemas)[K]["parse"]>>{const result=await getCatalogDb().execute<{data:unknown}>(sql`select data from solynext_catalog.page_sections where key=${key}`);return sectionSchemas[key].parse(result.rows[0]?.data) as ReturnType<(typeof sectionSchemas)[K]["parse"]>;}
