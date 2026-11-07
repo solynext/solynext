@@ -196,3 +196,132 @@
 .page:has(.filters [aria-label='Service category']) .stepMarker>span{display:none}
 /* Pill shape for search on all public catalog listings. */
 .page .filters .search{border-radius:999px}
+.homeServicesSection{padding-block:clamp(52px,7vw,92px);background:#f8fbff}
+.homeServicesSection :global(.premium-container){width:min(1500px,calc(100% - 8%))}
+.homeServicesHeading{margin-bottom:36px!important}
+.homeServicesHeading h2{font-size:clamp(38px,4.2vw,62px)!important}
+.homeServicesIntro{max-width:900px;font-size:clamp(15px,1.5vw,20px)!important}
+.homeServicesGrid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px}
+.homeServiceCard{position:relative;min-height:430px;padding:27px 22px 22px;border:1px solid #d8e4f2;border-radius:20px;background:#fff;box-shadow:0 8px 24px #173b6507;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.homeServiceArt{height:148px;overflow:hidden;margin:0 0 17px;border:1px solid #edf2f8;border-radius:13px;background:linear-gradient(145deg,#f9fbff,#f2f8ff)}
+.homeServiceArt img{width:100%;height:100%;padding:3px;object-fit:contain}
+.homeServiceCard::before{position:absolute;top:-1px;right:18px;left:18px;height:3px;border-radius:0 0 4px 4px;background:linear-gradient(90deg,#1268ee,#0db9d4);content:"";opacity:.7}
+.homeServiceCard:hover,.homeServiceCard:focus-within{transform:translateY(-4px);border-color:#9fc3ed;background:#fff;color:#101827;box-shadow:0 16px 32px #173b6512}
+.homeServiceCard h3{max-width:none;margin:0 0 11px;color:#111d31;font-size:clamp(20px,1.8vw,27px);line-height:1.16;letter-spacing:-.7px}
+.homeServiceCard>p{min-height:70px;margin:0;color:#61728a;font-size:15px;line-height:1.55}
+.homeServiceCard ul{gap:0;margin:16px 0 20px;padding:14px 0 0;border-top:1px solid #dce6f1}
+.homeServiceCard li{padding:8px 0;color:#1c293b;font-size:14px;line-height:1.4}
+.homeServiceCard li+li{border-top:1px solid #edf1f6}
+.homeServiceDetails{display:flex;min-height:48px;align-items:center;justify-content:center;gap:9px;margin-top:auto;padding:0 13px;border:1px solid #0b65ee;border-radius:11px;background:#075ef5;color:white;text-align:center;text-decoration:none;font-size:14px;font-weight:650;transition:background .2s ease,transform .2s ease}
+.homeServiceDetails:hover{transform:translateY(-1px);background:#064fd1}
+.homeServiceCard:hover h3,.homeServiceCard:focus-within h3,.homeServiceCard:hover>p,.homeServiceCard:focus-within>p,.homeServiceCard:hover li,.homeServiceCard:focus-within li{color:inherit}
+.homeServicesCta{margin-top:20px;padding:18px 24px 18px 28px;border-color:#d3e2f4;border-radius:17px;box-shadow:0 5px 18px #173b6505}
+@media(min-width:1001px) and (max-width:1250px){.homeServicesSection :global(.premium-container){width:calc(100% - 5%)}.homeServicesGrid{gap:11px}.homeServiceCard{padding-inline:17px}.homeServiceCard h3{font-size:21px}.homeServiceCard>p{font-size:14px}.homeServiceCard li{font-size:13px}}
+@media(max-width:1000px){.homeServicesGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px}.homeServiceCard{min-height:0;padding:25px 23px 21px}.homeServiceCard>p{min-height:0}.homeServiceCard ul{margin-top:17px}.homeServiceDetails{margin-top:auto}}
+@media(max-width:700px){.homeServicesSection{padding-block:46px}.homeServicesSection :global(.premium-container){width:calc(100% - 36px)}.homeServicesHeading{margin-bottom:24px!important}.homeServicesHeading h2{font-size:clamp(34px,9vw,44px)!important;line-height:1.07}.homeServicesIntro{font-size:15px!important;line-height:1.6!important}.homeServicesGrid{grid-template-columns:1fr!important;gap:12px}.homeServiceCard{min-height:0;padding:23px 20px 19px;border-radius:16px}.homeServiceArt{height:175px;margin-bottom:16px}.homeServiceCard h3{font-size:23px}.homeServiceCard>p{font-size:14px}.homeServiceCard ul{margin:15px 0 18px;padding-top:11px}.homeServiceCard li{padding:7px 0;font-size:13px}.homeServiceDetails{min-height:46px}.homeServicesCta{align-items:stretch;flex-direction:column;gap:14px;margin-top:14px;padding:20px}.homeServicesButton{width:100%;min-height:48px;font-size:14px}}
+.servicesOverview{width:min(100%,1320px);max-width:none;margin:0 auto;padding:40px 0 48px}
+.servicesOverviewHeading h1 span{color:#075ef5}
+.servicePageCards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+.servicePageCard{position:relative;display:flex;min-width:0;min-height:570px;flex-direction:column;padding:26px 21px 20px;border:1px solid #cfdef0;border-radius:18px;background:#fff;box-shadow:0 7px 23px #173b6507;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.servicePageCard::before{position:absolute;inset:-1px 18px auto;height:3px;border-radius:0 0 4px 4px;background:linear-gradient(90deg,#1268ee,#0db9d4);content:"";opacity:.75}
+.servicePageCard{min-height:370px;padding:19px 20px 17px}
+.servicePageArt{position:relative;display:grid;height:135px;place-items:center;overflow:hidden;margin:0 0 15px;border:1px solid #edf2f8;border-radius:14px;background:radial-gradient(ellipse at 50% 65%,#edf6ff 0,transparent 66%),linear-gradient(145deg,#f9fbff,#f2f8ff)}
+.servicePageIllustration{width:100%;height:100%;padding:4px;object-fit:contain}
+.serviceArtShapeA,.serviceArtShapeB,.serviceArtShapeC,.serviceArtWindow,.serviceArtDetail{position:absolute;display:block}
+.serviceArtShapeA{left:calc(50% - 69px);top:49px;width:138px;height:80px;border:1px solid #bcd5f3;border-radius:13px;background:linear-gradient(150deg,#dcecff,#f8fbff);transform:rotate(-5deg)}
+.serviceArtShapeB{top:22px;right:calc(50% - 91px);width:37px;height:37px;border-radius:50%;background:#10b9d6;box-shadow:0 0 0 7px #10b9d61c}
+.serviceArtShapeC{bottom:24px;left:calc(50% - 92px);width:26px;height:26px;border:1px solid #93bdf0;border-radius:7px;background:#3d84eb;transform:rotate(12deg)}
+.serviceArtWindow{z-index:1;display:grid;width:90px;height:84px;place-items:center;border:1px solid #cbdcf0;border-radius:13px;background:#fff;color:#1468df;box-shadow:0 10px 24px #1d5ba11a;transform:rotate(4deg);transition:transform .22s ease,box-shadow .22s ease}
+.servicePageCard:hover .serviceArtWindow{transform:rotate(0) translateY(-3px);box-shadow:0 14px 27px #1d5ba126}
+.serviceArtDetail{right:calc(50% - 77px);bottom:30px;width:45px;height:8px;border-radius:99px;background:#14b8d4;box-shadow:-31px -13px 0 -1px #4a8eeb}
+.servicePageArt[data-tone=marketing] .serviceArtShapeA{top:55px;width:116px;height:75px;border-radius:50% 15px 15px 15px;transform:rotate(8deg)}
+.servicePageArt[data-tone=marketing] .serviceArtShapeB{top:25px;right:calc(50% - 83px);width:45px;height:45px;border-radius:12px;background:#3d84eb;transform:rotate(17deg)}
+.servicePageArt[data-tone=marketing] .serviceArtShapeC{left:calc(50% - 98px);bottom:26px;width:20px;height:41px;border-radius:5px;background:#10b9d6;transform:rotate(-20deg)}
+.servicePageArt[data-tone=management] .serviceArtShapeA{left:calc(50% - 77px);top:42px;width:154px;height:93px;border-radius:48% 48% 14px 14px;background:linear-gradient(160deg,#e2f7fb,#f9fcff)}
+.servicePageArt[data-tone=management] .serviceArtShapeB{top:27px;right:calc(50% - 93px);width:28px;height:28px;border-radius:9px;background:#10b9d6;transform:rotate(45deg)}
+.servicePageArt[data-tone=management] .serviceArtShapeC{left:calc(50% - 96px);bottom:29px;width:34px;height:34px;border-radius:50%;background:#5da0f0}
+.servicePageArt[data-tone=automation] .serviceArtShapeA{left:calc(50% - 67px);top:32px;width:134px;height:107px;border-radius:20px;background:linear-gradient(155deg,#e8f4ff,#dff7fb);transform:rotate(7deg)}
+.servicePageArt[data-tone=automation] .serviceArtShapeB{top:27px;right:calc(50% - 97px);width:31px;height:31px;border-radius:50%;background:#3e83e6}
+.servicePageArt[data-tone=automation] .serviceArtShapeC{left:calc(50% - 101px);bottom:32px;width:32px;height:32px;border-radius:9px;background:#16b8d2;transform:rotate(-15deg)}
+.servicePageArt[data-tone=automation] .serviceArtDetail{right:calc(50% - 84px);bottom:23px;width:55px;height:8px;background:#3d84eb;box-shadow:-35px -13px 0 -1px #12b7d2}
+.servicePageCard:hover{transform:translateY(-3px);border-color:#9fc3ed;box-shadow:0 15px 30px #173b6510}
+.servicePageCard h2{margin:0 0 9px;color:#101827;font-size:clamp(20px,1.65vw,25px);font-weight:650;line-height:1.18;letter-spacing:-.55px}
+.servicePageCard>p{min-height:44px;margin:0;color:#586a82;font-size:14px;line-height:1.55}
+.servicePageCard ul{display:grid;align-content:start;gap:0;margin:15px 0 20px;padding:12px 0 0;border-top:1px solid #dce6f1;list-style:none}
+.servicePageCard li{padding:7px 0;color:#182438;font-size:13px;line-height:1.4}
+.servicePageCard li+li{border-top:1px solid #eef2f7}
+.servicePageIconRow{display:flex;align-items:center;justify-content:center;gap:8px;margin:12px 0 14px}
+.servicePageIconRow span{display:grid;width:31px;height:31px;place-items:center;border:1px solid #dce8f6;border-radius:9px;background:#f1f6fd;color:#2874cf}
+.servicePageCard:nth-child(2) .servicePageIconRow span{border-color:#d5e4f5;background:#eef5ff;color:#316fc0}
+.servicePageCard:nth-child(3) .servicePageIconRow span{border-color:#d4e8e9;background:#eff8f8;color:#2c7f8a}
+.servicePageCard:nth-child(4) .servicePageIconRow span{border-color:#d8e1f5;background:#f0f4ff;color:#526cb3}
+.servicePageButton{display:flex;min-height:46px;align-items:center;justify-content:center;gap:8px;margin-top:auto;padding:0 12px;border:1px solid #075ef5;border-radius:10px;background:#075ef5;color:#fff;font-size:13px;font-weight:650;text-align:center;text-decoration:none;transition:background .18s ease,transform .18s ease}
+.servicePageButton:hover{transform:translateY(-1px);background:#064dcc}
+.servicePageCta{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-top:20px;padding:18px 23px 18px 27px;border:1px solid #cfdef0;border-radius:17px;background:#fff}
+.servicePageCta h2{margin:0 0 4px;color:#101827;font-size:24px;font-weight:680;letter-spacing:-.5px;line-height:1.2}
+.servicePageCta p{margin:0;color:#586a82;font-size:15px;line-height:1.5}
+.servicePageCta .servicePageButton{min-width:240px;margin-top:0}
+.serviceDetailSections{margin-top:58px}
+.serviceDetailSection{padding:52px 0 58px;border-top:1px solid #dce6f1;scroll-margin-top:100px}
+.serviceDetailHeading{max-width:760px;margin:0 0 27px}
+.serviceDetailHeading .eyebrow{margin:0 0 10px;color:#2464bf;font-size:10px;font-weight:700;letter-spacing:1.5px}
+.serviceDetailHeading h2{margin:0 0 10px;color:#172d49;font-size:clamp(30px,3.4vw,42px);font-weight:650;line-height:1.15;letter-spacing:-1.2px}
+.serviceDetailHeading>p:last-child{margin:0;color:#64758a;font-size:15px;line-height:1.7}
+.serviceDetailGrid{display:grid;grid-template-columns:1fr}
+.serviceDetailRow{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.9fr);gap:40px;padding:23px 4px;border-bottom:1px solid #e2eaf3}
+.serviceDetailRow:first-child{border-top:1px solid #e2eaf3}
+.serviceDetailCopy h3{margin:0 0 8px;color:#1a2e48;font-size:18px;font-weight:630;line-height:1.35;letter-spacing:-.25px}
+.serviceDetailCopy p{margin:0;color:#64758a;font-size:14px;line-height:1.7}
+.serviceDetailIncludes h4{margin:1px 0 10px;color:#47627f;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase}
+.serviceDetailIncludes ul{display:flex;flex-wrap:wrap;gap:7px 18px;margin:0;padding:0;list-style:none}
+.serviceDetailIncludes li{position:relative;padding-left:13px;color:#4e627a;font-size:12px;line-height:1.55}
+.serviceDetailIncludes li::before{position:absolute;top:.62em;left:0;width:5px;height:5px;border-radius:50%;background:#5590d1;content:""}
+.serviceDetailSection[data-tone=marketing] .serviceDetailIncludes li::before{background:#db8a38}
+.serviceDetailSection[data-tone=management] .serviceDetailIncludes li::before{background:#36a98d}
+.serviceDetailSection[data-tone=automation] .serviceDetailIncludes li::before{background:#8064c5}
+@media(max-width:1000px){.servicePageCards{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.servicePageCard{min-height:430px;padding:21px 22px 18px}.servicePageCard h2{font-size:23px}.servicePageArt{height:145px}}
+@media(max-width:1000px){.serviceDetailRow{gap:24px}.serviceDetailSections{margin-top:44px}}
+@media(max-width:700px){.servicePageCards{grid-template-columns:1fr;gap:12px}.servicePageCard{min-height:0;padding:18px 18px 16px}.servicePageArt{height:135px;margin-bottom:14px}.servicePageCard>p{min-height:0}.servicePageCard ul{margin-bottom:17px}.servicePageCta{align-items:stretch;flex-direction:column;gap:14px;margin-top:14px;padding:20px}.servicePageCta h2{font-size:21px}.servicePageCta p{font-size:14px}.servicePageCta .servicePageButton{min-width:0;width:100%}}
+@media(max-width:700px){.serviceDetailSections{margin-top:34px}.serviceDetailSection{padding:36px 0 40px}.serviceDetailHeading{margin-bottom:20px}.serviceDetailHeading h2{font-size:30px}.serviceDetailHeading>p:last-child{font-size:14px}.serviceDetailRow{grid-template-columns:1fr;gap:14px;padding:20px 1px}.serviceDetailCopy h3{font-size:16px}.serviceDetailCopy p{font-size:13px}.serviceDetailIncludes ul{gap:6px 14px}}
+.servicesOverviewHeading{max-width:760px;margin:0 auto 34px;text-align:center}
+.servicesOverviewHeading h1{margin:10px 0 12px;color:#172d49;font-size:clamp(32px,4vw,48px);line-height:1.12;letter-spacing:-1.7px;font-weight:650}
+.servicesOverviewHeading>p:last-child{margin:0;color:#64758a;font-size:15px;line-height:1.75}
+.servicePillars{display:grid;grid-template-columns:1fr;gap:18px}
+.servicePillar{position:relative;display:grid;grid-template-columns:minmax(230px,.78fr) minmax(0,1.5fr);column-gap:36px;min-width:0;padding:28px 32px;border:1px solid #dce6f1;border-radius:20px;background:linear-gradient(135deg,#fff 0%,#fbfdff 100%);box-shadow:0 8px 28px #173b6508;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+.servicePillar::before{position:absolute;inset:0 auto 0 0;width:4px;border-radius:20px 0 0 20px;background:linear-gradient(180deg,#1268e8,#11b9d7);content:"";opacity:.8}
+.servicePillar:hover{border-color:#a9c8eb;transform:translateY(-2px);box-shadow:0 14px 34px #173b6510}
+.servicePillar::after{position:absolute;right:0;top:0;width:180px;height:100%;border-radius:0 20px 20px 0;background:radial-gradient(ellipse at 100% 0%,#eaf4ff 0,transparent 70%);content:"";pointer-events:none}
+.pillarVisual{position:relative;display:grid;min-height:164px;place-items:center;overflow:hidden;border-right:1px solid #e7edf5}
+.pillarVisualShape{position:relative;z-index:1;display:grid;width:82px;height:82px;place-items:center;border:1px solid #d5e6fb;border-radius:26px 16px 25px 17px;background:linear-gradient(145deg,#fff,#edf5ff);color:#176ce0;box-shadow:0 10px 24px #176ce01a;transform:rotate(-7deg);transition:transform .25s ease,box-shadow .25s ease}
+.pillarVisualShape svg{transform:rotate(7deg)}
+.servicePillar:hover .pillarVisualShape{transform:rotate(0) scale(1.06);box-shadow:0 14px 28px #176ce026}
+.pillarVisualDot{position:absolute;top:26px;left:calc(50% + 42px);width:14px;height:14px;border-radius:50%;background:#20b9d5;box-shadow:0 0 0 6px #20b9d51a}
+.pillarVisualLine{position:absolute;bottom:28px;left:calc(50% - 48px);width:96px;height:1px;background:linear-gradient(90deg,transparent,#a9c9ed,transparent);transform:rotate(-14deg)}
+.pillarVisualIndex{position:absolute;right:22px;bottom:13px;color:#9aabc0;font-size:11px;font-weight:650;letter-spacing:1.5px}
+.pillarContent{position:relative;z-index:1;min-width:0}
+.pillarTitle{display:flex;align-items:flex-start;gap:15px;align-self:center}
+.pillarKicker{display:block;margin-bottom:7px;color:#6f87a5;font-size:9px;font-weight:700;letter-spacing:1.5px}
+.pillarIcon{display:none}
+.servicePillar:nth-child(2) .pillarIcon{background:#fff7ed;border-color:#f6e5d2;color:#c77829}
+.servicePillar:nth-child(3) .pillarIcon{background:#eff8f5;border-color:#d8eee7;color:#25816b}
+.servicePillar:nth-child(4) .pillarIcon{background:#f5f1ff;border-color:#e6def8;color:#7356b5}
+.pillarTitle h2{margin:0 0 5px;color:#213954;font-size:20px;line-height:1.35;font-weight:620;letter-spacing:-.35px}
+.pillarTitle p{margin:0;color:#6a7b90;font-size:13px;line-height:1.6}
+.servicePillar ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:center;gap:9px 10px;margin:22px 0 0;padding:0;list-style:none}
+.servicePillar li{display:flex;min-width:0;align-items:center;gap:9px;padding:9px 11px;border:1px solid #e8edf4;border-radius:10px;background:#ffffffc9;color:#435a75;font-size:12px;line-height:1.45;transition:background .18s,border-color .18s,color .18s}
+.servicePillar li svg{flex:0 0 auto;color:#367ac5}
+.servicePillar li:hover{border-color:#c9dcf3;background:#f4f8fe;color:#1d4d82}
+.servicePillar[data-tone=marketing] .pillarVisualShape{border-color:#f1dfc9;background:linear-gradient(145deg,#fff,#fff7ed);color:#c77829}
+.servicePillar[data-tone=marketing] .pillarVisualDot{background:#f0a44d;box-shadow:0 0 0 6px #f0a44d1a}
+.servicePillar[data-tone=management] .pillarVisualShape{border-color:#d1ebe2;background:linear-gradient(145deg,#fff,#eff9f5);color:#25816b}
+.servicePillar[data-tone=management] .pillarVisualDot{background:#48b69a;box-shadow:0 0 0 6px #48b69a1a}
+.servicePillar[data-tone=automation] .pillarVisualShape{border-color:#e3d9f4;background:linear-gradient(145deg,#fff,#f6f2ff);color:#7356b5}
+.servicePillar[data-tone=automation] .pillarVisualDot{background:#9a75de;box-shadow:0 0 0 6px #9a75de1a}
+.pillarLink{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:13px;border-top:1px solid #e8edf4;color:#2464bf;font-size:12px;font-weight:600;text-decoration:none}
+.pillarLink:hover{color:#064ed7}
+.consultationNote{margin:17px 0 0;text-align:center;color:#738198;font-size:12px;line-height:1.6}
+.allServicesHeading{display:flex;align-items:end;justify-content:space-between;gap:20px;padding:32px 0 8px;border-top:1px solid #e4ebf3;scroll-margin-top:110px}
+.allServicesHeading .eyebrow{margin:0 0 8px}
+.allServicesHeading h2{margin:0;color:#203853;font-size:28px;line-height:1.25;letter-spacing:-.8px;font-weight:620}
+.allServicesHeading>div>p:last-child{margin:8px 0 0;color:#6d7e93;font-size:13px;line-height:1.65}
+@media(max-width:700px){.servicesOverview{padding:24px 0 32px}.servicesOverviewHeading{margin-bottom:22px;text-align:left}.servicesOverviewHeading h1{font-size:32px;letter-spacing:-1px}.servicesOverviewHeading>p:last-child{font-size:14px}.servicePillars{gap:12px}.servicePillar{grid-template-columns:1fr;gap:16px;padding:18px 17px 18px 20px}.servicePillar::after{width:110px}.pillarVisual{min-height:94px;justify-items:start;border-right:0;border-bottom:1px solid #e7edf5}.pillarVisualShape{width:58px;height:58px;border-radius:18px 12px 18px 12px}.pillarVisualShape svg{width:23px;height:23px}.pillarVisualDot{top:12px;left:51px;width:10px;height:10px}.pillarVisualLine{bottom:18px;left:24px;width:74px}.pillarVisualIndex{right:8px;bottom:10px}.pillarTitle h2{font-size:19px}.servicePillar ul{grid-template-columns:1fr;gap:7px;margin-top:16px}.servicePillar li{padding:8px 10px}.allServicesHeading{padding-top:26px}.allServicesHeading h2{font-size:24px}}
