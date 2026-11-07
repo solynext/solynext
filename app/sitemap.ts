@@ -1,4 +1,5 @@
 import { publicOfferings } from "@/lib/catalog/repository";
+import { serviceCategoryPages } from "@/lib/catalog/service-category-pages";
 import type { MetadataRoute } from "next";
 import { getSeoSettings } from "@/lib/seo/repository";
 import { seoPages } from "@/lib/seo/pages";
@@ -12,6 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projects = (await portfolioStore.read()).filter(project => project.status === "Published");
   const paths: { path: string; lastModified?: string }[] = [
     ...seoPages,
+    ...serviceCategoryPages.flatMap(category => [{ path: category.href }, ...category.details.map(service => ({ path: service.href }))]),
     ...(await publicOfferings("services")).map(service => ({ path: `/services/${service.slug}`, lastModified: service.updated_at })),
     ...(await publicOfferings("industries")).map(industry => ({ path: `/industries/${industry.slug}`, lastModified: industry.updated_at })),
     ...BLOG_POSTS_DATA.map(post => ({ path: `/blog/${post.slug}`, lastModified: post.publishedDate })),

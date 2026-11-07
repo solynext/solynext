@@ -47,6 +47,8 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   padding: 6px;
   scroll-snap-align: start;
@@ -148,4 +150,40 @@
   .track {
     grid-auto-columns: min(82vw, 340px);
   }
+}
+
+.heading .detailLink {
+  display: inline-block;
+  margin-top: 10px;
+  color: #1549ad;
+  font-weight: 700;
+}
+
+.heading .detailLink:hover {
+  text-decoration: underline;
+}
+
+.section .cardAction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 44px;
+  margin: auto 10px 10px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--carousel-blue);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.section .cardAction:hover {
+  background: #003dce;
+}
+
+.cardAction:focus-visible {
+  outline: 2px solid var(--carousel-blue);
+  outline-offset: 3px;
 }

@@ -2,27 +2,14 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { slugify } from "@/lib/catalog/model";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import type { ServiceCategoryPage } from "@/lib/catalog/service-category-pages";
 import styles from "./ServiceCategoryCarousel.module.css";
 
-type ServiceDetail = {
-  name: string;
-  description: string;
-  includes: string[];
-};
-
-export function ServiceCategoryCarousel({
-  title,
-  description,
-  details,
-}: {
-  title: string;
-  description: string;
-  details: ServiceDetail[];
-}) {
+export function ServiceCategoryCarousel({ category }: { category: ServiceCategoryPage }) {
   const track = useRef<HTMLDivElement>(null);
-  const slug = slugify(title);
+  const { title, description, details, slug } = category;
   const sectionId = `service-details-${slug}`;
   const trackId = `${sectionId}-track`;
   const split = title.indexOf(" ");
@@ -50,15 +37,15 @@ export function ServiceCategoryCarousel({
           {split === -1 ? <span>{title}</span> : <>{title.slice(0, split)} <span>{title.slice(split + 1)}</span></>}
         </h2>
         <p>{description}</p>
+        <Link className={styles.detailLink} href={category.href}>View {title} details</Link>
       </header>
       <div className={styles.track} id={trackId} ref={track} role="group" aria-label={`${title} services`} tabIndex={0}>
-        {details.map(({ name, description, includes }) => {
-          const serviceSlug = slugify(name);
+        {details.map(({ name, description, includes, slug: serviceSlug, href, image }) => {
           return (
             <article className={styles.card} id={`${sectionId}-${serviceSlug}`} key={serviceSlug}>
               <div className={styles.image}>
                 <Image
-                  src={`/images/service-carousels/${slug}/${serviceSlug}.webp`}
+                  src={image}
                   alt=""
                   fill
                   unoptimized
@@ -72,6 +59,9 @@ export function ServiceCategoryCarousel({
                   <ul>{includes.map(item => <li key={item}>{item}</li>)}</ul>
                 </details>
               </div>
+              <Link className={styles.cardAction} href={href} aria-label={`View service details for ${name}`}>
+                View service details <ArrowUpRight size={17} aria-hidden="true" />
+              </Link>
             </article>
           );
         })}

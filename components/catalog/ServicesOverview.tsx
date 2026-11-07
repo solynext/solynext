@@ -1,34 +1,7 @@
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import { slugify } from "@/lib/catalog/model";
+import { serviceCategoryPages } from "@/lib/catalog/service-category-pages";
 import styles from "./ServicesOverview.module.css";
-
-const groups = [
-  {
-    slug: "web-development",
-    title: "Web Development",
-    description: "Websites, apps and software built around your business.",
-    services: ["Business Websites", "E-commerce Stores", "Web Apps & Portals", "Mobile Apps (Android & iOS)", "Custom Software", "POS & Business Software", "AI-Powered Development"],
-  },
-  {
-    slug: "marketing",
-    title: "Marketing",
-    description: "Get seen, get trusted and get customers.",
-    services: ["Digital Marketing", "SEO", "Social Media Marketing", "Influencer Marketing", "Branding & Graphic Design"],
-  },
-  {
-    slug: "business-management",
-    title: "Business Management",
-    description: "We run your business, so you can focus on growth.",
-    services: ["Full Business Management", "Social Media Management", "Sales & Customer Management", "Online Store & Marketplace Management", "Growth Planning & Consultation"],
-  },
-  {
-    slug: "ai-automation",
-    title: "AI & Automation",
-    description: "AI agents and automation that work for your business.",
-    services: ["AI Agents & Agentic AI", "AI Chatbots & Assistants", "AI Voice Agents", "RAG Knowledge Assistants", "WhatsApp Automation", "Sales Automation", "Workflow & Business Automation", "AI-Based Software", "AI ERP & Business Systems"],
-  },
-];
 
 export function ServicesOverview({ standalone = false }: { standalone?: boolean }) {
   const Subheading = standalone ? "h2" : "h3";
@@ -62,31 +35,31 @@ export function ServicesOverview({ standalone = false }: { standalone?: boolean 
           </>
         )}
         <div className={styles.grid} id={standalone ? "service-categories" : undefined}>
-          {groups.map(({ slug, title, description, services }) => (
+          {serviceCategoryPages.map(({ slug, title, description, href, details }) => (
             <article className={styles.card} key={slug}>
               <div className={styles.summary}>
                 <Subheading className={styles.title}>{title}</Subheading>
                 <p>{description}</p>
               </div>
-              <ul className={services.length > 5 ? styles.scrollList : undefined} role="list">
-                {services.map(service => (
-                  <li key={service}>
+              <ul className={details.length > 5 ? styles.scrollList : undefined} role="list">
+                {details.map(service => (
+                  <li key={service.slug}>
                     <Link
                       className={styles.serviceLink}
-                      href={`${standalone ? "" : "/services"}#service-details-${slug}-${slugify(service)}`}
+                      href={service.href}
                     >
                       <ArrowUpRight aria-hidden="true" />
-                      <span>{service}</span>
+                      <span>{service.name}</span>
                     </Link>
                   </li>
                 ))}
               </ul>
               <Link
                 className={styles.button}
-                href={`${standalone ? "" : "/services"}#service-details-${slug}`}
-                aria-label={`View service details for ${title}`}
+                href={href}
+                aria-label={`View category details for ${title}`}
               >
-                View service details <ArrowUpRight aria-hidden="true" />
+                View category details <ArrowUpRight aria-hidden="true" />
               </Link>
             </article>
           ))}
