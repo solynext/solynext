@@ -4,15 +4,15 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Home, Layers3, Building2, Handshake, Users, BadgeDollarSign, ChevronRight, ChevronDown, X } from "lucide-react";
+import { Home, Layers3, Building2, Handshake, Users, BadgeDollarSign, BriefcaseBusiness, ChevronRight, ChevronDown, X } from "lucide-react";
 import { BrandWordmark } from "@/components/ui/BrandWordmark";
 import { HeaderSearch } from "./HeaderSearch";
 import { WebsiteNotificationBell } from "@/components/notifications/WebsiteNotificationBell";
 import { ConsultationModal } from "@/components/ui/ConsultationModal";
 
-const primaryLinks = [{href:"/",label:"Home",icon:Home},{href:"/services",label:"Services",icon:Layers3},{href:"/industries",label:"Industries",icon:Building2},{href:"/collaboration",label:"Collaboration",icon:Handshake},{href:"/about",label:"About",icon:Users},{href:"/pricing",label:"Pricing",icon:BadgeDollarSign}];
+const primaryLinks = [{href:"/",label:"Home",icon:Home},{href:"/services",label:"Services",icon:Layers3},{href:"/businesses",label:"Businesses",icon:BriefcaseBusiness},{href:"/industries",label:"Industries",icon:Building2},{href:"/collaboration",label:"Collaboration",icon:Handshake},{href:"/about",label:"About",icon:Users},{href:"/pricing",label:"Pricing",icon:BadgeDollarSign}];
 const moreGroups = [
- {label:"Explore",links:[{href:"/portfolio",label:"Portfolio"},{href:"/blog",label:"Blog"},{href:"/process",label:"Our process"},{href:"/solynext-apps",label:"SolyNext Apps"}]},
+ {label:"Explore",links:[{href:"/portfolio",label:"Portfolio"},{href:"/blog",label:"Blog"},{href:"/process",label:"Our process"},{href:"/faqs",label:"FAQs"},{href:"/solynext-apps",label:"SolyNext Apps"}]},
  {label:"Company",links:[{href:"/contact",label:"Contact"},{href:"/careers",label:"Careers"},{href:"/reviews",label:"Client reviews"}]},
  {label:"Legal",links:[{href:"/privacy-policy",label:"Privacy policy"},{href:"/terms",label:"Terms of service"}]},
 ];

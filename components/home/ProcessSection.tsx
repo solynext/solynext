@@ -1,73 +1,130 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Check, Code2, Compass, PanelsTopLeft, Rocket, ShieldCheck } from "lucide-react";
+import { useRef, useState, type KeyboardEvent } from "react";
+import { ArrowRight, Check } from "lucide-react";
+import theme from "./HomeOfferingsOverview.module.css";
 import styles from "./ProcessSection.module.css";
 
-const stages = [
-  { title: "Discover", timeline: "Project kickoff", description: "Align on your goals, users, scope, and measures of success.", deliverable: "A clear project plan", icon: Compass },
-  { title: "Plan & design", timeline: "Product definition", description: "Map user journeys and shape the experience before development.", deliverable: "Approved designs", icon: PanelsTopLeft },
-  { title: "Build & integrate", timeline: "Focused delivery", description: "Develop in clear milestones and connect the tools you rely on.", deliverable: "Working product", icon: Code2 },
-  { title: "Test & refine", timeline: "Before release", description: "Check quality, usability, security, and performance across devices.", deliverable: "Launch-ready release", icon: ShieldCheck },
-  { title: "Launch & support", timeline: "Ongoing partnership", description: "Go live with a smooth handover and support for what comes next.", deliverable: "A supported launch", icon: Rocket },
+const steps = [
+  {
+    name: "Free consultation",
+    title: "Tell us your goal",
+    description: "Talk to our team about your idea, needs, budget and future plans. If you already run a business, we look at how it works today and what you have tried before.",
+    outcome: "a clear picture of what you need.",
+  },
+  {
+    name: "Research and feasibility",
+    title: "We find the right path",
+    description: "Our business and software experts study the market, costs, risks and options. We share the findings and agree on the best fit for you.",
+    outcome: "the best option, backed by research.",
+  },
+  {
+    name: "Plan and approval",
+    title: "Review and approve",
+    description: "We prepare a full report with scope, budget, timeline, milestones and testing. Nothing starts until you approve it.",
+    outcome: "a clear plan you have approved.",
+  },
+  {
+    name: "Start and progress",
+    title: "We put the plan into action",
+    description: "We build the foundation, do the work and test as we go. At every key stage, we show you the progress and take your feedback.",
+    outcome: "visible progress, step by step.",
+  },
+  {
+    name: "Delivery and support",
+    title: "We deliver and stay with you",
+    description: "We hand over the finished work and help you get started. After handover, we keep supporting you with fixes, updates, training and guidance. Support can continue for one or two years, or longer as a partner.",
+    outcome: "a supported launch and long-term growth.",
+    badge: "Support continues",
+  },
 ];
 
 export function ProcessSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-    const observer = new IntersectionObserver(([entry]) => {
-      setVisible(entry.isIntersecting);
-    }, { threshold: 0.24 });
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
+  function handleTabKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
+    let nextIndex: number;
+    switch (event.key) {
+      case "ArrowRight":
+      case "ArrowDown":
+        nextIndex = (index + 1) % steps.length;
+        break;
+      case "ArrowLeft":
+      case "ArrowUp":
+        nextIndex = (index - 1 + steps.length) % steps.length;
+        break;
+      case "Home":
+        nextIndex = 0;
+        break;
+      case "End":
+        nextIndex = steps.length - 1;
+        break;
+      default:
+        return;
+    }
+    event.preventDefault();
+    setActiveIndex(nextIndex);
+    tabRefs.current[nextIndex]?.focus();
+  }
 
-  useEffect(() => {
-    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const updatePreference = () => setReducedMotion(preference.matches);
-    preference.addEventListener("change", updatePreference);
-    return () => preference.removeEventListener("change", updatePreference);
-  }, []);
+  return (
+    <section className={theme.section} aria-labelledby="process-section-title">
+      <div className={theme.container}>
+        <div className={theme.intro}>
+          <p className={theme.eyebrow}>HOW WE WORK</p>
+          <h2 id="process-section-title" className={styles.heading}>From first talk to <span>long-term support.</span></h2>
+          <p className={styles.intro}>Every project starts with a free consultation. We understand your goals, check what is possible, and agree on a plan before any work begins. And after we deliver, we stay with you.</p>
+          <div className={styles.tabs} role="tablist" aria-label="The 5 steps">
+            {steps.map(({ name }, index) => (
+              <button
+                key={name}
+                ref={element => { tabRefs.current[index] = element; }}
+                className={`${theme.tab} ${styles.tab}`}
+                id={`home-process-tab-${index}`}
+                type="button"
+                role="tab"
+                aria-selected={activeIndex === index}
+                aria-controls={`home-process-panel-${index}`}
+                tabIndex={activeIndex === index ? 0 : -1}
+                onClick={() => setActiveIndex(index)}
+                onKeyDown={event => handleTabKeyDown(event, index)}
+              >
+                <span className={theme.tabIcon} aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                <span className={theme.tabCopy}><strong>{name}</strong></span>
+                <ArrowRight className={theme.tabArrow} size={17} aria-hidden="true" />
+              </button>
+            ))}
+          </div>
+        </div>
 
-  const [activeStage, setActiveStage] = useState(0);
-  useEffect(() => {
-    if (!visible) return;
-    if (reducedMotion) return;
-    const delay = activeStage === stages.length ? 2300 : 1600;
-    const timer = window.setTimeout(() => {
-      setActiveStage(activeStage === stages.length ? 0 : activeStage + 1);
-    }, delay);
-    return () => window.clearTimeout(timer);
-  }, [visible, activeStage, reducedMotion]);
-
-  const progress = Math.min(activeStage, stages.length - 1) / (stages.length - 1) * 100;
-
-  return <section ref={sectionRef} className={styles.section} aria-labelledby="process-section-title" data-visible={visible}>
-    <div className={styles.container}>
-      <header className={styles.heading}>
-        <p className={styles.eyebrow}>HOW WE WORK</p>
-        <h2 id="process-section-title">A clear path from<br/><span>idea to launch.</span></h2>
-        <p>Know what happens next at every stage of your project.</p>
-      </header>
-      <div className={styles.grid}>
-        <div className={styles.rail} aria-hidden="true"><span className={styles.railProgress} style={{ width: `${progress}%` }}/><span className={styles.traveler} style={{ left: `${progress}%` }}/></div>
-        {stages.map(({ title, timeline, description, deliverable, icon: Icon }, index) => {
-          const state = index < activeStage ? "complete" : index === activeStage ? "active" : "upcoming";
-          return <article className={styles.card} key={title} data-state={state} aria-current={state === "active" ? "step" : undefined}>
-          <div className={styles.cardTop}><span className={styles.icon}><Icon size={20} strokeWidth={1.8} aria-hidden="true"/></span><span className={styles.status} aria-hidden="true">{state === "complete" ? <Check size={13}/> : state === "active" ? <span/> : null}</span><span className={styles.timeline}>{timeline}</span></div>
-          <h3>{title}</h3>
-          <p className={styles.description}>{description}</p>
-          <div className={styles.deliverable}><Check size={15} aria-hidden="true"/><span>{deliverable}</span></div>
-        </article>;
-        })}
+        <div className={styles.content}>
+          {steps.map(({ name, title, description, outcome, badge }, index) => (
+            <div
+              key={name}
+              className={activeIndex === index ? theme.detail : undefined}
+              role="tabpanel"
+              id={`home-process-panel-${index}`}
+              aria-labelledby={`home-process-tab-${index}`}
+              hidden={activeIndex !== index}
+              tabIndex={0}
+            >
+              <div className={styles.meta}>
+                <span className={theme.detailHeading}>Step {String(index + 1).padStart(2, "0")} / 05</span>
+                {badge && <span className={styles.badge}>{badge}</span>}
+              </div>
+              <h3>{title}</h3>
+              <p className={theme.description}>{description}</p>
+              <p className={styles.outcome}><Check size={18} aria-hidden="true" /><span><strong>You get:</strong> {outcome}</span></p>
+            </div>
+          ))}
+          <div className={styles.consultation}>
+            <Link href="/contact" className={theme.action}>Book a free consultation <ArrowRight size={18} aria-hidden="true" /></Link>
+            <p>Free, no obligation. Tell us your goal and we will guide you, from the first talk to long after launch.</p>
+          </div>
+        </div>
       </div>
-      <Link href="/process" className={styles.link}>Explore our process <ArrowRight size={17} aria-hidden="true"/></Link>
-    </div>
-  </section>;
+    </section>
+  );
 }

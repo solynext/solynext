@@ -11,7 +11,7 @@ export function MotionSystem() {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     const animations = new Set<Animation>();
     const seen = new WeakSet<Element>();
-    const selector = ".hero-copy, .product-visual, .p-section-heading, .premium-service, .premium-project, .premium-process article, .about-principles article, .premium-quote blockquote, .internal-heading, .internal-service, .portfolio-project, .contact-form-panel, .section-header, .capability-card, .engagement-card, .insight-card, .deliverable-item, .partnership-capability";
+    const selector = ".hero-copy, .product-visual, .p-section-heading, .premium-service, .premium-project, .premium-process article, .about-principles article, .premium-quote blockquote, .internal-heading, .internal-service, .portfolio-project, .contact-form-panel, .section-header, .capability-card, .engagement-card, .insight-card, .deliverable-item, .partnership-capability, .business-reveal";
     const reveal = (element: Element) => {
       if (seen.has(element) || preference.matches) return;
       seen.add(element);

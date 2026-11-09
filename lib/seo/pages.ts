@@ -16,6 +16,12 @@ export const seoPages: { path: string; label: string; title?: string; descriptio
     "description": "Explore web development, creative design, digital marketing, SEO, and social media management from SolyNext."
   },
   {
+    "path": "/businesses",
+    "label": "SolyNext Businesses",
+    "title": "SolyNext Businesses | Build and grow businesses together",
+    "description": "SolyNext starts, runs and partners in real businesses. Bring an idea, investment or skill and build with our team."
+  },
+  {
     "path": "/portfolio",
     "label": "Portfolio",
     "title": "Client Case Studies & Technical Impact — SolyNext",
@@ -38,6 +44,12 @@ export const seoPages: { path: string; label: string; title?: string; descriptio
     "label": "Technologies",
     "title": "Technologies & Engineering Frameworks — SolyNext",
     "description": "Explore the modern tech stack utilized by SolyNext: Next.js, React, Node.js, Python, TypeScript, PostgreSQL, Docker, AWS, and Figma."
+  },
+  {
+    "path": "/faqs",
+    "label": "FAQs",
+    "title": "Frequently Asked Questions | SolyNext",
+    "description": "Answers to common questions about SolyNext services, pricing, project delivery, and working with our team."
   },
   {
     "path": "/process",

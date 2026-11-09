@@ -8,6 +8,7 @@ import { BrandWordmark } from "@/components/ui/BrandWordmark";
 const companyLinks = [
   { label: "About SolyNext", icon: Building2, href: "/about" },
   { label: "Collaboration", icon: Handshake, href: "/collaboration" },
+  { label: "SolyNext Businesses", icon: BriefcaseBusiness, href: "/businesses" },
   { label: "Industries", icon: Layers3, href: "/industries" },
   { label: "Portfolio", icon: BriefcaseBusiness, href: "/portfolio" },
   { label: "Our process", icon: ListChecks, href: "/process" },

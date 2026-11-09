@@ -64,10 +64,6 @@ export function PartnershipSection() {
         {partnerTypes.map(({ label, icon: Icon }) => <span key={label}><Icon size={19} aria-hidden="true"/>{label}</span>)}
       </div>
 
-      <div className={styles.callout}>
-        <div><h3>Have an idea, product, or partnership in mind?</h3><p>Let’s talk about how we can build it together.</p></div>
-        <Link href="/contact?solution=General%20partnership">Start a partnership<ArrowUpRight size={17} aria-hidden="true"/></Link>
-      </div>
     </div>
   </section>;
 }

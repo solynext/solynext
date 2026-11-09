@@ -57,7 +57,7 @@ const offerings = [
       { label: "Use only our services", icon: Globe2 },
     ],
     action: "Start a partnership",
-    href: "/contact?solution=Business%20partnership",
+    href: "/businesses",
     icon: Handshake,
   },
 ];
