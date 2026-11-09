@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight, BriefcaseBusiness, Code2, Cpu, TrendingUp } from "lucide-react";
 import { serviceCategoryPages } from "@/lib/catalog/service-category-pages";
 import styles from "./ServicesOverview.module.css";
 
@@ -11,23 +11,32 @@ export function ServicesOverview({ standalone = false }: { standalone?: boolean 
     <section id={standalone ? undefined : "services"} className={styles.section} aria-labelledby={headingId}>
       <div className={styles.container}>
         {standalone ? (
-          <header className={styles.hero}>
-            <p className={styles.heroLabel}>SOLYNEXT SERVICES</p>
-            <h1 id={headingId}>Build, grow, and <span>run your business.</span></h1>
-            <p className={styles.heroDescription}>
-              Launch a website, app, or online store. Reach more customers with marketing, get support
-              with day-to-day operations, and automate repetitive work with AI. Work with one team
-              from planning through launch and ongoing support.
-            </p>
-            <div className={styles.heroActions}>
-              <Link href="#service-categories" className={styles.heroPrimary}>
-                Explore services <ArrowDown aria-hidden="true" />
-              </Link>
-              <Link href="/contact" className={styles.heroSecondary}>
-                Discuss your project <ArrowUpRight aria-hidden="true" />
-              </Link>
-            </div>
-          </header>
+          <div className={styles.heroLayout}>
+            <header className={styles.hero}>
+              <p className={styles.heroLabel}>SOLYNEXT SERVICES</p>
+              <h1 id={headingId}>Build, grow, and <span>run your business.</span></h1>
+              <p className={styles.heroDescription}>
+                Launch a website, app, or online store. Reach more customers with marketing, get support
+                with day-to-day operations, and automate repetitive work with AI.
+              </p>
+              <p className={styles.heroSupport}>One team from planning to launch and ongoing support.</p>
+              <div className={styles.heroActions}>
+                <Link href="#service-categories" className={styles.heroPrimary}>
+                  Explore services <ArrowDown aria-hidden="true" />
+                </Link>
+                <Link href="/contact" className={styles.heroSecondary}>
+                  Discuss your project <ArrowUpRight aria-hidden="true" />
+                </Link>
+              </div>
+            </header>
+            <nav className={styles.navigator} aria-label="Browse service categories">
+              {serviceCategoryPages.map(({ slug, title, description, href }, index) => {
+                const Icon = [Code2, TrendingUp, BriefcaseBusiness, Cpu][index];
+                const shortDescriptions = ["Websites, apps & software", "Reach more customers", "Day-to-day support", "Automate repetitive work"];
+                return <Link className={styles.navigatorCard} key={slug} href={href}><Icon aria-hidden="true"/><strong>{title}</strong><span>{shortDescriptions[index] || description}</span><ArrowRight className={styles.navigatorArrow} aria-hidden="true"/></Link>;
+              })}
+            </nav>
+          </div>
         ) : (
           <>
             <h2 id={headingId} className={styles.heading}>Our services. <span>Your next step.</span></h2>

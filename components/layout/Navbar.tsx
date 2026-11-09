@@ -10,9 +10,9 @@ import { HeaderSearch } from "./HeaderSearch";
 import { WebsiteNotificationBell } from "@/components/notifications/WebsiteNotificationBell";
 import { ConsultationModal } from "@/components/ui/ConsultationModal";
 
-const primaryLinks = [{href:"/",label:"Home",icon:Home},{href:"/services",label:"Services",icon:Layers3},{href:"/industries",label:"Industries",icon:Building2},{href:"/collaboration",label:"Collaboration",icon:Handshake},{href:"/about",label:"About",icon:Users},{href:"/pricing",label:"Pricing",icon:BadgeDollarSign}];
+const primaryLinks = [{href:"/",label:"Home",icon:Home},{href:"/services",label:"Services",icon:Layers3},{href:"/industries",label:"Industries",icon:Building2},{href:"/collaboration",label:"Collaboration",icon:Handshake},{href:"/about",label:"About",icon:Users}];
 const moreGroups = [
- {label:"Explore",links:[{href:"/businesses",label:"Businesses"},{href:"/portfolio",label:"Portfolio"},{href:"/blog",label:"Blog"},{href:"/process",label:"Our process"},{href:"/faqs",label:"FAQs"},{href:"/solynext-apps",label:"SolyNext Apps"}]},
+ {label:"Explore",links:[{href:"/pricing",label:"Pricing"},{href:"/businesses",label:"Businesses"},{href:"/talent-portal",label:"Talent portal"},{href:"/portfolio",label:"Portfolio"},{href:"/blog",label:"Blog"},{href:"/process",label:"Our process"},{href:"/faqs",label:"FAQs"},{href:"/solynext-apps",label:"SolyNext Apps"}]},
  {label:"Company",links:[{href:"/contact",label:"Contact"},{href:"/careers",label:"Careers"},{href:"/reviews",label:"Client reviews"}]},
  {label:"Legal",links:[{href:"/privacy-policy",label:"Privacy policy"},{href:"/terms",label:"Terms of service"}]},
 ];

@@ -18,7 +18,7 @@ export function PublicListing({entity,items,industries=[],settings,categories=[]
  const faqs=[...new Map(items.flatMap(item=>item.faqs).map(item=>[item.question,item])).values()].slice(0,8);
  if(servicePage) {
    return (
-     <main id="main-content" className={`premium-home internal-premium ${c.page}`}>
+     <main id="main-content" className={`premium-home internal-premium ${c.page} ${c.servicesPage}`}>
        <ServicesOverview standalone />
        {serviceCategoryPages.map(category => <ServiceCategoryCarousel key={category.slug} category={category} />)}
      </main>

@@ -3,6 +3,9 @@ export type CatalogApp = {
   id: string; name: string; description: string; details: string; url: string; image: string;
   category: string; developer: string; version: string; status: "Draft" | "Published";
   platforms?: string[]; featured: boolean; order: number; updatedAt: string;
+  purpose?: string; currentStatus?: string; owner?: string; ownerType?: string;
+  developmentTeam?: string; agency?: string; website?: string; audience?: string;
+  features?: string[]; releaseDate?: string;
 };
 export function validateApp(value: unknown): CatalogApp {
   if (!value || typeof value !== "object") throw new Error("App: Invalid app data.");
@@ -28,7 +31,20 @@ export function validateApp(value: unknown): CatalogApp {
   if (!Number.isFinite(Date.parse(updatedAt))) throw new Error("App: Invalid update time.");
   const platforms = item.platforms ?? [];
   if (!Array.isArray(platforms) || platforms.some(value => typeof value !== "string" || !downloadPlatforms.includes(value as typeof downloadPlatforms[number]))) throw new Error("App: Choose valid download platforms.");
-  return { platforms: [...new Set(platforms)] as string[], id, name, description: text("description", 240), details: text("details", 10000, false), url: parsed.href, image, category: text("category", 60), developer: text("developer", 100, false), version: text("version", 40, false), status: item.status, featured: item.featured, order: item.order as number, updatedAt };
+  const list = (key: string) => {
+    const value = item[key];
+    if (value === undefined) return [];
+    if (!Array.isArray(value) || value.length > 30 || value.some(entry => typeof entry !== "string" || entry.length > 120)) throw new Error(`App: Invalid ${key}.`);
+    return value.map(entry => (entry as string).trim()).filter(Boolean);
+  };
+  const website = text("website", 300, false);
+  if (website) {
+    let websiteUrl: URL;
+    try { websiteUrl = new URL(website); } catch { throw new Error("App: Enter a complete owner or product website URL."); }
+    if (!["http:", "https:"].includes(websiteUrl.protocol) || websiteUrl.username || websiteUrl.password) throw new Error("App: Use an HTTP or HTTPS website URL.");
+  }
+  return { platforms: [...new Set(platforms)] as string[], id, name, description: text("description", 240), details: text("details", 10000, false), url: parsed.href, image, category: text("category", 60), developer: text("developer", 100, false), version: text("version", 40, false), status: item.status, featured: item.featured, order: item.order as number, updatedAt,
+    purpose: text("purpose", 1000, false), currentStatus: text("currentStatus", 100, false), owner: text("owner", 160, false), ownerType: text("ownerType", 100, false), developmentTeam: text("developmentTeam", 1000, false), agency: text("agency", 160, false), website, audience: text("audience", 500, false), features: list("features"), releaseDate: text("releaseDate", 40, false) };
 }
 export function publishedApps(items: CatalogApp[]) {
   return items.filter(item => item.status === "Published").sort((a,b) => Number(b.featured) - Number(a.featured) || a.order - b.order || a.name.localeCompare(b.name));

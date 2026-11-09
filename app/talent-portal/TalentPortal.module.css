@@ -1,0 +1,127 @@
+.page {
+  width: min(1440px, calc(100% - 48px));
+  margin: 0 auto 28px;
+  color: #07143a;
+}
+
+.portalNav {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 62px);
+  height: 66px;
+  border-bottom: 1px solid #dce5f0;
+}
+
+.wordmark { display: inline-flex; margin-right: 18px; }
+.wordmark :global(.brand-desktop-wordmark) { width: 155px; height: auto; }
+.portalNav > a:not(.wordmark) { color: #0c183a; font-size: 16px; font-weight: 650; text-decoration: none; }
+.portalNav > a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.portalNav .navAction { margin-left: auto; padding: 11px 19px; border-radius: 8px; background: #0754df; color: #fff; }
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(310px, .9fr);
+  gap: 24px;
+  min-height: 302px;
+  margin-top: 23px;
+  padding: clamp(30px, 4vw, 46px);
+  overflow: hidden;
+  border-radius: 15px;
+  background: radial-gradient(ellipse at 67% 5%, #bfddff 0, transparent 50%), linear-gradient(115deg, #edf6ff, #c8e1ff 70%, #eff7ff);
+}
+
+.hero::after { position: absolute; right: 19%; bottom: -108px; width: 58%; height: 255px; border-radius: 50%; background: #9dc9ff; opacity: .45; content: ""; transform: rotate(-22deg); }
+.heroCopy { position: relative; z-index: 1; max-width: 740px; }
+.eyebrow { margin: 0; color: #0754df; font-size: 13px; font-weight: 800; letter-spacing: .04em; }
+.hero h1 { margin: 22px 0 10px; font-size: clamp(40px, 4.4vw, 63px); font-weight: 780; line-height: 1.03; letter-spacing: -.065em; }
+.heroCopy > p:not(.eyebrow) { max-width: 650px; margin: 0; color: #1a294c; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.45; }
+.heroActions { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 31px; }
+
+.primary, .secondary { display: inline-flex; align-items: center; gap: 9px; min-height: 48px; padding: 11px 19px; border-radius: 8px; font-size: 15px; font-weight: 700; text-decoration: none; }
+.primary { background: #0754df; color: #fff; }
+.primary:hover { background: #003dac; }
+.secondary { border: 2px solid #0754df; background: #ffffff9e; color: #0754df; }
+.secondary:hover { background: #fff; }
+
+.process { position: relative; z-index: 1; padding: 14px 18px; border: 1px solid #b6d3fb; border-radius: 14px; background: #edf5ffcc; }
+.process h2 { margin: 0 0 10px; font-size: 23px; letter-spacing: -.04em; }
+.process ol { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.process li { display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: start; }
+.process li > span { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 50%; background: #b6d7ff; color: #0a3c92; font-weight: 800; }
+.process strong { font-size: 15px; }
+.process li p, .feedback { margin: 0; color: #1e3156; font-size: 12px; line-height: 1.3; }
+.feedback { display: flex; align-items: center; gap: 11px; margin-top: 11px; padding-top: 11px; border-top: 1px solid #b9d3f4; }
+
+.section { margin-top: 25px; }
+.sectionHeader { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.section h2, .roles h2, .request h2, .profile h2 { margin: 0; font-size: clamp(27px, 3vw, 37px); font-weight: 760; letter-spacing: -.055em; }
+.sectionHeader > a, .talentCard a, .roles a { display: inline-flex; align-items: center; gap: 7px; color: #0754df; font-size: 14px; font-weight: 700; text-decoration: none; }
+
+.filters { display: grid; grid-template-columns: 1.7fr .85fr .85fr; gap: 14px; margin: 15px 0 22px; }
+.filters label, .filters button { display: flex; align-items: center; gap: 13px; min-height: 45px; padding: 0 15px; border: 1px solid #bfcce0; border-radius: 8px; background: #fff; color: #1d2b4a; font: inherit; font-size: 14px; text-align: left; }
+.filters label input { width: 100%; border: 0; outline: 0; background: transparent; font: inherit; }
+.filters button { justify-content: space-between; }
+.filters button svg { transform: rotate(90deg); }
+
+.talentGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.talentCard { display: grid; grid-template-columns: 122px 1fr; gap: 17px; min-width: 0; padding: 16px; border: 1px solid #cbd7e8; border-radius: 10px; background: #fff; box-shadow: 0 4px 14px #10234b05; }
+.avatar { display: block; aspect-ratio: .9; overflow: hidden; border-radius: 9px; background-image: url("/images/talent-portal-profiles.png"); background-repeat: no-repeat; background-size: 870% auto; }
+.ayesha { background-position: 5% 66%; }
+.hamza { background-position: 50% 66%; }
+.sara { background-position: 77% 66%; }
+.talentCard h3 { margin: 1px 0 2px; font-size: 19px; letter-spacing: -.04em; }
+.talentCard p { margin: 2px 0; color: #273854; font-size: 14px; }
+.talentCard .skills { margin-top: 5px; color: #60708a; font-size: 11px; }
+.badges { display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 11px 0; color: #0c1b3d; font-size: 12px; }
+.badges span { display: inline-flex; align-items: center; gap: 5px; }
+.available { padding: 4px 8px; border-radius: 99px; background: #e7f9e9; color: #155f22; }
+.talentCard a { margin-top: 2px; }
+
+.bottomGrid { display: grid; grid-template-columns: 1.2fr .92fr; gap: 18px; margin-top: 23px; }
+.roles, .request { padding: 20px 28px; border: 1px solid #cbd7e8; border-radius: 10px; }
+.roles h2 { display: flex; align-items: center; gap: 13px; font-size: 26px; }
+.roles > article { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 14px 0; border-bottom: 1px solid #dde5ef; }
+.roles > article:last-child { border: 0; padding-bottom: 0; }
+.roles h3 { margin: 0 0 2px; font-size: 16px; }
+.roles p { margin: 0; color: #41506a; font-size: 13px; }
+.request { border-color: #cfe2ff; background: linear-gradient(125deg, #f2f8ff, #d7eaff); }
+.request h2 { margin-top: 7px; font-size: 26px; }
+.request > svg { color: #0754df; }
+.request p { max-width: 480px; margin: 9px 0 14px; color: #263855; font-size: 14px; line-height: 1.45; }
+
+.profile { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px; margin-top: 20px; padding: 21px 28px; border: 1px solid #d8e3f0; border-radius: 10px; background: #fbfdff; }
+.profile > svg { color: #0754df; }
+.profile h2 { font-size: 24px; }
+.profile p { max-width: 770px; margin: 5px 0 0; color: #4d5e77; font-size: 14px; line-height: 1.45; }
+.note { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 22px 0; color: #60708a; font-size: 12px; }
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+
+@media (max-width: 900px) {
+  .portalNav { gap: 22px; }
+  .wordmark { margin-right: 0; }
+  .hero { grid-template-columns: 1fr; }
+  .hero::after { display: none; }
+  .talentGrid, .bottomGrid { grid-template-columns: 1fr; }
+  .talentCard { grid-template-columns: 100px 1fr; }
+  .profile { grid-template-columns: auto 1fr; }
+  .profile .secondary { grid-column: 1 / -1; justify-self: start; }
+}
+
+@media (max-width: 620px) {
+  .page { width: calc(100% - 32px); margin-bottom: 35px; }
+  .portalNav { gap: 15px; overflow-x: auto; font-size: 14px; }
+  .portalNav .wordmark { display: none; }
+  .portalNav .navAction { margin-left: 0; white-space: nowrap; }
+  .hero { padding: 25px 20px; }
+  .hero h1 { font-size: 42px; }
+  .filters { grid-template-columns: 1fr; }
+  .filters button { display: none; }
+  .talentCard { grid-template-columns: 76px 1fr; padding: 14px; }
+  .badges { gap: 7px; font-size: 12px; }
+  .bottomGrid { margin-top: 18px; }
+  .roles, .request, .profile { padding: 20px; }
+  .profile { gap: 12px; }
+  .profile h2 { font-size: 23px; }
+  .note { text-align: center; }
+}

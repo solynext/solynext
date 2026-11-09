@@ -55,6 +55,16 @@ export function AppsManager({ initialApps }: { initialApps:CatalogApp[] }) {
         <label className={styles.fullField}>{editorKind === "download" ? "Download link" : editorKind === "game" ? "Game URL" : "App URL"}<input name="url" type="url" required maxLength={2048} defaultValue={editing?.url} placeholder="https://your-app.example.com"/></label>
         <label className={styles.fullField}>Short description<textarea name="description" required maxLength={240} rows={2} defaultValue={editing?.description} placeholder="A short summary"/></label>
         <label className={styles.fullField}>{editorKind === "game" ? "Game details" : "App details"}<textarea name="details" maxLength={10000} rows={3} defaultValue={editing?.details} placeholder="Features or instructions (optional)"/></label>
+        <label className={styles.fullField}>Product purpose<textarea name="purpose" maxLength={1000} rows={2} defaultValue={editing?.purpose} placeholder="What problem does this product solve? Who is it for?"/></label>
+        <label>Current product status<input name="currentStatus" maxLength={100} defaultValue={editing?.currentStatus} placeholder="In development, live, maintenance…"/></label>
+        <label>Release date or stage<input name="releaseDate" maxLength={40} defaultValue={editing?.releaseDate} placeholder="Planned, preview, or date"/></label>
+        <label>Owner name<input name="owner" maxLength={160} defaultValue={editing?.owner} placeholder="Product or business owner"/></label>
+        <label>Owner type<input name="ownerType" maxLength={100} defaultValue={editing?.ownerType} placeholder="Company, agency, or individual"/></label>
+        <label>Agency or company<input name="agency" maxLength={160} defaultValue={editing?.agency} placeholder="Company responsible for delivery"/></label>
+        <label>Development team<textarea name="developmentTeam" maxLength={1000} rows={2} defaultValue={editing?.developmentTeam} placeholder="Roles or team members involved"/></label>
+        <label className={styles.fullField}>Target audience<input name="audience" maxLength={500} defaultValue={editing?.audience} placeholder="Who benefits from this app?"/></label>
+        <label className={styles.fullField}>Key features<textarea name="features" maxLength={3000} rows={4} defaultValue={editing?.features?.join("\n")} placeholder="One feature per line"/></label>
+        <label className={styles.fullField}>Owner or product website<input name="website" type="url" maxLength={300} defaultValue={editing?.website} placeholder="https://example.com"/></label>
         <label>Developer<input name="developer" maxLength={100} defaultValue={editing?.developer || "SolyNext"}/></label>
         <label>Version<input name="version" maxLength={40} defaultValue={editing?.version} placeholder="1.0"/></label>
         <label>Status<select name="status" defaultValue={editing?.status || "Draft"}><option>Draft</option><option>Published</option></select></label>

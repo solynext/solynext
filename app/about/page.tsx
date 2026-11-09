@@ -1,85 +1,41 @@
-import { getPageMetadata } from "@/lib/seo/metadata";
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Check, Eye, Globe, Handshake, MapPin, Target, UsersRound } from "lucide-react";
+import {
+  ArrowRight, ArrowUpRight, BadgeCheck, BrainCircuit, Building2,
+  Check, Compass, Handshake, HeartHandshake, Lightbulb, LineChart, Map,
+  RefreshCw, ShieldCheck, Sparkles, Target, UsersRound, Wrench,
+} from "lucide-react";
+import { aboutPageData as data } from "@/data/about";
 import styles from "./About.module.css";
 
-export async function generateMetadata() { return getPageMetadata("/about"); }
+export const metadata: Metadata = data.seo;
 
-const values = [
-  { title: "Business Goals First", description: "Every website, design, and campaign is shaped around your goals, audience, and brand.", icon: Target },
-  { title: "Clear Communication", description: "Straightforward planning, regular updates, and a clear view of the work in progress.", icon: Handshake },
-  { title: "Consistent Brand Quality", description: "Thoughtful design and messaging help your brand stay consistent across every channel.", icon: Check },
-  { title: "Practical Collaboration", description: "A responsive team that listens, shares ideas, and keeps projects moving.", icon: UsersRound },
-];
-
-const leadership = [
-  { name: "Bilal Ahmed", role: "Managing Director", bio: "12+ years leading software engineering and digital transformation projects across the UK, GCC, and South Asia.", location: "Chota Lahore, Pakistan" },
-  { name: "Hamza Tariq", role: "Lead Architect", bio: "Specializes in high-concurrency Node.js, Go, and Next.js microservices with sub-second response times.", location: "Lahore, Pakistan" },
-  { name: "Sara Qasim", role: "Head of Product Design", bio: "Expert in enterprise user journeys, accessible design systems, and conversion-focused UI/UX.", location: "Chota Lahore, Pakistan" },
-];
+const icons = { growth: LineChart, business: Building2, software: BrainCircuit, talent: UsersRound, local: Map, community: HeartHandshake, experts: UsersRound, research: Compass, partnership: Handshake, results: Target, support: Wrench, honesty: ShieldCheck, learning: Lightbulb, flexibility: RefreshCw };
 
 export default function AboutPage() {
   return <main id="main-content" className={styles.page}>
     <section className={styles.hero}>
-      <div className={styles.container}>
-        <div className={styles.heroGrid}>
-          <div className={styles.heroCopy}>
-            <p className={styles.kicker}><span />ABOUT SOLYNEXT</p>
-            <h1>A digital partner for <span>business growth.</span></h1>
-            <p className={styles.heroLead}>Helping businesses grow online through web development, creative design, digital marketing, and social media management.</p>
-            <Link href="/contact" className={styles.primaryLink}>Talk with our team <ArrowRight size={18} aria-hidden="true" /></Link>
-            <div className={styles.heroMeta}><span><MapPin size={16} aria-hidden="true" /> Chota Lahore &amp; Lahore, Pakistan</span><i aria-hidden="true" /><span>Working with teams worldwide</span></div>
-          </div>
-          <div className={styles.heroVisual}>
-            <Image src="/images/hero-tech.jpg" alt="A modern digital workspace" fill priority sizes="(max-width: 800px) 100vw, 48vw" className={styles.heroImage} />
-            <div className={styles.imageNote}><span className={styles.imageMark}>SN</span><span>Creative thinking.<br />Practical digital work.</span><ArrowUpRight size={18} aria-hidden="true" /></div>
-          </div>
-        </div>
-      </div>
+      <div className={`${styles.container} ${styles.heroInner}`}><div className={styles.heroCopy}><p className={styles.kicker}><span/>{data.hero.eyebrow}</p><h1>{data.hero.title}</h1><p className={styles.heroLead}>{data.hero.description}</p><a className={styles.primaryLink} href="#pillars">{data.hero.action}<ArrowRight size={17}/></a><div className={styles.heroMarks}><span><Building2 size={16}/> Real businesses</span><span><Sparkles size={16}/> Expert people</span><span><BrainCircuit size={16}/> Ready software</span></div></div><div className={styles.heroVisual} aria-label="SolyNext brings services, software and businesses together"><div className={styles.visualTop}><span>SOLYNEXT GROWTH MODEL</span><span className={styles.liveDot}/></div>{data.intro.pillars.map((item,index)=>{const Icon=[Wrench,BrainCircuit,Building2][index];return <div className={styles.visualPillar} key={item.title}><span className={styles.visualIcon}><Icon size={18}/></span><div><strong>{item.title}</strong><small>{["Expertise for business needs","Tools ready to adapt","Experience in real markets"][index]}</small></div><span className={styles.visualIndex}>0{index+1}</span></div>})}<div className={styles.visualFooter}><span>One connected team</span><ArrowUpRight size={16}/></div></div></div>
     </section>
 
-    <section className={styles.storySection}>
-      <div className={styles.container}>
-        <div className={styles.storyGrid}>
-          <div className={styles.sectionHeading}><p className={styles.kicker}>OUR STORY</p><h2>One team across your <span>digital journey.</span></h2></div>
-          <div className={styles.storyCopy}>
-            <p>Based in Chota Lahore and Lahore, Pakistan, SolyNext helps businesses build a stronger online presence with thoughtful digital services.</p>
-            <p>Our team brings web development, design, digital marketing, and social media management together in a clear, collaborative process.</p>
-            <p>From a new website or brand identity to ongoing campaigns and social content, we tailor each engagement to your goals and audience.</p>
-          </div>
-        </div>
-        <div className={styles.capabilities} aria-label="Our capabilities"><span>Web development</span><span>Design &amp; branding</span><span>Digital marketing</span><span>Social media</span></div>
-      </div>
-    </section>
+    <section id="pillars" className={`${styles.section} ${styles.intro}`}><div className={styles.container}><header className="section-header"><p className={styles.eyebrow}>{data.intro.eyebrow}</p><h2>{data.intro.title}</h2><p>{data.intro.description}</p></header><div className={styles.pillarGrid}>{data.intro.pillars.map((item,index)=>{const Icon=[Wrench,BrainCircuit,Building2][index];return <article className={`${styles.pillar} business-reveal`} key={item.title}><span className={styles.icon}><Icon size={22}/></span><small>0{index+1}</small><h3>{item.title}</h3><p>{item.text}</p><Link href={item.link}>{item.action}<ArrowUpRight size={16}/></Link></article>})}</div><p className={styles.bridge}>{data.intro.bridge}</p></div></section>
 
-    <section className={styles.missionSection}>
-      <div className={styles.container}>
-        <div className={styles.missionGrid}>
-          <article className={styles.missionCard}><span className={styles.largeIcon}><Target size={23} aria-hidden="true" /></span><p className={styles.cardKicker}>OUR MISSION</p><h2>Digital work that moves business forward.</h2><p>To help businesses communicate clearly, reach the right audiences, and grow through effective digital experiences and marketing.</p></article>
-          <article className={styles.missionCard}><span className={styles.largeIcon}><Eye size={23} aria-hidden="true" /></span><p className={styles.cardKicker}>OUR VISION</p><h2>A trusted digital solutions partner.</h2><p>To be a trusted digital partner for businesses seeking thoughtful creative work and sustainable online growth.</p></article>
-        </div>
-      </div>
-    </section>
+    <section className={`${styles.section} ${styles.story}`}><div className={styles.container}><div className={styles.storyGrid}><header className="section-header"><p className={styles.eyebrow}>{data.story.eyebrow}</p><h2>{data.story.title}</h2></header><div className={styles.storyCopy}>{data.story.paragraphs.map(paragraph=><p key={paragraph}>{paragraph}</p>)}<div className={styles.storyNote}><span><Handshake size={20}/></span><p>Bring business experience and talent together, then make room for both to grow.</p></div></div></div></div></section>
 
-    <section className={styles.valuesSection}>
-      <div className={styles.container}>
-        <div className={styles.centerHeading}><p className={styles.kicker}>WHAT GUIDES US</p><h2>Principles behind <span>every project.</span></h2><p>The way we work matters as much as what we deliver.</p></div>
-        <div className={styles.valuesGrid}>{values.map(({ title, description, icon: Icon }) => <article className={styles.valueCard} key={title}><span className={styles.valueIcon}><Icon size={20} aria-hidden="true" /></span><h3>{title}</h3><p>{description}</p></article>)}</div>
-      </div>
-    </section>
+    <section className={`${styles.section} ${styles.mission}`}><div className={styles.container}><header className="section-header"><p className={styles.eyebrow}>OUR DIRECTION</p><h2>Growth with a clear purpose.</h2></header><div className={styles.missionGrid}><article className="business-reveal"><span className={styles.missionIcon}><Target/></span><div><p className={styles.eyebrow}>{data.mission.title}</p><h3>{data.mission.text}</h3></div><span className={styles.missionMark}>01</span></article><article className="business-reveal"><span className={styles.missionIcon}><Compass/></span><div><p className={styles.eyebrow}>{data.vision.title}</p><h3>{data.vision.text}</h3></div><span className={styles.missionMark}>02</span></article></div></div></section>
 
-    <section className={styles.teamSection}>
-      <div className={styles.container}>
-        <div className={styles.centerHeading}><p className={styles.kicker}>THE PEOPLE BEHIND THE WORK</p><h2>Meet the <span>leadership team.</span></h2><p>A multidisciplinary team with a shared focus on useful, thoughtful digital work.</p></div>
-        <div className={styles.teamGrid}>{leadership.map((member) => <article className={styles.teamCard} key={member.name}><div className={styles.teamTop}><span className={styles.avatar}>{member.name.split(" ").map(part => part[0]).join("")}</span><span className={styles.location}><MapPin size={14} aria-hidden="true" />{member.location}</span></div><h3>{member.name}</h3><p className={styles.teamRole}>{member.role}</p><p className={styles.teamBio}>{member.bio}</p></article>)}</div>
-      </div>
-    </section>
+    <section className={styles.section}><div className={styles.container}><header className="section-header"><p className={styles.eyebrow}>{data.goals.eyebrow}</p><h2>{data.goals.title}</h2></header><div className={styles.goalGrid}>{data.goals.items.map((item,index)=>{const Icon=icons[item.icon];return <article className={`${styles.goal} business-reveal`} key={item.title}><div className={styles.goalTop}><span className={styles.icon}><Icon size={20}/></span><small>0{index+1}</small></div><h3>{item.title}</h3><p>{item.text}</p></article>})}</div></div></section>
 
-    <section className={styles.globalSection}>
-      <div className={styles.container}>
-        <div className={styles.globalCard}><div className={styles.globalIcon}><Globe size={25} aria-hidden="true" /></div><p className={styles.cardKicker}>BASED IN PAKISTAN · WORKING WORLDWIDE</p><h2>Good work travels.</h2><p>We work with businesses near and far to build effective digital experiences and reach their audiences online.</p><Link href="/contact" className={styles.globalLink}>Get in touch <ArrowUpRight size={17} aria-hidden="true" /></Link></div>
-      </div>
-    </section>
+    <section className={`${styles.section} ${styles.model}`}><div className={styles.container}><header className="section-header"><p className={styles.eyebrow}>{data.model.eyebrow}</p><h2>{data.model.title}</h2></header><div className={styles.modelList}>{data.model.items.map((item,index)=>{const Icon=icons[item.icon];return <article className="business-reveal" key={item.title}><span className={styles.modelNumber}>0{index+1}</span><span className={styles.icon}><Icon size={19}/></span><div><h3>{item.title}</h3><p>{item.text}</p></div><Check size={18} className={styles.check}/></article>})}</div></div></section>
+
+    <section className={styles.section}><div className={styles.container}><header className="section-header"><p className={styles.eyebrow}>{data.differences.eyebrow}</p><h2>{data.differences.title}</h2></header><div className={styles.differenceGrid}>{data.differences.items.map((item,index)=><article className="business-reveal" key={item.title}><span className={styles.differenceNumber}>0{index+1}</span><BadgeCheck size={20}/><div><h3>{item.title}</h3><p>{item.text}</p></div></article>)}</div></div></section>
+
+    <section className={`${styles.section} ${styles.values}`}><div className={styles.container}><header className="section-header"><p className={styles.eyebrow}>{data.values.eyebrow}</p><h2>{data.values.title}</h2></header><div className={styles.valueGrid}>{data.values.items.map((item,index)=>{const Icon=icons[item.icon];return <article className="business-reveal" key={item.title}><span className={styles.valueIcon}><Icon size={19}/></span><small>0{index+1}</small><h3>{item.title}</h3><p>{item.text}</p></article>})}</div></div></section>
+
+    <section className={styles.section}><div className={styles.container}><header className="section-header"><p className={styles.eyebrow}>{data.audiences.eyebrow}</p><h2>{data.audiences.title}</h2></header><div className={styles.audienceGrid}>{data.audiences.items.map((item,index)=><article className="business-reveal" key={item.title}><small>0{index+1}</small><h3>{item.title}</h3><p>{item.text}</p><Link href={item.link}>{item.action}<ArrowUpRight size={15}/></Link></article>)}</div><p className={styles.regions}><Map size={17}/>{data.audiences.regions}</p></div></section>
+
+    <section className={`${styles.section} ${styles.people}`}><div className={styles.container}><div className={styles.peopleCard}><span className={styles.icon}><UsersRound size={22}/></span><div><p className={styles.eyebrow}>{data.people.eyebrow}</p><h2>{data.people.title}</h2><p>{data.people.description}</p><Link href="/talent-portal">{data.people.action}<ArrowUpRight size={16}/></Link></div></div></div></section>
+
+    <section className={styles.cta}><div className={styles.container}><div className={styles.ctaCard}><p className={styles.eyebrow}>{data.cta.eyebrow}</p><h2>{data.cta.title}</h2><p>{data.cta.description}</p><div><Link href="/contact" className={styles.ctaPrimary}>{data.cta.primary}<ArrowRight size={17}/></Link><Link href="/collaboration" className={styles.ctaSecondary}>{data.cta.secondary}<ArrowUpRight size={17}/></Link></div></div></div></section>
   </main>;
 }

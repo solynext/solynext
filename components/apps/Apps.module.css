@@ -11,15 +11,22 @@
 .sectionHeading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:28px}
 .sectionHeading h2{font-size:23px;font-weight:600;letter-spacing:-.6px;margin:0 0 4px;line-height:1.3}
 .sectionHeading p,.sectionHeading>span{margin:0;font-size:12px;color:#727b86;line-height:1.5}
-.appsGrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:28px 22px}
-.appTile{display:flex;flex-direction:column;align-items:stretch;min-width:0;text-align:left;font:inherit;padding:0;border:0;background:transparent;color:#303841;cursor:pointer;border-radius:24px 24px 8px 8px}
-.appImage{position:relative;display:block;aspect-ratio:1;width:100%;overflow:hidden;border-radius:24%;background:#f0f3f7;box-shadow:0 2px 4px #152d4614;transition:transform 180ms ease,box-shadow 180ms ease;margin-bottom:14px}
+.appsGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.appTile{display:flex;min-width:0;flex-direction:column;align-items:stretch;padding:10px;border:1px solid #e1e8f1;border-radius:17px;background:#fff;color:#0b1220;text-align:left;text-decoration:none;box-shadow:0 2px 5px #18365b05,0 10px 24px #18365b06;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;cursor:pointer;font:inherit}
+.appImage{position:relative;display:block;aspect-ratio:1.6;width:100%;overflow:hidden;border-radius:11px;background:#edf3fb;transition:transform .35s}
 .appImage img{object-fit:cover;object-position:center}
-.appTile strong{font-size:14px;line-height:1.45;font-weight:500;overflow-wrap:anywhere;margin:0 0 4px}
-.tileCategory{font-size:12px;line-height:1.5;color:#687481}
-.tileDescription{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:11px;line-height:1.6;color:#8190a1;margin-top:5px}
+.appTile .cardCopy{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 8px 8px}
+.appTile .cardCopy>span{min-width:0}
+.appTile strong{display:block;color:#101827;font-size:clamp(17px,1.55vw,22px);font-weight:700;line-height:1.3;letter-spacing:-.025em;overflow-wrap:anywhere}
+.appTile small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:2px;color:#53627d;font-size:14px;line-height:1.45}
+.appTile .cardCopy>svg{box-sizing:content-box;flex:none;padding:9px;border:1px solid #e2eaf4;border-radius:10px;background:#f8faff;color:#075ef5;transition:background .18s,border-color .18s,color .18s,transform .18s}
 .appTile:focus-visible{outline:3px solid #6197e6;outline-offset:6px}
-@media(hover:hover){.appTile:hover .appImage{transform:translateY(-4px);box-shadow:0 8px 18px #152d4618}}
+.downloadTile{cursor:default}
+.appTile .tileOpen{display:flex;flex-direction:column;min-width:0;padding:0;border:0;background:transparent;color:inherit;text-align:left;font:inherit;text-decoration:none;cursor:pointer;border-radius:11px}
+.appTile .tileOpen:focus-visible{outline:3px solid #6197e6;outline-offset:5px}
+.downloadTile .downloadButton{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:40px;margin:2px 8px 8px;padding:8px 13px;border:1px solid #e2eaf4;border-radius:10px;background:#f8faff;color:#075ef5;text-decoration:none;font-size:13px;font-weight:650}
+.downloadTile .downloadButton:hover{background:#edf4ff}
+@media(hover:hover){.appTile:hover{transform:translateY(-3px);border-color:#c8d7e9;box-shadow:0 5px 12px #18365b08,0 16px 30px #18365b0d}.appTile:hover .cardCopy>svg{transform:translate(2px,-2px);border-color:#075ef5;background:#075ef5;color:#fff}.appTile:hover .appImage img{transform:scale(1.025)}}
 .empty{padding:60px 24px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;color:#657b96;border-radius:18px;background:#fff}
 .empty h2,.empty h3{font-size:21px;font-weight:600;color:#293f5c;margin:0}
 .empty p{max-width:46ch;margin:0;font-size:14px;line-height:1.8;color:#677b94}
@@ -86,10 +93,10 @@
 .danger{padding:10px 18px;border:0;border-radius:9px;background:#b43c3c;color:#fff;font-size:13px;cursor:pointer}
 .srOnly{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 :where(.filters,.player,.manager,.deleteDialog) :is(button,a):focus-visible{outline:3px solid #7fa7df;outline-offset:3px}
-@media(max-width:1100px){.appsGrid{grid-template-columns:repeat(4,minmax(0,1fr))}.managerHeading{align-items:flex-start;flex-direction:column}}
-@media(max-width:700px){.catalog{padding:36px 0 48px}.catalogTop{align-items:flex-start;flex-direction:column;gap:22px;margin-bottom:24px}.catalogSearch{width:100%}.catalogTop h1{font-size:36px}.appsGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 16px}.appImage{margin-bottom:10px}.appTile strong{font-size:13px}.tileDescription{display:none}.sectionHeading h2{font-size:21px}.player,.wide{width:100vw;height:100dvh;border-radius:0}.playerHeader{gap:8px;padding:10px}.playerHeader h2{font-size:13px}.playerHeader>img{width:32px;height:32px}.playerActions{gap:0}.playerActions button,.playerActions a{width:30px;height:34px}.playerFooter{padding:8px 12px;flex-wrap:wrap;gap:6px}.appDetails{padding:10px 12px}.formGrid{grid-template-columns:1fr}.editor{padding:20px}.adminAppCard{gap:12px;padding:16px;flex-wrap:wrap}.adminAppCard>img{width:56px;height:56px}.rowActions{margin-left:auto}.managerActions{flex-wrap:wrap}.managerHeading h1{font-size:26px}}
+@media(max-width:1100px){.appsGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.managerHeading{align-items:flex-start;flex-direction:column}}
+@media(max-width:700px){.catalog{padding:36px 0 48px}.catalogTop{align-items:flex-start;flex-direction:column;gap:22px;margin-bottom:24px}.catalogSearch{width:100%}.catalogTop h1{font-size:36px}.appsGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 14px}.appTile{padding:8px;border-radius:14px}.appTile .cardCopy{padding:12px 7px 6px}.appTile strong{font-size:16px}.appTile small{font-size:12px}.appTile .cardCopy>svg{width:17px;padding:7px}.downloadTile .downloadButton{margin:2px 7px 7px;padding:7px 6px;font-size:11px}.sectionHeading h2{font-size:21px}.player,.wide{width:100vw;height:100dvh;border-radius:0}.playerHeader{gap:8px;padding:10px}.playerHeader h2{font-size:13px}.playerHeader>img{width:32px;height:32px}.playerActions{gap:0}.playerActions button,.playerActions a{width:30px;height:34px}.playerFooter{padding:8px 12px;flex-wrap:wrap;gap:6px}.appDetails{padding:10px 12px}.formGrid{grid-template-columns:1fr}.editor{padding:20px}.adminAppCard{gap:12px;padding:16px;flex-wrap:wrap}.adminAppCard>img{width:56px;height:56px}.rowActions{margin-left:auto}.managerActions{flex-wrap:wrap}.managerHeading h1{font-size:26px}}
 @media(max-width:420px){.appsGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px}.playerHeader>div:nth-child(2){max-width:125px}.playerHeader h2{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
-@media(prefers-reduced-motion:reduce){.appImage{transition:none}.appTile:hover .appImage{transform:none}}
+@media(prefers-reduced-motion:reduce){.appImage,.appTile,.appTile .cardCopy>svg{transition:none}.appTile:hover,.appTile:hover .appImage img{transform:none}}
 /* Keep the app frame interactive and details scrollbars easy to drag. */
 .frameArea{min-height:0;overflow:hidden}
 .frameArea iframe{height:100%;pointer-events:auto}
