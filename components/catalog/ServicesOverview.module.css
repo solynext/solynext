@@ -311,6 +311,7 @@
 /* Keep the same hero composition; hide only its frame and remove top spacing. */
 .section:has(.hero){padding-top:0}
 .heroLayout{padding-inline:clamp(20px,4vw,64px)}
+.navigator{border-color:transparent;background:transparent;box-shadow:none;backdrop-filter:none}
 .heroLayout{padding-top:0}
 @media(max-width:900px){.heroLayout{padding-top:0}}
 @media(max-width:600px){.heroLayout{padding-top:0}}
