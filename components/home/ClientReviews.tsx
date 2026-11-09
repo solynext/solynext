@@ -8,7 +8,7 @@ import styles from "./ClientReviews.module.css";
 
 type Review = { id: string; quote: string; author: string; role: string; company?: string; project?: string; slug?: string; rating?: number; image?: string };
 
-export function ClientReviews({ reviews, limit, showAllLink = false, autoScroll = false, title = "Good work. Clear communication.", description = "Feedback from teams building their next step with SolyNext." }: { reviews: Review[]; limit?: number; showAllLink?: boolean; autoScroll?: boolean; title?: string; description?: string }) {
+export function ClientReviews({ reviews, limit, showAllLink = false, autoScroll = false, showIntro = true, title = "Good work. Clear communication.", description = "Feedback from teams building their next step with SolyNext." }: { reviews: Review[]; limit?: number; showAllLink?: boolean; autoScroll?: boolean; showIntro?: boolean; title?: string; description?: string }) {
   const [expanded, setExpanded] = useState<string[]>([]);
   const visibleEntries = typeof limit === "number" ? reviews.slice(0, limit) : reviews;
   if (!visibleEntries.length) return null;
@@ -28,15 +28,17 @@ export function ClientReviews({ reviews, limit, showAllLink = false, autoScroll 
       <p id={quoteId} className={`${styles.quote} ${isExpanded ? styles.quoteExpanded : ""}`}>“{review.quote}”</p>
     </article>;
   };
-  return <section className={`premium-section ${styles.section}`} aria-labelledby="client-reviews-title">
+  return <section className={`premium-section ${styles.section}`} id="client-reviews" aria-labelledby={showIntro ? "client-reviews-title" : "client-reviews-panel-title"}>
     <div className={styles.container}>
-      <header className={styles.heading}>
-        <p className="eyebrow">CLIENT REVIEWS</p>
-        <h2 id="client-reviews-title">{title}</h2>
-        <p>{description}</p>
-      </header>
+      {showIntro && (
+        <header className={styles.heading}>
+          <p className="eyebrow">CLIENT REVIEWS</p>
+          <h2 id="client-reviews-title">{title}</h2>
+          <p>{description}</p>
+        </header>
+      )}
       <div className={styles.reviewPanel}>
-        <div className={styles.panelTitle}><span className={styles.panelHeading}>Reviews</span>{showAllLink ? <Link href="/reviews" className={styles.seeAll}>See all reviews <ArrowRight size={16} aria-hidden="true"/></Link> : <span className={styles.panelCaption}>Client feedback</span>}</div>
+        <div className={styles.panelTitle}><span className={styles.panelHeading} id="client-reviews-panel-title">Reviews</span>{showAllLink ? <Link href="/reviews" className={styles.seeAll}>See all reviews <ArrowRight size={16} aria-hidden="true"/></Link> : <span className={styles.panelCaption}>Client feedback</span>}</div>
         <div className={styles.list} data-auto-scroll={autoScroll}>
           {autoScroll ? <div className={styles.reviewTrack}>{Array.from({ length: 8 }, (_, copyIndex) => <div key={`review-loop-${copyIndex}`}>{visibleEntries.map((review, index) => renderReview(review, index, copyIndex))}</div>)}</div> : visibleEntries.map((review, index) => renderReview(review, index))}
         </div>

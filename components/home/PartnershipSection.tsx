@@ -1,8 +1,9 @@
 import Link from "next/link";
 import {
-  ArrowUpRight, Briefcase, Building2, Check, ChevronDown, ClipboardCheck, GraduationCap,
+  ArrowUpRight, Briefcase, Building2, Check, ClipboardCheck, GraduationCap,
   Handshake, Lightbulb, Package, Settings2, TrendingUp, UsersRound,
 } from "lucide-react";
+import { PartnershipAreaPopover } from "./PartnershipAreaPopover";
 import styles from "./PartnershipSection.module.css";
 
 const partnership = {
@@ -142,7 +143,7 @@ export function PartnershipSection({ standalone = false }: { standalone?: boolea
 
   const areaOptions = (
     <div>
-      <BlockHeading className={styles.blockHeading}>{areas.heading}</BlockHeading>
+      {standalone && <BlockHeading className={styles.blockHeading}>{areas.heading}</BlockHeading>}
       <div className={styles.grid}>
         {areas.items.map(({ title, subtitle, detail, points, action, href, icon: Icon }) => {
           const content = (
@@ -164,17 +165,9 @@ export function PartnershipSection({ standalone = false }: { standalone?: boolea
               {content}
             </article>
           ) : (
-            <details className={styles.areaPanel} name="homepage-partnership-area" key={title}>
-              <summary>
-                <span className={styles.icon}><Icon aria-hidden="true" /></span>
-                <span className={styles.areaLabel}>
-                  <strong>{title}</strong>
-                  <span>{subtitle}</span>
-                </span>
-                <ChevronDown size={18} aria-hidden="true" />
-              </summary>
-              <div className={styles.areaContent}>{content}</div>
-            </details>
+            <PartnershipAreaPopover key={title} title={title} subtitle={subtitle} icon={<Icon aria-hidden="true" />}>
+              {content}
+            </PartnershipAreaPopover>
           );
         })}
       </div>
@@ -261,16 +254,15 @@ export function PartnershipSection({ standalone = false }: { standalone?: boolea
                 </article>
               ))}
             </div>
-            {standalone && (
+            {standalone ? (
               <p className={styles.note} data-partnership-reveal>
                 <a href="#partnership-policy">{policy.heading}.</a> {policy.note}
               </p>
+            ) : (
+              <div className={styles.homeAreas}>{areaOptions}</div>
             )}
           </div>
         </div>
-        {!standalone && (
-          <div className={`${styles.container} ${styles.homeAreas}`}>{areaOptions}</div>
-        )}
       </div>
 
       {standalone && details}

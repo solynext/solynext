@@ -26,7 +26,7 @@ export default async function HomePage() {
     <ProcessSection />
     <PartnershipSection />
     <ProjectCTA />
-    <ClientReviews reviews={reviews} limit={4} showAllLink autoScroll />
+    <ClientReviews reviews={reviews} limit={4} showAllLink autoScroll showIntro={false} />
   </main>;
 }
 

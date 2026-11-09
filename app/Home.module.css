@@ -23,3 +23,12 @@
 .home > section:global(#services) {
   padding-block-start: clamp(28px, 3.5vw, 44px);
 }
+
+.home > section:has(+ :global(#client-reviews)) {
+  padding-block-end: clamp(24px, 3vw, 40px);
+}
+
+.home > section:global(#client-reviews) {
+  border-block-start: 0;
+  padding-block-start: clamp(20px, 2.5vw, 32px);
+}
