@@ -4,8 +4,9 @@ function escapeHtml(value: string) {
   return value.replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]!);
 }
 
-export async function GET(_request: Request, context: { params: Promise<{ id: string }> }) {
-  const { id } = await context.params;
+export async function GET(request: Request, _context: { params: Promise<{}> }) {
+  const filename = new URL(request.url).pathname.split("/").pop() || "";
+  const id = filename.endsWith(".html") ? filename.slice(0, -".html".length) : "";
   const app = demoApps.find(item => item.id === id);
   if (!app || app.category === "Downloads") return new Response("Not found", { status: 404 });
   const name = escapeHtml(app.name);
